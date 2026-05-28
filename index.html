@@ -119,6 +119,7 @@ nav{background:transparent!important}
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: 'Inter', sans-serif;
   transition:
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s ease,
@@ -148,14 +149,14 @@ nav{background:transparent!important}
 
 /* ── Gold filled ── */
 .btn-gold {
-  background: linear-gradient(135deg, #D4AF37 0%, #E8C84A 50%, #D4AF37 100%);
-  background-size: 200% 100%;
+  background: linear-gradient(135deg, #C9A227 0%, #E8C84A 45%, #D4AF37 75%, #B8941F 100%);
   color: #060D2E;
   font-weight: 600;
+  box-shadow: 0 4px 18px rgba(212,175,55,.32), inset 0 1px 0 rgba(255,255,255,.22);
 }
 .btn-gold:hover {
-  background-position: 100% 0;
-  box-shadow: 0 12px 40px rgba(212,175,55,.55), 0 4px 16px rgba(212,175,55,.3), inset 0 1px 0 rgba(255,255,255,.25);
+  background: linear-gradient(135deg, #E8C84A 0%, #F5D962 45%, #E0BE3A 100%);
+  box-shadow: 0 14px 42px rgba(212,175,55,.6), 0 4px 16px rgba(212,175,55,.35), inset 0 1px 0 rgba(255,255,255,.3);
 }
 
 /* ── Gold outline → fills on hover ── */
@@ -173,13 +174,14 @@ nav{background:transparent!important}
 
 /* ── White outline → gold on hover ── */
 .btn-ow {
-  border: 1px solid rgba(255,255,255,.35);
+  border: 1px solid rgba(255,255,255,.65);
   color: white;
-  background: transparent;
+  background: rgba(255,255,255,.05);
 }
 .btn-ow:hover {
   border-color: #D4AF37;
   color: #D4AF37;
+  background: rgba(212,175,55,.08);
   box-shadow: 0 10px 32px rgba(212,175,55,.3);
 }
 
@@ -390,10 +392,17 @@ nav{background:transparent!important}
           <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(212,175,55,.35);color:rgba(6,13,46,.65);font-family:'Inter',sans-serif">Alcohol-Free</span>
           <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(212,175,55,.35);color:rgba(6,13,46,.65);font-family:'Inter',sans-serif">Made From Scratch</span>
         </div>
-        <a href="#heritage" class="inline-flex items-center gap-2 text-[11px] tracking-[.15em] uppercase font-medium transition-all duration-300" style="color:#D4AF37;font-family:'Inter',sans-serif">
-          Discover Our Heritage
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
+        <div class="flex flex-wrap gap-3 items-center mt-2">
+          <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
+            class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-semibold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Reserve Your Table
+          </a>
+          <a href="#heritage" class="btn btn-og text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-medium">
+            Our Heritage
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -412,7 +421,7 @@ nav{background:transparent!important}
         Signature <em class="font-normal italic" style="color:#D4AF37">Dishes</em>
       </h2>
       <div class="gold-bar mb-8 mx-auto"></div>
-      <p class="text-sm max-w-md mx-auto leading-relaxed" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">
+      <p class="text-sm max-w-md mx-auto leading-relaxed" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif">
         Each dish is a chapter from Auntie's family recipe book — prepared fresh, every service, without exception.
       </p>
     </div>
@@ -426,7 +435,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Pie Tee</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 18</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Delicate top-hat shells, crisp and paper-thin, filled with braised turnip and sweet-tangy dip. The most-ordered first bite at Auntie's table.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Delicate top-hat shells, crisp and paper-thin, filled with braised turnip and sweet-tangy dip. The most-ordered first bite at Auntie's table.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Starter</span>
           </div>
@@ -440,7 +449,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Curry Kapitan</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 48–58</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Slow-cooked chicken in a rich, handground Nyonya curry paste with candlenuts, galangal, and kaffir lime. A Penang heirloom.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Slow-cooked chicken in a rich, handground Nyonya curry paste with candlenuts, galangal, and kaffir lime. A Penang heirloom.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Signature Main</span>
           </div>
@@ -454,7 +463,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Nasi Ulam</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 35</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Steamed rice hand-tossed with over ten freshly-cut herbs — lemongrass, turmeric leaf, torch ginger. An old-Penang recipe kept alive.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Steamed rice hand-tossed with over ten freshly-cut herbs — lemongrass, turmeric leaf, torch ginger. An old-Penang recipe kept alive.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Heritage Rice</span>
           </div>
@@ -468,7 +477,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Nyonya Beef Rendang</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 88</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Australian Black Angus slow-braised for hours in coconut milk and spice paste until caramelised and deeply fragrant. The crown of the menu.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Australian Black Angus slow-braised for hours in coconut milk and spice paste until caramelised and deeply fragrant. The crown of the menu.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Chef's Pride</span>
           </div>
@@ -482,7 +491,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Assam Hae</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 78–118</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Fresh tiger prawns wok-fired in bold tamarind sauce — tangy, slightly sweet, unmistakably Nyonya. Served shell-on for full flavour.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Fresh tiger prawns wok-fired in bold tamarind sauce — tangy, slightly sweet, unmistakably Nyonya. Served shell-on for full flavour.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Seafood</span>
           </div>
@@ -496,7 +505,7 @@ nav{background:transparent!important}
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Sago Gula Melaka</h3>
             <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 8</span>
           </div>
-          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Pearl sago set in creamy coconut milk, finished with a pour of dark Malaccan palm sugar. The perfect, unhurried ending.</p>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.72);font-family:'Inter',sans-serif">Pearl sago set in creamy coconut milk, finished with a pour of dark Malaccan palm sugar. The perfect, unhurried ending.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
             <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Dessert</span>
           </div>
@@ -546,6 +555,17 @@ nav{background:transparent!important}
             <div class="text-xs mt-1.5 leading-snug" style="color:#888;font-family:'Inter',sans-serif">Years of Family Recipes</div>
           </div>
         </div>
+        <div class="flex flex-wrap gap-3 mt-10">
+          <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
+            class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-semibold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Reserve a Table
+          </a>
+          <a href="#reserve" class="btn btn-og text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-medium">
+            Booking Info
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
       </div>
       <!-- Image grid -->
       <div class="reveal d2 order-1 lg:order-2 grid grid-cols-2 gap-3">
@@ -574,7 +594,7 @@ nav{background:transparent!important}
       One <em class="font-normal italic" style="color:#D4AF37">MICHELIN Star</em>
     </h2>
     <div class="gold-bar mb-8 mx-auto"></div>
-    <p class="text-[15px] leading-relaxed max-w-xl mx-auto mb-8" style="color:rgba(255,255,255,.5);font-family:'Inter',sans-serif">
+    <p class="text-[15px] leading-relaxed max-w-xl mx-auto mb-8" style="color:rgba(255,255,255,.68);font-family:'Inter',sans-serif">
       Auntie Gaik Lean's became Malaysia's first — and Penang's only — Michelin-starred homestyle Peranakan restaurant. This distinction has been retained every year since 2023.
     </p>
     <div class="my-10 py-10" style="border-top:1px solid rgba(212,175,55,.2);border-bottom:1px solid rgba(212,175,55,.2)">
@@ -591,6 +611,13 @@ nav{background:transparent!important}
       <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2024</span>
       <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2025</span>
       <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2026</span>
+    </div>
+    <div class="mb-10">
+      <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
+        class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-10 py-4 font-semibold">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Secure Your Michelin Experience
+      </a>
     </div>
     <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
       <p class="text-[10px] tracking-[.28em] uppercase mb-5" style="color:rgba(255,255,255,.22);font-family:'Inter',sans-serif">As Featured In</p>
@@ -651,7 +678,7 @@ nav{background:transparent!important}
       </div>
     </div>
     <!-- Stats bar -->
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-10">
       <div class="inline-flex flex-wrap items-center justify-center" style="border:1px solid rgba(212,175,55,.22);background:#FAF6EF">
         <div class="text-center px-8 py-5">
           <div class="leading-none text-2xl font-semibold" style="color:#D4AF37;font-family:'Playfair Display',serif">4.2<span style="color:rgba(6,13,46,.5);font-size:1.1rem">/5</span></div>
@@ -666,6 +693,14 @@ nav{background:transparent!important}
           <div class="text-xs tracking-wide mt-1" style="color:#aaa;font-family:'Inter',sans-serif">of 1,922 in Penang</div>
         </div>
       </div>
+    </div>
+    <!-- Testimonials CTA -->
+    <div class="text-center">
+      <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
+        class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-10 py-4 font-semibold">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Join Our Guests — Reserve Now
+      </a>
     </div>
   </div>
 </section>
@@ -759,6 +794,18 @@ nav{background:transparent!important}
       </div>
       <div class="mt-8 pl-4 text-sm" style="border-left:2px solid #D4AF37">
         <p style="color:#666;font-family:'Inter',sans-serif"><span style="color:#060D2E;font-weight:500">Parking:</span> Street parking on Bishop Street, or private open lot nearby.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-10">
+        <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
+          class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-semibold">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Reserve Before Your Visit
+        </a>
+        <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20make%20a%20reservation." target="_blank"
+          class="btn btn-wa text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-medium">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
       </div>
     </div>
     <!-- Map -->
