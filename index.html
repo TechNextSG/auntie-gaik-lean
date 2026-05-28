@@ -878,63 +878,46 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// ── Fine baroque damask SVG pattern (injected into dark sections) ──
+// ── Baroque floral damask SVG pattern (injected into dark sections) ──
 (function(){
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'>
-<g fill='none' stroke='rgba(110,170,225,0.26)' stroke-width='0.45' stroke-linecap='round' stroke-linejoin='round'>
-  <path d='M36,2 L70,36 L36,70 L2,36 Z'/>
-  <path d='M36,13 L59,36 L36,59 L13,36 Z'/>
-  <path d='M36,23 L49,36 L36,49 L23,36 Z'/>
-  <path d='M36,30 L42,36 L36,42 L30,36 Z'/>
-  <circle cx='36' cy='36' r='10'/>
-  <circle cx='36' cy='36' r='6'/>
-  <circle cx='36' cy='36' r='2.5' fill='rgba(110,170,225,0.15)'/>
-  <ellipse cx='36' cy='22' rx='3' ry='9'/>
-  <ellipse cx='50' cy='36' rx='9' ry='3'/>
-  <ellipse cx='36' cy='50' rx='3' ry='9'/>
-  <ellipse cx='22' cy='36' rx='9' ry='3'/>
-  <path d='M36,26 Q40,20 36,13 Q32,20 36,26'/>
-  <path d='M46,36 Q52,40 59,36 Q52,32 46,36'/>
-  <path d='M36,46 Q40,52 36,59 Q32,52 36,46'/>
-  <path d='M26,36 Q20,40 13,36 Q20,32 26,36'/>
-  <path d='M46,26 Q53,19 59,13 Q63,19 59,25 Q52,27 46,26Z'/>
-  <path d='M26,46 Q19,53 13,59 Q19,63 25,59 Q27,52 26,46Z'/>
-  <path d='M46,46 Q53,53 59,59 Q53,63 47,59 Q45,52 46,46Z'/>
-  <path d='M26,26 Q19,19 13,13 Q19,9 25,13 Q27,20 26,26Z'/>
-  <path d='M43,29 Q47,28 49,25 Q45,23 43,29'/>
-  <path d='M29,29 Q28,25 25,23 Q23,27 29,29'/>
-  <path d='M43,43 Q47,44 49,47 Q45,49 43,43'/>
-  <path d='M29,43 Q25,44 23,47 Q27,49 29,43'/>
-  <path d='M34,23 L38,23 M36,21 L36,25'/>
-  <path d='M49,34 L49,38 M47,36 L51,36'/>
-  <path d='M34,49 L38,49 M36,47 L36,51'/>
-  <path d='M23,34 L23,38 M21,36 L25,36'/>
-  <path d='M30,31 L42,31' stroke-opacity='0.55'/>
-  <path d='M30,41 L42,41' stroke-opacity='0.55'/>
-  <path d='M31,30 L31,42' stroke-opacity='0.55'/>
-  <path d='M41,30 L41,42' stroke-opacity='0.55'/>
-  <path d='M33,33 L39,33 M33,39 L39,39 M33,33 L33,39 M39,33 L39,39' stroke-opacity='0.4'/>
-  <circle cx='36' cy='0' r='2.8'/>
-  <circle cx='72' cy='36' r='2.8'/>
-  <circle cx='36' cy='72' r='2.8'/>
-  <circle cx='0' cy='36' r='2.8'/>
-  <circle cx='0' cy='0' r='2'/>
-  <circle cx='72' cy='0' r='2'/>
-  <circle cx='0' cy='72' r='2'/>
-  <circle cx='72' cy='72' r='2'/>
-  <path d='M0,0 Q9,7 7,15 Q6,21 11,24'/>
-  <path d='M72,0 Q63,7 65,15 Q66,21 61,24'/>
-  <path d='M0,72 Q9,65 7,57 Q6,51 11,48'/>
-  <path d='M72,72 Q63,65 65,57 Q66,51 61,48'/>
-  <path d='M36,2 L36,13 M70,36 L59,36 M36,70 L36,59 M2,36 L13,36' stroke-opacity='0.35'/>
-  <path d='M19,19 L24,24 M53,19 L48,24 M19,53 L24,48 M53,53 L48,48' stroke-opacity='0.4'/>
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'>
+<g fill='none' stroke='rgba(91,155,213,0.17)' stroke-width='0.85' stroke-linecap='round' stroke-linejoin='round'>
+  <path d='M90,8 L172,90 L90,172 L8,90 Z'/>
+  <path d='M90,36 L144,90 L90,144 L36,90 Z'/>
+  <circle cx='90' cy='90' r='26'/>
+  <circle cx='90' cy='90' r='15'/>
+  <circle cx='90' cy='90' r='5' fill='rgba(91,155,213,0.12)'/>
+  <ellipse cx='90' cy='54' rx='8' ry='20'/>
+  <ellipse cx='126' cy='90' rx='20' ry='8'/>
+  <ellipse cx='90' cy='126' rx='8' ry='20'/>
+  <ellipse cx='54' cy='90' rx='20' ry='8'/>
+  <path d='M90,64 Q100,52 90,36 Q80,52 90,64'/>
+  <path d='M116,90 Q128,100 144,90 Q128,80 116,90'/>
+  <path d='M90,116 Q100,128 90,144 Q80,128 90,116'/>
+  <path d='M64,90 Q52,100 36,90 Q52,80 64,90'/>
+  <path d='M108,72 Q125,55 140,40 Q148,52 136,64 Q124,70 108,72Z'/>
+  <path d='M72,108 Q55,125 40,140 Q52,148 64,136 Q70,124 72,108Z'/>
+  <path d='M108,108 Q125,125 140,140 Q128,148 116,136 Q110,124 108,108Z'/>
+  <path d='M72,72 Q55,55 40,40 Q52,28 64,44 Q70,56 72,72Z'/>
+  <circle cx='90' cy='0' r='7'/>
+  <circle cx='180' cy='90' r='7'/>
+  <circle cx='90' cy='180' r='7'/>
+  <circle cx='0' cy='90' r='7'/>
+  <circle cx='0' cy='0' r='5'/>
+  <circle cx='180' cy='0' r='5'/>
+  <circle cx='0' cy='180' r='5'/>
+  <circle cx='180' cy='180' r='5'/>
+  <path d='M0,0 Q22,18 18,38 Q14,54 28,60'/>
+  <path d='M180,0 Q158,18 162,38 Q166,54 152,60'/>
+  <path d='M0,180 Q22,162 18,142 Q14,126 28,120'/>
+  <path d='M180,180 Q158,162 162,142 Q166,126 152,120'/>
 </g></svg>`;
   const encoded = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
   // Apply to hero + all dark navy sections
   document.querySelectorAll('.hero-bg, [style*="background:#060D2E"], [style*="background:#0A1645"]').forEach(el => {
     const existing = el.style.backgroundImage;
     el.style.backgroundImage = existing ? encoded + ', ' + existing : encoded;
-    el.style.backgroundSize = '72px 72px, auto';
+    el.style.backgroundSize = '180px 180px, auto';
     el.style.backgroundRepeat = 'repeat, no-repeat';
   });
   // Also apply to sections with inline navy background
@@ -942,7 +925,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     const bg = el.getAttribute('style') || '';
     if (bg.includes('#060D2E') || bg.includes('#0A1645')) {
       el.style.backgroundImage = encoded;
-      el.style.backgroundSize = '72px 72px';
+      el.style.backgroundSize = '180px 180px';
       el.style.backgroundRepeat = 'repeat';
     }
   });
