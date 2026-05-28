@@ -262,6 +262,14 @@ nav{background:transparent!important}
 
 /* ── Magnetic wrapper ── */
 .btn-mag { display: inline-block; }
+
+/* ── Hide-on-scroll nav ── */
+#nav {
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#nav.nav-hidden {
+  transform: translateY(-100%);
+}
 </style>
 </head>
 <body>
@@ -1024,6 +1032,27 @@ document.querySelectorAll('a,button').forEach(el => {
   el.addEventListener('mouseenter', () => { ring.style.width='46px'; ring.style.height='46px'; ring.style.borderColor='rgba(212,175,55,.9)'; });
   el.addEventListener('mouseleave', () => { ring.style.width='30px'; ring.style.height='30px'; ring.style.borderColor='rgba(212,175,55,.55)'; });
 });
+
+// ── Hide nav on scroll down, reveal on scroll up ──
+(function(){
+  const nav = document.getElementById('nav');
+  let lastY = 0, ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > 80) {
+          nav.classList.add('nav-hidden');    // scrolling down
+        } else {
+          nav.classList.remove('nav-hidden'); // scrolling up
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
