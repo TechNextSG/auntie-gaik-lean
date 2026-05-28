@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Menu — Auntie Gaik Lean's Old School Eatery</title>
+<meta name="description" content="Explore the full Nyonya menu at Auntie Gaik Lean's Old School Eatery — Michelin-starred Peranakan cuisine in George Town, Penang. Made fresh every day, from scratch."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:{'DEFAULT':'#060D2E','light':'#0A1645'},gold:{'DEFAULT':'#D4AF37','light':'#E8C84A'},cream:{'DEFAULT':'#FAF6EF','dark':'#F0E8D7'}},fontFamily:{display:['Playfair Display','Georgia','serif'],sans:['Inter','system-ui','sans-serif']}}}}</script>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#FAF6EF;color:#1C1C1E;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#050C28}::-webkit-scrollbar-thumb{background:#D4AF37;border-radius:2px}
+nav{background:transparent!important}
+@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.55}}.shimmer{animation:shimmer 3s ease-in-out infinite}
+@keyframes pulseGreen{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}.wa-pulse{animation:pulseGreen 2.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.08;transform:scale(1)}20%{opacity:.95;transform:scale(1.5)}50%{opacity:.12}80%{opacity:.7;transform:scale(1.2)}}
+@keyframes twinkle2{0%,100%{opacity:.04}30%{opacity:1;transform:scale(1.8)}65%{opacity:.08}}
+.star-field{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.star-field span{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+.star-field span.t2{animation-name:twinkle2}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+.gold-bar{width:48px;height:2px;background:#D4AF37}
+.michelin-glow{text-shadow:0 0 60px rgba(212,175,55,.45),0 0 120px rgba(212,175,55,.15)}
+.quote-mark{font-family:'Playfair Display',serif;font-size:4.5rem;line-height:.5;color:rgba(212,175,55,.28);display:block;margin-bottom:6px}
+.page-hero{background-color:#060D2E;background-size:180px 180px;background-repeat:repeat;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 50% -5%,rgba(212,175,55,.13) 0%,transparent 65%);pointer-events:none;z-index:2}
+.btn{position:relative;overflow:hidden;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background-color .28s,color .22s,border-color .22s;will-change:transform}
+.btn::before{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.28) 50%,transparent 80%);transform:skewX(-18deg);transition:left .55s ease;pointer-events:none;z-index:2}
+.btn:hover::before{left:140%}.btn:hover{transform:translateY(-3px) scale(1.02)}.btn:active{transform:translateY(1px) scale(.97)!important;transition-duration:.08s!important}
+.btn-gold{background:linear-gradient(135deg,#C9A227 0%,#E8C84A 45%,#D4AF37 75%,#B8941F 100%);color:#060D2E;font-weight:600;box-shadow:0 4px 18px rgba(212,175,55,.32),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-gold:hover{background:linear-gradient(135deg,#E8C84A 0%,#F5D962 45%,#E0BE3A 100%);box-shadow:0 14px 42px rgba(212,175,55,.6),0 4px 16px rgba(212,175,55,.35),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-og{border:1px solid rgba(212,175,55,.6);color:#D4AF37;background:transparent}
+.btn-og:hover{background:linear-gradient(135deg,#D4AF37,#E8C84A);color:#060D2E;border-color:#D4AF37;box-shadow:0 12px 36px rgba(212,175,55,.45)}
+.btn-ow{border:1px solid rgba(255,255,255,.65);color:white;background:rgba(255,255,255,.05)}
+.btn-ow:hover{border-color:#D4AF37;color:#D4AF37;background:rgba(212,175,55,.08);box-shadow:0 10px 32px rgba(212,175,55,.3)}
+.btn-wa{border:1px solid #25D366;color:#25D366;background:transparent}
+.btn-wa:hover{background:#25D366;color:white;border-color:#25D366;box-shadow:0 12px 36px rgba(37,211,102,.45)}
+.btn .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripplePop .7s cubic-bezier(0,.5,.5,1) forwards;pointer-events:none;z-index:3}
+@keyframes ripplePop{to{transform:scale(5);opacity:0}}
+@keyframes borderPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}50%{box-shadow:0 0 0 4px rgba(212,175,55,.18)}}
+.btn-reserve-nav{border:1px solid rgba(212,175,55,.6);color:#D4AF37;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;font-family:'Inter',sans-serif;padding:8px 22px;position:relative;overflow:hidden;display:inline-block;transition:all .3s ease;animation:borderPulse 2.8s ease-in-out infinite}
+.btn-reserve-nav::before{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.2),transparent);transform:skewX(-18deg);transition:left .5s ease}
+.btn-reserve-nav:hover::before{left:140%}
+.btn-reserve-nav:hover{background:#D4AF37;color:#060D2E;box-shadow:0 8px 28px rgba(212,175,55,.5);animation:none;transform:translateY(-2px)}
+.btn-mag{display:inline-block}
+#nav{transition:transform .38s cubic-bezier(.4,0,.2,1)}
+#nav.nav-hidden{transform:translateY(-100%)}
+/* Menu-specific */
+.filter-tab{padding:8px 20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;cursor:pointer;border-bottom:2px solid transparent;transition:all .25s ease;color:rgba(255,255,255,.55)}
+.filter-tab.active{color:#D4AF37;border-bottom-color:#D4AF37}
+.filter-tab:hover:not(.active){color:rgba(255,255,255,.85)}
+.menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.12);transition:border-color .3s,background .3s,transform .3s}
+.menu-card:hover{border-color:rgba(212,175,55,.35);background:rgba(255,255,255,.07);transform:translateY(-2px)}
+.menu-card.hidden{display:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5" id="nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="flex flex-col leading-none gap-0.5">
+      <span style="font-family:'Playfair Display',serif;color:white;font-size:1.2rem;font-weight:600">Auntie Gaik Lean's</span>
+      <span style="color:#D4AF37;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-family:'Inter',sans-serif">Old School Eatery</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Our Story</a>
+      <a href="menu.html" class="text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif;color:#D4AF37">Menu</a>
+      <a href="press.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Press</a>
+      <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Visit Us</a>
+      <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
+    </div>
+    <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mob" class="hidden md:hidden border-t border-white/20 mt-4 pt-5 pb-3 flex flex-col gap-4 px-2">
+    <a href="our-story.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Our Story</a>
+    <a href="menu.html" class="text-sm" style="font-family:'Inter',sans-serif;color:#D4AF37">Menu</a>
+    <a href="press.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Press</a>
+    <a href="visit-us.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Visit Us</a>
+    <a href="reservations.html" class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero flex items-center justify-center" style="min-height:50vh">
+  <div class="star-field" id="stars"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.55) 50%,rgba(4,8,28,.92) 100%)"></div>
+  <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+    <div class="reveal" style="margin-bottom:1.5rem">
+      <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Taste the Heritage</span>
+    </div>
+    <h1 class="reveal d1 michelin-glow" style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;color:white;line-height:1.1;margin-bottom:1.2rem">
+      The <em style="color:#D4AF37;font-style:italic">Menu</em>
+    </h1>
+    <p class="reveal d2" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,.72);font-style:italic;letter-spacing:.02em">
+      Cooked fresh, every service, without exception.
+    </p>
+    <div class="reveal d3 flex justify-center mt-8">
+      <div class="gold-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU SECTION -->
+<section style="background:#050C28;padding:5rem 0 6rem">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Intro -->
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:rgba(255,255,255,.65);line-height:1.9;font-style:italic">
+        Nothing at Auntie Gaik Lean's comes from a packet or a shortcut. Every dish is prepared from scratch each morning — the rempah ground by hand, the stocks slow-simmered, the kuih steamed to order. What you eat here is the living tradition of Nyonya cooking, preserved with precision and served with quiet pride.
+      </p>
+      <div class="gold-bar mx-auto mt-6"></div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="reveal flex flex-wrap justify-center gap-0 mb-12 border-b" style="border-color:rgba(212,175,55,.18)">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="starter">Starters</button>
+      <button class="filter-tab" data-filter="soup">Soups</button>
+      <button class="filter-tab" data-filter="main">Mains</button>
+      <button class="filter-tab" data-filter="seafood">Seafood</button>
+      <button class="filter-tab" data-filter="rice">Rice &amp; Noodles</button>
+      <button class="filter-tab" data-filter="dessert">Desserts</button>
+    </div>
+
+    <!-- Menu Grid -->
+    <div id="menu-grid" class="grid md:grid-cols-2 gap-5">
+
+      <!-- STARTERS -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="starter">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Pie Tee</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Starter</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Crisp pastry shells filled with a fragrant stir-fry of turnip, prawn and egg. A Nyonya classic known as "top hats" — delicate, addictive, irreplaceable.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 18</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="starter">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Popiah</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Starter</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Fresh spring roll wrapped in a thin crêpe skin, filled with braised turnip, shrimp, tofu and fresh lettuce. Dressed with Auntie's house-made chilli and sweet sauce.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 20</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="starter">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Otah-Otah</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Starter</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Spiced fish custard steamed in banana leaf — fragrant with lemongrass, galangal and kaffir lime. Silky, aromatic, and unmistakably Nyonya.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 22</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="starter">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Achar Prawns</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Starter</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Tiger prawns marinated in a tangy Nyonya pickle spice blend — turmeric, shallots, dried chillies — then lightly fried. Bright, bold and layered.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 28</span>
+        </div>
+      </div>
+
+      <!-- SOUPS -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="soup">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Itek Tim</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Soup</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Braised duck slow-cooked in a sour plum broth with salted vegetables, tomatoes and coriander. A deeply comforting Nyonya heirloom soup.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 45</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="soup">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Soto Ayam</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Soup</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Nyonya-style chicken soup with a spiced turmeric broth, hand-shredded kampung chicken, glass noodles, boiled egg and fresh herbs. Soul-warming and bright.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 28</span>
+        </div>
+      </div>
+
+      <!-- MAINS -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="main">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Curry Kapitan</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Main</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">The dish that defined the reputation. Free-range chicken in a dry-style Nyonya curry — rich with candlenut, lemongrass and tamarind. Legendary. Irreplaceable.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 48–58</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="main">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Lamb Pongteh</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Main</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Slow-braised lamb in fermented soybean paste, shallots and palm sugar. A rich, umami-forward Nyonya braise that falls apart at the touch of a spoon.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 68</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="main">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Ayam Buah Keluak</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Main</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Chicken braised with the rare Indonesian black nut (buah keluak) in a tangy tamarind and spice paste. Dark, earthy and deeply complex — a Peranakan jewel.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 72</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="main">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Nyonya Beef Rendang</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Main</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Tender beef slow-cooked in a Peranakan-spiced coconut milk reduction with kaffir lime, galangal and toasted coconut. Deeply caramelised and extraordinarily fragrant.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 88</span>
+        </div>
+      </div>
+
+      <!-- SEAFOOD -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="seafood">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Assam Hae</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Seafood</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Whole prawns wok-fried in a hot, sour tamarind and chilli paste. The rempah is dry and clinging — intensely flavoured, fiery, and utterly addictive.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 78–118</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="seafood">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Sambal Udang</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Seafood</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Tiger prawns stir-fried in Auntie's fiery sambal — a hand-ground paste of shallots, dried chilli and belachan. Explosive heat tempered with sweetness.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 68</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="seafood">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Fish Gulai Tumis</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Seafood</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Whole fish simmered in a tangy Nyonya curry with pineapple, lady's fingers and torch ginger flower. A sour-spice balance that is quintessentially Penang.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 85</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="seafood">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Chilli Crab-Style</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Seafood</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Live crab wok-fried in a rich, sweet-savoury Nyonya chilli sauce. Market-fresh catch cooked to order — ask your server for today's weight and availability.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">Market Price</span>
+        </div>
+      </div>
+
+      <!-- RICE & NOODLES -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="rice">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Nasi Ulam</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Rice &amp; Noodles</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Herb rice mixed with finely shredded torch ginger, kaffir lime leaf, turmeric leaf, shallots and toasted coconut. A Nyonya salad-rice of extraordinary fragrance.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 35</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="rice">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Nyonya Laksa</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Rice &amp; Noodles</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Thick rice noodles in a rich coconut-and-prawn spice broth, topped with prawns, fish cake, hard-boiled egg and sambal. Penang-style, perfected.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 28</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="rice">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Nasi Lemak Nyonya</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Rice &amp; Noodles</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Pandan-fragrant coconut rice served with Auntie's house sambal, achar, fried anchovies, toasted peanuts and a slow-cooked Nyonya chicken curry.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 32</span>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="dessert">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Sago Gula Melaka</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Dessert</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Pearl sago pudding with a warm palm sugar syrup and fresh coconut cream poured tableside. Simple, perfect, and quintessentially Nyonya.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 8</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="dessert">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Pulut Hitam</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Dessert</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Black glutinous rice porridge slow-cooked with pandan and palm sugar, crowned with rich thick coconut cream. A beloved Nyonya sweet that nourishes deeply.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 8</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d1 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="dessert">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Kuih Dadar</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Dessert</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Thin pandan crêpes rolled around a warm filling of freshly grated coconut cooked in palm sugar. Fragrant, yielding, and entirely hand-made.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 10</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal d2 rounded-lg p-6 flex justify-between items-start gap-4" data-cat="dessert">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span style="font-family:'Playfair Display',serif;color:white;font-size:1.1rem;font-weight:500">Cendol</span>
+            <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;background:rgba(212,175,55,.1);padding:2px 8px;border-radius:20px">Dessert</span>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.7">Pandan jelly noodles served in shaved ice, coconut milk and generous ribbons of gula melaka. George Town's most beloved cold dessert — made the old way.</p>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span style="font-family:'Playfair Display',serif;color:#D4AF37;font-size:1.15rem;font-weight:600">RM 8</span>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+<!-- NOTES SECTION -->
+<section style="background:#FAF6EF;padding:3.5rem 0">
+  <div class="max-w-4xl mx-auto px-6 lg:px-12">
+    <div class="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="text-center p-5 rounded-lg" style="background:#F0E8D7;border:1px solid rgba(212,175,55,.2)">
+        <div style="font-size:1.6rem;margin-bottom:8px">🐷</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:#060D2E;font-weight:600;margin-bottom:4px">Pork-Free</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.6">No pork or lard used in any preparation</div>
+      </div>
+      <div class="text-center p-5 rounded-lg" style="background:#F0E8D7;border:1px solid rgba(212,175,55,.2)">
+        <div style="font-size:1.6rem;margin-bottom:8px">🍷</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:#060D2E;font-weight:600;margin-bottom:4px">Alcohol-Free</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.6">Fully non-alcoholic menu throughout</div>
+      </div>
+      <div class="text-center p-5 rounded-lg" style="background:#F0E8D7;border:1px solid rgba(212,175,55,.2)">
+        <div style="font-size:1.6rem;margin-bottom:8px">🌿</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:#060D2E;font-weight:600;margin-bottom:4px">Made from Scratch</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.6">Every dish prepared fresh every morning</div>
+      </div>
+      <div class="text-center p-5 rounded-lg" style="background:#F0E8D7;border:1px solid rgba(212,175,55,.2)">
+        <div style="font-size:1.6rem;margin-bottom:8px">📋</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.95rem;color:#060D2E;font-weight:600;margin-bottom:4px">Seasonal Menu</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.6">Subject to daily market availability</div>
+      </div>
+    </div>
+    <p class="reveal text-center mt-8" style="font-family:'Inter',sans-serif;font-size:12px;color:#888">Prices are per dish and subject to change without notice. All prices are in Malaysian Ringgit (RM). Service charge and SST applicable.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section style="background:#060D2E;padding:5rem 0">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="reveal">
+      <div class="gold-bar mx-auto mb-8"></div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:white;font-weight:600;margin-bottom:1rem">Ready to Experience the Menu?</h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:rgba(255,255,255,.65);font-style:italic;margin-bottom:2.5rem">Tables at Auntie Gaik Lean's fill quickly. We recommend booking at least 3–7 days in advance.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="reservations.html" class="btn btn-gold btn-mag px-10 py-4 rounded text-sm tracking-[.14em] uppercase">Reserve Your Table</a>
+        <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20the%20menu%20at%20Auntie%20Gaik%20Lean's." target="_blank" rel="noopener noreferrer" class="btn btn-wa px-10 py-4 rounded text-sm tracking-[.14em] uppercase">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#040A22;border-top:1px solid rgba(212,175,55,.15)">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div><div style="font-family:'Playfair Display',serif;color:white;font-size:1rem;font-weight:600">Auntie Gaik Lean's</div><div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; ⭐ Michelin Star</div></div>
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+        <a href="our-story.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Our Story</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="menu.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Menu</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="press.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Press</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="reservations.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Reservations</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="visit-us.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Visit Us</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="https://guide.michelin.com/en/pulau-pinang/my-george-town/restaurant/auntie-gaik-lean-s-old-school-eatery" target="_blank" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Michelin ↗</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://www.instagram.com/auntiegaiklean" target="_blank" style="color:rgba(255,255,255,.6)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.6)'"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/p/Auntie-Gaik-Leans-Old-School-Eatery-100063562363254/" target="_blank" style="color:rgba(255,255,255,.6)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.6)'"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <span style="color:rgba(255,255,255,.45);font-size:11px;font-family:'Inter',sans-serif">© 2026 Auntie Gaik Lean's</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20a%20reservation%20at%20Auntie%20Gaik%20Lean's." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="wa-pulse fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center shadow-2xl transition-transform duration-200 hover:scale-110" style="background:#25D366"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script>
+// Scroll-reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Filter tabs
+const tabs=document.querySelectorAll('.filter-tab');
+const cards=document.querySelectorAll('#menu-grid .menu-card');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',function(){
+    tabs.forEach(t=>t.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.dataset.filter;
+    cards.forEach(card=>{
+      if(f==='all'||card.dataset.cat===f){
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Baroque damask SVG
+(function(){
+  const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><g fill='none' stroke='rgba(91,155,213,0.17)' stroke-width='0.85' stroke-linecap='round' stroke-linejoin='round'><path d='M90,8 L172,90 L90,172 L8,90 Z'/><path d='M90,36 L144,90 L90,144 L36,90 Z'/><circle cx='90' cy='90' r='26'/><circle cx='90' cy='90' r='15'/><circle cx='90' cy='90' r='5' fill='rgba(91,155,213,0.12)'/><ellipse cx='90' cy='54' rx='8' ry='20'/><ellipse cx='126' cy='90' rx='20' ry='8'/><ellipse cx='90' cy='126' rx='8' ry='20'/><ellipse cx='54' cy='90' rx='20' ry='8'/><path d='M90,64 Q100,52 90,36 Q80,52 90,64'/><path d='M116,90 Q128,100 144,90 Q128,80 116,90'/><path d='M90,116 Q100,128 90,144 Q80,128 90,116'/><path d='M64,90 Q52,100 36,90 Q52,80 64,90'/><path d='M108,72 Q125,55 140,40 Q148,52 136,64 Q124,70 108,72Z'/><path d='M72,108 Q55,125 40,140 Q52,148 64,136 Q70,124 72,108Z'/><path d='M108,108 Q125,125 140,140 Q128,148 116,136 Q110,124 108,108Z'/><path d='M72,72 Q55,55 40,40 Q52,28 64,44 Q70,56 72,72Z'/><circle cx='90' cy='0' r='7'/><circle cx='180' cy='90' r='7'/><circle cx='90' cy='180' r='7'/><circle cx='0' cy='90' r='7'/><circle cx='0' cy='0' r='5'/><circle cx='180' cy='0' r='5'/><circle cx='0' cy='180' r='5'/><circle cx='180' cy='180' r='5'/><path d='M0,0 Q22,18 18,38 Q14,54 28,60'/><path d='M180,0 Q158,18 162,38 Q166,54 152,60'/><path d='M0,180 Q22,162 18,142 Q14,126 28,120'/><path d='M180,180 Q158,162 162,142 Q166,126 152,120'/></g></svg>`;
+  const enc='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
+  document.querySelectorAll('.page-hero').forEach(el=>{el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat'});
+  document.querySelectorAll('section').forEach(el=>{const bg=el.getAttribute('style')||'';if(bg.includes('#060D2E')||bg.includes('#0A1645')||bg.includes('#050C28')){el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat'}});
+})();
+
+// Stars
+(function(){const c=document.getElementById('stars');if(!c)return;for(let i=0;i<70;i++){const s=document.createElement('span');const sz=Math.random()<.15?3:Math.random()<.4?2:1;s.className=Math.random()<.5?'t2':'';s.style.cssText=`left:${(Math.random()*100).toFixed(1)}%;top:${(Math.random()*100).toFixed(1)}%;--d:${(2+Math.random()*5).toFixed(1)}s;--delay:-${(Math.random()*6).toFixed(1)}s;width:${sz}px;height:${sz}px;`;c.appendChild(s)}})();
+
+// Ripple
+document.addEventListener('click',function(e){const btn=e.target.closest('.btn,.btn-gold,.btn-og,.btn-ow,.btn-wa,.btn-reserve-nav');if(!btn)return;const r=document.createElement('span');r.className='ripple';const rect=btn.getBoundingClientRect();const size=Math.max(rect.width,rect.height)*1.6;r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;background:${btn.classList.contains('btn-gold')?'rgba(255,255,255,.35)':'rgba(212,175,55,.45)'};`;btn.appendChild(r);setTimeout(()=>r.remove(),750)});
+
+// Magnetic
+document.querySelectorAll('.btn-mag').forEach(btn=>{btn.addEventListener('mousemove',function(e){const rect=this.getBoundingClientRect();const dx=(e.clientX-rect.left-rect.width/2)*.28;const dy=(e.clientY-rect.top-rect.height/2)*.28;this.style.transform=`translate(${dx}px,${dy}px) translateY(-3px) scale(1.02)`;this.style.transition='transform 0.12s ease'});btn.addEventListener('mouseleave',function(){this.style.transform='';this.style.transition='transform 0.55s cubic-bezier(0.34,1.56,0.64,1)'})});
+
+// Custom cursor
+const dot=document.createElement('div');dot.style.cssText='position:fixed;width:8px;height:8px;border-radius:50%;background:#D4AF37;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width .2s,height .2s,opacity .3s;mix-blend-mode:screen;';
+const ring=document.createElement('div');ring.style.cssText='position:fixed;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(212,175,55,.55);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:all .18s ease;';
+document.body.append(dot,ring);
+document.addEventListener('mousemove',e=>{dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';dot.style.opacity='1';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';ring.style.opacity='1'},45)});
+document.addEventListener('mousedown',()=>{dot.style.width='13px';dot.style.height='13px';ring.style.transform='translate(-50%,-50%) scale(1.6)'});
+document.addEventListener('mouseup',()=>{dot.style.width='8px';dot.style.height='8px';ring.style.transform='translate(-50%,-50%) scale(1)'});
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='46px';ring.style.height='46px';ring.style.borderColor='rgba(212,175,55,.9)'});el.addEventListener('mouseleave',()=>{ring.style.width='30px';ring.style.height='30px';ring.style.borderColor='rgba(212,175,55,.55)'})});
+
+// Hide nav on scroll
+(function(){const nav=document.getElementById('nav');let lastY=0,ticking=false;window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;if(y>lastY&&y>80)nav.classList.add('nav-hidden');else nav.classList.remove('nav-hidden');lastY=y;ticking=false});ticking=true}},{passive:true})})();
+</script>
+</body>
+</html>
