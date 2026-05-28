@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config={theme:{extend:{colors:{navy:{'DEFAULT':'#0C1E6E','light':'#122484','mid':'#1A34A8'},gold:{'DEFAULT':'#F5B800','light':'#FFD040','pale':'#FFE896'},cream:{'DEFAULT':'#FAF6EF','dark':'#F0E8D7','deeper':'#E4D5BF'}},fontFamily:{display:['Playfair Display','Georgia','serif'],serifcg:['Cormorant Garamond','Georgia','serif'],sans:['Inter','system-ui','sans-serif']}}}}
+tailwind.config={theme:{extend:{colors:{navy:{'DEFAULT':'#0B1545','light':'#152060','mid':'#1C2B7A'},gold:{'DEFAULT':'#D4AF37','light':'#E8C84A','pale':'#F5E080'},cream:{'DEFAULT':'#FAF6EF','dark':'#F0E8D7','deeper':'#E4D5BF'}},fontFamily:{display:['Playfair Display','Georgia','serif'],serifcg:['Cormorant Garamond','Georgia','serif'],sans:['Inter','system-ui','sans-serif']}}}}
 </script>
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:#FAF6EF;color:#1C1C1E;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#0C1E6E}::-webkit-scrollbar-thumb{background:#F5B800;border-radius:2px}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#080F38}::-webkit-scrollbar-thumb{background:#D4AF37;border-radius:2px}
 
 nav{background:transparent!important}
 
@@ -42,17 +42,25 @@ nav{background:transparent!important}
 
 .hero-bg{background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=85');background-size:cover;background-position:center;background-attachment:fixed}
 
-.dot-bg{background-image:radial-gradient(circle,rgba(245,184,0,.12) 1px,transparent 1px);background-size:32px 32px}
+.dot-bg{background-image:radial-gradient(circle,rgba(212,175,55,.12) 1px,transparent 1px);background-size:32px 32px}
 
-.gold-bar{width:48px;height:2px;background:#F5B800}
+.gold-bar{width:48px;height:2px;background:#D4AF37}
 
-.michelin-glow{text-shadow:0 0 50px rgba(245,184,0,.25)}
+.michelin-glow{text-shadow:0 0 60px rgba(212,175,55,.45),0 0 120px rgba(212,175,55,.15)}
 
-.quote-mark{font-family:'Playfair Display',serif;font-size:4.5rem;line-height:.5;color:rgba(245,184,0,.28);display:block;margin-bottom:6px}
+/* Celestial light beam — mimics the spotlight in the reference image */
+.hero-bg::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:100%;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.12) 0%,transparent 65%);pointer-events:none;z-index:1}
+
+/* Star-field sparkle dots in hero */
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.8}}
+.star-field{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.star-field span{position:absolute;width:2px;height:2px;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+
+.quote-mark{font-family:'Playfair Display',serif;font-size:4.5rem;line-height:.5;color:rgba(212,175,55,.28);display:block;margin-bottom:6px}
 
 .map-frame{filter:saturate(.75) contrast(1.05)}
 
-.label-ornament::before,.label-ornament::after{content:'';display:inline-block;width:32px;height:1px;background:rgba(245,184,0,.35);vertical-align:middle;margin:0 10px}
+.label-ornament::before,.label-ornament::after{content:'';display:inline-block;width:32px;height:1px;background:rgba(212,175,55,.35);vertical-align:middle;margin:0 10px}
 </style>
 </head>
 <body>
@@ -62,7 +70,7 @@ nav{background:transparent!important}
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="#" class="flex flex-col leading-none gap-0.5">
       <span class="font-display text-white text-xl font-semibold tracking-wide" style="font-family:'Playfair Display',serif">Auntie Gaik Lean's</span>
-      <span class="text-[10px] tracking-[.3em] uppercase font-light" style="color:#F5B800;font-family:'Inter',sans-serif">Old School Eatery</span>
+      <span class="text-[10px] tracking-[.3em] uppercase font-light" style="color:#D4AF37;font-family:'Inter',sans-serif">Old School Eatery</span>
     </a>
     <div class="hidden md:flex items-center gap-8">
       <a href="#our-story" class="text-white/70 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Our Story</a>
@@ -72,9 +80,9 @@ nav{background:transparent!important}
     </div>
     <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
       class="hidden md:inline-block text-[11px] tracking-[.18em] uppercase font-medium px-6 py-2.5 transition-all duration-300"
-      style="border:1px solid #F5B800;color:#F5B800;font-family:'Inter',sans-serif"
-      onmouseover="this.style.background='#F5B800';this.style.color='#0C1E6E'"
-      onmouseout="this.style.background='transparent';this.style.color='#F5B800'">
+      style="border:1px solid #D4AF37;color:#D4AF37;font-family:'Inter',sans-serif"
+      onmouseover="this.style.background='#D4AF37';this.style.color='#0B1545'"
+      onmouseout="this.style.background='transparent';this.style.color='#D4AF37'">
       Reserve
     </a>
     <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')" aria-label="Menu">
@@ -88,22 +96,26 @@ nav{background:transparent!important}
     <a href="#visit-us" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Visit Us</a>
     <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
       class="text-center text-xs tracking-[.18em] uppercase py-3 mt-1"
-      style="border:1px solid #F5B800;color:#F5B800;font-family:'Inter',sans-serif">Reserve a Table</a>
+      style="border:1px solid #D4AF37;color:#D4AF37;font-family:'Inter',sans-serif">Reserve a Table</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero-bg relative min-h-screen flex items-center justify-center">
-  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(12,30,110,.82) 0%,rgba(12,30,110,.52) 50%,rgba(12,30,110,.88) 100%)"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(7,11,42,.88) 0%,rgba(7,11,42,.48) 50%,rgba(7,11,42,.92) 100%)"></div>
+  <!-- Gold spotlight beam -->
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 50% 70% at 50% 0%,rgba(212,175,55,.13) 0%,transparent 65%);z-index:1"></div>
+  <!-- Twinkling star field -->
+  <div class="star-field" id="stars"></div>
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24 pb-20">
-    <div class="inline-flex items-center gap-3 border border-[rgba(245,184,0,.4)] bg-[rgba(245,184,0,.08)] backdrop-blur-sm px-6 py-2.5 mb-10">
+    <div class="inline-flex items-center gap-3 border border-[rgba(212,175,55,.4)] bg-[rgba(212,175,55,.08)] backdrop-blur-sm px-6 py-2.5 mb-10">
       <span class="shimmer">⭐</span>
-      <span class="text-[11px] tracking-[.25em] uppercase font-medium" style="color:#F5B800;font-family:'Inter',sans-serif">One Michelin Star · 4 Consecutive Years</span>
+      <span class="text-[11px] tracking-[.25em] uppercase font-medium" style="color:#D4AF37;font-family:'Inter',sans-serif">One Michelin Star · 4 Consecutive Years</span>
       <span class="shimmer">⭐</span>
     </div>
     <h1 class="michelin-glow text-white text-5xl md:text-6xl lg:text-[4.8rem] font-semibold leading-[1.1] mb-5" style="font-family:'Playfair Display',serif">
       Where Heritage<br>
-      <em class="font-normal" style="color:#F5B800">Lives on Every Plate</em>
+      <em class="font-normal" style="color:#D4AF37">Lives on Every Plate</em>
     </h1>
     <p class="text-white/65 text-xl md:text-2xl italic font-light mb-3" style="font-family:'Cormorant Garamond',serif">
       Authentic Peranakan cuisine, made entirely from scratch.
@@ -114,15 +126,15 @@ nav{background:transparent!important}
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
         class="inline-flex items-center justify-center gap-2 font-semibold text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="background:#F5B800;color:#0C1E6E;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#FFD040'" onmouseout="this.style.background='#F5B800'">
+        style="background:#D4AF37;color:#0B1545;font-family:'Inter',sans-serif"
+        onmouseover="this.style.background='#E8C84A'" onmouseout="this.style.background='#D4AF37'">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Reserve Your Table
       </a>
       <a href="#menu"
         class="inline-flex items-center justify-center gap-2 text-white text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
         style="border:1px solid rgba(255,255,255,.35);font-family:'Inter',sans-serif"
-        onmouseover="this.style.borderColor='#F5B800';this.style.color='#F5B800'"
+        onmouseover="this.style.borderColor='#D4AF37';this.style.color='#D4AF37'"
         onmouseout="this.style.borderColor='rgba(255,255,255,.35)';this.style.color='white'">
         Explore Our Menu
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -131,19 +143,19 @@ nav{background:transparent!important}
   </div>
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
     <span class="text-white/25 text-[10px] tracking-[.28em] uppercase" style="font-family:'Inter',sans-serif">Scroll</span>
-    <div class="scroll-cue" style="color:#F5B800">
+    <div class="scroll-cue" style="color:#D4AF37">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="border-y overflow-hidden py-3 select-none" style="background:#0C1E6E;border-color:rgba(245,184,0,.2)">
+<div class="border-y overflow-hidden py-3 select-none" style="background:#080F38;border-color:rgba(212,175,55,.2)">
   <div class="ticker-track">
-    <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(245,184,0,.65);font-family:'Inter',sans-serif">
+    <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(212,175,55,.65);font-family:'Inter',sans-serif">
       ⭐ Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; ⭐ One Michelin Star 2023 &nbsp;·&nbsp; ⭐ One Michelin Star 2024 &nbsp;·&nbsp; ⭐ One Michelin Star 2025 &nbsp;·&nbsp; ⭐ One Michelin Star 2026 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
     </span>
-    <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(245,184,0,.65);font-family:'Inter',sans-serif">
+    <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(212,175,55,.65);font-family:'Inter',sans-serif">
       ⭐ Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; ⭐ One Michelin Star 2023 &nbsp;·&nbsp; ⭐ One Michelin Star 2024 &nbsp;·&nbsp; ⭐ One Michelin Star 2025 &nbsp;·&nbsp; ⭐ One Michelin Star 2026 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
     </span>
   </div>
@@ -157,19 +169,19 @@ nav{background:transparent!important}
       <div class="reveal relative">
         <div class="relative overflow-hidden" style="aspect-ratio:4/5">
           <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Dining room" class="w-full h-full object-cover"/>
-          <div class="absolute -z-10 pointer-events-none" style="bottom:-16px;right:-16px;top:0;left:0;border:1px solid rgba(245,184,0,.25)"></div>
+          <div class="absolute -z-10 pointer-events-none" style="bottom:-16px;right:-16px;top:0;left:0;border:1px solid rgba(212,175,55,.25)"></div>
         </div>
-        <div class="absolute shadow-2xl px-7 py-5" style="bottom:-24px;left:24px;background:#0C1E6E">
-          <div class="font-semibold leading-none text-4xl" style="color:#F5B800;font-family:'Playfair Display',serif">4×</div>
+        <div class="absolute shadow-2xl px-7 py-5" style="bottom:-24px;left:24px;background:#080F38">
+          <div class="font-semibold leading-none text-4xl" style="color:#D4AF37;font-family:'Playfair Display',serif">4×</div>
           <div class="text-xs tracking-wide mt-1.5 leading-snug" style="color:rgba(255,255,255,.55);font-family:'Inter',sans-serif">Consecutive<br>Michelin Stars</div>
         </div>
       </div>
       <!-- Text -->
       <div class="reveal d2 pt-8 lg:pt-0">
-        <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#F5B800;font-family:'Inter',sans-serif">Our Story</p>
-        <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:#0C1E6E;font-family:'Playfair Display',serif">
+        <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#D4AF37;font-family:'Inter',sans-serif">Our Story</p>
+        <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:#0B1545;font-family:'Playfair Display',serif">
           Recipes Guarded<br>
-          <em class="font-normal italic" style="color:#F5B800">for Generations</em>
+          <em class="font-normal italic" style="color:#D4AF37">for Generations</em>
         </h2>
         <div class="gold-bar mb-8"></div>
         <p class="text-[15px] leading-relaxed mb-5" style="color:#555;font-family:'Inter',sans-serif">
@@ -178,17 +190,17 @@ nav{background:transparent!important}
         <p class="text-[15px] leading-relaxed mb-6" style="color:#555;font-family:'Inter',sans-serif">
           Today, from a beautifully restored shophouse on Bishop Street in the heart of George Town's UNESCO World Heritage zone, she still oversees every single dish that leaves her kitchen. Nothing is compromised. Nothing is shortcut.
         </p>
-        <blockquote class="pl-5 mb-8" style="border-left:2px solid #F5B800">
-          <p class="text-xl italic leading-relaxed" style="color:rgba(12,30,110,.75);font-family:'Cormorant Garamond',serif">
+        <blockquote class="pl-5 mb-8" style="border-left:2px solid #D4AF37">
+          <p class="text-xl italic leading-relaxed" style="color:rgba(11,21,69,.75);font-family:'Cormorant Garamond',serif">
             "The Michelin star didn't change how we cook. It simply told the world what we already knew."
           </p>
         </blockquote>
         <div class="flex flex-wrap gap-3 mb-8">
-          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(245,184,0,.35);color:rgba(12,30,110,.65);font-family:'Inter',sans-serif">Pork-Free</span>
-          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(245,184,0,.35);color:rgba(12,30,110,.65);font-family:'Inter',sans-serif">Alcohol-Free</span>
-          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(245,184,0,.35);color:rgba(12,30,110,.65);font-family:'Inter',sans-serif">Made From Scratch</span>
+          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(212,175,55,.35);color:rgba(11,21,69,.65);font-family:'Inter',sans-serif">Pork-Free</span>
+          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(212,175,55,.35);color:rgba(11,21,69,.65);font-family:'Inter',sans-serif">Alcohol-Free</span>
+          <span class="text-[11px] tracking-[.15em] uppercase px-4 py-2" style="border:1px solid rgba(212,175,55,.35);color:rgba(11,21,69,.65);font-family:'Inter',sans-serif">Made From Scratch</span>
         </div>
-        <a href="#heritage" class="inline-flex items-center gap-2 text-[11px] tracking-[.15em] uppercase font-medium transition-all duration-300" style="color:#F5B800;font-family:'Inter',sans-serif">
+        <a href="#heritage" class="inline-flex items-center gap-2 text-[11px] tracking-[.15em] uppercase font-medium transition-all duration-300" style="color:#D4AF37;font-family:'Inter',sans-serif">
           Discover Our Heritage
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -198,16 +210,16 @@ nav{background:transparent!important}
 </section>
 
 <!-- MENU -->
-<section id="menu" class="py-24 lg:py-36" style="background:#0C1E6E">
+<section id="menu" class="py-24 lg:py-36" style="background:#080F38">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="reveal text-center mb-16">
       <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
-        <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:#F5B800;font-family:'Inter',sans-serif">Taste the Heritage</span>
-        <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
+        <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
+        <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:#D4AF37;font-family:'Inter',sans-serif">Taste the Heritage</span>
+        <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
       </div>
       <h2 class="font-semibold mb-4 text-4xl lg:text-5xl" style="color:white;font-family:'Playfair Display',serif">
-        Signature <em class="font-normal italic" style="color:#F5B800">Dishes</em>
+        Signature <em class="font-normal italic" style="color:#D4AF37">Dishes</em>
       </h2>
       <div class="gold-bar mb-8 mx-auto"></div>
       <p class="text-sm max-w-md mx-auto leading-relaxed" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">
@@ -217,86 +229,86 @@ nav{background:transparent!important}
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12" id="dish-grid">
       <!-- Dish 1 -->
-      <div class="reveal dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Pie Tee" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Pie Tee</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 18</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 18</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Delicate top-hat shells, crisp and paper-thin, filled with braised turnip and sweet-tangy dip. The most-ordered first bite at Auntie's table.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Starter</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Starter</span>
           </div>
         </div>
       </div>
       <!-- Dish 2 -->
-      <div class="reveal d1 dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal d1 dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700&q=80" alt="Curry Kapitan" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Curry Kapitan</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 48–58</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 48–58</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Slow-cooked chicken in a rich, handground Nyonya curry paste with candlenuts, galangal, and kaffir lime. A Penang heirloom.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Signature Main</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Signature Main</span>
           </div>
         </div>
       </div>
       <!-- Dish 3 -->
-      <div class="reveal d2 dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal d2 dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=700&q=80" alt="Nasi Ulam" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Nasi Ulam</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 35</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 35</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Steamed rice hand-tossed with over ten freshly-cut herbs — lemongrass, turmeric leaf, torch ginger. An old-Penang recipe kept alive.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Heritage Rice</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Heritage Rice</span>
           </div>
         </div>
       </div>
       <!-- Dish 4 -->
-      <div class="reveal d3 dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal d3 dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=700&q=80" alt="Beef Rendang" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Nyonya Beef Rendang</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 88</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 88</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Australian Black Angus slow-braised for hours in coconut milk and spice paste until caramelised and deeply fragrant. The crown of the menu.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Chef's Pride</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Chef's Pride</span>
           </div>
         </div>
       </div>
       <!-- Dish 5 -->
-      <div class="reveal d4 dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal d4 dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=700&q=80" alt="Assam Hae" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Assam Hae</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 78–118</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 78–118</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Fresh tiger prawns wok-fired in bold tamarind sauce — tangy, slightly sweet, unmistakably Nyonya. Served shell-on for full flavour.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Seafood</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Seafood</span>
           </div>
         </div>
       </div>
       <!-- Dish 6 -->
-      <div class="reveal d5 dish-card overflow-hidden" style="background:#122484;border:1px solid rgba(255,255,255,.06)">
+      <div class="reveal d5 dish-card overflow-hidden" style="background:#152060;border:1px solid rgba(255,255,255,.06)">
         <div class="overflow-hidden h-52"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80" alt="Sago Gula Melaka" class="dish-img w-full h-full object-cover"/></div>
         <div class="p-6">
           <div class="flex items-start justify-between gap-3 mb-2">
             <h3 class="font-medium leading-tight text-xl" style="color:white;font-family:'Playfair Display',serif">Sago Gula Melaka</h3>
-            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#F5B800;font-family:'Inter',sans-serif">RM 8</span>
+            <span class="text-sm font-medium flex-shrink-0 mt-0.5" style="color:#D4AF37;font-family:'Inter',sans-serif">RM 8</span>
           </div>
           <p class="text-[13px] leading-relaxed mb-4" style="color:rgba(255,255,255,.4);font-family:'Inter',sans-serif">Pearl sago set in creamy coconut milk, finished with a pour of dark Malaccan palm sugar. The perfect, unhurried ending.</p>
           <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.08)">
-            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">Dessert</span>
+            <span class="text-[11px] tracking-[.18em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">Dessert</span>
           </div>
         </div>
       </div>
@@ -305,8 +317,8 @@ nav{background:transparent!important}
     <div class="text-center">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
         class="inline-flex items-center gap-3 text-[11px] tracking-[.15em] uppercase font-medium px-10 py-4 transition-all duration-300"
-        style="border:1px solid rgba(245,184,0,.45);color:#F5B800;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#F5B800';this.style.color='#0C1E6E'" onmouseout="this.style.background='transparent';this.style.color='#F5B800'">
+        style="border:1px solid rgba(212,175,55,.45);color:#D4AF37;font-family:'Inter',sans-serif"
+        onmouseover="this.style.background='#D4AF37';this.style.color='#0B1545'" onmouseout="this.style.background='transparent';this.style.color='#D4AF37'">
         Reserve & Experience the Full Menu
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
@@ -320,10 +332,10 @@ nav{background:transparent!important}
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
       <!-- Text -->
       <div class="reveal order-2 lg:order-1">
-        <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#F5B800;font-family:'Inter',sans-serif">Our Heritage</p>
-        <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:#0C1E6E;font-family:'Playfair Display',serif">
+        <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#D4AF37;font-family:'Inter',sans-serif">Our Heritage</p>
+        <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:#0B1545;font-family:'Playfair Display',serif">
           The Soul of<br>
-          <em class="font-normal italic" style="color:#F5B800">Peranakan Cooking</em>
+          <em class="font-normal italic" style="color:#D4AF37">Peranakan Cooking</em>
         </h2>
         <div class="gold-bar mb-8"></div>
         <p class="text-[15px] leading-relaxed mb-5" style="color:#555;font-family:'Inter',sans-serif">
@@ -332,17 +344,17 @@ nav{background:transparent!important}
         <p class="text-[15px] leading-relaxed mb-10" style="color:#555;font-family:'Inter',sans-serif">
           At Auntie Gaik Lean's, nothing comes from a packet. The gulai tumis paste is blended from eight fresh ingredients — including fresh saffron. The nasi ulam is hand-tossed with over ten herbs. Every dish is an act of preservation.
         </p>
-        <div class="grid grid-cols-3 gap-px" style="background:rgba(245,184,0,.2)">
+        <div class="grid grid-cols-3 gap-px" style="background:rgba(212,175,55,.2)">
           <div class="text-center py-6 px-3" style="background:#FAF6EF">
-            <div class="font-semibold text-3xl" style="color:#F5B800;font-family:'Playfair Display',serif">10+</div>
+            <div class="font-semibold text-3xl" style="color:#D4AF37;font-family:'Playfair Display',serif">10+</div>
             <div class="text-xs mt-1.5 leading-snug" style="color:#888;font-family:'Inter',sans-serif">Herbs in Nasi Ulam</div>
           </div>
           <div class="text-center py-6 px-3" style="background:#FAF6EF">
-            <div class="font-semibold text-3xl" style="color:#F5B800;font-family:'Playfair Display',serif">8+</div>
+            <div class="font-semibold text-3xl" style="color:#D4AF37;font-family:'Playfair Display',serif">8+</div>
             <div class="text-xs mt-1.5 leading-snug" style="color:#888;font-family:'Inter',sans-serif">Spices in Gulai Tumis</div>
           </div>
           <div class="text-center py-6 px-3" style="background:#FAF6EF">
-            <div class="font-semibold text-3xl" style="color:#F5B800;font-family:'Playfair Display',serif">50+</div>
+            <div class="font-semibold text-3xl" style="color:#D4AF37;font-family:'Playfair Display',serif">50+</div>
             <div class="text-xs mt-1.5 leading-snug" style="color:#888;font-family:'Inter',sans-serif">Years of Family Recipes</div>
           </div>
         </div>
@@ -359,38 +371,38 @@ nav{background:transparent!important}
 </section>
 
 <!-- MICHELIN -->
-<section class="py-24 lg:py-36 relative overflow-hidden" style="background:#0C1E6E">
+<section class="py-24 lg:py-36 relative overflow-hidden" style="background:#080F38">
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <div class="w-[700px] h-[700px] rounded-full blur-[160px]" style="background:rgba(245,184,0,.06)"></div>
+    <div class="w-[700px] h-[700px] rounded-full blur-[160px]" style="background:rgba(212,175,55,.06)"></div>
   </div>
   <div class="reveal relative max-w-3xl mx-auto px-6 lg:px-12 text-center">
     <div class="text-5xl mb-6 shimmer">⭐</div>
     <div class="flex items-center justify-center gap-3 mb-4">
-      <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
-      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(245,184,0,.8);font-family:'Inter',sans-serif">Recognised Excellence</span>
-      <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
+      <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
+      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(212,175,55,.8);font-family:'Inter',sans-serif">Recognised Excellence</span>
+      <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
     </div>
     <h2 class="michelin-glow font-semibold mb-4 text-4xl lg:text-5xl" style="color:white;font-family:'Playfair Display',serif">
-      One <em class="font-normal italic" style="color:#F5B800">MICHELIN Star</em>
+      One <em class="font-normal italic" style="color:#D4AF37">MICHELIN Star</em>
     </h2>
     <div class="gold-bar mb-8 mx-auto"></div>
     <p class="text-[15px] leading-relaxed max-w-xl mx-auto mb-8" style="color:rgba(255,255,255,.5);font-family:'Inter',sans-serif">
       Auntie Gaik Lean's became Malaysia's first — and Penang's only — Michelin-starred homestyle Peranakan restaurant. This distinction has been retained every year since 2023.
     </p>
-    <div class="my-10 py-10" style="border-top:1px solid rgba(245,184,0,.2);border-bottom:1px solid rgba(245,184,0,.2)">
+    <div class="my-10 py-10" style="border-top:1px solid rgba(212,175,55,.2);border-bottom:1px solid rgba(212,175,55,.2)">
       <span class="quote-mark">"</span>
       <p class="text-xl lg:text-2xl italic leading-relaxed max-w-xl mx-auto" style="color:rgba(255,255,255,.8);font-family:'Cormorant Garamond',serif">
         Chef Gaik Lean makes no compromises on quality — many dishes are made entirely from scratch, including a gulai tumis curry paste of over eight ingredients featuring fresh saffron.
       </p>
-      <footer class="mt-5 text-[11px] tracking-[.22em] uppercase" style="color:rgba(245,184,0,.5);font-family:'Inter',sans-serif">
+      <footer class="mt-5 text-[11px] tracking-[.22em] uppercase" style="color:rgba(212,175,55,.5);font-family:'Inter',sans-serif">
         — MICHELIN Guide Inspectors
       </footer>
     </div>
     <div class="flex flex-wrap justify-center gap-3 mb-12">
-      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(245,184,0,.35);color:#F5B800;font-family:'Inter',sans-serif">⭐ 2023</span>
-      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(245,184,0,.35);color:#F5B800;font-family:'Inter',sans-serif">⭐ 2024</span>
-      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(245,184,0,.35);color:#F5B800;font-family:'Inter',sans-serif">⭐ 2025</span>
-      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(245,184,0,.35);color:#F5B800;font-family:'Inter',sans-serif">⭐ 2026</span>
+      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2023</span>
+      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2024</span>
+      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2025</span>
+      <span class="text-[11px] tracking-[.2em] uppercase px-6 py-2" style="border:1px solid rgba(212,175,55,.35);color:#D4AF37;font-family:'Inter',sans-serif">⭐ 2026</span>
     </div>
     <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
       <p class="text-[10px] tracking-[.28em] uppercase mb-5" style="color:rgba(255,255,255,.22);font-family:'Inter',sans-serif">As Featured In</p>
@@ -406,63 +418,63 @@ nav{background:transparent!important}
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="reveal text-center mb-16">
       <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
-        <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:#F5B800;font-family:'Inter',sans-serif">What Guests Say</span>
-        <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
+        <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
+        <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:#D4AF37;font-family:'Inter',sans-serif">What Guests Say</span>
+        <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
       </div>
-      <h2 class="font-semibold mb-4 text-4xl" style="color:#0C1E6E;font-family:'Playfair Display',serif">
-        Voices from <em class="font-normal italic" style="color:#F5B800">Our Table</em>
+      <h2 class="font-semibold mb-4 text-4xl" style="color:#0B1545;font-family:'Playfair Display',serif">
+        Voices from <em class="font-normal italic" style="color:#D4AF37">Our Table</em>
       </h2>
       <div class="gold-bar mx-auto"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-      <div class="reveal p-8" style="background:#FAF6EF;border:1px solid rgba(245,184,0,.18)">
+      <div class="reveal p-8" style="background:#FAF6EF;border:1px solid rgba(212,175,55,.18)">
         <span class="quote-mark">"</span>
-        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(12,30,110,.78);font-family:'Cormorant Garamond',serif">Each dish was faultless and totally delectable. The Nasi Ulam alone is worth the journey from Singapore.</p>
+        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(11,21,69,.78);font-family:'Cormorant Garamond',serif">Each dish was faultless and totally delectable. The Nasi Ulam alone is worth the journey from Singapore.</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(245,184,0,.12);border:1px solid rgba(245,184,0,.25);color:#F5B800;font-family:'Playfair Display',serif">M</div>
+          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.25);color:#D4AF37;font-family:'Playfair Display',serif">M</div>
           <div>
-            <div class="font-medium text-sm" style="color:#0C1E6E;font-family:'Inter',sans-serif">Michelle T.</div>
-            <div style="color:#F5B800;font-size:.9rem">★★★★★</div>
+            <div class="font-medium text-sm" style="color:#0B1545;font-family:'Inter',sans-serif">Michelle T.</div>
+            <div style="color:#D4AF37;font-size:.9rem">★★★★★</div>
           </div>
         </div>
       </div>
-      <div class="reveal d1 p-8 md:mt-6" style="background:#FAF6EF;border:1px solid rgba(245,184,0,.18)">
+      <div class="reveal d1 p-8 md:mt-6" style="background:#FAF6EF;border:1px solid rgba(212,175,55,.18)">
         <span class="quote-mark">"</span>
-        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(12,30,110,.78);font-family:'Cormorant Garamond',serif">The Curry Kapitan and Pie Tee are extraordinary — you taste decades of mastery in every bite. Reservations are essential, and absolutely worth the effort.</p>
+        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(11,21,69,.78);font-family:'Cormorant Garamond',serif">The Curry Kapitan and Pie Tee are extraordinary — you taste decades of mastery in every bite. Reservations are essential, and absolutely worth the effort.</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(245,184,0,.12);border:1px solid rgba(245,184,0,.25);color:#F5B800;font-family:'Playfair Display',serif">J</div>
+          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.25);color:#D4AF37;font-family:'Playfair Display',serif">J</div>
           <div>
-            <div class="font-medium text-sm" style="color:#0C1E6E;font-family:'Inter',sans-serif">James K.</div>
-            <div style="color:#F5B800;font-size:.9rem">★★★★★</div>
+            <div class="font-medium text-sm" style="color:#0B1545;font-family:'Inter',sans-serif">James K.</div>
+            <div style="color:#D4AF37;font-size:.9rem">★★★★★</div>
           </div>
         </div>
       </div>
-      <div class="reveal d2 p-8" style="background:#FAF6EF;border:1px solid rgba(245,184,0,.18)">
+      <div class="reveal d2 p-8" style="background:#FAF6EF;border:1px solid rgba(212,175,55,.18)">
         <span class="quote-mark">"</span>
-        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(12,30,110,.78);font-family:'Cormorant Garamond',serif">A true gem of George Town. The retro décor, Elvis on the speakers, and that beef rendang — this is Penang at its most soulful.</p>
+        <p class="text-[1.2rem] italic leading-relaxed mb-6" style="color:rgba(11,21,69,.78);font-family:'Cormorant Garamond',serif">A true gem of George Town. The retro décor, Elvis on the speakers, and that beef rendang — this is Penang at its most soulful.</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(245,184,0,.12);border:1px solid rgba(245,184,0,.25);color:#F5B800;font-family:'Playfair Display',serif">S</div>
+          <div class="w-9 h-9 flex items-center justify-center font-semibold text-sm flex-shrink-0" style="background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.25);color:#D4AF37;font-family:'Playfair Display',serif">S</div>
           <div>
-            <div class="font-medium text-sm" style="color:#0C1E6E;font-family:'Inter',sans-serif">Sarah L.</div>
-            <div style="color:#F5B800;font-size:.9rem">★★★★★</div>
+            <div class="font-medium text-sm" style="color:#0B1545;font-family:'Inter',sans-serif">Sarah L.</div>
+            <div style="color:#D4AF37;font-size:.9rem">★★★★★</div>
           </div>
         </div>
       </div>
     </div>
     <!-- Stats bar -->
     <div class="flex justify-center">
-      <div class="inline-flex flex-wrap items-center justify-center" style="border:1px solid rgba(245,184,0,.22);background:#FAF6EF">
+      <div class="inline-flex flex-wrap items-center justify-center" style="border:1px solid rgba(212,175,55,.22);background:#FAF6EF">
         <div class="text-center px-8 py-5">
-          <div class="leading-none text-2xl font-semibold" style="color:#F5B800;font-family:'Playfair Display',serif">4.2<span style="color:rgba(12,30,110,.5);font-size:1.1rem">/5</span></div>
+          <div class="leading-none text-2xl font-semibold" style="color:#D4AF37;font-family:'Playfair Display',serif">4.2<span style="color:rgba(11,21,69,.5);font-size:1.1rem">/5</span></div>
           <div class="text-xs tracking-wide mt-1" style="color:#aaa;font-family:'Inter',sans-serif">TripAdvisor</div>
         </div>
-        <div class="text-center px-8 py-5" style="border-left:1px solid rgba(245,184,0,.2)">
-          <div class="leading-none text-2xl font-semibold" style="color:#F5B800;font-family:'Playfair Display',serif">325</div>
+        <div class="text-center px-8 py-5" style="border-left:1px solid rgba(212,175,55,.2)">
+          <div class="leading-none text-2xl font-semibold" style="color:#D4AF37;font-family:'Playfair Display',serif">325</div>
           <div class="text-xs tracking-wide mt-1" style="color:#aaa;font-family:'Inter',sans-serif">Reviews</div>
         </div>
-        <div class="text-center px-8 py-5" style="border-left:1px solid rgba(245,184,0,.2)">
-          <div class="leading-none text-2xl font-semibold" style="color:#F5B800;font-family:'Playfair Display',serif">#93</div>
+        <div class="text-center px-8 py-5" style="border-left:1px solid rgba(212,175,55,.2)">
+          <div class="leading-none text-2xl font-semibold" style="color:#D4AF37;font-family:'Playfair Display',serif">#93</div>
           <div class="text-xs tracking-wide mt-1" style="color:#aaa;font-family:'Inter',sans-serif">of 1,922 in Penang</div>
         </div>
       </div>
@@ -471,18 +483,18 @@ nav{background:transparent!important}
 </section>
 
 <!-- RESERVE -->
-<section id="reserve" class="py-24 lg:py-36 relative overflow-hidden" style="background:#0C1E6E">
+<section id="reserve" class="py-24 lg:py-36 relative overflow-hidden" style="background:#080F38">
   <div class="absolute inset-0 hero-bg opacity-10 pointer-events-none"></div>
-  <div class="absolute inset-0 pointer-events-none" style="background:rgba(12,30,110,.92)"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:rgba(11,21,69,.92)"></div>
   <div class="reveal relative max-w-2xl mx-auto px-6 text-center">
     <div class="flex items-center justify-center gap-3 mb-4">
-      <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
-      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(245,184,0,.8);font-family:'Inter',sans-serif">Secure Your Seat</span>
-      <span class="inline-block w-8 h-px" style="background:rgba(245,184,0,.35)"></span>
+      <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
+      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(212,175,55,.8);font-family:'Inter',sans-serif">Secure Your Seat</span>
+      <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
     </div>
     <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:white;font-family:'Playfair Display',serif">
       Ready to Experience<br>
-      <em class="font-normal italic" style="color:#F5B800">History on a Plate?</em>
+      <em class="font-normal italic" style="color:#D4AF37">History on a Plate?</em>
     </h2>
     <div class="gold-bar mb-8 mx-auto"></div>
     <p class="text-[15px] leading-relaxed max-w-lg mx-auto mb-10" style="color:rgba(255,255,255,.5);font-family:'Inter',sans-serif">
@@ -491,8 +503,8 @@ nav{background:transparent!important}
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
         class="inline-flex items-center justify-center gap-2 font-semibold text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="background:#F5B800;color:#0C1E6E;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#FFD040'" onmouseout="this.style.background='#F5B800'">
+        style="background:#D4AF37;color:#0B1545;font-family:'Inter',sans-serif"
+        onmouseover="this.style.background='#E8C84A'" onmouseout="this.style.background='#D4AF37'">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Book via TableApp
       </a>
@@ -513,41 +525,41 @@ nav{background:transparent!important}
   <div class="grid grid-cols-1 lg:grid-cols-2">
     <!-- Info -->
     <div class="reveal py-24 px-8 lg:px-16 xl:px-20 flex flex-col justify-center">
-      <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#F5B800;font-family:'Inter',sans-serif">Find Us</p>
-      <h2 class="font-semibold mb-10 text-4xl" style="color:#0C1E6E;font-family:'Playfair Display',serif">
-        Visit <em class="font-normal italic" style="color:#F5B800">Our Table</em>
+      <p class="text-[11px] tracking-[.28em] uppercase font-medium mb-4" style="color:#D4AF37;font-family:'Inter',sans-serif">Find Us</p>
+      <h2 class="font-semibold mb-10 text-4xl" style="color:#0B1545;font-family:'Playfair Display',serif">
+        Visit <em class="font-normal italic" style="color:#D4AF37">Our Table</em>
       </h2>
       <div class="space-y-7">
         <div class="flex gap-4">
-          <span class="mt-0.5 flex-shrink-0" style="color:#F5B800">
+          <span class="mt-0.5 flex-shrink-0" style="color:#D4AF37">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </span>
           <div>
-            <div class="font-medium text-sm mb-1" style="color:#0C1E6E;font-family:'Inter',sans-serif">Address</div>
+            <div class="font-medium text-sm mb-1" style="color:#0B1545;font-family:'Inter',sans-serif">Address</div>
             <div class="text-sm leading-relaxed" style="color:#666;font-family:'Inter',sans-serif">1 Bishop Street (Lebuh Bishop)<br>George Town, 10200 Penang, Malaysia</div>
             <a href="https://maps.google.com/?q=Auntie+Gaik+Lean+1+Bishop+Street+Penang" target="_blank"
-              class="inline-flex items-center gap-1.5 text-[11px] tracking-[.12em] uppercase mt-2 transition-all duration-200" style="color:#F5B800;font-family:'Inter',sans-serif">
+              class="inline-flex items-center gap-1.5 text-[11px] tracking-[.12em] uppercase mt-2 transition-all duration-200" style="color:#D4AF37;font-family:'Inter',sans-serif">
               Get Directions →
             </a>
           </div>
         </div>
         <div class="flex gap-4">
-          <span class="mt-0.5 flex-shrink-0" style="color:#F5B800">
+          <span class="mt-0.5 flex-shrink-0" style="color:#D4AF37">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </span>
           <div>
-            <div class="font-medium text-sm mb-1" style="color:#0C1E6E;font-family:'Inter',sans-serif">Phone</div>
+            <div class="font-medium text-sm mb-1" style="color:#0B1545;font-family:'Inter',sans-serif">Phone</div>
             <a href="tel:+60174344398" class="text-sm" style="color:#666;font-family:'Inter',sans-serif">+60 17-434 4398</a>
           </div>
         </div>
         <div class="flex gap-4">
-          <span class="mt-0.5 flex-shrink-0" style="color:#F5B800">
+          <span class="mt-0.5 flex-shrink-0" style="color:#D4AF37">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </span>
           <div>
-            <div class="font-medium text-sm mb-3" style="color:#0C1E6E;font-family:'Inter',sans-serif">Opening Hours</div>
+            <div class="font-medium text-sm mb-3" style="color:#0B1545;font-family:'Inter',sans-serif">Opening Hours</div>
             <table class="text-sm border-collapse">
-              <tr><td class="font-medium pr-8 pb-2" style="color:#0C1E6E;font-family:'Inter',sans-serif">Wed – Sun</td></tr>
+              <tr><td class="font-medium pr-8 pb-2" style="color:#0B1545;font-family:'Inter',sans-serif">Wed – Sun</td></tr>
               <tr>
                 <td class="pr-8 pb-1" style="color:#666;font-family:'Inter',sans-serif">Lunch</td>
                 <td class="pb-1" style="color:#666;font-family:'Inter',sans-serif">12:00 – 14:30</td>
@@ -561,12 +573,12 @@ nav{background:transparent!important}
           </div>
         </div>
       </div>
-      <div class="mt-8 pl-4 text-sm" style="border-left:2px solid #F5B800">
-        <p style="color:#666;font-family:'Inter',sans-serif"><span style="color:#0C1E6E;font-weight:500">Parking:</span> Street parking on Bishop Street, or private open lot nearby.</p>
+      <div class="mt-8 pl-4 text-sm" style="border-left:2px solid #D4AF37">
+        <p style="color:#666;font-family:'Inter',sans-serif"><span style="color:#0B1545;font-weight:500">Parking:</span> Street parking on Bishop Street, or private open lot nearby.</p>
       </div>
     </div>
     <!-- Map -->
-    <div class="min-h-[420px] lg:min-h-full" style="background:#122484">
+    <div class="min-h-[420px] lg:min-h-full" style="background:#152060">
       <iframe title="Location"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.8!2d100.33700!3d5.41660!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac3fb2f5f2ce5%3A0x9e3c13543cf9d5ec!2sAuntie%20Gaik%20Lean's%20Old%20School%20Eatery!5e0!3m2!1sen!2smy!4v1685000000000!5m2!1sen!2smy"
         width="100%" height="100%"
@@ -578,36 +590,36 @@ nav{background:transparent!important}
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#060F40;border-top:1px solid rgba(245,184,0,.15)">
+<footer style="background:#070E35;border-top:1px solid rgba(212,175,55,.15)">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <!-- Logo -->
       <div class="flex items-center gap-3 flex-shrink-0">
         <div>
           <div class="font-semibold leading-tight" style="font-family:'Playfair Display',serif;color:white;font-size:1rem">Auntie Gaik Lean's</div>
-          <div style="font-family:'Inter',sans-serif;color:#F5B800;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; ⭐ Michelin Star</div>
+          <div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; ⭐ Michelin Star</div>
         </div>
       </div>
       <!-- Nav links -->
       <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
-        <a href="#our-story" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Our Story</a>
+        <a href="#our-story" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Our Story</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="#menu" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Menu</a>
+        <a href="#menu" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Menu</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="#heritage" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Heritage</a>
+        <a href="#heritage" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Heritage</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="#reserve" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Reserve</a>
+        <a href="#reserve" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Reserve</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="#visit-us" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Visit Us</a>
+        <a href="#visit-us" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Visit Us</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="https://guide.michelin.com/en/pulau-pinang/my-george-town/restaurant/auntie-gaik-lean-s-old-school-eatery" target="_blank" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Michelin ↗</a>
+        <a href="https://guide.michelin.com/en/pulau-pinang/my-george-town/restaurant/auntie-gaik-lean-s-old-school-eatery" target="_blank" class="text-xs transition-colors duration-200" style="color:rgba(255,255,255,.48);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.48)'">Michelin ↗</a>
       </div>
       <!-- Right: socials + copyright -->
       <div class="flex items-center gap-4 flex-shrink-0">
-        <a href="https://www.instagram.com/auntiegaiklean" target="_blank" aria-label="Instagram" class="transition-colors duration-200" style="color:rgba(255,255,255,.4)" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
+        <a href="https://www.instagram.com/auntiegaiklean" target="_blank" aria-label="Instagram" class="transition-colors duration-200" style="color:rgba(255,255,255,.4)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://www.facebook.com/p/Auntie-Gaik-Leans-Old-School-Eatery-100063562363254/" target="_blank" aria-label="Facebook" class="transition-colors duration-200" style="color:rgba(255,255,255,.4)" onmouseover="this.style.color='#F5B800'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
+        <a href="https://www.facebook.com/p/Auntie-Gaik-Leans-Old-School-Eatery-100063562363254/" target="_blank" aria-label="Facebook" class="transition-colors duration-200" style="color:rgba(255,255,255,.4)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.4)'">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
         <span style="color:rgba(255,255,255,.18);font-size:11px;font-family:'Inter',sans-serif">© 2026 Auntie Gaik Lean's</span>
@@ -627,14 +639,31 @@ nav{background:transparent!important}
 </a>
 
 <script>
-// Scroll-reveal observer
+// Scroll-reveal
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Star field — scattered twinkling dots like the reference image
+(function(){
+  const container = document.getElementById('stars');
+  if (!container) return;
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('span');
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;
+      --d:${(2+Math.random()*4).toFixed(1)}s;
+      --delay:${(Math.random()*4).toFixed(1)}s;
+      opacity:${(Math.random()*.5+.1).toFixed(2)};
+      width:${Math.random()<.2?'3px':'2px'};
+      height:${Math.random()<.2?'3px':'2px'}`;
+    container.appendChild(s);
+  }
+})();
 </script>
 </body>
 </html>
+
 
