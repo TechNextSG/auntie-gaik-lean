@@ -61,6 +61,161 @@ nav{background:transparent!important}
 .map-frame{filter:saturate(.75) contrast(1.05)}
 
 .label-ornament::before,.label-ornament::after{content:'';display:inline-block;width:32px;height:1px;background:rgba(212,175,55,.35);vertical-align:middle;margin:0 10px}
+
+/* ═══════════════════════════════════════
+   BUTTON ANIMATION SYSTEM
+═══════════════════════════════════════ */
+
+/* Base — every <a> and <button> that's a CTA */
+.btn {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    background-color 0.28s ease,
+    color 0.22s ease,
+    border-color 0.22s ease;
+  will-change: transform;
+}
+
+/* ── Shimmer sweep on hover ── */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.28) 50%, transparent 80%);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.btn:hover::before { left: 140%; }
+
+/* ── Lift + spring bounce ── */
+.btn:hover { transform: translateY(-3px) scale(1.02); }
+.btn:active { transform: translateY(1px) scale(0.97) !important; transition-duration: 0.08s !important; }
+
+/* ── Gold filled ── */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C84A 50%, #D4AF37 100%);
+  background-size: 200% 100%;
+  color: #060D2E;
+  font-weight: 600;
+}
+.btn-gold:hover {
+  background-position: 100% 0;
+  box-shadow: 0 12px 40px rgba(212,175,55,.55), 0 4px 16px rgba(212,175,55,.3), inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* ── Gold outline → fills on hover ── */
+.btn-og {
+  border: 1px solid rgba(212,175,55,.6);
+  color: #D4AF37;
+  background: transparent;
+}
+.btn-og:hover {
+  background: linear-gradient(135deg, #D4AF37, #E8C84A);
+  color: #060D2E;
+  border-color: #D4AF37;
+  box-shadow: 0 12px 36px rgba(212,175,55,.45), 0 0 0 1px rgba(212,175,55,.2);
+}
+
+/* ── White outline → gold on hover ── */
+.btn-ow {
+  border: 1px solid rgba(255,255,255,.35);
+  color: white;
+  background: transparent;
+}
+.btn-ow:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  box-shadow: 0 10px 32px rgba(212,175,55,.3);
+}
+
+/* ── WhatsApp green ── */
+.btn-wa {
+  border: 1px solid #25D366;
+  color: #25D366;
+  background: transparent;
+}
+.btn-wa:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+  box-shadow: 0 12px 36px rgba(37,211,102,.45);
+}
+
+/* ── Ripple circle on click ── */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripplePop 0.7s cubic-bezier(0,.5,.5,1) forwards;
+  pointer-events: none;
+  z-index: 3;
+}
+@keyframes ripplePop {
+  to { transform: scale(5); opacity: 0; }
+}
+
+/* ── Glow pulse on nav reserve ── */
+@keyframes borderPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+  50%       { box-shadow: 0 0 0 4px rgba(212,175,55,.18); }
+}
+.btn-reserve-nav {
+  border: 1px solid rgba(212,175,55,.6);
+  color: #D4AF37;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 8px 22px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  transition: all .3s ease;
+  animation: borderPulse 2.8s ease-in-out infinite;
+}
+.btn-reserve-nav::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.2), transparent);
+  transform: skewX(-18deg);
+  transition: left .5s ease;
+}
+.btn-reserve-nav:hover::before { left: 140%; }
+.btn-reserve-nav:hover {
+  background: #D4AF37;
+  color: #060D2E;
+  box-shadow: 0 8px 28px rgba(212,175,55,.5);
+  animation: none;
+  transform: translateY(-2px);
+}
+
+/* ── Text links with arrow slide ── */
+.lka {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .3s ease, color .2s ease, opacity .2s ease;
+}
+.lka:hover { gap: 12px; }
+.lka svg { transition: transform .35s cubic-bezier(0.34,1.56,0.64,1); }
+.lka:hover svg { transform: translateX(5px); }
+
+/* ── Magnetic wrapper ── */
+.btn-mag { display: inline-block; }
 </style>
 </head>
 <body>
@@ -79,10 +234,7 @@ nav{background:transparent!important}
       <a href="#visit-us" class="text-white/70 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
     <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
-      class="hidden md:inline-block text-[11px] tracking-[.18em] uppercase font-medium px-6 py-2.5 transition-all duration-300"
-      style="border:1px solid #D4AF37;color:#D4AF37;font-family:'Inter',sans-serif"
-      onmouseover="this.style.background='#D4AF37';this.style.color='#060D2E'"
-      onmouseout="this.style.background='transparent';this.style.color='#D4AF37'">
+      class="btn-reserve-nav hidden md:inline-block">
       Reserve
     </a>
     <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')" aria-label="Menu">
@@ -95,8 +247,7 @@ nav{background:transparent!important}
     <a href="#heritage" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Heritage</a>
     <a href="#visit-us" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Visit Us</a>
     <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
-      class="text-center text-xs tracking-[.18em] uppercase py-3 mt-1"
-      style="border:1px solid #D4AF37;color:#D4AF37;font-family:'Inter',sans-serif">Reserve a Table</a>
+      class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
   </div>
 </nav>
 
@@ -125,17 +276,12 @@ nav{background:transparent!important}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
-        class="inline-flex items-center justify-center gap-2 font-semibold text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="background:#D4AF37;color:#060D2E;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#E8C84A'" onmouseout="this.style.background='#D4AF37'">
+        class="btn btn-gold btn-mag text-xs tracking-[.15em] uppercase px-10 py-4 font-semibold">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Reserve Your Table
       </a>
       <a href="#menu"
-        class="inline-flex items-center justify-center gap-2 text-white text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="border:1px solid rgba(255,255,255,.35);font-family:'Inter',sans-serif"
-        onmouseover="this.style.borderColor='#D4AF37';this.style.color='#D4AF37'"
-        onmouseout="this.style.borderColor='rgba(255,255,255,.35)';this.style.color='white'">
+        class="btn btn-ow text-xs tracking-[.15em] uppercase px-10 py-4">
         Explore Our Menu
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
@@ -316,9 +462,7 @@ nav{background:transparent!important}
 
     <div class="text-center">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
-        class="inline-flex items-center gap-3 text-[11px] tracking-[.15em] uppercase font-medium px-10 py-4 transition-all duration-300"
-        style="border:1px solid rgba(212,175,55,.45);color:#D4AF37;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#D4AF37';this.style.color='#060D2E'" onmouseout="this.style.background='transparent';this.style.color='#D4AF37'">
+        class="btn btn-og text-[11px] tracking-[.15em] uppercase font-medium px-10 py-4">
         Reserve & Experience the Full Menu
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
@@ -502,16 +646,12 @@ nav{background:transparent!important}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
-        class="inline-flex items-center justify-center gap-2 font-semibold text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="background:#D4AF37;color:#060D2E;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#E8C84A'" onmouseout="this.style.background='#D4AF37'">
+        class="btn btn-gold btn-mag text-xs tracking-[.15em] uppercase px-10 py-4 font-semibold">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Book via TableApp
       </a>
       <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20make%20a%20reservation." target="_blank"
-        class="inline-flex items-center justify-center gap-2 font-medium text-xs tracking-[.15em] uppercase px-10 py-4 transition-all duration-300"
-        style="border:1px solid #25D366;color:#25D366;font-family:'Inter',sans-serif"
-        onmouseover="this.style.background='#25D366';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#25D366'">
+        class="btn btn-wa text-xs tracking-[.15em] uppercase px-10 py-4 font-medium">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         WhatsApp Us
       </a>
@@ -647,24 +787,96 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Star field — scattered twinkling dots like the reference image
+// Star field
 (function(){
-  const container = document.getElementById('stars');
-  if (!container) return;
+  const c = document.getElementById('stars');
+  if (!c) return;
   for (let i = 0; i < 80; i++) {
     const s = document.createElement('span');
     s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;
-      --d:${(2+Math.random()*4).toFixed(1)}s;
-      --delay:${(Math.random()*4).toFixed(1)}s;
+      --d:${(2+Math.random()*4).toFixed(1)}s;--delay:${(Math.random()*4).toFixed(1)}s;
       opacity:${(Math.random()*.5+.1).toFixed(2)};
-      width:${Math.random()<.2?'3px':'2px'};
-      height:${Math.random()<.2?'3px':'2px'}`;
-    container.appendChild(s);
+      width:${Math.random()<.2?'3px':'2px'};height:${Math.random()<.2?'3px':'2px'}`;
+    c.appendChild(s);
   }
 })();
+
+// ── Ripple on every button/CTA click ──
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn, .btn-gold, .btn-og, .btn-ow, .btn-wa, .btn-reserve-nav');
+  if (!btn) return;
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 1.6;
+  r.style.cssText = `width:${size}px;height:${size}px;
+    left:${e.clientX - rect.left - size/2}px;
+    top:${e.clientY - rect.top - size/2}px;
+    background:${btn.classList.contains('btn-gold') ? 'rgba(255,255,255,.35)' : 'rgba(212,175,55,.45)'};`;
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 750);
+});
+
+// ── Magnetic pull on primary CTAs ──
+document.querySelectorAll('.btn-mag').forEach(btn => {
+  btn.addEventListener('mousemove', function(e) {
+    const rect = this.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width/2) * 0.28;
+    const dy = (e.clientY - rect.top - rect.height/2) * 0.28;
+    this.style.transform = `translate(${dx}px,${dy}px) translateY(-3px) scale(1.02)`;
+    this.style.transition = 'transform 0.12s ease';
+  });
+  btn.addEventListener('mouseleave', function() {
+    this.style.transform = '';
+    this.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';
+  });
+});
+
+// ── 3D tilt on dish cards ──
+document.querySelectorAll('.dish-card').forEach(card => {
+  card.addEventListener('mousemove', function(e) {
+    const r = this.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    this.style.transform = `perspective(700px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateZ(8px)`;
+    this.style.transition = 'transform 0.1s ease';
+    this.style.boxShadow = `${-x*16}px ${-y*16}px 40px rgba(212,175,55,.18)`;
+  });
+  card.addEventListener('mouseleave', function() {
+    this.style.transform = '';
+    this.style.boxShadow = '';
+    this.style.transition = 'transform 0.6s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease';
+  });
+});
+
+// ── Gold cursor dot + ring ──
+const dot = Object.assign(document.createElement('div'), {});
+dot.style.cssText = `position:fixed;width:8px;height:8px;border-radius:50%;background:#D4AF37;
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;
+  transition:width .2s,height .2s,opacity .3s;mix-blend-mode:screen;`;
+const ring = Object.assign(document.createElement('div'), {});
+ring.style.cssText = `position:fixed;width:30px;height:30px;border-radius:50%;
+  border:1.5px solid rgba(212,175,55,.55);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);opacity:0;transition:all .18s ease;`;
+document.body.append(dot, ring);
+
+let rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  dot.style.left = e.clientX+'px'; dot.style.top = e.clientY+'px'; dot.style.opacity = '1';
+  setTimeout(() => { ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px'; ring.style.opacity='1'; }, 45);
+});
+
+document.addEventListener('mousedown', () => { dot.style.width='13px'; dot.style.height='13px'; ring.style.transform='translate(-50%,-50%) scale(1.6)'; });
+document.addEventListener('mouseup',   () => { dot.style.width='8px';  dot.style.height='8px';  ring.style.transform='translate(-50%,-50%) scale(1)'; });
+
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { ring.style.width='46px'; ring.style.height='46px'; ring.style.borderColor='rgba(212,175,55,.9)'; });
+  el.addEventListener('mouseleave', () => { ring.style.width='30px'; ring.style.height='30px'; ring.style.borderColor='rgba(212,175,55,.55)'; });
+});
 </script>
 </body>
 </html>
+
 
 
 
