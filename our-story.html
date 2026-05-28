@@ -96,25 +96,25 @@ nav{background:transparent!important}
 <nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5" id="nav">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="index.html" class="flex flex-col leading-none gap-0.5">
-      <span style="font-family:'Playfair Display',serif;color:white;font-size:1.2rem;font-weight:600">Auntie Gaik Lean's</span>
-      <span style="color:#D4AF37;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-family:'Inter',sans-serif">Old School Eatery</span>
+      <span class="font-display text-white text-xl font-semibold tracking-wide" style="font-family:'Playfair Display',serif">Auntie Gaik Lean's</span>
+      <span class="text-[10px] tracking-[.3em] uppercase font-light" style="color:#D4AF37;font-family:'Inter',sans-serif">Old School Eatery</span>
     </a>
     <div class="hidden md:flex items-center gap-8">
       <a href="our-story.html" class="text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif;color:#D4AF37">Our Story</a>
       <a href="menu.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Menu</a>
       <a href="press.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Press</a>
       <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Visit Us</a>
-      <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
     </div>
-    <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')">
+    <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
+    <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')" aria-label="Menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
   <div id="mob" class="hidden md:hidden border-t border-white/20 mt-4 pt-5 pb-3 flex flex-col gap-4 px-2">
-    <a href="our-story.html" class="text-sm" style="font-family:'Inter',sans-serif;color:#D4AF37">Our Story</a>
-    <a href="menu.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Menu</a>
-    <a href="press.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Press</a>
-    <a href="visit-us.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif">Visit Us</a>
+    <a href="our-story.html" class="text-sm" style="font-family:'Inter',sans-serif;color:#D4AF37" onclick="document.getElementById('mob').classList.add('hidden')">Our Story</a>
+    <a href="menu.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Menu</a>
+    <a href="press.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Press</a>
+    <a href="visit-us.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Visit Us</a>
     <a href="reservations.html" class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
   </div>
 </nav>
