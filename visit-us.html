@@ -126,6 +126,39 @@ nav{background:transparent!important}
   .reveal,.reveal.in-view{opacity:1!important;transform:none!important;transition:none!important}
   .ticker-track{animation:none;white-space:nowrap;overflow:hidden}
 }
+
+/* ── Lightbox ── */
+#lb-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(2,5,20,.94);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  align-items:center;justify-content:center}
+#lb-overlay.open{display:flex}
+#lb-img{max-width:92vw;max-height:88vh;object-fit:contain;
+  border:1px solid rgba(212,175,55,.2);
+  box-shadow:0 0 100px rgba(0,0,0,.9),0 0 40px rgba(212,175,55,.06);
+  transition:transform .35s cubic-bezier(0.34,1.2,0.64,1),opacity .3s ease;
+  transform:scale(.9);opacity:0}
+#lb-overlay.open #lb-img{transform:scale(1);opacity:1}
+#lb-close{position:absolute;top:18px;right:22px;
+  color:rgba(255,255,255,.65);cursor:pointer;
+  transition:color .2s,transform .25s,background .2s;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;line-height:1;z-index:1}
+#lb-close:hover{color:#D4AF37;background:rgba(212,175,55,.12);
+  border-color:rgba(212,175,55,.35);transform:rotate(90deg)}
+#lb-caption{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.45);font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;font-family:'Inter',sans-serif;
+  white-space:nowrap;max-width:82vw;overflow:hidden;text-overflow:ellipsis}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);
+  color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);border-radius:50%;
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;font-size:20px;user-select:none}
+#lb-prev{left:18px}#lb-next{right:18px}
+#lb-prev:hover,#lb-next:hover{color:#D4AF37;background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)}
+.lb-trigger{cursor:zoom-in!important}
 </style>
 </head>
 <body>
@@ -141,6 +174,7 @@ nav{background:transparent!important}
       <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Our Story</a>
       <a href="menu.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Menu</a>
       <a href="press.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Press</a>
+      <a href="news.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">News</a>
       <a href="visit-us.html" class="text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif;color:#D4AF37">Visit Us</a>
     </div>
     <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
@@ -152,6 +186,7 @@ nav{background:transparent!important}
     <a href="our-story.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Our Story</a>
     <a href="menu.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Menu</a>
     <a href="press.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Press</a>
+    <a href="news.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">News</a>
     <a href="visit-us.html" class="text-sm" style="font-family:'Inter',sans-serif;color:#D4AF37" onclick="document.getElementById('mob').classList.add('hidden')">Visit Us</a>
     <a href="reservations.html" class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
   </div>
@@ -181,10 +216,10 @@ nav{background:transparent!important}
 <div class="border-y overflow-hidden py-3 select-none" style="background:#050C28;border-color:rgba(212,175,55,.2)">
   <div class="ticker-track">
     <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(212,175,55,.65);font-family:'Inter',sans-serif">
-      ⭐ Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; ⭐ One Michelin Star 2022 &nbsp;·&nbsp; ⭐ One Michelin Star 2023 &nbsp;·&nbsp; ⭐ One Michelin Star 2024 &nbsp;·&nbsp; ⭐ One Michelin Star 2025 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
+      <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2022 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2023 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2024 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2025 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
     </span>
     <span class="text-[11px] tracking-[.2em] uppercase whitespace-nowrap px-8" style="color:rgba(212,175,55,.65);font-family:'Inter',sans-serif">
-      ⭐ Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; ⭐ One Michelin Star 2022 &nbsp;·&nbsp; ⭐ One Michelin Star 2023 &nbsp;·&nbsp; ⭐ One Michelin Star 2024 &nbsp;·&nbsp; ⭐ One Michelin Star 2025 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
+      <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Malaysia's First Michelin-Starred Nyonya Restaurant &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2022 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2023 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2024 &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> One Michelin Star 2025 &nbsp;·&nbsp; George Town, Penang &nbsp;·&nbsp; Authentic Peranakan Cuisine &nbsp;·&nbsp; Reservations Recommended &nbsp;·&nbsp; Wed – Sun &nbsp;·&nbsp;
     </span>
   </div>
 </div>
@@ -414,13 +449,15 @@ nav{background:transparent!important}
 <footer style="background:#040A22;border-top:1px solid rgba(212,175,55,.15)">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div><div style="font-family:'Playfair Display',serif;color:white;font-size:1rem;font-weight:600">Auntie Gaik Lean's</div><div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; ⭐ Michelin Star</div></div>
+      <div><div style="font-family:'Playfair Display',serif;color:white;font-size:1rem;font-weight:600">Auntie Gaik Lean's</div><div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star</div></div>
       <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
         <a href="our-story.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Our Story</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
         <a href="menu.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Menu</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
         <a href="press.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Press</a>
+        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+        <a href="news.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">News</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
         <a href="reservations.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Reservations</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
@@ -531,27 +568,49 @@ document.querySelectorAll('.dish-card').forEach(card=>{
   });
 });
 
-// Gold cursor - desktop/pointer only, RAF-driven ring
-if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
-  const dot=document.createElement('div');
-  dot.style.cssText='position:fixed;width:8px;height:8px;border-radius:50%;background:#D4AF37;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width .15s,height .15s,opacity .3s;mix-blend-mode:screen;will-change:left,top;';
-  const ring=document.createElement('div');
-  ring.style.cssText='position:fixed;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(212,175,55,.55);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width .2s,height .2s,border-color .2s;will-change:left,top;';
-  document.body.append(dot,ring);
-  let mx=0,my=0,rx=0,ry=0,shown=false;
-  document.addEventListener('mousemove',e=>{
-    mx=e.clientX;my=e.clientY;
-    dot.style.left=mx+'px';dot.style.top=my+'px';
-    if(!shown){dot.style.opacity='1';ring.style.opacity='1';shown=true;}
-  },{passive:true});
-  (function loop(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-  document.addEventListener('mousedown',()=>{dot.style.width='13px';dot.style.height='13px';ring.style.transform='translate(-50%,-50%) scale(1.6)';});
-  document.addEventListener('mouseup',()=>{dot.style.width='8px';dot.style.height='8px';ring.style.transform='translate(-50%,-50%) scale(1)';});
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{ring.style.width='46px';ring.style.height='46px';ring.style.borderColor='rgba(212,175,55,.9)';},{passive:true});
-    el.addEventListener('mouseleave',()=>{ring.style.width='30px';ring.style.height='30px';ring.style.borderColor='rgba(212,175,55,.55)';},{passive:true});
+
+// Lightbox
+(function(){
+  const ov=document.getElementById('lb-overlay');
+  const im=document.getElementById('lb-img');
+  const cp=document.getElementById('lb-caption');
+  if(!ov)return;
+  const imgs=[];
+  document.querySelectorAll('img').forEach(el=>{
+    if(el.closest('#lb-overlay'))return;
+    imgs.push(el);
+    el.classList.add('lb-trigger');
+    el.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      open(imgs.indexOf(this));
+    });
   });
-}
+  let cur=0;
+  function open(i){
+    cur=i;
+    im.src=imgs[i].src;im.alt=imgs[i].alt;
+    cp.textContent=imgs[i].alt||'';
+    ov.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    ov.classList.remove('open');
+    document.body.style.overflow='';
+    setTimeout(()=>{im.src='';},360);
+  }
+  function prev(){open((cur-1+imgs.length)%imgs.length);}
+  function next(){open((cur+1)%imgs.length);}
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',e=>{e.stopPropagation();prev();});
+  document.getElementById('lb-next').addEventListener('click',e=>{e.stopPropagation();next();});
+  ov.addEventListener('click',e=>{if(e.target===ov)close();});
+  document.addEventListener('keydown',e=>{
+    if(!ov.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    else if(e.key==='ArrowLeft')prev();
+    else if(e.key==='ArrowRight')next();
+  });
+})();
 
 // Hide/show nav on scroll
 (function(){
@@ -562,5 +621,15 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   },{passive:true});
 })();
 </script>
+
+<!-- LIGHTBOX -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button id="lb-close" aria-label="Close preview">&#10005;</button>
+  <button id="lb-prev" aria-label="Previous">&#8249;</button>
+  <img id="lb-img" src="" alt=""/>
+  <button id="lb-next" aria-label="Next">&#8250;</button>
+  <div id="lb-caption"></div>
+</div>
+
 </body>
 </html>
