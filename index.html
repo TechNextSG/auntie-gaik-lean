@@ -399,6 +399,16 @@ p, li, td, blockquote { line-height: 1.9 }
       transparent 55%);
   animation:glowPulse 4.5s ease-in-out 1s infinite;
 }
+
+/* ── Damask texture layer (sits above glow, below content) ── */
+.damask-layer{
+  position:absolute;inset:0;
+  background-size:180px 180px;
+  background-repeat:repeat;
+  opacity:0.18;
+  pointer-events:none;
+  z-index:2;
+}
 </style>
 </head>
 <body>
@@ -561,6 +571,7 @@ p, li, td, blockquote { line-height: 1.9 }
   </div>
   <div class="absolute top-0 left-0 right-0 h-px pointer-events-none" style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
     <div class="reveal text-center mb-16">
       <div class="flex items-center justify-center gap-3 mb-4">
@@ -751,6 +762,7 @@ p, li, td, blockquote { line-height: 1.9 }
   </div>
   <div class="absolute top-0 left-0 right-0 h-px pointer-events-none" style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.3) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.18) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="reveal relative z-10 max-w-3xl mx-auto px-6 lg:px-12 text-center">
     <div class="flex items-center justify-center gap-3 mb-4">
       <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
@@ -895,6 +907,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="absolute inset-0 hero-bg opacity-10 pointer-events-none"></div>
   <div class="absolute inset-0 pointer-events-none" style="background:rgba(4,8,26,.88)"></div>
   <!-- Atmospheric glow -->
@@ -1090,6 +1103,10 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
     if(bg.includes('#060D2E')||bg.includes('#0A1645')||bg.includes('#050C28')){
       el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat';
     }
+  });
+  // Also apply damask to dedicated .damask-layer divs (above glow, below content)
+  document.querySelectorAll('.damask-layer').forEach(el=>{
+    el.style.backgroundImage=enc;
   });
 })();
 

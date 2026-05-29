@@ -221,6 +221,16 @@ p, li, td, blockquote { line-height: 1.9 }
       transparent 55%);
   animation:glowPulse 4.5s ease-in-out 1s infinite;
 }
+
+/* ── Damask texture layer (sits above glow, below content) ── */
+.damask-layer{
+  position:absolute;inset:0;
+  background-size:180px 180px;
+  background-repeat:repeat;
+  opacity:0.18;
+  pointer-events:none;
+  z-index:2;
+}
 </style>
 </head>
 <body>
@@ -311,6 +321,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="max-w-5xl mx-auto px-6">
     <!-- Two-column: text left, chef photo right -->
     <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
@@ -444,6 +455,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="max-w-5xl mx-auto px-6 text-center">
     <div class="reveal mb-10">
       <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#D4AF37">Coverage</span>
@@ -572,6 +584,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="max-w-3xl mx-auto px-6 text-center">
     <div class="reveal">
       <div style="font-size:2.5rem;margin-bottom:1rem" class="shimmer"><svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
@@ -638,6 +651,10 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
     if(bg.includes('#060D2E')||bg.includes('#0A1645')||bg.includes('#050C28')){
       el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat';
     }
+  });
+  // Also apply damask to dedicated .damask-layer divs (above glow, below content)
+  document.querySelectorAll('.damask-layer').forEach(el=>{
+    el.style.backgroundImage=enc;
   });
 })();
 

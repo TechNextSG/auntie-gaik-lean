@@ -223,6 +223,16 @@ p, li, td, blockquote { line-height: 1.9 }
       transparent 55%);
   animation:glowPulse 4.5s ease-in-out 1s infinite;
 }
+
+/* ── Damask texture layer (sits above glow, below content) ── */
+.damask-layer{
+  position:absolute;inset:0;
+  background-size:180px 180px;
+  background-repeat:repeat;
+  opacity:0.18;
+  pointer-events:none;
+  z-index:2;
+}
 </style>
 </head>
 <body>
@@ -313,6 +323,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <div class="max-w-5xl mx-auto px-6 lg:px-12">
     <div class="reveal text-center mb-12">
       <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:white;font-weight:600;margin-bottom:.75rem">How to Book</h2>
@@ -445,6 +456,7 @@ p, li, td, blockquote { line-height: 1.9 }
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.28) 50%,transparent 95%)"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
     style="background:linear-gradient(to right,transparent 5%,rgba(212,175,55,.15) 50%,transparent 95%)"></div>
+  <div class="damask-layer"></div>
   <!-- Private dining room photo -->
   <div class="max-w-5xl mx-auto px-6 lg:px-12 mb-12">
     <div class="overflow-hidden rounded-sm" style="height:420px">
@@ -607,6 +619,10 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
     if(bg.includes('#060D2E')||bg.includes('#0A1645')||bg.includes('#050C28')){
       el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat';
     }
+  });
+  // Also apply damask to dedicated .damask-layer divs (above glow, below content)
+  document.querySelectorAll('.damask-layer').forEach(el=>{
+    el.style.backgroundImage=enc;
   });
 })();
 
