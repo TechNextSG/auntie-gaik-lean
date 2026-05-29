@@ -1079,6 +1079,7 @@ p, li, td, blockquote { line-height: 1.9 }
 <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20a%20reservation%20at%20Auntie%20Gaik%20Lean's." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="wa-pulse fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center shadow-2xl transition-transform duration-200 hover:scale-110" style="background:#25D366"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
 <script>
+
 // Scroll-reveal
 const revealObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');revealObs.unobserve(e.target);}});
@@ -1224,130 +1225,6 @@ document.querySelectorAll('.dish-card').forEach(card=>{
   });
 })();
 
-
-const DISH_DATA = {
-  'pie-tee': {name:"Pie Tee",price:"RM 18",cat:"Starter",img:"img/dining-8911.jpg",desc:"Hand-made pastry shells fried to order, each cupped brim filled with a warm stir-fry of julienned turnip, fresh prawn and egg — then finished with Auntie's house-made sweet-tangy dipping sauce. A Nyonya classic: fragile, addictive, and completely irreplaceable. Eat immediately for maximum crunch.",highlights:["Hand-fried pastry shells","Fresh prawns","House sweet-tangy dip","Prepared to order"],notes:'Consume immediately — the shells soften within minutes.'},
-  'popiah': {name:"Popiah",price:"RM 20",cat:"Starter",img:"",desc:"A delicate thin crêpe skin wrapping a slow-braised filling of turnip, shrimp, tofu and crisp fresh lettuce — then dressed tableside with Auntie's house-made chilli sauce and sweet sauce. Refreshing, herbaceous, and a true showcase of Nyonya technique.",highlights:["Thin hand-made crêpe skin","Braised turnip filling","House chilli & sweet sauce","Fresh lettuce & herbs"],notes:'A lighter starter — great for sharing.'},
-  'otah-otah': {name:"Otah-Otah",price:"RM 22",cat:"Starter",img:"",desc:'Freshly made fish mousse — blended with lemongrass, galangal, kaffir lime leaves and fresh chilli — wrapped tightly in banana leaf and steamed until silky. The leaf perfumes the custard as it cooks, yielding something delicate, aromatic and unmistakably Nyonya.',highlights:["Fresh fish mousse","Hand-ground spice paste","Kaffir lime & galangal","Steamed in banana leaf"],notes:'Lightly spiced — suitable for most palates.'},
-  'achar-prawns': {name:"Achar Prawns",price:"RM 28",cat:"Starter",img:"",desc:'Plump tiger prawns marinated for hours in a hand-ground Nyonya achar spice blend — turmeric, shallots, dried chilli and a touch of belachan — then lightly fried until caramelised at the edges. Tangy, bold and layered with warmth.',highlights:["Tiger prawns","Hand-ground achar paste","Turmeric & belachan","Lightly wok-fried"],notes:'Contains shellfish.'},
-  'itek-tim': {name:"Itek Tim",price:"RM 45",cat:"Soup",img:"",desc:'A deeply soothing soup of whole duck pieces slow-braised for hours in a clear broth built on sour plum (asam), salted vegetables and tomatoes — finished with fresh coriander. This is heirloom Nyonya cooking at its most restorative: complex, healing, and unlike anything else.',highlights:["Whole free-range duck","Sour plum broth","Salted vegetables","Slow-braised 3+ hours"],notes:'Best enjoyed with steamed rice.'},
-  'soto-ayam': {name:"Soto Ayam",price:"RM 28",cat:"Soup",img:"",desc:'A bright, spiced chicken soup made with a full kampung (free-range) chicken simmered in a golden turmeric-forward broth with lemongrass and galangal. Served with hand-shredded chicken, glass noodles, boiled egg and fresh herbs. Soul-warming, light and deeply nourishing.',highlights:["Free-range kampung chicken","Turmeric-lemongrass broth","Hand-shredded chicken","Glass noodles & egg"],notes:'Naturally gluten-free.'},
-  'kari-kapitan': {name:"Kari Kapitan",price:"RM 48–58",cat:"Main",img:"img/food-0054.jpg",desc:"The dish that built Auntie Gaik Lean's reputation. Free-range chicken slow-cooked in a hand-ground rempah of candlenut, lemongrass, galangal, tamarind and fresh turmeric — simmered until the oil 'breaks' from the paste and the chicken absorbs every note of the spice. Rich, layered, and completely irreplaceable. Michelin inspectors have written about it. We've been serving it the same way since the day we opened.",highlights:["Free-range kampung chicken","Hand-ground rempah (9 spices)","Tamarind & candlenut base","Cooked daily in single batches"],notes:'Signature dish — must order. Medium spice.'},
-  'lamb-pongteh': {name:"Lamb Pongteh",price:"RM 68",cat:"Main",img:"",desc:'A Nyonya adaptation of the classic Peranakan pongteh technique — tender lamb shoulder braised low and slow in a deep paste of tao cheo (fermented soybean), shallots and palm sugar. The result is a rich, umami-forward braise with subtle sweetness, the meat falling apart at the touch of a spoon.',highlights:["Slow-braised lamb shoulder","Fermented soybean paste","Palm sugar balance","6-hour braise"],notes:'Beef rendang available as an alternative.'},
-  'ayam-buah-keluak': {name:"Ayam Buah Keluak",price:"RM 72",cat:"Main",img:"",desc:"One of the rarest and most complex dishes in the Peranakan canon. Chicken braised with buah keluak — a wild Indonesian black nut with an earthy, truffle-like depth — in a tangy tamarind and spice paste. The nut's interior is scooped, blended with minced chicken and restuffed before cooking. Dark, mysterious, and extraordinary.",highlights:["Wild Indonesian buah keluak nut","Hand-stuffed nut filling","Tamarind spice paste","Limited quantity daily"],notes:'Available subject to daily supply of buah keluak.'},
-  'beef-rendang': {name:"Nyonya Beef Rendang",price:"RM 88",cat:"Main",img:"",desc:'Tender cuts of beef slow-cooked for hours in a Peranakan spiced coconut milk reduction — lemongrass, galangal, kaffir lime and toasted kerisik (grated coconut) — until every last drop of liquid has been absorbed and the beef is coated in a deeply caramelised, intensely fragrant crust. Extraordinary on steamed rice.',highlights:["Australian grass-fed beef","Coconut milk reduction","Toasted kerisik","4-hour cook"],notes:'Dry rendang style — not saucy. Contains coconut.'},
-  'sambal-terung': {name:"Sambal Terung",price:"RM 22",cat:"Vegetable",img:"",desc:"Whole aubergine, split and wok-fired in a hand-ground sambal paste of shallots, dried chilli, fresh chilli and toasted belachan. The eggplant absorbs the paste's heat and smokiness as it chars slightly at the edges — bold, complex and deeply satisfying.",highlights:["Whole fresh brinjal","Hand-ground sambal paste","Toasted belachan","Wok-fired to order"],notes:'Suitable for vegetarians. Contains belachan (shrimp paste).'},
-  'kerabu-pucuk-paku': {name:"Kerabu Pucuk Paku",price:"RM 18",cat:"Salad",img:"",desc:'Fresh paku ferns (wild fiddlehead fern tips) blanched and tossed with grated toasted coconut, thinly sliced shallots, dried prawns and a bright Nyonya kerabu dressing. Refreshing, herbaceous and fibre-rich — a perfect counterpoint to the richer mains.',highlights:["Wild paku fern tips","Toasted grated coconut","Kerabu dressing","Served at room temperature"],notes:'Contains dried prawns.'},
-  'assam-hae': {name:"Assam Hae",price:"RM 78–118",cat:"Seafood",img:"",desc:"Whole tiger prawns — shell on, roe intact when available — wok-fired at high heat in Auntie's signature asam (tamarind) and chilli paste. The shells caramelise in the fierce wok heat, locking in the prawn's natural sweetness. Peel and eat with your hands. Sticky, spicy, and absolutely unforgettable.",highlights:["Whole tiger prawns","Hand-ground tamarind paste","High-heat wok fire","Shell-on for maximum flavour"],notes:'Contains shellfish. Price varies by market rate and size.'},
-  'sambal-udang': {name:"Sambal Udang",price:"RM 68",cat:"Seafood",img:"",desc:"Plump fresh prawns stir-fried in a generous coat of Auntie's hand-ground Nyonya sambal — shallots, lemongrass, dried chilli and fresh herbs — in a screaming-hot wok. The sambal clings to each prawn and caramelises slightly at the edges. Rich, aromatic and intensely satisfying.",highlights:["Fresh tiger prawns","Hand-ground Nyonya sambal","Lemongrass & shallot base","Wok-seared to order"],notes:'Contains shellfish. Spice level: medium-high.'},
-  'gulai-tumis': {name:"Gulai Tumis",price:"RM 85",cat:"Seafood",img:"img/food-0022.jpg",desc:'The dish Michelin inspectors singled out by name. Whole fresh fish simmered in a tangy Nyonya paste of over eight fresh ingredients — including fresh saffron, pineapple and torch ginger flower (bunga kantan). The paste is hand-ground each morning. Bright, sour and deeply complex.',highlights:["Whole fresh fish daily","8+ ingredient hand-ground paste","Fresh saffron","Torch ginger flower & pineapple"],notes:'Michelin Guide specifically praised this dish. Spice: medium.'},
-  'chilli-crab': {name:"Chilli Crab-Style",price:"Market Price",cat:"Seafood",img:"",desc:"Whole mud crab, cracked and wok-tossed in Auntie's Nyonya-style chilli-tomato gravy — a richer, spicier, more complex cousin of the Singapore classic. The sauce soaks into the shell as it cooks and is best enjoyed mopped up with white bread. Ask your server for today's market price and available sizes.",highlights:["Whole fresh mud crab","Nyonya chilli-tomato gravy","Market-fresh daily","Best with white bread"],notes:'Subject to daily market availability. Price on request.'},
-  'nasi-ulam': {name:"Nasi Ulam",price:"RM 35",cat:"Rice & Noodles",img:"img/dining-9248.jpg",desc:"Auntie Gaik Lean's most personal dish. Fragrant steamed rice hand-tossed every morning with over ten finely hand-cut herbs and spices — torch ginger, turmeric leaf, lemongrass, daun kaduk and more — plus toasted coconut, dried shrimp and salted fish. Each bowl takes 20 minutes to prepare by hand. The recipe has never been written down.",highlights:["10+ fresh herbs hand-cut daily","Toasted coconut & dried shrimp","Recipe passed down orally","Prepared in limited quantities"],notes:"Limited quantity — order early. One of Auntie's most iconic dishes."},
-  'kerabu-bihun': {name:"Kerabu Bihun",price:"RM 28",cat:"Rice & Noodles",img:"img/food-1767.jpg",desc:'Fine rice vermicelli tossed cold with a vibrant fiery sambal belacan, succulent fresh prawns, julienned cucumber, shallots, toasted coconut and a generous squeeze of calamansi lime. Refreshing yet bold — the interplay of heat, acid and coconut is quintessentially Nyonya.',highlights:["Fine rice vermicelli","Fresh tiger prawns","House sambal belacan","Fresh calamansi lime"],notes:'Spice level: medium-high.'},
-  'nyonya-laksa': {name:"Nyonya Laksa",price:"RM 28",cat:"Rice & Noodles",img:"",desc:'A bowl of thick rice noodles in a full-bodied Nyonya laksa broth — coconut milk enriched with a hand-ground rempah of lemongrass, galangal, candlenut and fresh chilli — topped with fresh prawns, fish cake, tau pok and sambal. Rich, aromatic and deeply satisfying.',highlights:["Hand-ground laksa rempah","Coconut milk broth","Thick rice noodles","Fresh prawns & fish cake"],notes:'Contains shellfish. Gluten-free noodles available on request.'},
-  'nasi-lemak': {name:"Nasi Lemak Nyonya",price:"RM 32",cat:"Rice & Noodles",img:"",desc:"Fragrant pandan-infused coconut rice served with Auntie's house-made sambal, crispy ikan bilis, fresh cucumber, a soft-boiled egg and your choice of Nyonya lauk. A Peranakan interpretation of Malaysia's national dish — cleaner, more aromatic and considerably more complex than most.",highlights:["Pandan & coconut rice","House-made sambal","Choice of Nyonya lauk","Crispy ikan bilis"],notes:'Halal-friendly. Contains coconut.'},
-  'sago-gula-melaka': {name:"Sago Gula Melaka",price:"RM 8",cat:"Dessert",img:"",desc:'Tiny pearl sago cooked until translucent and served warm with a generous pour of dark gula melaka (palm sugar) syrup and thick fresh coconut cream. Elegant in its simplicity. The combination of earthy sweetness, floral coconut and the slight chew of the sago is one of the great Nyonya pleasures.',highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:'Gluten-free. Vegan.'},
-  'pulut-hitam': {name:"Pulut Hitam",price:"RM 8",cat:"Dessert",img:"img/food-1441.jpg",desc:'Black glutinous rice slow-cooked for hours with pandan leaves and palm sugar until the grains bloom and the porridge thickens naturally. Served with a crown of thick coconut cream. Warm, aromatic and deeply comforting — a beloved Nyonya kuih night sweet.',highlights:["Black glutinous rice","Slow-cooked with pandan","Palm sugar sweetened","Fresh coconut cream"],notes:'Gluten-free. Vegan.'},
-  'kuih-dadar': {name:"Kuih Dadar",price:"RM 10",cat:"Dessert",img:"",desc:'Thin pandan-scented crêpe rolls filled with a moist filling of freshly grated coconut slow-cooked with dark gula melaka. The crepe is a vivid natural green from fresh pandan juice, the filling rich and caramelised. A Nyonya kuih classic that requires time, skill and care to get right.',highlights:["Fresh pandan juice crêpe","Grated coconut filling","Dark gula melaka","Made to order"],notes:'Gluten-free. Vegan.'},
-  'cendol': {name:"Cendol",price:"RM 8",cat:"Dessert",img:"",desc:'Finely shaved ice mounded over pandan-green rice flour jelly strands and red kidney beans, drenched in dark gula melaka syrup and poured with rich fresh coconut milk. The Penang version is darker, more intensely sweet and more coconut-forward than most — a cooling finish to a full meal.',highlights:["House pandan jelly","Dark Penang gula melaka","Fresh coconut milk","Shaved ice to order"],notes:'Gluten-free. Vegan.'},
-};
-
-
-
-
-// ── Category filter ──────────────────────────────────────────────────────
-document.querySelectorAll('.filter-tab').forEach(function(tab){
-  tab.addEventListener('click',function(){
-    document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active');});
-    this.classList.add('active');
-    var filter=this.getAttribute('data-filter');
-    document.querySelectorAll('#menu-grid [data-cat]').forEach(function(card){
-      if(filter==='all'||card.getAttribute('data-cat')===filter){
-        card.style.display='';
-      } else {
-        card.style.display='none';
-      }
-    });
-  });
-});
-
-var DISH_DATA={
-  'pie-tee':{name:'Pie Tee',price:'RM 18',cat:'Starter',img:'img/dining-8911.jpg',desc:'Hand-made pastry shells fried to order, filled with a warm stir-fry of julienned turnip, fresh prawn and egg — finished with Auntie\'s house-made sweet-tangy dipping sauce. A Nyonya classic: fragile, addictive, and completely irreplaceable.',highlights:["Fresh prawns","Hand-fried pastry shells","House sweet-tangy dip","Prepared to order"],notes:'Contains shellfish, egg.'},
-  'popiah':{name:'Popiah',price:'RM 20',cat:'Starter',img:'',desc:'A delicate thin crêpe skin wrapping a slow-braised filling of turnip, shrimp, tofu and crisp fresh lettuce — dressed tableside with Auntie\'s house-made chilli sauce and sweet sauce.',highlights:["Thin hand-made crêpe skin","Braised turnip & shrimp","House chilli & sweet sauce","Fresh lettuce & herbs"],notes:'Contains shellfish.'},
-  'otah-otah':{name:'Otah-Otah',price:'RM 22',cat:'Starter',img:'',desc:'Freshly made fish mousse blended with lemongrass, galangal, kaffir lime leaves and fresh chilli — wrapped in banana leaf and steamed until silky. The leaf perfumes the custard as it cooks.',highlights:["Fresh fish mousse","Hand-ground spice paste","Kaffir lime & galangal","Steamed in banana leaf"],notes:'Lightly spiced. Contains fish.'},
-  'achar-prawns':{name:'Achar Prawns',price:'RM 28',cat:'Starter',img:'',desc:'Plump tiger prawns marinated in a hand-ground Nyonya achar spice blend — turmeric, shallots, dried chilli and belachan — then lightly fried until caramelised at the edges.',highlights:["Tiger prawns","Hand-ground achar paste","Turmeric & belachan","Lightly wok-fried"],notes:'Contains shellfish.'},
-  'itek-tim':{name:'Itek Tim',price:'RM 45',cat:'Soup',img:'',desc:'A deeply soothing soup of whole duck pieces slow-braised in a clear broth of sour plum, salted vegetables and tomatoes — finished with fresh coriander. Heirloom Nyonya cooking at its most restorative.',highlights:["Whole free-range duck","Sour plum (asam) broth","Salted vegetables","Slow-braised 3+ hours"],notes:'Best enjoyed with steamed rice.'},
-  'soto-ayam':{name:'Soto Ayam',price:'RM 28',cat:'Soup',img:'',desc:'Free-range kampung chicken simmered in a golden turmeric-forward broth with lemongrass and galangal. Served with hand-shredded chicken, glass noodles, boiled egg and fresh herbs.',highlights:["Free-range kampung chicken","Turmeric-lemongrass broth","Hand-shredded chicken","Glass noodles & egg"],notes:'Naturally gluten-free.'},
-  'kari-kapitan':{name:'Kari Kapitan',price:'RM 48–58',cat:'Main',img:'img/food-0054.jpg',desc:'The dish that built Auntie Gaik Lean\'s reputation. Free-range chicken slow-cooked in a hand-ground rempah of candlenut, lemongrass, galangal, tamarind and fresh turmeric. Michelin inspectors praised it by name. Served the same way since day one.',highlights:["Free-range kampung chicken","Hand-ground rempah — 9 spices","Tamarind & candlenut base","Cooked daily in single batches"],notes:'Signature dish. Medium spice. Must order.'},
-  'lamb-pongteh':{name:'Lamb Pongteh',price:'RM 68',cat:'Main',img:'',desc:'Tender lamb shoulder braised low and slow in a deep paste of fermented soybean, shallots and palm sugar. Rich, umami-forward, with subtle sweetness. The meat falls apart at the touch of a spoon.',highlights:["Slow-braised lamb shoulder","Fermented soybean paste","Palm sugar balance","6-hour braise"],notes:'Spice: mild. Contains soy.'},
-  'ayam-buah-keluak':{name:'Ayam Buah Keluak',price:'RM 72',cat:'Main',img:'',desc:'One of the rarest dishes in the Peranakan canon. Chicken braised with the wild Indonesian black nut — earthy and truffle-like — in a tangy tamarind and spice paste. The nut is hand-scooped, blended with minced chicken, and restuffed before cooking.',highlights:["Wild Indonesian buah keluak","Hand-stuffed nut filling","Tamarind spice paste","Limited daily quantity"],notes:'Subject to daily buah keluak supply.'},
-  'beef-rendang':{name:'Nyonya Beef Rendang',price:'RM 88',cat:'Main',img:'',desc:'Tender beef slow-cooked in a Peranakan spiced coconut milk reduction — lemongrass, galangal, kaffir lime and toasted kerisik — until the beef is coated in a deeply caramelised, intensely fragrant crust.',highlights:["Grass-fed beef","Coconut milk reduction","Toasted kerisik","4-hour cook"],notes:'Dry rendang — not saucy. Contains coconut.'},
-  'sambal-terung':{name:'Sambal Terung',price:'RM 22',cat:'Vegetable',img:'',desc:'Whole aubergine wok-fired in a hand-ground sambal paste of shallots, dried chilli and toasted belachan. The eggplant absorbs the heat and smokiness as it chars — bold, complex and satisfying.',highlights:["Whole fresh brinjal","Hand-ground sambal paste","Toasted belachan","Wok-fired to order"],notes:'Vegetarian. Contains belachan (shrimp paste).'},
-  'kerabu-pucuk-paku':{name:'Kerabu Pucuk Paku',price:'RM 18',cat:'Salad',img:'',desc:'Fresh paku ferns blanched and tossed with grated toasted coconut, shallots, dried prawns and a bright Nyonya kerabu dressing. Refreshing and fibre-rich.',highlights:["Wild paku fern tips","Toasted grated coconut","Nyonya kerabu dressing","Served at room temp"],notes:'Contains dried prawns.'},
-  'assam-hae':{name:'Assam Hae',price:'RM 78–118',cat:'Seafood',img:'',desc:'Whole tiger prawns — shell on — wok-fired at high heat in Auntie\'s signature tamarind and chilli paste. The shells caramelise, locking in the prawn\'s natural sweetness. Sticky, spicy and unforgettable.',highlights:["Whole tiger prawns","Hand-ground tamarind paste","High-heat wok fire","Shell-on for full flavour"],notes:'Contains shellfish. Price varies by market rate.'},
-  'sambal-udang':{name:'Sambal Udang',price:'RM 68',cat:'Seafood',img:'',desc:'Plump fresh prawns stir-fried in Auntie\'s hand-ground Nyonya sambal — shallots, lemongrass, dried chilli — in a screaming-hot wok. The sambal clings and caramelises at the edges.',highlights:["Fresh tiger prawns","Hand-ground Nyonya sambal","Lemongrass & shallot base","Wok-seared to order"],notes:'Contains shellfish. Spice: medium-high.'},
-  'gulai-tumis':{name:'Gulai Tumis',price:'RM 85',cat:'Seafood',img:'img/food-0022.jpg',desc:'The dish Michelin inspectors singled out by name. Whole fresh fish in a tangy Nyonya paste of 8+ fresh ingredients — fresh saffron, pineapple and torch ginger flower. Hand-ground each morning. Bright, sour and deeply complex.',highlights:["Whole fresh fish daily","8+ ingredient hand-ground paste","Fresh saffron","Torch ginger & pineapple"],notes:'Specifically praised by the Michelin Guide. Spice: medium.'},
-  'chilli-crab':{name:'Chilli Crab-Style',price:'Market Price',cat:'Seafood',img:'',desc:'Whole mud crab wok-tossed in Auntie\'s Nyonya chilli-tomato gravy — richer and more complex than the Singapore classic. Best mopped up with white bread. Ask your server for today\'s price.',highlights:["Whole fresh mud crab","Nyonya chilli-tomato gravy","Market-fresh daily","Best with white bread"],notes:'Subject to daily availability. Price on request.'},
-  'nasi-ulam':{name:'Nasi Ulam',price:'RM 35',cat:'Rice & Noodles',img:'img/dining-9248.jpg',desc:'Auntie\'s most personal dish. Fragrant steamed rice hand-tossed with 10+ finely cut herbs — torch ginger, turmeric leaf, lemongrass — plus toasted coconut, dried shrimp and salted fish. 20 minutes by hand. Never written down.',highlights:["10+ fresh herbs hand-cut daily","Toasted coconut & dried shrimp","Recipe passed down orally","Limited daily quantity"],notes:'Limited quantity — order early. Iconic.'},
-  'kerabu-bihun':{name:'Kerabu Bihun',price:'RM 28',cat:'Rice & Noodles',img:'img/food-1767.jpg',desc:'Fine rice vermicelli tossed cold with fiery sambal belacan, fresh prawns, julienned cucumber, shallots, toasted coconut and a generous squeeze of calamansi lime. Refreshing yet bold.',highlights:["Fine rice vermicelli","Fresh tiger prawns","House sambal belacan","Fresh calamansi lime"],notes:'Spice: medium-high. Contains shellfish.'},
-  'nyonya-laksa':{name:'Nyonya Laksa',price:'RM 28',cat:'Rice & Noodles',img:'',desc:'Thick rice noodles in a full-bodied coconut milk broth enriched with hand-ground rempah of lemongrass, galangal and candlenut — topped with fresh prawns, fish cake, tau pok and sambal.',highlights:["Hand-ground laksa rempah","Coconut milk broth","Thick rice noodles","Fresh prawns & fish cake"],notes:'Contains shellfish and coconut.'},
-  'nasi-lemak':{name:'Nasi Lemak Nyonya',price:'RM 32',cat:'Rice & Noodles',img:'',desc:'Fragrant pandan-infused coconut rice with Auntie\'s house-made sambal, crispy ikan bilis, fresh cucumber, a soft-boiled egg and your choice of Nyonya lauk.',highlights:["Pandan & coconut rice","House-made sambal","Choice of Nyonya lauk","Crispy ikan bilis"],notes:'Contains coconut. Halal-friendly.'},
-  'sago-gula-melaka':{name:'Sago Gula Melaka',price:'RM 8',cat:'Dessert',img:'',desc:'Pearl sago cooked until translucent, served warm with dark gula melaka syrup and thick fresh coconut cream. Elegant in its simplicity.',highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:'Gluten-free. Vegan.'},
-  'pulut-hitam':{name:'Pulut Hitam',price:'RM 8',cat:'Dessert',img:'img/food-1441.jpg',desc:'Black glutinous rice slow-cooked with pandan leaves and palm sugar until the grains bloom and the porridge thickens. Served with a crown of thick coconut cream.',highlights:["Black glutinous rice","Slow-cooked with pandan","Palm sugar sweetened","Fresh coconut cream"],notes:'Gluten-free. Vegan.'},
-  'kuih-dadar':{name:'Kuih Dadar',price:'RM 10',cat:'Dessert',img:'',desc:'Thin pandan-scented crêpe rolls filled with freshly grated coconut slow-cooked with dark gula melaka. A vivid green from fresh pandan juice, the filling rich and caramelised.',highlights:["Fresh pandan juice crêpe","Grated coconut filling","Dark gula melaka","Made to order"],notes:'Gluten-free. Vegan.'},
-  'cendol':{name:'Cendol',price:'RM 8',cat:'Dessert',img:'',desc:'Finely shaved ice over pandan-green rice flour jelly and red kidney beans, drenched in dark gula melaka syrup and poured with rich fresh coconut milk. The Penang version — darker and more coconut-forward.',highlights:["House pandan jelly","Dark Penang gula melaka","Fresh coconut milk","Shaved ice to order"],notes:'Gluten-free. Vegan.'},
-};
-
-// ── Category filter ─────────────────────────────────────────────────────
-document.querySelectorAll('.filter-tab').forEach(function(tab){
-  tab.addEventListener('click',function(){
-    document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active');});
-    this.classList.add('active');
-    var filter=this.getAttribute('data-filter');
-    document.querySelectorAll('#menu-grid .menu-card-new').forEach(function(card){
-      if(filter==='all'||card.getAttribute('data-cat')===filter){
-        card.style.display='';
-      } else {
-        card.style.display='none';
-      }
-    });
-  });
-});
-
-// ── Dish modal ──────────────────────────────────────────────────────────
-function openDish(id){
-  var d=DISH_DATA[id];
-  if(!d){return;}
-  var mo=document.getElementById('dish-modal');
-  if(!mo){return;}
-  document.getElementById('modal-name').textContent=d.name;
-  document.getElementById('modal-price').textContent=d.price;
-  document.getElementById('modal-cat-badge').textContent=d.cat;
-  var ic=document.getElementById('modal-img-content');
-  if(d.img){
-    ic.innerHTML='<img src="'+d.img+'" alt="'+d.name+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>';
-  } else {
-    ic.innerHTML='<div class="modal-placeholder"><span>'+d.name+'</span><small>Photo Coming Soon</small></div>';
-  }
-  document.getElementById('modal-desc').textContent=d.desc;
-  var hl=document.getElementById('modal-highlights');
-  hl.innerHTML=d.highlights.map(function(h){return'<span>'+h+'</span>';}).join('');
-  document.getElementById('modal-notes').textContent=d.notes;
-  mo.style.display='flex';
-  requestAnimationFrame(function(){mo.classList.add('open');});
-  document.body.style.overflow='hidden';
-}
-function closeDish(){
-  var mo=document.getElementById('dish-modal');
-  if(!mo){return;}
-  mo.classList.remove('open');
-  setTimeout(function(){
-    if(!mo.classList.contains('open')){mo.style.display='none';}
-  },400);
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDish();});
-
 // Hide/show nav on scroll
 (function(){
   const nav=document.getElementById('nav');
@@ -1356,6 +1233,78 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDish();
     if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}lastY=y;ticking=false;});ticking=true;}
   },{passive:true});
 })();
+
+var DISH_DATA={
+  "pie-tee":{name:"Pie Tee",price:"RM 18",cat:"Starter",img:"img/dining-8911.jpg",desc:"Hand-made pastry shells fried to order, filled with a warm stir-fry of turnip, prawn and egg — finished with Auntie house-made sweet-tangy dipping sauce. A Nyonya classic: fragile, addictive and completely irreplaceable.",highlights:["Hand-fried pastry shells","Fresh prawns","House sweet-tangy dip","Prepared to order"],notes:"Consume immediately. Contains shellfish and egg."},
+  "popiah":{name:"Popiah",price:"RM 20",cat:"Starter",img:"",desc:"A delicate thin crepe skin wrapping a slow-braised filling of turnip, shrimp, tofu and crisp fresh lettuce — dressed tableside with Auntie house-made chilli sauce and sweet sauce.",highlights:["Thin hand-made crepe skin","Braised turnip and shrimp","House chilli and sweet sauce","Fresh lettuce and herbs"],notes:"A lighter starter, ideal for sharing. Contains shellfish."},
+  "otah-otah":{name:"Otah-Otah",price:"RM 22",cat:"Starter",img:"",desc:"Freshly made fish mousse blended with lemongrass, galangal, kaffir lime and fresh chilli — wrapped in banana leaf and steamed until silky. The leaf perfumes the custard as it cooks.",highlights:["Fresh fish mousse","Hand-ground spice paste","Kaffir lime and galangal","Steamed in banana leaf"],notes:"Lightly spiced. Contains fish."},
+  "achar-prawns":{name:"Achar Prawns",price:"RM 28",cat:"Starter",img:"",desc:"Plump tiger prawns marinated in a hand-ground Nyonya achar spice blend — turmeric, shallots, dried chilli and belachan — then lightly fried until caramelised at the edges.",highlights:["Tiger prawns","Hand-ground achar paste","Turmeric and belachan","Lightly wok-fried"],notes:"Contains shellfish."},
+  "itek-tim":{name:"Itek Tim",price:"RM 45",cat:"Soup",img:"",desc:"A deeply soothing soup of whole duck pieces slow-braised in a clear broth of sour plum, salted vegetables and tomatoes — finished with fresh coriander. Heirloom Nyonya cooking at its most restorative.",highlights:["Whole free-range duck","Sour plum broth","Salted vegetables","Slow-braised 3+ hours"],notes:"Best enjoyed with steamed rice."},
+  "soto-ayam":{name:"Soto Ayam",price:"RM 28",cat:"Soup",img:"",desc:"Free-range kampung chicken simmered in golden turmeric-forward broth with lemongrass and galangal. Served with hand-shredded chicken, glass noodles, boiled egg and fresh herbs.",highlights:["Free-range kampung chicken","Turmeric lemongrass broth","Hand-shredded chicken","Glass noodles and egg"],notes:"Naturally gluten-free."},
+  "kari-kapitan":{name:"Kari Kapitan",price:"RM 48-58",cat:"Main",img:"img/food-0054.jpg",desc:"The dish that built Auntie Gaik reputation. Free-range chicken slow-cooked in a hand-ground rempah of candlenut, lemongrass, galangal and tamarind. Rich, layered and completely irreplaceable. Michelin inspectors praised it by name.",highlights:["Free-range kampung chicken","Hand-ground rempah — 9 spices","Tamarind and candlenut base","Cooked daily in single batches"],notes:"Signature dish. Must order. Medium spice."},
+  "lamb-pongteh":{name:"Lamb Pongteh",price:"RM 68",cat:"Main",img:"",desc:"Tender lamb shoulder braised low and slow in a deep paste of fermented soybean, shallots and palm sugar. Rich, umami-forward with subtle sweetness. The meat falls apart at the touch of a spoon.",highlights:["Slow-braised lamb shoulder","Fermented soybean paste","Palm sugar balance","6-hour braise"],notes:"Spice: mild. Contains soy."},
+  "ayam-buah-keluak":{name:"Ayam Buah Keluak",price:"RM 72",cat:"Main",img:"",desc:"One of the rarest dishes in the Peranakan canon. Chicken braised with the wild Indonesian black nut — earthy and truffle-like — in a tangy tamarind and spice paste. The nut is hand-scooped and restuffed before cooking.",highlights:["Wild Indonesian buah keluak","Hand-stuffed nut filling","Tamarind spice paste","Limited daily quantity"],notes:"Subject to daily buah keluak supply."},
+  "beef-rendang":{name:"Nyonya Beef Rendang",price:"RM 88",cat:"Main",img:"",desc:"Tender beef slow-cooked in a Peranakan spiced coconut milk reduction — lemongrass, galangal, kaffir lime and toasted kerisik — until the beef is coated in a deeply caramelised, fragrant crust.",highlights:["Grass-fed beef","Coconut milk reduction","Toasted kerisik","4-hour cook"],notes:"Dry rendang — not saucy. Contains coconut."},
+  "sambal-terung":{name:"Sambal Terung",price:"RM 22",cat:"Vegetable",img:"",desc:"Whole aubergine wok-fired in a hand-ground sambal paste of shallots, dried chilli and toasted belachan. The eggplant absorbs the heat and smokiness as it chars.",highlights:["Whole fresh brinjal","Hand-ground sambal paste","Toasted belachan","Wok-fired to order"],notes:"Vegetarian. Contains belachan shrimp paste."},
+  "kerabu-pucuk-paku":{name:"Kerabu Pucuk Paku",price:"RM 18",cat:"Salad",img:"",desc:"Fresh paku ferns blanched and tossed with grated toasted coconut, shallots, dried prawns and a bright Nyonya kerabu dressing. Refreshing and fibre-rich.",highlights:["Wild paku fern tips","Toasted grated coconut","Nyonya kerabu dressing","Served at room temp"],notes:"Contains dried prawns."},
+  "assam-hae":{name:"Assam Hae",price:"RM 78-118",cat:"Seafood",img:"",desc:"Whole tiger prawns shell-on, wok-fired at high heat in Auntie signature tamarind and chilli paste. The shells caramelise, locking in the natural sweetness. Sticky, spicy and unforgettable.",highlights:["Whole tiger prawns","Hand-ground tamarind paste","High-heat wok fire","Shell-on for full flavour"],notes:"Contains shellfish. Price varies by market rate."},
+  "sambal-udang":{name:"Sambal Udang",price:"RM 68",cat:"Seafood",img:"",desc:"Plump fresh prawns stir-fried in Auntie hand-ground Nyonya sambal — shallots, lemongrass, dried chilli — in a screaming-hot wok. The sambal clings and caramelises at the edges.",highlights:["Fresh tiger prawns","Hand-ground Nyonya sambal","Lemongrass and shallot base","Wok-seared to order"],notes:"Contains shellfish. Spice: medium-high."},
+  "gulai-tumis":{name:"Gulai Tumis",price:"RM 85",cat:"Seafood",img:"img/food-0022.jpg",desc:"The dish Michelin inspectors singled out by name. Whole fresh fish in a tangy Nyonya paste of 8+ fresh ingredients including fresh saffron, pineapple and torch ginger flower. Hand-ground each morning.",highlights:["Whole fresh fish daily","8+ ingredient hand-ground paste","Fresh saffron","Torch ginger and pineapple"],notes:"Michelin Guide specifically praised this dish. Spice: medium."},
+  "chilli-crab":{name:"Chilli Crab-Style",price:"Market Price",cat:"Seafood",img:"",desc:"Whole mud crab wok-tossed in Auntie Nyonya chilli-tomato gravy — richer and more complex than the Singapore classic. Best mopped up with white bread. Ask your server for today price.",highlights:["Whole fresh mud crab","Nyonya chilli-tomato gravy","Market-fresh daily","Best with white bread"],notes:"Subject to daily availability. Price on request."},
+  "nasi-ulam":{name:"Nasi Ulam",price:"RM 35",cat:"Rice & Noodles",img:"img/dining-9248.jpg",desc:"Auntie most personal dish. Fragrant steamed rice hand-tossed with 10+ finely cut herbs — torch ginger, turmeric leaf, lemongrass — plus toasted coconut, dried shrimp and salted fish. 20 minutes by hand. Never written down.",highlights:["10+ fresh herbs hand-cut daily","Toasted coconut and dried shrimp","Recipe passed down orally","Limited daily quantity"],notes:"Limited quantity. Order early. Iconic dish."},
+  "kerabu-bihun":{name:"Kerabu Bihun",price:"RM 28",cat:"Rice & Noodles",img:"img/food-1767.jpg",desc:"Fine rice vermicelli tossed cold with fiery sambal belacan, fresh prawns, julienned cucumber, shallots, toasted coconut and a generous squeeze of calamansi lime.",highlights:["Fine rice vermicelli","Fresh tiger prawns","House sambal belacan","Fresh calamansi lime"],notes:"Spice: medium-high. Contains shellfish."},
+  "nyonya-laksa":{name:"Nyonya Laksa",price:"RM 28",cat:"Rice & Noodles",img:"",desc:"Thick rice noodles in a full-bodied coconut milk broth with hand-ground rempah of lemongrass, galangal and candlenut — topped with fresh prawns, fish cake, tau pok and sambal.",highlights:["Hand-ground laksa rempah","Coconut milk broth","Thick rice noodles","Fresh prawns and fish cake"],notes:"Contains shellfish and coconut."},
+  "nasi-lemak":{name:"Nasi Lemak Nyonya",price:"RM 32",cat:"Rice & Noodles",img:"",desc:"Fragrant pandan-infused coconut rice with Auntie house-made sambal, crispy ikan bilis, fresh cucumber, a soft-boiled egg and your choice of Nyonya lauk.",highlights:["Pandan and coconut rice","House-made sambal","Choice of Nyonya lauk","Crispy ikan bilis"],notes:"Contains coconut. Halal-friendly."},
+  "sago-gula-melaka":{name:"Sago Gula Melaka",price:"RM 8",cat:"Dessert",img:"",desc:"Pearl sago cooked until translucent, served warm with dark gula melaka syrup and thick fresh coconut cream. Elegant in simplicity.",highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:"Gluten-free. Vegan."},
+  "pulut-hitam":{name:"Pulut Hitam",price:"RM 8",cat:"Dessert",img:"img/food-1441.jpg",desc:"Black glutinous rice slow-cooked with pandan leaves and palm sugar until the grains bloom. Served with a crown of thick coconut cream.",highlights:["Black glutinous rice","Slow-cooked with pandan","Palm sugar sweetened","Fresh coconut cream"],notes:"Gluten-free. Vegan."},
+  "kuih-dadar":{name:"Kuih Dadar",price:"RM 10",cat:"Dessert",img:"",desc:"Thin pandan-scented crepe rolls filled with freshly grated coconut slow-cooked with dark gula melaka. A vivid green from fresh pandan juice, the filling rich and caramelised.",highlights:["Fresh pandan juice crepe","Grated coconut filling","Dark gula melaka","Made to order"],notes:"Gluten-free. Vegan."},
+  "cendol":{name:"Cendol",price:"RM 8",cat:"Dessert",img:"",desc:"Finely shaved ice over pandan-green rice flour jelly and red kidney beans, drenched in dark gula melaka syrup and poured with rich fresh coconut milk. The Penang version.",highlights:["House pandan jelly","Dark Penang gula melaka","Fresh coconut milk","Shaved ice to order"],notes:"Gluten-free. Vegan."},
+};
+
+// Category filter
+document.querySelectorAll('.filter-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.filter-tab').forEach(function(t) {
+      t.classList.remove('active');
+    });
+    this.classList.add('active');
+    var filter = this.getAttribute('data-filter');
+    document.querySelectorAll('#menu-grid .menu-card-new').forEach(function(card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-cat') === filter) ? '' : 'none';
+    });
+  });
+});
+
+// Dish detail modal
+function openDish(id) {
+  var d = DISH_DATA[id];
+  if (!d) { console.warn('openDish: no data for', id); return; }
+  var mo = document.getElementById('dish-modal');
+  if (!mo) { console.warn('openDish: #dish-modal not found'); return; }
+  document.getElementById('modal-name').textContent  = d.name;
+  document.getElementById('modal-price').textContent = d.price;
+  document.getElementById('modal-cat-badge').textContent = d.cat;
+  var ic = document.getElementById('modal-img-content');
+  ic.innerHTML = d.img
+    ? '<img src="' + d.img + '" alt="' + d.name + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>'
+    : '<div class="modal-placeholder"><span>' + d.name + '</span><small>Photo Coming Soon</small></div>';
+  document.getElementById('modal-desc').textContent = d.desc;
+  var hl = document.getElementById('modal-highlights');
+  hl.innerHTML = d.highlights.map(function(h) { return '<span>' + h + '</span>'; }).join('');
+  document.getElementById('modal-notes').textContent = d.notes;
+  mo.style.display = 'flex';
+  requestAnimationFrame(function() { mo.classList.add('open'); });
+  document.body.style.overflow = 'hidden';
+}
+function closeDish() {
+  var mo = document.getElementById('dish-modal');
+  if (!mo) return;
+  mo.classList.remove('open');
+  setTimeout(function() { if (!mo.classList.contains('open')) mo.style.display = 'none'; }, 420);
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDish(); });
+
 </script>
 
 <!-- DISH DETAIL MODAL -->
