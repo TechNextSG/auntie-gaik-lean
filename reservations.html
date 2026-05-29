@@ -253,6 +253,27 @@ p, li, td, blockquote { line-height: 1.9 }
       transparent 82%,
       rgba(0,2,12,.08) 100%);
 }
+
+/* ── Adaptive nav (dark on light bg, light on dark bg) ── */
+#nav{transition:transform .38s cubic-bezier(.4,0,.2,1),
+              background .3s ease,box-shadow .3s ease;}
+#nav.nav-light{
+  background:rgba(250,246,239,.92)!important;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 24px rgba(6,13,46,.08);
+}
+#nav.nav-light .nav-logo-main{color:#060D2E!important;}
+#nav.nav-light .nav-logo-sub{color:#D4AF37!important;}
+#nav.nav-light .nav-link{color:rgba(6,13,46,.75)!important;}
+#nav.nav-light .nav-link:hover{color:#060D2E!important;}
+#nav.nav-light .nav-active{color:#D4AF37!important;}
+#nav.nav-light .btn-reserve-nav{
+  border-color:rgba(212,175,55,.7)!important;
+  color:#B8941F!important;
+}
+#nav.nav-light .btn-reserve-nav:hover{
+  background:#D4AF37!important;color:#060D2E!important;
+}
 </style>
 </head>
 <body>
@@ -261,15 +282,15 @@ p, li, td, blockquote { line-height: 1.9 }
 <nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5" id="nav">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="index.html" class="flex flex-col leading-none gap-0.5">
-      <span class="font-display text-white text-xl font-semibold tracking-wide" style="font-family:'Playfair Display',serif">Auntie Gaik Lean's</span>
-      <span class="text-[10px] tracking-[.3em] uppercase font-light" style="color:#D4AF37;font-family:'Inter',sans-serif">Old School Eatery</span>
+      <span class="font-display text-white text-xl font-semibold tracking-wide nav-logo-main" style="font-family:'Playfair Display',serif">Auntie Gaik Lean's</span>
+      <span class="text-[10px] tracking-[.3em] uppercase font-light nav-logo-sub" style="color:#D4AF37;font-family:'Inter',sans-serif">Old School Eatery</span>
     </a>
     <div class="hidden md:flex items-center gap-8">
-      <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Our Story</a>
-      <a href="menu.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Menu</a>
-      <a href="press.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Press</a>
-      <a href="news.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">News</a>
-      <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors" style="font-family:'Inter',sans-serif">Visit Us</a>
+      <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Our Story</a>
+      <a href="menu.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Menu</a>
+      <a href="press.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Press</a>
+      <a href="news.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">News</a>
+      <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
     <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
     <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')" aria-label="Menu">
@@ -776,12 +797,27 @@ function toggleFaq(el){
   if(!wasOpen){ans.classList.add('open');icn.textContent='\u2212';}
 }
 
-// Hide/show nav on scroll
+// Hide/show nav + adaptive color on scroll
 (function(){
-  const nav=document.getElementById('nav');
-  let lastY=0,ticking=false;
-  window.addEventListener('scroll',()=>{
-    if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}lastY=y;ticking=false;});ticking=true;}
+  var nav=document.getElementById('nav');
+  var lastY=0,ticking=false;
+  // Threshold: height of the dark hero section
+  function getHeroH(){
+    var hero=document.querySelector('.hero-bg,.page-hero');
+    return hero?hero.offsetHeight-60:400;
+  }
+  function updateNav(){
+    var y=window.scrollY;
+    // Hide/show
+    if(y>lastY&&y>80){nav.classList.add('nav-hidden');}
+    else{nav.classList.remove('nav-hidden');}
+    // Light/dark mode
+    if(y>getHeroH()){nav.classList.add('nav-light');}
+    else{nav.classList.remove('nav-light');}
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(updateNav);ticking=true;}
   },{passive:true});
 })();
 </script>
