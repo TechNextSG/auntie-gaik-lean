@@ -91,7 +91,7 @@ nav{background:transparent!important}
 /* FAQ accordion */
 .faq-item{border-bottom:1px solid rgba(0,0,0,.08)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
-.faq-answer.open{max-height:200px;padding-bottom:1.25rem}
+.faq-answer.open{max-height:600px;padding-bottom:1.5rem}
 .faq-icon{transition:transform .3s ease}
 .faq-icon.open{transform:rotate(45deg)}
 
@@ -126,6 +126,11 @@ nav{background:transparent!important}
 .hero-sub{will-change:transform}
 #nav{will-change:transform}
 
+
+/* ── Readability: accessible font sizes ── */
+p, li, td, blockquote { line-height: 1.9 }
+
+/* bump body copy from 13-15px → 16-17px */
 /* --- Reduced-motion (accessibility) --- */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -247,7 +252,7 @@ nav{background:transparent!important}
   <div class="max-w-5xl mx-auto px-6 lg:px-12">
     <div class="reveal text-center mb-12">
       <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:white;font-weight:600;margin-bottom:.75rem">How to Book</h2>
-      <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.55)">Choose the booking method that works best for you</p>
+      <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.55)">Choose the booking method that works best for you</p>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
 
@@ -259,11 +264,10 @@ nav{background:transparent!important}
         </div>
         <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#D4AF37;margin-bottom:.75rem">Recommended</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:white;font-weight:600;margin-bottom:.75rem">Book Online via TableApp</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem">Instant confirmation · Select your preferred date and party size</p>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:2rem">Deposit of RM 200 nett required to confirm your booking. Applied to your final bill.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem">Instant confirmation · Select your preferred date and party size</p>
+        <p style="font-family:'Inter',sans-serif;font-size:15.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:2rem">Deposit of RM 200 nett required to confirm your booking. Applied to your final bill.</p>
         <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-mag w-full py-4 rounded text-sm tracking-[.14em] uppercase">
           Reserve Now via TableApp
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <p style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.3);margin-top:1rem">Opens in a new tab · Secure payment</p>
       </div>
@@ -276,8 +280,8 @@ nav{background:transparent!important}
         </div>
         <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#25D366;margin-bottom:.75rem">Personal Service</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:white;font-weight:600;margin-bottom:.75rem">Book via WhatsApp</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem">Personal service · Groups & special requests welcome</p>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:2rem">Ideal for large groups of 12+, private dining inquiries, dietary requirements and special occasion bookings.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem">Personal service · Groups & special requests welcome</p>
+        <p style="font-family:'Inter',sans-serif;font-size:15.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:2rem">Ideal for large groups of 12+, private dining inquiries, dietary requirements and special occasion bookings.</p>
         <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20make%20a%20reservation%20at%20Auntie%20Gaik%20Lean's%20Old%20School%20Eatery." target="_blank" rel="noopener noreferrer" class="btn btn-wa w-full py-4 rounded text-sm tracking-[.14em] uppercase">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp Us
@@ -302,8 +306,8 @@ nav{background:transparent!important}
         <div class="w-10 h-10 flex items-center justify-center rounded mb-5" style="background:rgba(212,175,55,.1)">
           <svg class="w-5 h-5" fill="none" stroke="#D4AF37" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Opening Hours</h3>
-        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#555;line-height:2">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Opening Hours</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:15.5px;color:#555;line-height:2">
           <div style="display:flex;justify-content:space-between"><span style="font-weight:500;color:#060D2E">Wed – Sun</span></div>
           <div style="display:flex;justify-content:space-between"><span>Lunch</span><span style="color:#D4AF37;font-weight:500">12:00–14:30</span></div>
           <div style="display:flex;justify-content:space-between"><span>Dinner</span><span style="color:#D4AF37;font-weight:500">18:00–21:30</span></div>
@@ -315,8 +319,8 @@ nav{background:transparent!important}
         <div class="w-10 h-10 flex items-center justify-center rounded mb-5" style="background:rgba(212,175,55,.1)">
           <svg class="w-5 h-5" fill="none" stroke="#D4AF37" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Deposit Policy</h3>
-        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#555;line-height:1.9">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Deposit Policy</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:15.5px;color:#555;line-height:1.9">
           <div style="font-size:1.5rem;font-family:'Playfair Display',serif;color:#D4AF37;font-weight:700;margin-bottom:.5rem">RM 200</div>
           <p>Nett deposit required to confirm your reservation.</p>
           <p style="margin-top:.5rem">Fully applied to your final bill on the night.</p>
@@ -328,8 +332,8 @@ nav{background:transparent!important}
         <div class="w-10 h-10 flex items-center justify-center rounded mb-5" style="background:rgba(212,175,55,.1)">
           <svg class="w-5 h-5" fill="none" stroke="#D4AF37" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Group Dining</h3>
-        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#555;line-height:1.9">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Group Dining</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:15.5px;color:#555;line-height:1.9">
           <div style="padding:.4rem .7rem;border-radius:4px;background:#F0FDF4;font-size:12px;color:#166534;margin-bottom:.5rem">Walk-ins welcome for 1–3 pax</div>
           <div style="padding:.4rem .7rem;border-radius:4px;background:#FFFBEB;font-size:12px;color:#92400E;margin-bottom:.5rem">Groups 4–11 pax: book via TableApp</div>
           <div style="padding:.4rem .7rem;border-radius:4px;background:#EFF6FF;font-size:12px;color:#1E3A5F;margin-bottom:.5rem">Groups 12+ pax: WhatsApp us directly</div>
@@ -340,8 +344,8 @@ nav{background:transparent!important}
         <div class="w-10 h-10 flex items-center justify-center rounded mb-5" style="background:rgba(212,175,55,.1)">
           <svg class="w-5 h-5" fill="none" stroke="#D4AF37" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Dress Code</h3>
-        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#555;line-height:1.9">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#060D2E;font-weight:600;margin-bottom:1rem">Dress Code</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:15.5px;color:#555;line-height:1.9">
           <p>Smart casual attire is appreciated.</p>
           <p style="margin-top:.5rem">This is a UNESCO Heritage Zone shophouse with a refined atmosphere. Guests are asked to dress in keeping with the occasion.</p>
           <p style="margin-top:.5rem;font-size:12px;color:#888">No flip-flops please. No singlets.</p>
@@ -391,10 +395,10 @@ nav{background:transparent!important}
     <h2 class="reveal d1" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:white;font-weight:600;margin-bottom:1.5rem">
       Private &amp; Special <em class="hero-em" style="color:#D4AF37;font-style:italic">Occasions</em>
     </h2>
-    <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:1.2rem">
+    <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:1.2rem">
       Our private dining room seats up to 12 guests around a traditional <em>tong tok</em> table — a communal setting designed for unhurried, family-style gatherings. Perfect for intimate anniversaries, corporate luncheons, milestone celebrations, and media dinners.
     </p>
-    <p class="reveal d3" style="font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:2.5rem">
+    <p class="reveal d3" style="font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:2.5rem">
       Private bookings are handled personally by the team. A bespoke menu can be arranged with advance notice. All enquiries are handled with complete discretion and care.
     </p>
     <div class="reveal d4 flex flex-col sm:flex-row gap-4 justify-center">
@@ -419,55 +423,55 @@ nav{background:transparent!important}
       <!-- Q1 -->
       <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex justify-between items-start gap-4">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:500">How far in advance should I book?</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600">How far in advance should I book?</h3>
           <span class="faq-icon flex-shrink-0" style="font-size:1.5rem;color:#D4AF37;line-height:1;margin-top:2px">+</span>
         </div>
         <div class="faq-answer">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">We recommend booking at least 3–7 days in advance. For weekend dinners and public holidays, popular dates can book out 2–4 weeks ahead. If you're visiting Penang specifically to dine with us, please book as early as possible to avoid disappointment.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">We recommend booking at least 3–7 days in advance. For weekend dinners and public holidays, popular dates can book out 2–4 weeks ahead. If you're visiting Penang specifically to dine with us, please book as early as possible to avoid disappointment.</p>
         </div>
       </div>
 
       <!-- Q2 -->
       <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex justify-between items-start gap-4">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:500">Is there a cancellation policy?</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600">Is there a cancellation policy?</h3>
           <span class="faq-icon flex-shrink-0" style="font-size:1.5rem;color:#D4AF37;line-height:1;margin-top:2px">+</span>
         </div>
         <div class="faq-answer">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">The RM 200 deposit is fully refundable if you cancel with at least 48 hours notice. Cancellations with less than 48 hours notice will forfeit the deposit. We understand that plans change — please let us know as soon as possible if you need to reschedule.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">The RM 200 deposit is fully refundable if you cancel with at least 48 hours notice. Cancellations with less than 48 hours notice will forfeit the deposit. We understand that plans change — please let us know as soon as possible if you need to reschedule.</p>
         </div>
       </div>
 
       <!-- Q3 -->
       <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex justify-between items-start gap-4">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:500">Do you accommodate dietary requirements?</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600">Do you accommodate dietary requirements?</h3>
           <span class="faq-icon flex-shrink-0" style="font-size:1.5rem;color:#D4AF37;line-height:1;margin-top:2px">+</span>
         </div>
         <div class="faq-answer">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">Yes — please inform us of any dietary requirements at the time of booking. We will do our best to accommodate you, though please note that many of our dishes contain shellfish, nuts and sesame. As our kitchen is not allergy-segregated, we cannot guarantee a fully allergen-free experience.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">Yes — please inform us of any dietary requirements at the time of booking. We will do our best to accommodate you, though please note that many of our dishes contain shellfish, nuts and sesame. As our kitchen is not allergy-segregated, we cannot guarantee a fully allergen-free experience.</p>
         </div>
       </div>
 
       <!-- Q4 -->
       <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex justify-between items-start gap-4">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:500">Is the restaurant pork-free and alcohol-free?</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600">Is the restaurant pork-free and alcohol-free?</h3>
           <span class="faq-icon flex-shrink-0" style="font-size:1.5rem;color:#D4AF37;line-height:1;margin-top:2px">+</span>
         </div>
         <div class="faq-answer">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">Yes. Auntie Gaik Lean's is fully pork-free — no pork or lard is used in any dish or preparation. The restaurant is also fully alcohol-free; no alcoholic beverages are available or permitted on the premises. We serve a selection of traditional Nyonya drinks and soft beverages.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">Yes. Auntie Gaik Lean's is fully pork-free — no pork or lard is used in any dish or preparation. The restaurant is also fully alcohol-free; no alcoholic beverages are available or permitted on the premises. We serve a selection of traditional Nyonya drinks and soft beverages.</p>
         </div>
       </div>
 
       <!-- Q5 -->
       <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)" style="border-bottom:none">
         <div class="flex justify-between items-start gap-4">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#060D2E;font-weight:500">Where can I park nearby?</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600">Where can I park nearby?</h3>
           <span class="faq-icon flex-shrink-0" style="font-size:1.5rem;color:#D4AF37;line-height:1;margin-top:2px">+</span>
         </div>
         <div class="faq-answer">
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">Limited street parking is available on Bishop Street and the surrounding area. We recommend using one of the paid car parks on Penang Street or Carnarvon Street, both within a 5-minute walk. Alternatively, Grab or taxis drop off directly in front of the restaurant.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">Limited street parking is available on Bishop Street and the surrounding area. We recommend using one of the paid car parks on Penang Street or Carnarvon Street, both within a 5-minute walk. Alternatively, Grab or taxis drop off directly in front of the restaurant.</p>
         </div>
       </div>
 
@@ -658,6 +662,17 @@ document.querySelectorAll('.dish-card').forEach(card=>{
     else if(e.key==='ArrowRight')lbOpen((cur+1)%imgs.length);
   });
 })();
+
+// FAQ accordion
+function toggleFaq(el){
+  var ans=el.querySelector('.faq-answer');
+  var icn=el.querySelector('.faq-icon');
+  var wasOpen=ans.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-answer').forEach(function(a){a.classList.remove('open');});
+  document.querySelectorAll('.faq-icon').forEach(function(i){i.textContent='+';});
+  if(!wasOpen){ans.classList.add('open');icn.textContent='\u2212';}
+}
 
 // Hide/show nav on scroll
 (function(){

@@ -124,6 +124,11 @@ nav{background:transparent!important}
 .hero-sub{will-change:transform}
 #nav{will-change:transform}
 
+
+/* ── Readability: accessible font sizes ── */
+p, li, td, blockquote { line-height: 1.9 }
+
+/* bump body copy from 13-15px → 16-17px */
 /* --- Reduced-motion (accessibility) --- */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -254,19 +259,19 @@ nav{background:transparent!important}
         <div class="reveal flex flex-wrap gap-5 mb-10">
           <div class="year-badge">
             <span style="font-size:1.4rem"><svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
-            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#D4AF37;font-weight:600;margin-top:2px">2022</span>
+            <span style="font-family:'Inter',sans-serif;font-size:15.5px;color:#D4AF37;font-weight:600;margin-top:2px">2022</span>
           </div>
           <div class="year-badge">
             <span style="font-size:1.4rem"><svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
-            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#D4AF37;font-weight:600;margin-top:2px">2023</span>
+            <span style="font-family:'Inter',sans-serif;font-size:15.5px;color:#D4AF37;font-weight:600;margin-top:2px">2023</span>
           </div>
           <div class="year-badge">
             <span style="font-size:1.4rem"><svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
-            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#D4AF37;font-weight:600;margin-top:2px">2024</span>
+            <span style="font-family:'Inter',sans-serif;font-size:15.5px;color:#D4AF37;font-weight:600;margin-top:2px">2024</span>
           </div>
           <div class="year-badge" style="border-color:#E8C84A;background:rgba(232,200,74,.12)">
             <span style="font-size:1.4rem"><svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
-            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#E8C84A;font-weight:600;margin-top:2px">2025</span>
+            <span style="font-family:'Inter',sans-serif;font-size:15.5px;color:#E8C84A;font-weight:600;margin-top:2px">2025</span>
           </div>
         </div>
         <!-- Headline -->
@@ -276,10 +281,10 @@ nav{background:transparent!important}
         <div class="reveal d2 flex my-6">
           <div class="gold-bar"></div>
         </div>
-        <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:1.25rem">
+        <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:1.25rem">
           In December 2022, the inaugural Michelin Guide Malaysia awarded Auntie Gaik Lean's Old School Eatery one star — making Beh Gaik Lean the <strong style="color:#D4AF37">first Malaysian woman to receive a Michelin star</strong>, at age 69. The star has been retained every year since.
         </p>
-        <p class="reveal d3" style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.55);line-height:1.9">
+        <p class="reveal d3" style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.55);line-height:1.9">
           Auntie Gaik Lean's is one of only two Michelin-starred Peranakan restaurants in the world — a distinction that reflects not ambition, but the extraordinary depth of a cuisine she has practised for over 50 years.
         </p>
         <!-- CTA -->
@@ -387,22 +392,22 @@ nav{background:transparent!important}
     <div class="reveal d1 flex flex-wrap justify-center gap-x-8 gap-y-5 items-center">
       <!-- Publication names as styled text -->
       <span style="font-family:'Playfair Display',serif;font-size:1.1rem;color:rgba(212,175,55,.85);font-weight:600;letter-spacing:.04em">Michelin Guide</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">DestinAsian</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">DanielFoodDiary</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">Singapore Foodie</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">TripAdvisor</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">Malay Mail</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">The Star</span>
-      <span style="color:rgba(212,175,55,.2);font-size:1.2rem">·</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.6);font-weight:500">Time Out KL</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">DestinAsian</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">DanielFoodDiary</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">Singapore Foodie</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">TripAdvisor</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">Malay Mail</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">The Star</span>
+      <span style="color:rgba(212,175,55,.2);font-size:1.3rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.15rem;color:rgba(255,255,255,.6);font-weight:500">Time Out KL</span>
     </div>
-    <p class="reveal d2 mt-8" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.35)">For press enquiries and media requests, please contact us via WhatsApp.</p>
+    <p class="reveal d2 mt-8" style="font-family:'Inter',sans-serif;font-size:15.5px;color:rgba(255,255,255,.35)">For press enquiries and media requests, please contact us via WhatsApp.</p>
   </div>
       <div class="text-center mt-12 flex flex-wrap justify-center gap-4">
         <a href="news.html" class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-10 py-4 font-semibold">
@@ -428,10 +433,10 @@ nav{background:transparent!important}
       <div class="reveal d1 relative mb-10 pb-10" style="border-bottom:1px solid rgba(212,175,55,.12)">
         <div style="position:absolute;left:-21px;top:0;width:12px;height:12px;border-radius:50%;background:#D4AF37;border:2px solid white;box-shadow:0 0 0 3px rgba(212,175,55,.25)"></div>
         <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#D4AF37;margin-bottom:.5rem">2023</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
           <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:13px;height:13px;flex-shrink:0;margin:0 1px"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> First Michelin Star
         </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">
           In its inaugural Penang edition, the Michelin Guide Malaysia awarded Auntie Gaik Lean's Old School Eatery one star — making it Malaysia's first ever homestyle Peranakan restaurant to receive the honour. The award recognised Auntie Gaik Lean's uncompromising approach to traditional Nyonya cooking, and the extraordinary depth of flavour achieved without any shortcuts.
         </p>
         <div class="mt-3 inline-flex items-center gap-2 px-4 py-1.5 rounded" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25)">
@@ -443,10 +448,10 @@ nav{background:transparent!important}
       <div class="reveal d2 relative mb-10 pb-10" style="border-bottom:1px solid rgba(212,175,55,.12)">
         <div style="position:absolute;left:-21px;top:0;width:12px;height:12px;border-radius:50%;background:#D4AF37;border:2px solid white;box-shadow:0 0 0 3px rgba(212,175,55,.25)"></div>
         <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#D4AF37;margin-bottom:.5rem">2024</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
           <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star Retained
         </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">
           The Michelin inspectors returned and the star was retained — making Auntie Gaik Lean's one of only three Penang restaurants to achieve consecutive recognition. The 2024 edition saw inspectors specifically highlight the Curry Kapitan as "one of the most singular dishes in the Guide." DanielFoodDiary's landmark review brought international attention to the restaurant during this year.
         </p>
       </div>
@@ -455,10 +460,10 @@ nav{background:transparent!important}
       <div class="reveal d3 relative mb-10 pb-10" style="border-bottom:1px solid rgba(212,175,55,.12)">
         <div style="position:absolute;left:-21px;top:0;width:12px;height:12px;border-radius:50%;background:#D4AF37;border:2px solid white;box-shadow:0 0 0 3px rgba(212,175,55,.25)"></div>
         <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#D4AF37;margin-bottom:.5rem">2025</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
           <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star Retained + DestinAsian Feature
         </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">
           The Michelin star was retained for the third consecutive year. In the same year, DestinAsian magazine published a landmark feature on Auntie Gaik Lean's as part of their "Best of Penang" issue — describing the restaurant as "among Penang's most exciting dining experiences." Tables began booking out weeks in advance.
         </p>
         <div class="mt-3 inline-flex items-center gap-2 px-4 py-1.5 rounded" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25)">
@@ -470,10 +475,10 @@ nav{background:transparent!important}
       <div class="reveal d4 relative">
         <div style="position:absolute;left:-21px;top:0;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#C9A227,#E8C84A);border:2px solid white;box-shadow:0 0 0 4px rgba(212,175,55,.3),0 0 20px rgba(212,175,55,.25)"></div>
         <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#E8C84A;margin-bottom:.5rem">2026 · Current Year</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#060D2E;font-weight:600;margin-bottom:.75rem">
           <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star Retained — 4th Consecutive Year
         </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#555;line-height:1.8">
+        <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:#555;line-height:1.8">
           Auntie Gaik Lean's enters its fourth consecutive year of Michelin recognition — an extraordinary achievement for a family-run, homestyle restaurant that has never once compromised on its founding principles. The star is a testament not to ambition, but to integrity: the same rempah, the same stone pestle, the same dedication that Auntie Gaik Lean has brought to her kitchen since 1995.
         </p>
         <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded" style="background:rgba(232,200,74,.12);border:1px solid rgba(232,200,74,.35)">
