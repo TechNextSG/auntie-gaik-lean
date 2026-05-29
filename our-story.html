@@ -164,6 +164,59 @@ p, li, td, blockquote { line-height: 1.9 }
 #lb-prev{left:18px}#lb-next{right:18px}
 #lb-prev:hover,#lb-next:hover{color:#D4AF37;background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)}
 .lb-trigger{cursor:zoom-in!important}
+
+/* ── Hero ray-of-light glow ── */
+@keyframes rayPulse {
+  0%,100% { opacity:.55; transform:scaleX(1); }
+  50%      { opacity:.95; transform:scaleX(1.03); }
+}
+@keyframes glowPulse {
+  0%,100% { opacity:.7; }
+  50%      { opacity:1; }
+}
+.hero-rays {
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;
+}
+/* Conic ray burst */
+.hero-rays::before {
+  content:'';
+  position:absolute;
+  width:220%;height:160%;
+  top:-30%;left:-60%;
+  background:conic-gradient(
+    from 258deg at 50% 16%,
+    transparent 0deg,   rgba(212,175,55,.08) 3.5deg, transparent 7deg,
+    transparent 9deg,   rgba(212,175,55,.06) 12.5deg,transparent 16deg,
+    transparent 18deg,  rgba(212,175,55,.10) 21.5deg,transparent 25.5deg,
+    transparent 27deg,  rgba(212,175,55,.07) 30.5deg,transparent 34.5deg,
+    transparent 36deg,  rgba(212,175,55,.09) 39.5deg,transparent 43.5deg,
+    transparent 45deg,  rgba(212,175,55,.06) 48.5deg,transparent 52.5deg,
+    transparent 54deg,  rgba(212,175,55,.08) 57.5deg,transparent 61.5deg,
+    transparent 63deg,  rgba(212,175,55,.07) 66.5deg,transparent 70.5deg,
+    transparent 72deg,  rgba(212,175,55,.09) 75.5deg,transparent 79.5deg,
+    transparent 81deg,  rgba(212,175,55,.06) 84.5deg,transparent 88.5deg,
+    transparent 90deg,  rgba(212,175,55,.07) 93.5deg,transparent 97.5deg,
+    transparent 99deg,  rgba(212,175,55,.05) 102.5deg,transparent 106deg
+  );
+  filter:blur(3px);
+  transform-origin:50% 30%;
+  animation:rayPulse 7s ease-in-out infinite;
+}
+/* Central spotlight glow */
+.hero-rays::after {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 85% 60% at 50% -8%,
+      rgba(212,175,55,.30) 0%,
+      rgba(212,175,55,.08) 40%,
+      transparent 62%),
+    radial-gradient(ellipse 35% 45% at 50% 0%,
+      rgba(255,245,200,.10) 0%,
+      transparent 55%);
+  animation:glowPulse 4.5s ease-in-out 1s infinite;
+}
 </style>
 </head>
 <body>
@@ -199,6 +252,7 @@ p, li, td, blockquote { line-height: 1.9 }
 
 <!-- HERO -->
 <section class="page-hero flex items-start justify-center" style="min-height:80vh;padding-top:90px">
+  <div class="hero-rays"></div>
   <div class="star-field" id="stars"></div>
   <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.55) 50%,rgba(4,8,28,.92) 100%)"></div>
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" style="padding-top:2rem;padding-bottom:3rem">
