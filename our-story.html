@@ -88,6 +88,28 @@ nav{background:transparent!important}
 .btn-mag{display:inline-block}
 #nav{transition:transform .38s cubic-bezier(.4,0,.2,1)}
 #nav.nav-hidden{transform:translateY(-100%)}
+
+/* ─── Hero title glow & float animations ─── */
+@keyframes heroGlowPulse {
+  0%,100% { text-shadow:0 0 30px rgba(212,175,55,.25),0 0 60px rgba(212,175,55,.08); }
+  50%      { text-shadow:0 0 65px rgba(212,175,55,.6),0 0 110px rgba(212,175,55,.28),0 2px 24px rgba(255,255,255,.06); }
+}
+@keyframes goldEmGlow {
+  0%,100% { text-shadow:0 0 24px rgba(212,175,55,.45),0 0 48px rgba(212,175,55,.18);filter:brightness(1); }
+  50%      { text-shadow:0 0 55px rgba(212,175,55,.9),0 0 95px rgba(212,175,55,.4),0 0 140px rgba(212,175,55,.12);filter:brightness(1.12); }
+}
+@keyframes heroSubFloat {
+  0%,100% { transform:translateY(0); }
+  50%      { transform:translateY(-6px); }
+}
+@keyframes eyebrowPulse {
+  0%,100% { opacity:.7;letter-spacing:.35em; }
+  50%      { opacity:1;letter-spacing:.38em; }
+}
+.hero-h1   { animation:heroGlowPulse 4s ease-in-out .85s infinite; }
+.hero-em   { display:inline-block;animation:goldEmGlow 3.5s ease-in-out 1.1s infinite; }
+.hero-sub  { display:block;animation:heroSubFloat 5s ease-in-out 1.3s infinite; }
+.hero-eyebrow { display:inline-block;animation:eyebrowPulse 4s ease-in-out .5s infinite; }
 </style>
 </head>
 <body>
@@ -123,17 +145,17 @@ nav{background:transparent!important}
 <section class="page-hero flex items-center justify-center" style="min-height:50vh">
   <div class="star-field" id="stars"></div>
   <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.55) 50%,rgba(4,8,28,.92) 100%)"></div>
-  <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" style="padding-top:clamp(5.5rem,11vw,8rem)">
     <div class="reveal mb-6">
-      <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Est. 2013 · George Town, Penang</span>
+      <span class="hero-eyebrow" style="font-family:\'Inter\',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Est. 2013 · George Town, Penang</span>
     </div>
-    <h1 class="reveal d1 michelin-glow" style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;color:white;line-height:1.1;margin-bottom:1rem">
-      Our <em style="color:#D4AF37;font-style:italic">Story</em>
+    <h1 class="reveal d1 michelin-glow hero-h1" style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;color:white;line-height:1.1;margin-bottom:1rem">
+      Our <em class="hero-em" style="color:#D4AF37;font-style:italic">Story</em>
     </h1>
-    <h2 class="reveal d2" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.8vw,1.5rem);color:rgba(212,175,55,.75);font-style:italic;margin-bottom:1rem">
+    <h2 class="reveal d2 hero-sub" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.8vw,1.5rem);color:rgba(212,175,55,.75);font-style:italic;margin-bottom:1rem">
       From Memory, Not Recipe
     </h2>
-    <p class="reveal d3" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.2rem);color:rgba(255,255,255,.65);font-style:italic;line-height:1.8">
+    <p class="reveal d3 hero-sub" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.2rem);color:rgba(255,255,255,.65);font-style:italic;line-height:1.8">
       A lifetime of Nyonya cooking — passed down not from a book, but from touch, from love.
     </p>
     <div class="reveal d4 flex justify-center mt-8">
@@ -213,7 +235,7 @@ nav{background:transparent!important}
           <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#D4AF37">Heritage</span>
           <div class="gold-bar mt-3 mb-5"></div>
         </div>
-        <h2 class="reveal d1" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:white;font-weight:600;line-height:1.2">The Soul of<br/><em style="color:#D4AF37;font-style:italic">Peranakan</em> Cooking</h2>
+        <h2 class="reveal d1" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:white;font-weight:600;line-height:1.2">The Soul of<br/><em class="hero-em" style="color:#D4AF37;font-style:italic">Peranakan</em> Cooking</h2>
         <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.65);line-height:1.9">
           Peranakan — or Nyonya — cuisine is one of the world's great culinary traditions, born from the intermarriage of Chinese settlers with local Malay communities along the Straits of Malacca. What emerged was a cuisine of extraordinary complexity: Chinese techniques married with Malay spices, aromatics and ingredients, producing dishes that exist nowhere else on earth.
         </p>
@@ -285,7 +307,7 @@ nav{background:transparent!important}
           <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#D4AF37">The Family</span>
           <div class="gold-bar mt-3 mb-5"></div>
         </div>
-        <h2 class="reveal d1" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:white;font-weight:600;line-height:1.2">A Legacy<br/><em style="color:#D4AF37;font-style:italic">Shared Together</em></h2>
+        <h2 class="reveal d1" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:white;font-weight:600;line-height:1.2">A Legacy<br/><em class="hero-em" style="color:#D4AF37;font-style:italic">Shared Together</em></h2>
         <p class="reveal d2" style="font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.65);line-height:1.9">
           The restaurant is a true family endeavour. Son Adrian Tan established the eatery in 2013, providing Auntie Gaik Lean's cooking with a home worthy of its heritage. Daughter-in-law Jayna Tang works alongside in the kitchen, ensuring that every dish carries the same care and precision that has defined the restaurant from the beginning.
         </p>
