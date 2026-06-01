@@ -419,16 +419,7 @@ p, li, td, blockquote { line-height: 1.9 }
     </div>
     <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
     <button id="mob-toggle-btn" onclick="mobCardToggle()" aria-label="Menu"><svg id="mob-bars" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 7h18M3 12h18M3 17h18"/></svg><svg id="mob-x-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
-  </div>
-  <div id="mob" class="hidden md:hidden border-t border-white/20 mt-4 pt-5 pb-3 flex flex-col gap-4 px-2">
-    <a href="our-story.html" class="text-sm" style="font-family:'Inter',sans-serif;color:#D4AF37" onclick="document.getElementById('mob').classList.add('hidden')">Our Story</a>
-    <a href="menu.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Menu</a>
-    <a href="press.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Press</a>
-    <a href="news.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">News</a>
-    <a href="visit-us.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Visit Us</a>
-    <a href="reservations.html" class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
-  </div>
-</nav>
+  </div></nav>
 <!-- MOBILE CARD DROPDOWN -->
 <div id="mob-card">
   <a href="our-story.html" class="mob-card-link mob-active" onclick="mobCardClose()">Our Story</a>
@@ -997,6 +988,41 @@ document.querySelectorAll('.dish-card').forEach(card=>{
   window.addEventListener('scroll',function(){
     if(!ticking){requestAnimationFrame(updateNav);ticking=true;}
   },{passive:true});
+})();
+
+// Mobile card dropdown
+(function(){
+  function open(){
+    var c=document.getElementById('mob-card');
+    var nav=document.getElementById('nav');
+    var bars=document.getElementById('mob-bars');
+    var xi=document.getElementById('mob-x-icon');
+    if(!c)return;
+    if(nav)c.style.top=(nav.getBoundingClientRect().height+6)+'px';
+    c.classList.add('open');
+    if(bars)bars.style.display='none';
+    if(xi)xi.style.display='block';
+  }
+  function close(){
+    var c=document.getElementById('mob-card');
+    var bars=document.getElementById('mob-bars');
+    var xi=document.getElementById('mob-x-icon');
+    if(!c)return;
+    c.classList.remove('open');
+    if(bars)bars.style.display='block';
+    if(xi)xi.style.display='none';
+  }
+  window.mobCardToggle=function(){
+    var c=document.getElementById('mob-card');
+    if(c&&c.classList.contains('open'))close();else open();
+  };
+  window.mobCardClose=close;
+  document.addEventListener('click',function(e){
+    var c=document.getElementById('mob-card');
+    var b=document.getElementById('mob-toggle-btn');
+    if(c&&c.classList.contains('open')&&!c.contains(e.target)&&b&&!b.contains(e.target))close();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 
