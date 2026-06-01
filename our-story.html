@@ -485,6 +485,115 @@ p, li, td, blockquote { line-height: 1.9 }
   .nav-logo-main{font-size:.95rem!important}
   .nav-logo-sub{font-size:7.5px!important;letter-spacing:.18em!important}
 }
+
+/* ================================================================
+   MOBILE CARD COMPACT STYLES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* ── Menu cards (menu.html) ── */
+  .menu-card-img-wrap{height:150px!important}
+  .menu-card-body{
+    padding:.85rem .85rem .7rem!important;
+    min-height:auto!important;
+  }
+  .menu-card-name{font-size:1rem!important}
+  .menu-card-teaser{
+    font-size:13px!important;
+    -webkit-line-clamp:2!important;
+    margin-bottom:.5rem!important;
+  }
+  .menu-card-price{font-size:.95rem!important}
+  .menu-card-footer{padding-top:.5rem!important}
+  .menu-card-more-link{font-size:10px!important}
+  #menu-grid{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+
+  /* ── News cards (news.html) ── */
+  .news-card .card-img,
+  .news-card .overflow-hidden.h-48,
+  .news-card .overflow-hidden.h-52{
+    height:140px!important;
+  }
+  .news-card .p-7{padding:1rem!important}
+  .news-card .p-6{padding:.85rem!important}
+
+  /* ── Dish cards (index.html) ── */
+  .dish-card .overflow-hidden.h-52{height:140px!important}
+  #dish-grid{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+
+  /* ── Press/news article grids → single col ── */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+  .grid.grid-cols-1.md\:grid-cols-2{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+
+  /* ── Heritage cards (visit-us) ── */
+  .grid.grid-cols-1.md\:grid-cols-3{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+
+  /* ── Collaboration / collab cards ── */
+  .collab-card .overflow-hidden.h-52{height:130px!important}
+  .collab-card .p-8{padding:1rem!important}
+
+  /* ── Video cards (news.html) ── */
+  .video-card .p-6{padding:.85rem!important}
+
+  /* ── Featured Tatler hero card (news.html) ── */
+  .grid.grid-cols-1.lg\:grid-cols-2.gap-0{
+    grid-template-columns:1fr!important;
+  }
+
+  /* ── Testimonial cards (index) ── */
+  .grid.grid-cols-1.md\:grid-cols-3{
+    grid-template-columns:1fr!important;
+    gap:.75rem!important;
+  }
+  .p-8{padding:1.1rem!important}
+
+  /* ── Heritage image grid (index) ── */
+  .grid.grid-cols-2.gap-3{
+    grid-template-columns:1fr 1fr!important;
+    gap:.5rem!important;
+  }
+
+  /* ── Year badge grid (press) ── */
+  .grid.grid-cols-4{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:.5rem!important;
+  }
+
+  /* ── Stat grid (index heritage section) ── */
+  .grid.grid-cols-3{
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:0!important;
+  }
+
+  /* ── General card padding ── */
+  [class*="p-7"]{padding:1rem!important}
+  [class*="p-6"]{padding:.85rem!important}
+
+  /* ── Modal image height on mobile ── */
+  .dish-modal-img-wrap{min-height:180px!important;max-height:200px!important}
+}
+
+/* Extra small phones */
+@media(max-width:400px){
+  .menu-card-img-wrap{height:130px!important}
+  .news-card .overflow-hidden{height:120px!important}
+  #menu-grid{gap:.5rem!important}
+}
 </style>
 </head>
 <body>
