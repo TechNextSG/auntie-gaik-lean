@@ -632,41 +632,22 @@ p, li, td, blockquote { line-height: 1.9 }
     font-size:10px!important;
   }
 
-  /* Button groups: always stack vertically on mobile */
-  .flex.flex-row.flex-wrap,
-  .flex.flex-wrap.gap-4,
-  .flex.flex-wrap.gap-3,
-  .flex.flex-col.sm\:flex-row,
-  .flex.sm\:flex-row{
+  /* Button groups with multiple CTA buttons — stack vertically */
+  .flex.flex-col.sm\:flex-row{
     flex-direction:column!important;
     gap:.65rem!important;
-    width:100%!important;
   }
-
-  /* Centre button groups */
-  .flex.justify-center.gap-4,
-  .flex.justify-center.gap-3{
-    flex-direction:column!important;
-    align-items:stretch!important;
-    gap:.65rem!important;
+  .flex.flex-row.flex-wrap > .btn-gold,
+  .flex.flex-row.flex-wrap > .btn-og,
+  .flex.flex-row.flex-wrap > .btn-ow,
+  .flex.flex-row.flex-wrap > .btn-wa,
+  .flex.flex-wrap > .btn-gold,
+  .flex.flex-wrap > .btn-og,
+  .flex.flex-wrap > .btn-ow,
+  .flex.flex-wrap > .btn-wa{
+    flex:1 1 100%!important;
     max-width:340px!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-
-  /* Inline flex button wrappers in sections */
-  .flex.flex-col.sm\:flex-row.gap-4,
-  .flex.flex-col.sm\:flex-row.gap-3{
-    flex-direction:column!important;
-    gap:.65rem!important;
-  }
-
-  /* Hero section CTAs */
-  .reveal.d4.flex.flex-wrap,
-  .in-view.flex.flex-wrap{
-    flex-direction:column!important;
-    align-items:center!important;
-    gap:.65rem!important;
+    margin:0 auto!important;
   }
 
   /* wa-pulse floating button — keep original */
@@ -675,6 +656,94 @@ p, li, td, blockquote { line-height: 1.9 }
   /* mob-card cta stays normal */
   .mob-card-cta .btn,
   #mob-card .btn{width:100%!important;padding:.75rem 1rem!important}
+}
+
+/* ================================================================
+   MOBILE SPECIFIC LAYOUT FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* ── Filter tabs: keep horizontal wrap, don't stack ── */
+  .filter-tab{
+    padding:7px 14px!important;
+    font-size:11px!important;
+    letter-spacing:.08em!important;
+  }
+  /* Override the flex-col rule for filter tab container */
+  .flex.flex-wrap.justify-center.gap-3.mb-12{
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    gap:.5rem!important;
+    justify-content:center!important;
+  }
+
+  /* ── Year badge circles: 2x2 grid ── */
+  .year-badge{
+    width:65px!important;
+    height:65px!important;
+  }
+  /* Container of year badges */
+  .flex.flex-wrap.justify-center.gap-6,
+  .flex.flex-wrap.justify-center.gap-5,
+  .flex.flex-wrap.justify-center.gap-4.mb-12{
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    gap:.65rem!important;
+    justify-content:center!important;
+  }
+
+  /* ── Year rect badges (⭐ 2022 etc) ── */
+  .flex.flex-wrap.justify-center.gap-3.mb-12 ~ *,
+  .flex.flex-wrap.justify-center.gap-x-7,
+  .flex.flex-wrap.justify-center.gap-x-10{
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    gap:.5rem!important;
+  }
+  /* The span year badges row */
+  .flex.flex-wrap.justify-center.gap-3.mb-12 span[style*="border:1px solid"]{
+    flex:0 0 calc(50% - .5rem)!important;
+    text-align:center!important;
+  }
+
+  /* ── Michelin year badge spans (⭐ 2022) ── */
+  .flex.flex-wrap.justify-center.gap-3{
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    gap:.4rem .5rem!important;
+  }
+
+  /* ── Publications list — keep inline ── */
+  .flex.flex-wrap.items-center.justify-center{
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    gap:.4rem .6rem!important;
+  }
+
+  /* ── Fix BUTTON GROUP stacking — only explicit multi-btn rows ── */
+  /* Restore flex-row for single buttons that got caught */
+  .flex.flex-col.sm\:flex-row > .btn-gold,
+  .flex.flex-col.sm\:flex-row > .btn-og,
+  .flex.flex-col.sm\:flex-row > .btn-ow,
+  .flex.flex-col.sm\:flex-row > .btn-wa{
+    width:100%!important;
+  }
+
+  /* ── btn-gold on light bg (nav-light context) ── */
+  .btn-gold,a.btn-gold{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:6px!important;
+  }
+  .btn-og,a.btn-og,
+  .btn-ow,a.btn-ow,
+  .btn-wa,a.btn-wa{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:6px!important;
+  }
 }
 </style>
 </head>
