@@ -635,6 +635,92 @@ p, li, td, blockquote { line-height: 1.9 }
   text-decoration:none;transition:opacity .2s;
 }
 .mob-card-cta a:hover{opacity:.88}
+
+/* ================================================================
+   MOBILE FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* ── Hamburger button — clearly visible ── */
+  #mob-toggle-btn{
+    display:flex!important;
+    width:40px;height:40px;
+    border-radius:6px;
+    background:rgba(255,255,255,.12)!important;
+    border:1.5px solid rgba(255,255,255,.35)!important;
+    align-items:center;justify-content:center;
+    color:white!important;
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  #mob-toggle-btn svg{
+    stroke:white!important;
+    display:block;
+  }
+  /* When nav is light (cream bg), show dark button */
+  #nav.nav-light #mob-toggle-btn{
+    background:rgba(6,13,46,.08)!important;
+    border-color:rgba(6,13,46,.25)!important;
+  }
+  #nav.nav-light #mob-toggle-btn svg{
+    stroke:#060D2E!important;
+  }
+
+  /* ── Remove star field on mobile ── */
+  .star-field{display:none!important}
+
+  /* ── Remove hero ray animation on mobile ── */
+  .hero-rays{display:none!important}
+
+  /* ── Disable ALL transitions and animations ── */
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    transition-delay:0ms!important;
+  }
+
+  /* ── Keep reveal animations working (scroll fade-in) ── */
+  .reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .reveal.in-view{
+    opacity:1!important;
+    transform:none!important;
+  }
+
+  /* ── Remove button hover transforms ── */
+  .btn:hover{transform:none!important}
+  .btn:active{transform:none!important}
+  .btn::before{display:none!important}
+  .btn-mag{transform:none!important}
+
+  /* ── Remove dish card 3D tilt ── */
+  .dish-card{transform:none!important}
+  .dish-card:hover{transform:none!important;box-shadow:none!important}
+
+  /* ── Remove news card hover lift ── */
+  .news-card:hover{transform:none!important}
+
+  /* ── Remove menu card hover ── */
+  .menu-card-new:hover{transform:none!important;box-shadow:none!important}
+
+  /* ── Remove hero glow pulse (static instead) ── */
+  .hero-h1,.hero-em,.hero-sub,.hero-eyebrow{animation:none!important}
+  .michelin-glow{text-shadow:0 0 40px rgba(212,175,55,.4)!important}
+
+  /* ── Remove ticker animation on very small screens ── */
+  @media(max-width:480px){
+    .ticker-track{animation-duration:60s!important}
+  }
+
+  /* ── Nav compact ── */
+  #nav{padding:.8rem 1rem!important}
+  .nav-logo-main{font-size:.95rem!important}
+  .nav-logo-sub{font-size:7.5px!important;letter-spacing:.18em!important}
+}
 </style>
 </head>
 <body>
@@ -1265,6 +1351,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
 // Star field - adaptive count, DocumentFragment batch insert
 (function(){
+  if(window.innerWidth<=767)return;
   const c=document.getElementById('stars');if(!c)return;
   const mobile=window.innerWidth<768;
   const count=mobile?50:110;

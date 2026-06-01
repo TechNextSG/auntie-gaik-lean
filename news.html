@@ -320,6 +320,92 @@ nav{background:transparent!important}
   text-decoration:none;transition:opacity .2s;
 }
 .mob-card-cta a:hover{opacity:.88}
+
+/* ================================================================
+   MOBILE FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* ── Hamburger button — clearly visible ── */
+  #mob-toggle-btn{
+    display:flex!important;
+    width:40px;height:40px;
+    border-radius:6px;
+    background:rgba(255,255,255,.12)!important;
+    border:1.5px solid rgba(255,255,255,.35)!important;
+    align-items:center;justify-content:center;
+    color:white!important;
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  #mob-toggle-btn svg{
+    stroke:white!important;
+    display:block;
+  }
+  /* When nav is light (cream bg), show dark button */
+  #nav.nav-light #mob-toggle-btn{
+    background:rgba(6,13,46,.08)!important;
+    border-color:rgba(6,13,46,.25)!important;
+  }
+  #nav.nav-light #mob-toggle-btn svg{
+    stroke:#060D2E!important;
+  }
+
+  /* ── Remove star field on mobile ── */
+  .star-field{display:none!important}
+
+  /* ── Remove hero ray animation on mobile ── */
+  .hero-rays{display:none!important}
+
+  /* ── Disable ALL transitions and animations ── */
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    transition-delay:0ms!important;
+  }
+
+  /* ── Keep reveal animations working (scroll fade-in) ── */
+  .reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .reveal.in-view{
+    opacity:1!important;
+    transform:none!important;
+  }
+
+  /* ── Remove button hover transforms ── */
+  .btn:hover{transform:none!important}
+  .btn:active{transform:none!important}
+  .btn::before{display:none!important}
+  .btn-mag{transform:none!important}
+
+  /* ── Remove dish card 3D tilt ── */
+  .dish-card{transform:none!important}
+  .dish-card:hover{transform:none!important;box-shadow:none!important}
+
+  /* ── Remove news card hover lift ── */
+  .news-card:hover{transform:none!important}
+
+  /* ── Remove menu card hover ── */
+  .menu-card-new:hover{transform:none!important;box-shadow:none!important}
+
+  /* ── Remove hero glow pulse (static instead) ── */
+  .hero-h1,.hero-em,.hero-sub,.hero-eyebrow{animation:none!important}
+  .michelin-glow{text-shadow:0 0 40px rgba(212,175,55,.4)!important}
+
+  /* ── Remove ticker animation on very small screens ── */
+  @media(max-width:480px){
+    .ticker-track{animation-duration:60s!important}
+  }
+
+  /* ── Nav compact ── */
+  #nav{padding:.8rem 1rem!important}
+  .nav-logo-main{font-size:.95rem!important}
+  .nav-logo-sub{font-size:7.5px!important;letter-spacing:.18em!important}
+}
 </style>
 </head>
 <body>
@@ -824,7 +910,7 @@ document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);
 var enc='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
 document.querySelectorAll('.page-hero,[style*="background:#060D2E"],[style*="background:#0A1645"]').forEach(function(el){var ex=el.style.backgroundImage;el.style.backgroundImage=ex?enc+', '+ex:enc;el.style.backgroundSize='180px 180px, auto';el.style.backgroundRepeat='repeat, no-repeat';});
 document.querySelectorAll('section').forEach(function(el){var bg=el.getAttribute('style')||'';if(bg.includes('#060D2E')||bg.includes('#0A1645')||bg.includes('#050C28')){el.style.backgroundImage=enc;el.style.backgroundSize='180px 180px';el.style.backgroundRepeat='repeat';}});})();
-(function(){var c=document.getElementById('stars');if(!c)return;var mobile=window.innerWidth<768;var count=mobile?50:110;var vars=['','t2','t3'];var frag=document.createDocumentFragment();for(var i=0;i<count;i++){var s=document.createElement('span');var isCross=!mobile&&Math.random()<0.12;var sz=isCross?(4+Math.random()*4).toFixed(0):(Math.random()<.15?3:Math.random()<.4?2:1);s.className=isCross?'cross':vars[Math.floor(Math.random()*3)];s.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;--d:'+(1.8+Math.random()*5).toFixed(1)+'s;--delay:-'+(Math.random()*6).toFixed(1)+'s;width:'+sz+'px;height:'+sz+'px;';frag.appendChild(s);}c.appendChild(frag);})();
+(function(){if(window.innerWidth<=767)return;var c=document.getElementById('stars');if(!c)return;var mobile=window.innerWidth<768;var count=mobile?50:110;var vars=['','t2','t3'];var frag=document.createDocumentFragment();for(var i=0;i<count;i++){var s=document.createElement('span');var isCross=!mobile&&Math.random()<0.12;var sz=isCross?(4+Math.random()*4).toFixed(0):(Math.random()<.15?3:Math.random()<.4?2:1);s.className=isCross?'cross':vars[Math.floor(Math.random()*3)];s.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;--d:'+(1.8+Math.random()*5).toFixed(1)+'s;--delay:-'+(Math.random()*6).toFixed(1)+'s;width:'+sz+'px;height:'+sz+'px;';frag.appendChild(s);}c.appendChild(frag);})();
 document.addEventListener('click',function(e){var btn=e.target.closest('.btn,.btn-gold,.btn-og,.btn-ow,.btn-wa,.btn-reserve-nav');if(!btn)return;var r=document.createElement('span');r.className='ripple';var rect=btn.getBoundingClientRect();var sz=Math.max(rect.width,rect.height)*1.6;r.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(e.clientX-rect.left-sz/2)+'px;top:'+(e.clientY-rect.top-sz/2)+'px;background:'+(btn.classList.contains('btn-gold')?'rgba(255,255,255,.35)':'rgba(212,175,55,.45)')+';';btn.appendChild(r);r.addEventListener('animationend',function(){r.remove();},{once:true});});
 document.querySelectorAll('.btn-mag').forEach(function(btn){var raf;btn.addEventListener('mousemove',function(e){var el=this,rect=el.getBoundingClientRect();var dx=(e.clientX-rect.left-rect.width/2)*0.28;var dy=(e.clientY-rect.top-rect.height/2)*0.28;cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){el.style.transform='translate('+dx+'px,'+dy+'px) translateY(-3px) scale(1.02)';el.style.transition='transform 0.12s ease';});},{passive:true});btn.addEventListener('mouseleave',function(){cancelAnimationFrame(raf);this.style.transform='';this.style.transition='transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';});});
 (function(){var ov=document.getElementById('lb-overlay');var im=document.getElementById('lb-img');var cp=document.getElementById('lb-caption');if(!ov||!im)return;var imgs=[],cur=0;document.querySelectorAll('img').forEach(function(el){if(el.closest('#lb-overlay'))return;imgs.push(el);el.classList.add('lb-trigger');el.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();lbOpen(imgs.indexOf(el));});});function lbOpen(i){cur=i;im.src=imgs[i].src;im.alt=imgs[i].alt;cp.textContent=imgs[i].alt||'';ov.classList.add('open');document.body.style.overflow='hidden';}function lbClose(){ov.classList.remove('open');document.body.style.overflow='';setTimeout(function(){im.src='';},360);}document.getElementById('lb-close').addEventListener('click',lbClose);document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();lbOpen((cur-1+imgs.length)%imgs.length);});document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();lbOpen((cur+1)%imgs.length);});ov.addEventListener('click',function(e){if(e.target===ov)lbClose();});document.addEventListener('keydown',function(e){if(!ov.classList.contains('open'))return;if(e.key==='Escape')lbClose();else if(e.key==='ArrowLeft')lbOpen((cur-1+imgs.length)%imgs.length);else if(e.key==='ArrowRight')lbOpen((cur+1)%imgs.length);});})();
