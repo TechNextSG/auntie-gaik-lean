@@ -500,6 +500,87 @@ p, li, td, blockquote { line-height: 1.9 }
 #nav.nav-light #mob{
   background:#040D24 !important;
 }
+
+/* ── Mobile card dropdown ── */
+
+/* Remove old #mob styling completely */
+#mob{all:unset!important;display:none!important}
+#mob *{all:unset}
+
+/* Hamburger / X toggle button */
+#mob-toggle-btn{
+  display:none;
+  align-items:center;justify-content:center;
+  width:36px;height:36px;
+  cursor:pointer;
+  border:none;background:transparent;
+  flex-shrink:0;
+  padding:0;
+}
+@media(max-width:767px){#mob-toggle-btn{display:flex}}
+
+/* Hide desktop nav on mobile */
+@media(max-width:767px){
+  .hidden.md\:flex{display:none!important}
+  .hidden.md\:inline-block{display:none!important}
+  #nav{padding:.85rem 1.1rem!important}
+  .nav-logo-main{font-size:1rem!important}
+  .nav-logo-sub{font-size:8px!important;letter-spacing:.2em!important}
+}
+
+/* Card dropdown */
+#mob-card{
+  display:none;
+  position:fixed;
+  top:56px;left:1rem;right:1rem;
+  z-index:9999;
+  background:#FAF6EF;
+  border:1px solid rgba(6,13,46,.08);
+  border-radius:4px;
+  box-shadow:0 8px 40px rgba(6,13,46,.18), 0 2px 8px rgba(6,13,46,.1);
+  overflow:hidden;
+  animation:cardIn .22s ease forwards;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(-8px) scale(.98)}
+  to  {opacity:1;transform:translateY(0)   scale(1)}
+}
+#mob-card.open{display:block}
+
+/* Nav links */
+.mob-card-link{
+  display:block;
+  text-align:center;
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  font-weight:400;
+  color:#1C1C1E;
+  text-decoration:none;
+  padding:.9rem 1rem;
+  border-bottom:1px solid rgba(6,13,46,.07);
+  transition:background .15s,color .15s;
+  letter-spacing:.01em;
+}
+.mob-card-link:last-of-type{border-bottom:none}
+.mob-card-link:hover{background:rgba(212,175,55,.08);color:#060D2E}
+.mob-card-link.mob-active{color:#D4AF37;font-weight:500}
+
+/* Reserve button inside card */
+.mob-card-cta{
+  padding:.85rem 1.25rem 1.1rem;
+  border-top:1px solid rgba(212,175,55,.2);
+  background:#FAF6EF;
+}
+.mob-card-cta a{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  background:linear-gradient(135deg,#C9A227,#E8C84A,#D4AF37);
+  color:#060D2E;font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:.75rem;border-radius:3px;
+  text-decoration:none;transition:opacity .2s;
+}
+.mob-card-cta a:hover{opacity:.88}
 </style>
 </head>
 <body>
@@ -519,9 +600,7 @@ p, li, td, blockquote { line-height: 1.9 }
       <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
     <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
-    <button class="md:hidden text-white" onclick="var m=document.getElementById('mob');var nav=document.getElementById('nav');if(m.classList.contains('hidden')){m.style.top=nav.getBoundingClientRect().height+'px';m.classList.remove('hidden');}else{m.classList.add('hidden');}" aria-label="Menu">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+    <button id="mob-toggle-btn" onclick="mobCardToggle()" aria-label="Menu"><svg id="mob-bars" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 7h18M3 12h18M3 17h18"/></svg><svg id="mob-x-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
   </div>
   <div id="mob" class="hidden md:hidden border-t border-white/20 mt-4 pt-5 pb-3 flex flex-col gap-4 px-2">
     <a href="our-story.html" class="text-white/80 text-sm" style="font-family:'Inter',sans-serif" onclick="document.getElementById('mob').classList.add('hidden')">Our Story</a>
@@ -533,6 +612,20 @@ p, li, td, blockquote { line-height: 1.9 }
       class="btn btn-og text-center text-xs tracking-[.18em] uppercase px-6 py-3 mt-1 w-full justify-center">Reserve a Table</a>
   </div>
 </nav>
+<!-- MOBILE CARD DROPDOWN -->
+<div id="mob-card">
+  <a href="our-story.html" class="mob-card-link" onclick="mobCardClose()">Our Story</a>
+  <a href="menu.html" class="mob-card-link" onclick="mobCardClose()">Menu</a>
+  <a href="press.html" class="mob-card-link" onclick="mobCardClose()">Press</a>
+  <a href="news.html" class="mob-card-link" onclick="mobCardClose()">News</a>
+  <a href="visit-us.html" class="mob-card-link" onclick="mobCardClose()">Visit Us</a>
+  <div class="mob-card-cta">
+    <a href="reservations.html" onclick="mobCardClose()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      Reserve a Table
+    </a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero-bg relative min-h-screen flex items-center justify-center">
