@@ -992,7 +992,7 @@ document.querySelectorAll('.dish-card').forEach(card=>{
 
 // Mobile card dropdown
 (function(){
-  function open(){
+  function mobOpen(){
     var c=document.getElementById('mob-card');
     var nav=document.getElementById('nav');
     var bars=document.getElementById('mob-bars');
@@ -1003,7 +1003,7 @@ document.querySelectorAll('.dish-card').forEach(card=>{
     if(bars)bars.style.display='none';
     if(xi)xi.style.display='block';
   }
-  function close(){
+  function mobClose(){
     var c=document.getElementById('mob-card');
     var bars=document.getElementById('mob-bars');
     var xi=document.getElementById('mob-x-icon');
@@ -1014,9 +1014,9 @@ document.querySelectorAll('.dish-card').forEach(card=>{
   }
   window.mobCardToggle=function(){
     var c=document.getElementById('mob-card');
-    if(c&&c.classList.contains('open'))close();else open();
+    if(c&&c.classList.contains('open'))mobClose();else mobOpen();
   };
-  window.mobCardClose=close;
+  window.mobCardClose=mobClose;
   document.addEventListener('click',function(e){
     var c=document.getElementById('mob-card');
     var b=document.getElementById('mob-toggle-btn');
