@@ -189,6 +189,56 @@ nav{background:transparent!important}
 #nav.nav-light .btn-reserve-nav:hover{
   background:#D4AF37!important;color:#060D2E!important;
 }
+
+/* ── Mobile nav dropdown fix ── */
+#mob{
+  position:fixed !important;
+  top:0; left:0; right:0;
+  background:#040D24 !important;
+  backdrop-filter:blur(0) !important;
+  -webkit-backdrop-filter:blur(0) !important;
+  z-index:9999;
+  margin:0 !important;
+  border-top:none !important;
+  border-bottom:1px solid rgba(212,175,55,.2);
+  box-shadow:0 8px 32px rgba(0,0,10,.7);
+  padding:0 !important;
+}
+#mob:not(.hidden){
+  display:flex !important;
+  flex-direction:column;
+}
+/* Add nav height offset so it appears below nav bar */
+#mob-inner{
+  padding:4rem 1.5rem 1.25rem;
+}
+#mob a{
+  font-family:'Inter',sans-serif !important;
+  font-size:.9rem !important;
+  color:rgba(255,255,255,.78) !important;
+  padding:.75rem 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-decoration:none;
+  transition:color .15s, padding-left .15s;
+}
+#mob a:last-of-type{border-bottom:none}
+#mob a:hover{color:#D4AF37 !important; padding-left:.35rem}
+#mob a.btn{
+  margin-top:.75rem;
+  border-radius:4px;
+  padding:.85rem 1rem !important;
+  justify-content:center;
+  font-size:11px !important;
+  letter-spacing:.16em;
+  font-weight:700 !important;
+}
+/* Nav-light must NOT affect mob background */
+#nav.nav-light #mob{
+  background:#040D24 !important;
+}
 </style>
 </head>
 <body>
@@ -208,7 +258,7 @@ nav{background:transparent!important}
       <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
     <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
-    <button class="md:hidden text-white" onclick="document.getElementById('mob').classList.toggle('hidden')" aria-label="Menu">
+    <button class="md:hidden text-white" onclick="var m=document.getElementById('mob');var nav=document.getElementById('nav');if(m.classList.contains('hidden')){m.style.top=nav.getBoundingClientRect().height+'px';m.classList.remove('hidden');}else{m.classList.add('hidden');}" aria-label="Menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
