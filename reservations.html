@@ -600,6 +600,72 @@ p, li, td, blockquote { line-height: 1.9 }
   .news-card .overflow-hidden{height:120px!important}
   #menu-grid{gap:.5rem!important}
 }
+
+/* ================================================================
+   MOBILE BUTTON FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* All buttons full-width and properly sized on mobile */
+  .btn{
+    width:100%!important;
+    justify-content:center!important;
+    font-size:11px!important;
+    letter-spacing:.14em!important;
+    padding:.85rem 1rem!important;
+  }
+
+  /* btn-reserve-nav stays small — it's only in the nav */
+  .btn-reserve-nav{
+    width:auto!important;
+    padding:6px 16px!important;
+    font-size:10px!important;
+  }
+
+  /* Button groups: always stack vertically on mobile */
+  .flex.flex-row.flex-wrap,
+  .flex.flex-wrap.gap-4,
+  .flex.flex-wrap.gap-3,
+  .flex.flex-col.sm\:flex-row,
+  .flex.sm\:flex-row{
+    flex-direction:column!important;
+    gap:.65rem!important;
+    width:100%!important;
+  }
+
+  /* Centre button groups */
+  .flex.justify-center.gap-4,
+  .flex.justify-center.gap-3{
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:.65rem!important;
+    max-width:340px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Inline flex button wrappers in sections */
+  .flex.flex-col.sm\:flex-row.gap-4,
+  .flex.flex-col.sm\:flex-row.gap-3{
+    flex-direction:column!important;
+    gap:.65rem!important;
+  }
+
+  /* Hero section CTAs */
+  .reveal.d4.flex.flex-wrap,
+  .in-view.flex.flex-wrap{
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:.65rem!important;
+  }
+
+  /* wa-pulse floating button — keep original */
+  .wa-pulse{width:3.25rem!important;height:3.25rem!important}
+
+  /* mob-card cta stays normal */
+  .mob-card-cta .btn,
+  #mob-card .btn{width:100%!important;padding:.75rem 1rem!important}
+}
 </style>
 </head>
 <body>
@@ -643,7 +709,7 @@ p, li, td, blockquote { line-height: 1.9 }
   <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.55) 50%,rgba(4,8,28,.92) 100%)"></div>
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" style="padding-top:2rem;padding-bottom:3rem">
     <div class="reveal mb-6">
-      <span class="hero-eyebrow" style="font-family:\'Inter\',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Secure Your Seat</span>
+      <span class="hero-eyebrow" style="font-family:\'Inter\',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Reserve</span>
     </div>
     <h1 class="reveal d1 michelin-glow hero-h1" style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6.5vw,5rem);font-weight:600;color:white;line-height:1.1;margin-bottom:1rem">
       Reserve Your <em class="hero-em" style="color:#D4AF37;font-style:italic">Table</em>
@@ -713,7 +779,7 @@ p, li, td, blockquote { line-height: 1.9 }
         <p style="font-family:'Inter',sans-serif;font-size:16.5px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem">Instant confirmation · Select your preferred date and party size</p>
         <p style="font-family:'Inter',sans-serif;font-size:15.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:2rem">Deposit of RM 200 nett required to confirm your booking. Applied to your final bill.</p>
         <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-mag w-full py-4 rounded text-sm tracking-[.14em] uppercase">
-          Reserve Now via TableApp
+          Book via TableApp
         </a>
         <p style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.3);margin-top:1rem">Opens in a new tab · Secure payment</p>
       </div>

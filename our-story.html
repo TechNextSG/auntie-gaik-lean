@@ -594,6 +594,72 @@ p, li, td, blockquote { line-height: 1.9 }
   .news-card .overflow-hidden{height:120px!important}
   #menu-grid{gap:.5rem!important}
 }
+
+/* ================================================================
+   MOBILE BUTTON FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* All buttons full-width and properly sized on mobile */
+  .btn{
+    width:100%!important;
+    justify-content:center!important;
+    font-size:11px!important;
+    letter-spacing:.14em!important;
+    padding:.85rem 1rem!important;
+  }
+
+  /* btn-reserve-nav stays small — it's only in the nav */
+  .btn-reserve-nav{
+    width:auto!important;
+    padding:6px 16px!important;
+    font-size:10px!important;
+  }
+
+  /* Button groups: always stack vertically on mobile */
+  .flex.flex-row.flex-wrap,
+  .flex.flex-wrap.gap-4,
+  .flex.flex-wrap.gap-3,
+  .flex.flex-col.sm\:flex-row,
+  .flex.sm\:flex-row{
+    flex-direction:column!important;
+    gap:.65rem!important;
+    width:100%!important;
+  }
+
+  /* Centre button groups */
+  .flex.justify-center.gap-4,
+  .flex.justify-center.gap-3{
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:.65rem!important;
+    max-width:340px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Inline flex button wrappers in sections */
+  .flex.flex-col.sm\:flex-row.gap-4,
+  .flex.flex-col.sm\:flex-row.gap-3{
+    flex-direction:column!important;
+    gap:.65rem!important;
+  }
+
+  /* Hero section CTAs */
+  .reveal.d4.flex.flex-wrap,
+  .in-view.flex.flex-wrap{
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:.65rem!important;
+  }
+
+  /* wa-pulse floating button — keep original */
+  .wa-pulse{width:3.25rem!important;height:3.25rem!important}
+
+  /* mob-card cta stays normal */
+  .mob-card-cta .btn,
+  #mob-card .btn{width:100%!important;padding:.75rem 1rem!important}
+}
 </style>
 </head>
 <body>

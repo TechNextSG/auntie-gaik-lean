@@ -776,6 +776,72 @@ p, li, td, blockquote { line-height: 1.9 }
   .news-card .overflow-hidden{height:120px!important}
   #menu-grid{gap:.5rem!important}
 }
+
+/* ================================================================
+   MOBILE BUTTON FIXES
+   ================================================================ */
+@media(max-width:767px){
+
+  /* All buttons full-width and properly sized on mobile */
+  .btn{
+    width:100%!important;
+    justify-content:center!important;
+    font-size:11px!important;
+    letter-spacing:.14em!important;
+    padding:.85rem 1rem!important;
+  }
+
+  /* btn-reserve-nav stays small — it's only in the nav */
+  .btn-reserve-nav{
+    width:auto!important;
+    padding:6px 16px!important;
+    font-size:10px!important;
+  }
+
+  /* Button groups: always stack vertically on mobile */
+  .flex.flex-row.flex-wrap,
+  .flex.flex-wrap.gap-4,
+  .flex.flex-wrap.gap-3,
+  .flex.flex-col.sm\:flex-row,
+  .flex.sm\:flex-row{
+    flex-direction:column!important;
+    gap:.65rem!important;
+    width:100%!important;
+  }
+
+  /* Centre button groups */
+  .flex.justify-center.gap-4,
+  .flex.justify-center.gap-3{
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:.65rem!important;
+    max-width:340px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Inline flex button wrappers in sections */
+  .flex.flex-col.sm\:flex-row.gap-4,
+  .flex.flex-col.sm\:flex-row.gap-3{
+    flex-direction:column!important;
+    gap:.65rem!important;
+  }
+
+  /* Hero section CTAs */
+  .reveal.d4.flex.flex-wrap,
+  .in-view.flex.flex-wrap{
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:.65rem!important;
+  }
+
+  /* wa-pulse floating button — keep original */
+  .wa-pulse{width:3.25rem!important;height:3.25rem!important}
+
+  /* mob-card cta stays normal */
+  .mob-card-cta .btn,
+  #mob-card .btn{width:100%!important;padding:.75rem 1rem!important}
+}
 </style>
 </head>
 <body>
@@ -1166,7 +1232,7 @@ p, li, td, blockquote { line-height: 1.9 }
       <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
         class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-10 py-4 font-semibold">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Secure Your Michelin Experience
+        Reserve a Table
       </a>
       <a href="press.html"
         class="btn btn-og text-[11px] tracking-[.15em] uppercase px-10 py-4 font-medium">
@@ -1290,7 +1356,7 @@ p, li, td, blockquote { line-height: 1.9 }
   <div class="reveal relative z-10 max-w-2xl mx-auto px-6 text-center">
     <div class="flex items-center justify-center gap-3 mb-4">
       <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
-      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(212,175,55,.8);font-family:'Inter',sans-serif">Secure Your Seat</span>
+      <span class="text-[11px] tracking-[.28em] uppercase font-medium" style="color:rgba(212,175,55,.8);font-family:'Inter',sans-serif">Reserve</span>
       <span class="inline-block w-8 h-px" style="background:rgba(212,175,55,.35)"></span>
     </div>
     <h2 class="font-semibold leading-tight mb-6 text-4xl lg:text-5xl" style="color:white;font-family:'Playfair Display',serif">
@@ -1377,7 +1443,7 @@ p, li, td, blockquote { line-height: 1.9 }
         <a href="https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang" target="_blank"
           class="btn btn-gold btn-mag text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-semibold">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          Reserve Before Your Visit
+          Reserve
         </a>
         <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20make%20a%20reservation." target="_blank"
           class="btn btn-wa text-[11px] tracking-[.15em] uppercase px-8 py-3.5 font-medium">
