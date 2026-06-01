@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Checklist — Auntie Gaik Lean's Website</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+  header{background:linear-gradient(135deg,#060D2E,#0A1645);color:white;padding:2.5rem 2rem;border-bottom:3px solid #D4AF37}
+  header h1{font-size:1.8rem;font-weight:700;margin-bottom:.35rem}
+  header p{color:rgba(255,255,255,.65);font-size:.9rem}
+  .container{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  .intro{background:white;border:1px solid #e5e7eb;border-radius:10px;padding:1.5rem;margin-bottom:2rem;font-size:.9rem;color:#555;line-height:1.8}
+  .intro strong{color:#060D2E}
+  .progress-bar{background:#e5e7eb;border-radius:20px;height:10px;margin:1rem 0 .4rem;overflow:hidden}
+  .progress-fill{background:linear-gradient(90deg,#D4AF37,#E8C84A);height:100%;border-radius:20px;transition:width .5s ease}
+  .progress-text{font-size:12px;color:#888;text-align:right}
+  .section{margin-bottom:2.5rem}
+  .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .section-title{font-size:1rem;font-weight:700;color:#060D2E}
+  .section-subtitle{font-size:.8rem;color:#888}
+  .item{display:flex;align-items:flex-start;gap:.9rem;background:white;border:1px solid #e5e7eb;border-radius:8px;padding:.9rem 1rem;margin-bottom:.6rem;transition:background .15s,border .15s;cursor:pointer}
+  .item:hover{background:#fffbeb;border-color:#D4AF37}
+  .item.done{background:#f0fdf4;border-color:#86efac}
+  .item.issue{background:#fff7ed;border-color:#fed7aa}
+  .item.na{background:#f8fafc;border-color:#e5e7eb;opacity:.6}
+  .cb{width:20px;height:20px;border:2px solid #d1d5db;border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .item.done .cb{background:#22c55e;border-color:#22c55e;color:white}
+  .item.issue .cb{background:#f97316;border-color:#f97316;color:white}
+  .item.na .cb{background:#e5e7eb;border-color:#e5e7eb;color:#aaa;font-size:11px}
+  .item-content{flex:1}
+  .item-title{font-weight:600;font-size:.88rem;color:#1a1a2e}
+  .item.done .item-title{color:#166534}
+  .item.issue .item-title{color:#9a3412}
+  .item-desc{font-size:.8rem;color:#777;margin-top:2px}
+  .item-url a{font-size:.78rem;color:#D4AF37;text-decoration:none}
+  .item-url a:hover{text-decoration:underline}
+  .notes-box{width:100%;margin-top:.5rem;border:1px solid #e5e7eb;border-radius:5px;padding:.5rem .7rem;font-size:.8rem;font-family:inherit;resize:vertical;min-height:36px;color:#555}
+  .notes-box:focus{outline:none;border-color:#D4AF37}
+  .legend{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem;font-size:.8rem}
+  .legend-item{display:flex;align-items:center;gap:.4rem}
+  .legend-dot{width:12px;height:12px;border-radius:3px}
+  .legend-pending{background:#e5e7eb;border:2px solid #d1d5db}
+  .legend-done{background:#22c55e}
+  .legend-issue{background:#f97316}
+  .legend-na{background:#e5e7eb}
+  .summary{background:white;border:1px solid #e5e7eb;border-radius:10px;padding:1.5rem;margin-top:2rem}
+  .summary h3{font-size:.9rem;font-weight:700;color:#060D2E;margin-bottom:1rem}
+  .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+  .s-num{font-size:1.8rem;font-weight:700}
+  .s-pending .s-num{color:#6b7280}
+  .s-done .s-num{color:#22c55e}
+  .s-issue .s-num{color:#f97316}
+  .s-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.08em}
+  .action-bar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
+  .btn{padding:.6rem 1.2rem;border:none;border-radius:6px;font-size:.82rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+  .btn:hover{opacity:.85}
+  .btn-primary{background:#D4AF37;color:#060D2E}
+  .btn-secondary{background:#e5e7eb;color:#374151}
+  footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem;border-top:1px solid #e5e7eb;margin-top:2rem}
+  @media(max-width:600px){.summary-grid{grid-template-columns:repeat(3,1fr)};.action-bar{flex-direction:column}}
+  @media print{.action-bar,.notes-box{display:none}.item{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Client Review Checklist</h1>
+  <p>Auntie Gaik Lean's Old School Eatery — Website Review &nbsp;·&nbsp; technextsg.github.io/auntie-gaik-lean</p>
+</header>
+
+<div class="container">
+
+  <div class="intro">
+    <strong>Instructions:</strong> Please review each item below by visiting the live website. Tick ✓ for approved items, flag ⚠ for items needing changes, or mark N/A if not applicable. Add notes in the text box for any feedback. Once all items are reviewed, please return this checklist to TechNext SG.
+    <br><br>
+    <strong>Live URL:</strong> <a href="https://technextsg.github.io/auntie-gaik-lean/" target="_blank" style="color:#D4AF37">https://technextsg.github.io/auntie-gaik-lean/</a>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">0 of 0 items reviewed</div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot legend-pending"></div>Pending review</div>
+    <div class="legend-item"><div class="legend-dot legend-done"></div>Approved</div>
+    <div class="legend-item"><div class="legend-dot legend-issue"></div>Needs change</div>
+  </div>
+
+  <div class="action-bar">
+    <button class="btn btn-primary" onclick="printChecklist()">Print / Save PDF</button>
+    <button class="btn btn-secondary" onclick="markAll('done')">Mark All Approved</button>
+    <button class="btn btn-secondary" onclick="resetAll()">Reset All</button>
+  </div>
+
+  <!-- SECTION 1: HOMEPAGE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">1. Homepage (index.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Hero Section — Background Photo</div>
+        <div class="item-desc">Hero photo from SmugMug gallery shows correctly with dark masking overlay. Title "Where Heritage Lives on Every Plate" is readable.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Hero CTA Buttons</div>
+        <div class="item-desc">"Reserve Your Table" and "Explore Our Menu" buttons work and link correctly.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Signature Dishes Section</div>
+        <div class="item-desc">6 dish cards show with images. "View Full Menu" and reserve buttons work. Cards are clickable.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Heritage Section — Food Images</div>
+        <div class="item-desc">2×2 image grid shows Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee (not spice/ingredient photos).</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Google Reviews — Testimonials</div>
+        <div class="item-desc">3 real Google reviews shown (Emily C., Franca B., Alan L.) with Google logo and dates. Ratings are accurate.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">"As Featured In" Publication Links</div>
+        <div class="item-desc">Michelin Guide, DanielFoodDiary, The Star, TripAdvisor, Asian News Network all link to correct articles. Gold hover works.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: OUR STORY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">2. Our Story (our-story.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/our-story.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Chef Biography — Text Accuracy</div>
+        <div class="item-desc">Auntie Gaik Lean's story, background, and Michelin milestone details are factually correct.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Heritage Section — Food Photos</div>
+        <div class="item-desc">4 food dish images (460px tall) look good. Images are appetizing and represent the restaurant well.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Kitchen Philosophy Cards — SVG Icons</div>
+        <div class="item-desc">3 philosophy cards (Nothing from a Packet, Made Fresh, Family Recipes) show proper SVG icons instead of emoji.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MENU -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">3. Menu (menu.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/menu.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">All 24 Dishes Listed — Names Correct</div>
+        <div class="item-desc">Verify all dish names are spelled correctly. No pricing should be shown.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Dish Descriptions — Accuracy</div>
+        <div class="item-desc">Review the full descriptions in the detail modals for each dish. Ingredients and preparation notes should be accurate.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Filter Tabs — Working</div>
+        <div class="item-desc">All / Starters / Soups / Mains / Seafood / Rice & Noodles / Desserts tabs filter cards correctly.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Dish Detail Modal — Working</div>
+        <div class="item-desc">Click any dish card → detail modal opens with full description, highlights, and Reserve CTA.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">⚠ Dish Images — To Be Updated</div>
+        <div class="item-desc">Current images are placeholders or general food photos. Client to confirm which SmugMug images match each dish for accurate assignment.</div>
+        <textarea class="notes-box" placeholder="Please specify which image goes with which dish..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PRESS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">4. Press (press.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/press.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Michelin Awards Timeline — Dates Accurate</div>
+        <div class="item-desc">2022, 2023, 2024, 2025 Michelin stars shown. Timeline events and dates are correct.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Press Quotes — Attributions Correct</div>
+        <div class="item-desc">All media quotes are attributed to the correct publications. Sources are linked.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: NEWS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">5. News (news.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/news.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">12 Article Cards — Correct Links</div>
+        <div class="item-desc">All "Read Article" links open the correct press pages. Dates and publication names are accurate.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Tatler Asia Feature — Correct</div>
+        <div class="item-desc">Tatler Asia "Most Influential 2024" hero card links to the correct article page.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">YouTube Videos — Playing Correctly</div>
+        <div class="item-desc">Michelin Guide video and Best Restaurant review video both embed and play. "More on YouTube" button links to correct search results.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Collaborations — Singapore & Bangkok Details</div>
+        <div class="item-desc">PARKROYAL Singapore (2023 & 2024) and Bangkok collaboration details are accurate. Dates and dishes listed are correct.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: VISIT US -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">6. Visit Us (visit-us.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/visit-us.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Address & Contact Details</div>
+        <div class="item-desc">1 Bishop Street, George Town, 10200 Penang. Phone: +60 17-434 4398. Both are correct and clickable.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Opening Hours — Correct</div>
+        <div class="item-desc">Wed–Sun: Lunch 12:00–2:30pm, Dinner 6:00–9:30pm. Closed Mon & Tue. Last seating 30 mins before close.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Google Map — Loading Correctly</div>
+        <div class="item-desc">Embedded Google Map shows correct pin location for 1 Bishop Street.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: RESERVATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">7. Reservations (reservations.html)</div>
+      <div class="section-subtitle"><a href="https://technextsg.github.io/auntie-gaik-lean/reservations.html" target="_blank" style="color:#D4AF37;font-size:.8rem">Open ↗</a></div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">TableApp Booking Link — Working</div>
+        <div class="item-desc">"Book via TableApp" button opens the correct TableApp restaurant page.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">WhatsApp Link — Correct Number</div>
+        <div class="item-desc">WhatsApp button links to +60 17-434 4398 with pre-filled reservation message.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">FAQ Accordion — Working</div>
+        <div class="item-desc">Click each FAQ question → answer expands. + toggles to −. Auto-closes other items.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Deposit Policy — RM 200 Amount Correct</div>
+        <div class="item-desc">RM 200 nett deposit requirement is stated correctly. Cancellation policy (48 hours) is accurate.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: GLOBAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">8. Global — All Pages</div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Navigation — All Links Working</div>
+        <div class="item-desc">Our Story, Menu, Press, News, Visit Us, and Reserve links in the nav bar work on all pages.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Mobile Navigation — Hamburger Works</div>
+        <div class="item-desc">On mobile, hamburger opens floating card dropdown. Active page highlighted. Reserve button present.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Image Lightbox — Click to Preview</div>
+        <div class="item-desc">Clicking any food image opens a fullscreen preview with prev/next navigation.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">WhatsApp Floating Button</div>
+        <div class="item-desc">Green WhatsApp button bottom-right on every page links to correct number with reservation message.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Footer — Links & Copyright</div>
+        <div class="item-desc">Footer navigation links all work. Copyright year 2026. Social media links (Instagram, Facebook) correct.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <div class="cb"></div>
+      <div class="item-content">
+        <div class="item-title">Mobile View — General Quality</div>
+        <div class="item-desc">Browse site on a phone. Text is readable, buttons are tappable, images load, layout is clean.</div>
+        <textarea class="notes-box" placeholder="Notes..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- PENDING ITEMS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">9. Pending Items — Action Required</div>
+    </div>
+
+    <div class="item issue">
+      <div class="cb">!</div>
+      <div class="item-content">
+        <div class="item-title">⚠ Menu Dish Images — Client to Assign</div>
+        <div class="item-desc">SmugMug gallery images have no captions/titles. Please review the 34 food photos and specify which image goes with which dish so we can assign them accurately.</div>
+        <textarea class="notes-box" placeholder="Please list: dish name = image filename or describe the photo..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item issue">
+      <div class="cb">!</div>
+      <div class="item-content">
+        <div class="item-title">⚠ Hero Background Photo — Approval</div>
+        <div class="item-desc">Homepage hero currently uses the SmugMug photo (i-VPzZJN3). Confirm this is the correct/preferred image for the main hero section.</div>
+        <textarea class="notes-box" placeholder="Approve current photo or specify a different one..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+
+    <div class="item issue">
+      <div class="cb">!</div>
+      <div class="item-content">
+        <div class="item-title">⚠ Carousel Feature — Pending Implementation</div>
+        <div class="item-desc">Auto-rotating image carousel (3-second loop) for menu cards is designed but not yet implemented, pending dish-to-image mapping confirmation from client.</div>
+        <textarea class="notes-box" placeholder="Confirm when dish images are assigned..." onclick="event.stopPropagation()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <h3>Review Summary</h3>
+    <div class="summary-grid">
+      <div class="s-pending"><div class="s-num" id="count-pending">0</div><div class="s-label">Pending</div></div>
+      <div class="s-done"><div class="s-num" id="count-done">0</div><div class="s-label">Approved</div></div>
+      <div class="s-issue"><div class="s-num" id="count-issue">0</div><div class="s-label">Needs Change</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  TechNext SG &nbsp;·&nbsp; Auntie Gaik Lean's Old School Eatery Website Project &nbsp;·&nbsp; June 2026
+</footer>
+
+<script>
+function toggleItem(el) {
+  if(el.classList.contains('issue') && el.querySelector('.cb').textContent === '!') return;
+  if(el.classList.contains('na')) { el.className='item'; el.querySelector('.cb').textContent=''; }
+  else if(el.classList.contains('done')) { el.className='item issue'; el.querySelector('.cb').textContent='!'; }
+  else { el.className='item done'; el.querySelector('.cb').textContent='✓'; }
+  updateProgress();
+}
+function updateProgress() {
+  var items = document.querySelectorAll('.item:not(.issue[data-fixed])');
+  var total = document.querySelectorAll('.item').length;
+  var done  = document.querySelectorAll('.item.done').length;
+  var issue = document.querySelectorAll('.item.issue').length;
+  var pend  = total - done - issue;
+  document.getElementById('count-pending').textContent = pend;
+  document.getElementById('count-done').textContent    = done;
+  document.getElementById('count-issue').textContent   = issue;
+  var pct = Math.round((done + issue) / total * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent  = (done + issue) + ' of ' + total + ' items reviewed (' + pct + '%)';
+}
+function markAll(state) {
+  document.querySelectorAll('.item').forEach(function(el) {
+    if(state === 'done') { el.className='item done'; el.querySelector('.cb').textContent='✓'; }
+  });
+  updateProgress();
+}
+function resetAll() {
+  document.querySelectorAll('.item:not(.item.issue .item)').forEach(function(el) {
+    if(!el.classList.contains('issue') || el.querySelector('.cb').textContent !== '!') {
+      el.className='item'; el.querySelector('.cb').textContent='';
+    }
+  });
+  document.querySelectorAll('.item').forEach(function(el) {
+    el.className='item'; el.querySelector('.cb').textContent='';
+  });
+  // Restore the pre-set issue items
+  document.querySelectorAll('[data-preset="issue"]').forEach(function(el) {
+    el.className='item issue'; el.querySelector('.cb').textContent='!';
+  });
+  updateProgress();
+}
+function printChecklist() { window.print(); }
+updateProgress();
+</script>
+</body>
+</html>

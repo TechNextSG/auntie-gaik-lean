@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Changelog — Auntie Gaik Lean's Website</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+  header{background:linear-gradient(135deg,#060D2E,#0A1645);color:white;padding:2.5rem 2rem;border-bottom:3px solid #D4AF37}
+  header h1{font-size:1.8rem;font-weight:700;margin-bottom:.35rem}
+  header p{color:rgba(255,255,255,.65);font-size:.9rem}
+  .badge{display:inline-block;background:#D4AF37;color:#060D2E;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-left:.5rem;vertical-align:middle}
+  .container{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+  .stat{background:white;border:1px solid #e5e7eb;border-radius:8px;padding:1.25rem;text-align:center}
+  .stat-num{font-size:2rem;font-weight:700;color:#D4AF37}
+  .stat-label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+  .section{margin-bottom:2rem}
+  .section-title{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#D4AF37;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid #e5e7eb}
+  .entry{background:white;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:.75rem;overflow:hidden}
+  .entry-header{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.1rem;cursor:default}
+  .entry-num{font-size:11px;color:#aaa;min-width:24px}
+  .entry-title{font-weight:600;font-size:.9rem;flex:1}
+  .entry-tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:12px;white-space:nowrap}
+  .tag-new{background:#dcfce7;color:#166534}
+  .tag-fix{background:#fef9c3;color:#854d0e}
+  .tag-update{background:#dbeafe;color:#1e40af}
+  .tag-perf{background:#f3e8ff;color:#6b21a8}
+  .tag-design{background:#fce7f3;color:#9d174d}
+  .entry-body{padding:0 1.1rem .85rem;font-size:.85rem;color:#555;border-top:1px solid #f3f4f6}
+  .entry-body ul{list-style:none;padding:0;margin-top:.5rem}
+  .entry-body li{padding:.2rem 0;padding-left:1.1rem;position:relative}
+  .entry-body li::before{content:'→';position:absolute;left:0;color:#D4AF37;font-size:.8rem}
+  .date-group{font-size:.75rem;font-weight:700;color:#060D2E;background:#f1f5f9;padding:.4rem 1rem;border-radius:20px;display:inline-block;margin-bottom:1rem}
+  .page-scope{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem}
+  .page-tag{font-size:10px;background:#f1f5f9;color:#444;padding:1px 7px;border-radius:10px}
+  footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem;border-top:1px solid #e5e7eb;margin-top:2rem}
+  @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Auntie Gaik Lean's — Website Changelog <span class="badge">v2.0</span></h1>
+  <p>technextsg.github.io/auntie-gaik-lean &nbsp;·&nbsp; Project by TechNext SG &nbsp;·&nbsp; Last updated: June 2026</p>
+</header>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Pages Updated</div></div>
+    <div class="stat"><div class="stat-num">86</div><div class="stat-label">Images Uploaded</div></div>
+    <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Commits</div></div>
+    <div class="stat"><div class="stat-num">24</div><div class="stat-label">Menu Items</div></div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <div class="section">
+    <div class="section-title">Phase 1 — Foundation & Content</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">01</span>
+        <span class="entry-title">Website Structure — 7 Pages Built</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>index.html — Homepage with hero, menu preview, testimonials, reserve section</li>
+          <li>our-story.html — Chef biography, heritage story, kitchen philosophy</li>
+          <li>menu.html — Full 24-dish menu with filter tabs and detail modals</li>
+          <li>press.html — Awards timeline, press quotes, Michelin recognition</li>
+          <li>news.html — 12 real press articles, 2 YouTube embeds, collaborations</li>
+          <li>visit-us.html — Map, opening hours, nearby attractions</li>
+          <li>reservations.html — Booking info, FAQ, deposit policy</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">02</span>
+        <span class="entry-title">86 Professional Food Photos Uploaded</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Downloaded and compressed 86 images from SmugMug gallery (Alex Tan Photography)</li>
+          <li>Categories: food dishes, chef portraits, restaurant interior/exterior, dining atmosphere, studio shots</li>
+          <li>All images compressed to max 1920px @ 82% quality (177KB–600KB each)</li>
+          <li>All images get loading="lazy" decoding="async" for performance</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">03</span>
+        <span class="entry-title">Real Press Coverage — News Page</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Tatler Asia "Most Influential 2024" — hero feature card</li>
+          <li>The Star Malaysia (Dec 2024), DanielFoodDiary (May 2025), HungryGoWhere (Jul 2024)</li>
+          <li>CNA Luxury, Asian News Network, Zoy To The World (Sep 2024)</li>
+          <li>3× Michelin Guide features (Inspector review, Nasi Ulam recipe, travel guide)</li>
+          <li>Savour Black Book Asia (Singapore collaboration), TripAdvisor rating</li>
+          <li>2 embedded YouTube videos (Michelin Guide + Mark Wiens)</li>
+          <li>Singapore (2023 & 2024) + Bangkok collaborations documented</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">news.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">04</span>
+        <span class="entry-title">Real Google Reviews — Testimonials</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Replaced placeholder reviews with verified Google reviews (2025–2026)</li>
+          <li>Emily C. ★★★★★ (Dec 2025), Franca B. ★★★★★ (Feb 2026), Alan L. ★★★★★ (Jan 2026)</li>
+          <li>Each card shows Google logo, reviewer initial, star rating, review date</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">index.html</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN -->
+  <div class="section">
+    <div class="section-title">Phase 2 — Design System</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">05</span>
+        <span class="entry-title">Brand Colour System & Typography</span>
+        <span class="entry-tag tag-design">Design</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Deep Navy #060D2E · Gold #D4AF37 · Cream #FAF6EF palette throughout</li>
+          <li>Playfair Display (headings) · Cormorant Garamond (quotes) · Inter (body)</li>
+          <li>Gold hairline borders, gold-bar dividers, gold CTA gradient system</li>
+          <li>Button system: btn-gold, btn-og, btn-ow, btn-wa with hover animations</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">06</span>
+        <span class="entry-title">Atmospheric Background System</span>
+        <span class="entry-tag tag-design">Design</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Peranakan Batik-inspired damask SVG pattern on all dark sections</li>
+          <li>5-layer dark section treatment: glow → damask → shadow → content</li>
+          <li>Gold radial center glow + blue corner accents on all dark backgrounds</li>
+          <li>Ray-of-light effect on all hero sections (conic-gradient rays + glow)</li>
+          <li>Star field with 3 twinkling variants in all hero sections</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">07</span>
+        <span class="entry-title">Hero Section — SmugMug Photo Background</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Hero background photo sourced from SmugMug gallery (Alex Tan Photography)</li>
+          <li>Dark masking layers (rgba overlays + gradient) so text remains readable</li>
+          <li>Implemented as absolute <img> tag (not CSS background) to prevent JS override</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">index.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">08</span>
+        <span class="entry-title">Menu Cards — Image Slots + Detail Modal</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>24 dish cards rebuilt with image area, category badge, teaser text</li>
+          <li>Click any card → two-column floating modal with full dish description</li>
+          <li>Key highlights as gold chip badges · allergen/serving notes · Reserve CTA</li>
+          <li>Filter tabs: All / Starters / Soups / Mains / Seafood / Rice & Noodles / Desserts</li>
+          <li>3-column grid on desktop, 1-column on mobile</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">menu.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">09</span>
+        <span class="entry-title">Image Lightbox — Click to Preview</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Click any image sitewide → full-screen overlay preview</li>
+          <li>Prev/Next navigation with arrow keys or buttons</li>
+          <li>Close via ✕ button, backdrop click, or Escape key</li>
+          <li>Smooth scale-in animation (lbOpen/lbClose — no window.open conflict)</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">10</span>
+        <span class="entry-title">Publication Links — "As Featured In"</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Michelin Guide → restaurant page on guide.michelin.com</li>
+          <li>DanielFoodDiary → 2025 review article</li>
+          <li>The Star → Dec 2024 feature article</li>
+          <li>TripAdvisor → Auntie Gaik Lean's review page</li>
+          <li>Asian News Network → Dec 2024 Michelin article</li>
+          <li>Gold hover colour on all links</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">press.html</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div class="section">
+    <div class="section-title">Phase 3 — Performance & Accessibility</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">11</span>
+        <span class="entry-title">Performance Optimisation</span>
+        <span class="entry-tag tag-perf">Perf</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>will-change: opacity, transform on animated elements</li>
+          <li>IntersectionObserver for scroll-reveal (replaces scroll listener)</li>
+          <li>DocumentFragment batch insert for star field (no layout thrash)</li>
+          <li>requestAnimationFrame throttle on magnetic buttons and dish card tilt</li>
+          <li>animationend cleanup on ripple effects (no setTimeout GC churn)</li>
+          <li>prefers-reduced-motion media query sitewide</li>
+          <li>Google Fonts preconnect for faster font loading</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">12</span>
+        <span class="entry-title">Adaptive Navigation — Dark/Light Mode</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Nav text turns dark navy when scrolled onto cream/light sections</li>
+          <li>Frosted cream background (backdrop blur) on nav-light state</li>
+          <li>Smooth 0.3s transition between dark and light nav states</li>
+          <li>Hide/show nav on scroll (hides on scroll-down, shows on scroll-up)</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">13</span>
+        <span class="entry-title">Emoji Replaced with SVG Icons</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>⭐ emoji replaced with proper Michelin-style star SVG throughout</li>
+          <li>🏛️ 🏺 🏮 (visit-us heritage cards) → custom architectural SVG icons</li>
+          <li>🐷 🍷 🌿 📋 (menu badges) → shield, goblet, mortar, leaf SVG icons</li>
+          <li>🚫 🌅 📖 (our-story kitchen cards) → mortar, sunrise, open-book SVGs</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="section">
+    <div class="section-title">Phase 4 — Mobile Optimisation</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">14</span>
+        <span class="entry-title">Mobile Navigation — Floating Card Dropdown</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Hamburger → ✕ icon animation on open</li>
+          <li>Floating card panel (cream background, sharp 4px corners, shadow)</li>
+          <li>Positioned dynamically below nav via getBoundingClientRect()</li>
+          <li>Closes: tap link · tap outside · Escape key · tap hamburger again</li>
+          <li>Active page highlighted in gold</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">15</span>
+        <span class="entry-title">Mobile — Hero & Section Fixes</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Hero padding-top:90px on all inner pages — content always clears the fixed nav</li>
+          <li>Section padding 6rem → 3.5rem on mobile (less whitespace)</li>
+          <li>Star field disabled on mobile (performance + visual clarity)</li>
+          <li>Hero ray effects hidden on mobile</li>
+          <li>All transition/animation durations reduced to 0.01ms on mobile</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">16</span>
+        <span class="entry-title">Mobile — Cards & Buttons</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Menu cards: 260px image → 150px on mobile, single-column grid</li>
+          <li>News cards: 192px → 140px on mobile</li>
+          <li>Filter tabs kept horizontal-wrap (not stacked) on mobile</li>
+          <li>Year badges remain in 2-column grid on mobile</li>
+          <li>CTA buttons: inline-flex, auto-width, centred pill — not full-width banner</li>
+          <li>All btn-gold/btn-og/btn-ow/btn-wa get display:flex align-items:center on mobile</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">17</span>
+        <span class="entry-title">FAQ Accordion — Reservations Page</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>toggleFaq() JS function added (was called but never defined)</li>
+          <li>Click question → answer slides open, + becomes −</li>
+          <li>Auto-closes other open items</li>
+          <li>Max-height bumped 200px → 600px so long answers don't truncate</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">reservations.html</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="section">
+    <div class="section-title">Phase 5 — Content & Data Updates</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">18</span>
+        <span class="entry-title">Menu — Pricing Removed</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>61 RM price references removed across index.html, menu.html, news.html</li>
+          <li>RM 200 deposit policy kept on reservations.html (booking info, not product price)</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">menu.html</span><span class="page-tag">index.html</span><span class="page-tag">news.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">19</span>
+        <span class="entry-title">Heritage Section Images Updated</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Replaced raw spice/ingredient photos with actual Peranakan dish photography</li>
+          <li>index.html & our-story.html heritage grids: Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee</li>
+          <li>Image height increased from 220px → 460px for portrait feel</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">our-story.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">20</span>
+        <span class="entry-title">YouTube Button Link Fixed</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Was: youtube.com/@michelinguide (wrong channel)</li>
+          <li>Now: youtube.com/results?search_query=Auntie+Gaik+Lean+Old+School+Eatery</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">news.html</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Generated by TechNext SG &nbsp;·&nbsp; Auntie Gaik Lean's Old School Eatery &nbsp;·&nbsp; June 2026
+</footer>
+</body>
+</html>
