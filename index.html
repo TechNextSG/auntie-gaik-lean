@@ -41,7 +41,14 @@ nav{background:transparent!important}
 .dish-card:hover .dish-img{transform:scale(1.06)}
 
 /* Hero — pure deep royal blue, no photo. Damask SVG injected via JS */
-.hero-bg{background-color:#060D2E;background-size:180px 180px;background-repeat:repeat;position:relative}
+.hero-bg{
+  background-color:#060D2E;
+  background-image:url("img/hero-bg.jpg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  position:relative;
+}
 
 /* Damask on all dark sections too */
 .dark-damask{background-size:180px 180px;background-repeat:repeat}
@@ -973,7 +980,9 @@ p, li, td, blockquote { line-height: 1.9 }
 <!-- HERO -->
 <section class="hero-bg relative min-h-screen flex items-center justify-center">
   <div class="hero-rays"></div>
-  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.48) 50%,rgba(4,8,28,.92) 100%)"></div>
+  <!-- Dark masking over hero image -->
+  <div class="absolute inset-0 pointer-events-none" style="background:rgba(4,8,26,.55)"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,26,.72) 0%,rgba(4,8,26,.35) 45%,rgba(4,8,26,.78) 100%)"></div>
   <!-- Gold spotlight beam -->
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 50% 70% at 50% 0%,rgba(212,175,55,.13) 0%,transparent 65%);z-index:1"></div>
   <!-- Twinkling star field -->
