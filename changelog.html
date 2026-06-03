@@ -42,7 +42,7 @@
 <body>
 
 <header>
-  <h1>Auntie Gaik Lean's — Website Changelog <span class="badge">v2.1</span></h1>
+  <h1>Auntie Gaik Lean's — Website Changelog <span class="badge">v2.2</span></h1>
   <p>technextsg.github.io/auntie-gaik-lean &nbsp;·&nbsp; Project by TechNext SG &nbsp;·&nbsp; Last updated: June 2026</p>
 </header>
 
@@ -52,7 +52,7 @@
   <div class="stats">
     <div class="stat"><div class="stat-num">7</div><div class="stat-label">Pages Updated</div></div>
     <div class="stat"><div class="stat-num">86</div><div class="stat-label">Images Uploaded</div></div>
-    <div class="stat"><div class="stat-num">75+</div><div class="stat-label">Commits</div></div>
+    <div class="stat"><div class="stat-num">85+</div><div class="stat-label">Commits</div></div>
     <div class="stat"><div class="stat-num">24</div><div class="stat-label">Menu Items</div></div>
   </div>
 
@@ -561,6 +561,172 @@
           <li>Added "Technext Pte Ltd" after copyright on all pages</li>
           <li>Links to technextasia.com in new tab</li>
           <li>Subtle white text (30% opacity), gold on hover</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PHASE 7 -->
+  <div class="section">
+    <div class="section-title">Phase 7 — Chatbot, Mobile & UX Refinements</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">29</span>
+        <span class="entry-title">AI Chat Assistant — Replaces WhatsApp Button</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Floating chat widget with a knowledge base: location, hours, menu, awards, reservations, dress code, deposit policy &amp; more</li>
+          <li>Multiple answer variants per question for a more natural, less repetitive feel</li>
+          <li>Contextual action buttons after each answer (Reserve a Table, Get Directions, etc.) matching the site button design</li>
+          <li>Replaces the old floating WhatsApp button on every page</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">30</span>
+        <span class="entry-title">Chatbot Button Fixed — Now Opens Reliably</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>The chat button did nothing — a JS syntax error (unescaped apostrophes in knowledge-base text) stopped the whole script from running</li>
+          <li>Escaped all affected strings (We're, Malaysia's, it's, minutes' walk, We've, We'd)</li>
+          <li>Verified every page's chatbot script passes syntax validation; button opens/closes and answers questions correctly</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">31</span>
+        <span class="entry-title">Header Logo — Adaptive Light/Dark on Scroll</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>White logo over the dark hero; swaps to the dark logo when the nav becomes a light bar on scroll</li>
+          <li>Previously the white logo disappeared against the cream scrolled bar</li>
+          <li>One standardized scroll handler across all 7 pages (toggles nav state + swaps logo in sync)</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">32</span>
+        <span class="entry-title">Header &amp; Footer Standardized Across All Pages</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Identical navigation on every page; nav links centered to match the hero title alignment</li>
+          <li>Updated header &amp; footer logos (dark logo on light backgrounds, white logo on dark)</li>
+          <li>Footer rebuilt to a single clean format (logo + social icons + Technext credit), page-nav links removed</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">33</span>
+        <span class="entry-title">Menu Cards Redesigned — Clean Text-Only Cards</span>
+        <span class="entry-tag tag-design">Design</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Removed photos and placeholder images from the menu cards</li>
+          <li>Removed a leftover image-overlay gradient that left dark strips on some cards</li>
+          <li>Consistent padding, equal-height cards per row, aligned "Full Details" links</li>
+          <li>Elegant gold accent bar grows down the left edge on hover</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">menu.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">34</span>
+        <span class="entry-title">Dish Modal — "Photo Coming Soon" Placeholder Removed</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Dishes without a photo now open as a clean single-column text card with a small category label</li>
+          <li>Dishes with a photo keep the two-column image layout</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">menu.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">35</span>
+        <span class="entry-title">menu.html Footer — Structural Fix</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>An unclosed &lt;section&gt; trapped the footer inside the menu section</li>
+          <li>The section's padding rendered as a large empty dark band below the footer</li>
+          <li>Closed the section correctly — footer now ends the page cleanly</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">menu.html</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">36</span>
+        <span class="entry-title">Mobile — Hamburger Pinned to the Corner</span>
+        <span class="entry-tag tag-fix">Fix</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Hamburger now sits flush in the top-right corner (was floating mid-right because the hidden links column left an empty grid track)</li>
+          <li>Hero background images re-centered on mobile so people stay in frame</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">37</span>
+        <span class="entry-title">Mobile — Chat Panel Maximized</span>
+        <span class="entry-tag tag-update">Update</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Chat panel now fills ~80% of the screen height (was ~55%) with small corner gaps</li>
+          <li>Message area grows to fill the panel; never covers the close button</li>
+        </ul>
+        <div class="page-scope"><span class="page-tag">All Pages</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-num">38</span>
+        <span class="entry-title">Exit-Intent Popup — 10 Rotating Messages</span>
+        <span class="entry-tag tag-new">New</span>
+      </div>
+      <div class="entry-body">
+        <ul>
+          <li>Branded popup appears when a visitor is about to leave, with a "Reserve a Table" call-to-action</li>
+          <li>10 on-brand messages, one shown at random each time</li>
+          <li>Desktop: triggers on mouse leaving via the top edge; mobile: catches the back-button</li>
+          <li>Shows at most once per session; closes via X, backdrop, Esc or "Maybe later"</li>
         </ul>
         <div class="page-scope"><span class="page-tag">All Pages</span></div>
       </div>
