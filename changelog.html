@@ -6,736 +6,1996 @@
 <title>Changelog — Auntie Gaik Lean's Website</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
-  header{background:linear-gradient(135deg,#060D2E,#0A1645);color:white;padding:2.5rem 2rem;border-bottom:3px solid #D4AF37}
-  header h1{font-size:1.8rem;font-weight:700;margin-bottom:.35rem}
-  header p{color:rgba(255,255,255,.65);font-size:.9rem}
-  .badge{display:inline-block;background:#D4AF37;color:#060D2E;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-left:.5rem;vertical-align:middle}
-  .container{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
-  .stat{background:white;border:1px solid #e5e7eb;border-radius:8px;padding:1.25rem;text-align:center}
-  .stat-num{font-size:2rem;font-weight:700;color:#D4AF37}
-  .stat-label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
-  .section{margin-bottom:2rem}
-  .section-title{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#D4AF37;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid #e5e7eb}
-  .entry{background:white;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:.75rem;overflow:hidden}
-  .entry-header{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.1rem;cursor:default}
-  .entry-num{font-size:11px;color:#aaa;min-width:24px}
-  .entry-title{font-weight:600;font-size:.9rem;flex:1}
-  .entry-tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:12px;white-space:nowrap}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#f4f6f9;color:#1a1a2e;line-height:1.6}
+  a{color:inherit}
+
+  header{background:linear-gradient(135deg,#060D2E,#0A1645);color:#fff;padding:2.6rem 2rem 2.2rem;border-bottom:3px solid #D4AF37}
+  .head-inner{max-width:960px;margin:0 auto}
+  header h1{font-size:1.7rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+  .badge{display:inline-block;background:#D4AF37;color:#060D2E;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+  header p{color:rgba(255,255,255,.6);font-size:.88rem}
+
+  .container{max-width:960px;margin:0 auto;padding:1.8rem 1.5rem 3rem}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.8rem}
+  .stat{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1.1rem;text-align:center}
+  .stat-num{font-size:1.7rem;font-weight:700;color:#D4AF37;line-height:1.1}
+  .stat-label{font-size:11px;color:#8a93a0;text-transform:uppercase;letter-spacing:.07em;margin-top:4px}
+
+  /* Controls */
+  .controls{position:sticky;top:0;z-index:20;background:rgba(244,246,249,.92);backdrop-filter:blur(8px);
+    padding:.9rem 0 .8rem;margin-bottom:1.2rem;border-bottom:1px solid #e5e7eb}
+  .search-wrap{position:relative;margin-bottom:.7rem}
+  #cl-search{width:100%;border:1px solid #d8dee6;border-radius:24px;padding:.7rem 1rem .7rem 2.4rem;
+    font-size:.9rem;font-family:inherit;color:#1a1a2e;outline:none;background:#fff;transition:border .2s,box-shadow .2s}
+  #cl-search:focus{border-color:#D4AF37;box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+  .search-ico{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:#9aa3af;pointer-events:none}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+  .date-chip{font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.02em;cursor:pointer;
+    background:#fff;border:1px solid #d8dee6;color:#4b5563;padding:.42rem .85rem;border-radius:20px;transition:all .18s;white-space:nowrap}
+  .date-chip:hover{border-color:#D4AF37;color:#060D2E}
+  .date-chip.active{background:#060D2E;border-color:#060D2E;color:#fff}
+  .date-chip.active:hover{color:#fff}
+
+  .results-note{font-size:12px;color:#8a93a0;margin-bottom:1rem}
+  .results-note b{color:#060D2E}
+
+  /* Day groups */
+  .day-block{margin-bottom:1.6rem}
+  .day-head{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:1px solid #e5e7eb}
+  .day-title{font-size:.95rem;font-weight:700;color:#060D2E}
+  .day-count{font-size:11px;color:#9aa3af;text-transform:uppercase;letter-spacing:.06em}
+
+  /* Entry */
+  .entry{background:#fff;border:1px solid #e8ebef;border-radius:9px;margin-bottom:.55rem;overflow:hidden;transition:box-shadow .18s,border-color .18s}
+  .entry:hover{border-color:#d4af3766;box-shadow:0 4px 16px rgba(6,13,46,.06)}
+  .entry-head{display:flex;align-items:center;gap:.75rem;padding:.7rem .95rem}
+  .entry.has-body .entry-head{cursor:pointer}
+  .entry-time{font-size:11px;font-weight:600;color:#fff;background:#0A1645;border-radius:5px;padding:3px 7px;min-width:46px;text-align:center;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .entry-title{font-weight:600;font-size:.88rem;flex:1;color:#23263a}
+  .entry-tag{font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:12px;white-space:nowrap;flex-shrink:0}
   .tag-new{background:#dcfce7;color:#166534}
-  .tag-fix{background:#fef9c3;color:#854d0e}
+  .tag-fix{background:#fef3c7;color:#92400e}
   .tag-update{background:#dbeafe;color:#1e40af}
   .tag-perf{background:#f3e8ff;color:#6b21a8}
   .tag-design{background:#fce7f3;color:#9d174d}
-  .entry-body{padding:0 1.1rem .85rem;font-size:.85rem;color:#555;border-top:1px solid #f3f4f6}
-  .entry-body ul{list-style:none;padding:0;margin-top:.5rem}
-  .entry-body li{padding:.2rem 0;padding-left:1.1rem;position:relative}
-  .entry-body li::before{content:'→';position:absolute;left:0;color:#D4AF37;font-size:.8rem}
-  .date-group{font-size:.75rem;font-weight:700;color:#060D2E;background:#f1f5f9;padding:.4rem 1rem;border-radius:20px;display:inline-block;margin-bottom:1rem}
-  .page-scope{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem}
-  .page-tag{font-size:10px;background:#f1f5f9;color:#444;padding:1px 7px;border-radius:10px}
-  footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem;border-top:1px solid #e5e7eb;margin-top:2rem}
-  @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  .entry-body{padding:0 .95rem .8rem 4rem;font-size:.82rem;color:#5b6472;display:none}
+  .entry.open .entry-body{display:block}
+  .entry.has-body .entry-title::after{content:'›';display:inline-block;margin-left:.4rem;color:#c0c6cf;transform:rotate(90deg);transition:transform .2s;font-weight:700}
+  .entry.has-body.open .entry-title::after{transform:rotate(-90deg)}
+  .entry-body ul{list-style:none;padding:0;margin-top:.15rem}
+  .entry-body li{padding:.16rem 0;padding-left:1rem;position:relative}
+  .entry-body li::before{content:'→';position:absolute;left:0;color:#D4AF37;font-size:.78rem}
+
+  .empty-note{display:none;text-align:center;color:#9aa3af;padding:3rem 1rem;font-size:.9rem}
+
+  footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem;border-top:1px solid #e5e7eb;margin-top:1rem}
+
+  @media(max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .entry-body{padding-left:.95rem}
+    header h1{font-size:1.4rem}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Auntie Gaik Lean's — Website Changelog <span class="badge">v2.2</span></h1>
-  <p>technextsg.github.io/auntie-gaik-lean &nbsp;·&nbsp; Project by TechNext SG &nbsp;·&nbsp; Last updated: June 2026</p>
+  <div class="head-inner">
+    <h1>Auntie Gaik Lean's — Website Changelog <span class="badge">v3.0</span></h1>
+    <p>technextsg.github.io/auntie-gaik-lean &nbsp;·&nbsp; Project by TechNext SG &nbsp;·&nbsp; Detailed build history with dates &amp; timestamps</p>
+  </div>
 </header>
 
 <div class="container">
 
   <!-- Stats -->
   <div class="stats">
-    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Pages Updated</div></div>
-    <div class="stat"><div class="stat-num">86</div><div class="stat-label">Images Uploaded</div></div>
-    <div class="stat"><div class="stat-num">85+</div><div class="stat-label">Commits</div></div>
-    <div class="stat"><div class="stat-num">24</div><div class="stat-label">Menu Items</div></div>
+    <div class="stat"><div class="stat-num">110</div><div class="stat-label">Total Updates</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Active Days</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Pages</div></div>
+    <div class="stat"><div class="stat-num">4 Jun</div><div class="stat-label">Latest Update</div></div>
   </div>
 
-  <!-- FOUNDATION -->
-  <div class="section">
-    <div class="section-title">Phase 1 — Foundation & Content</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">01</span>
-        <span class="entry-title">Website Structure — 7 Pages Built</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>index.html — Homepage with hero, menu preview, testimonials, reserve section</li>
-          <li>our-story.html — Chef biography, heritage story, kitchen philosophy</li>
-          <li>menu.html — Full 24-dish menu with filter tabs and detail modals</li>
-          <li>press.html — Awards timeline, press quotes, Michelin recognition</li>
-          <li>news.html — 12 real press articles, 2 YouTube embeds, collaborations</li>
-          <li>visit-us.html — Map, opening hours, nearby attractions</li>
-          <li>reservations.html — Booking info, FAQ, deposit policy</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+  <!-- Controls: search + date filter -->
+  <div class="controls">
+    <div class="search-wrap">
+      <svg class="search-ico" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.3-4.3"/></svg>
+      <input id="cl-search" type="text" placeholder="Search updates (e.g. chatbot, footer, mobile, logo)…" autocomplete="off"/>
     </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">02</span>
-        <span class="entry-title">86 Professional Food Photos Uploaded</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Downloaded and compressed 86 images from SmugMug gallery (Alex Tan Photography)</li>
-          <li>Categories: food dishes, chef portraits, restaurant interior/exterior, dining atmosphere, studio shots</li>
-          <li>All images compressed to max 1920px @ 82% quality (177KB–600KB each)</li>
-          <li>All images get loading="lazy" decoding="async" for performance</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">03</span>
-        <span class="entry-title">Real Press Coverage — News Page</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Tatler Asia "Most Influential 2024" — hero feature card</li>
-          <li>The Star Malaysia (Dec 2024), DanielFoodDiary (May 2025), HungryGoWhere (Jul 2024)</li>
-          <li>CNA Luxury, Asian News Network, Zoy To The World (Sep 2024)</li>
-          <li>3× Michelin Guide features (Inspector review, Nasi Ulam recipe, travel guide)</li>
-          <li>Savour Black Book Asia (Singapore collaboration), TripAdvisor rating</li>
-          <li>2 embedded YouTube videos (Michelin Guide + Mark Wiens)</li>
-          <li>Singapore (2023 & 2024) + Bangkok collaborations documented</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">news.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">04</span>
-        <span class="entry-title">Real Google Reviews — Testimonials</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Replaced placeholder reviews with verified Google reviews (2025–2026)</li>
-          <li>Emily C. ★★★★★ (Dec 2025), Franca B. ★★★★★ (Feb 2026), Alan L. ★★★★★ (Jan 2026)</li>
-          <li>Each card shows Google logo, reviewer initial, star rating, review date</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span></div>
-      </div>
+    <div class="chips" id="date-chips">
+      <button class="date-chip active" data-date="all">All dates</button>
+      <button class="date-chip" data-date="2026-06-04">4 Jun</button>
+      <button class="date-chip" data-date="2026-06-03">3 Jun</button>
+      <button class="date-chip" data-date="2026-06-02">2 Jun</button>
+      <button class="date-chip" data-date="2026-06-01">1 Jun</button>
+      <button class="date-chip" data-date="2026-05-29">29 May</button>
+      <button class="date-chip" data-date="2026-05-28">28 May</button>
     </div>
   </div>
 
-  <!-- DESIGN -->
-  <div class="section">
-    <div class="section-title">Phase 2 — Design System</div>
+  <div class="results-note" id="results-note"></div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">05</span>
-        <span class="entry-title">Brand Colour System & Typography</span>
-        <span class="entry-tag tag-design">Design</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Deep Navy #060D2E · Gold #D4AF37 · Cream #FAF6EF palette throughout</li>
-          <li>Playfair Display (headings) · Cormorant Garamond (quotes) · Inter (body)</li>
-          <li>Gold hairline borders, gold-bar dividers, gold CTA gradient system</li>
-          <li>Button system: btn-gold, btn-og, btn-ow, btn-wa with hover animations</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+  <!-- Entries (grouped by day) -->
+  <div id="entries">
+<div class="day-block" data-date="2026-06-04">
+  <div class="day-head"><span class="day-title">Thu, 4 Jun 2026</span><span class="day-count">4 updates</span></div>
+  <div class="entry has-body" data-date="2026-06-04" data-search="update changelog: add phase 7 (chatbot, mobile &amp; ux refinements) documented entries 29-38: ai chat assistant replacing whatsapp, chatbot
+syntax fix, adaptive header logo swap, standardized header/footer, menu
+card redesign, dish-modal placeholder removal, menu.html footer
+structural fix, mobile hamburger corner fix, mobile chat panel maximize,
+and the exit-intent popup. bumped version to v2.2 and commit count to 85+.">
+    <div class="entry-head">
+      <span class="entry-time">00:44</span>
+      <span class="entry-title">Update changelog: add Phase 7 (chatbot, mobile &amp; UX refinements)</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>Documented entries 29-38: AI chat assistant replacing WhatsApp, chatbot</li><li>syntax fix, adaptive header logo swap, standardized header/footer, menu</li><li>card redesign, dish-modal placeholder removal, menu.html footer</li><li>structural fix, mobile hamburger corner fix, mobile chat panel maximize,</li><li>and the exit-intent popup. Bumped version to v2.2 and commit count to 85+.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-04" data-search="add exit-intent popup with 10 random messages (all pages) when a visitor signals they&#x27;re about to leave, show a branded popup with
+one of 10 random on-brand messages and a &#x27;reserve a table&#x27; cta.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">06</span>
-        <span class="entry-title">Atmospheric Background System</span>
-        <span class="entry-tag tag-design">Design</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Peranakan Batik-inspired damask SVG pattern on all dark sections</li>
-          <li>5-layer dark section treatment: glow → damask → shadow → content</li>
-          <li>Gold radial center glow + blue corner accents on all dark backgrounds</li>
-          <li>Ray-of-light effect on all hero sections (conic-gradient rays + glow)</li>
-          <li>Star field with 3 twinkling variants in all hero sections</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+- desktop: triggers on mouse leaving via the top edge (mouseout,
+  relatedtarget null, clienty&lt;=0), armed 3s after load so it never fires
+  during page load.
+- touch/mobile: history back-trap catches the first back-press.
+- shows at most once per session (sessionstorage); random message each
+  time via 10-item array. navy/gold themed modal, z-index above chatbot
+  and dish modal; closes via x, backdrop, esc, or &#x27;maybe later&#x27;; skips if
+  the chatbot or dish modal is already open.
+
+verified live: doesn&#x27;t auto-show on load, opens on top-edge mouseout,
+shows varied random messages, once-per-session guard holds, close works.
+script passes node --check on all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">00:19</span>
+      <span class="entry-title">Add exit-intent popup with 10 random messages (all pages)</span>
+      <span class="entry-tag tag-new">New</span>
     </div>
+    <div class="entry-body"><ul><li>When a visitor signals they&#x27;re about to leave, show a branded popup with</li><li>one of 10 random on-brand messages and a &#x27;Reserve a Table&#x27; CTA.</li><li>Desktop: triggers on mouse leaving via the top edge (mouseout,</li><li>relatedTarget null, clientY&lt;=0), armed 3s after load so it never fires</li><li>during page load.</li><li>Touch/mobile: history back-trap catches the first back-press.</li><li>Shows at most once per session (sessionStorage); random message each</li><li>time via 10-item array. Navy/gold themed modal, z-index above chatbot</li><li>and dish modal; closes via X, backdrop, Esc, or &#x27;Maybe later&#x27;; skips if</li><li>the chatbot or dish modal is already open.</li><li>Verified live: doesn&#x27;t auto-show on load, opens on top-edge mouseout,</li><li>shows varied random messages, once-per-session guard holds, close works.</li><li>Script passes node --check on all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-04" data-search="mobile chat: maximize panel size, keep corner gaps, clear close button on mobile the chat panel was capped at 55vh (messages ~38vh), leaving it
+small. now the panel is anchored top:5.5rem (below the 82px nav) to
+bottom:5rem (above the close button) with 0.6rem side gaps -&gt; ~80vh tall
+and messages fill ~546px (was ~320px). made the panel a flex column
+(toggle now sets display:flex) so the messages area grows to fill while
+header/input keep their height.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">07</span>
-        <span class="entry-title">Hero Section — SmugMug Photo Background</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Hero background photo sourced from SmugMug gallery (Alex Tan Photography)</li>
-          <li>Dark masking layers (rgba overlays + gradient) so text remains readable</li>
-          <li>Implemented as absolute <img> tag (not CSS background) to prevent JS override</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span></div>
-      </div>
+verified: mobile panel = 80vh with 10px side gaps and a 12px gap above
+the close button (no overlap); desktop panel unchanged (360x470, messages
+340px).">
+    <div class="entry-head">
+      <span class="entry-time">00:10</span>
+      <span class="entry-title">Mobile chat: maximize panel size, keep corner gaps, clear close button</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>On mobile the chat panel was capped at 55vh (messages ~38vh), leaving it</li><li>small. Now the panel is anchored top:5.5rem (below the 82px nav) to</li><li>bottom:5rem (above the close button) with 0.6rem side gaps -&gt; ~80vh tall</li><li>and messages fill ~546px (was ~320px). Made the panel a flex column</li><li>(toggle now sets display:flex) so the messages area grows to fill while</li><li>header/input keep their height.</li><li>Verified: mobile panel = 80vh with 10px side gaps and a 12px gap above</li><li>the close button (no overlap); desktop panel unchanged (360x470, messages</li><li>340px).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-04" data-search="mobile nav: pin hamburger to the right corner (col-start-3) the nav is a 3-column grid (logo | links | reserve+hamburger). on mobile
+the middle links column has display:none, which removes it from the grid
+so auto-placement put the hamburger wrapper in column 2 -- leaving the
+rightmost third (~135px) empty and the hamburger floating mid-right.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">08</span>
-        <span class="entry-title">Menu Cards — Image Slots + Detail Modal</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>24 dish cards rebuilt with image area, category badge, teaser text</li>
-          <li>Click any card → two-column floating modal with full dish description</li>
-          <li>Key highlights as gold chip badges · allergen/serving notes · Reserve CTA</li>
-          <li>Filter tabs: All / Starters / Soups / Mains / Seafood / Rice & Noodles / Desserts</li>
-          <li>3-column grid on desktop, 1-column on mobile</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">menu.html</span></div>
-      </div>
+added col-start-3 to the hamburger wrapper so it&#x27;s always pinned to the
+last column. verified: mobile hamburger now sits flush in the corner
+(16px from edge, symmetric with the logo); desktop nav links stay
+centered and the hamburger stays hidden.">
+    <div class="entry-head">
+      <span class="entry-time">00:03</span>
+      <span class="entry-title">Mobile nav: pin hamburger to the right corner (col-start-3)</span>
+      <span class="entry-tag tag-design">Design</span>
     </div>
+    <div class="entry-body"><ul><li>The nav is a 3-column grid (logo | links | reserve+hamburger). On mobile</li><li>the middle links column has display:none, which removes it from the grid</li><li>so auto-placement put the hamburger wrapper in column 2 -- leaving the</li><li>rightmost third (~135px) empty and the hamburger floating mid-right.</li><li>Added col-start-3 to the hamburger wrapper so it&#x27;s always pinned to the</li><li>last column. Verified: mobile hamburger now sits flush in the corner</li><li>(16px from edge, symmetric with the logo); desktop nav links stay</li><li>centered and the hamburger stays hidden.</li></ul></div>
+  </div>
+</div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">09</span>
-        <span class="entry-title">Image Lightbox — Click to Preview</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Click any image sitewide → full-screen overlay preview</li>
-          <li>Prev/Next navigation with arrow keys or buttons</li>
-          <li>Close via ✕ button, backdrop click, or Escape key</li>
-          <li>Smooth scale-in animation (lbOpen/lbClose — no window.open conflict)</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+<div class="day-block" data-date="2026-06-03">
+  <div class="day-head"><span class="day-title">Wed, 3 Jun 2026</span><span class="day-count">25 updates</span></div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix broken chatbot: escape unescaped apostrophes in kb strings (all pages) the chatbot button did nothing because the chatbot &lt;script&gt; block had a
+js syntax error: single-quoted knowledge-base strings contained raw
+apostrophes (we&#x27;re, malaysia&#x27;s, it&#x27;s, minutes&#x27; walk, we&#x27;ve, we&#x27;d). the
+first stray quote terminated the string, so the whole iife failed to
+parse -- chattoggle/chatsend were never defined and the onclick threw a
+silent referenceerror. earlier scripts (opendish, filters) were in
+separate blocks so they kept working, which masked the cause.
+
+escaped all 8 affected strings (verified each page&#x27;s chatbot block now
+passes &#x27;node --check&#x27;). verified live: button opens/closes the panel,
+greeting + suggestions render, and questions return kb answers with
+contextual action buttons.">
+    <div class="entry-head">
+      <span class="entry-time">23:58</span>
+      <span class="entry-title">Fix broken chatbot: escape unescaped apostrophes in KB strings (all pages)</span>
+      <span class="entry-tag tag-fix">Fix</span>
     </div>
+    <div class="entry-body"><ul><li>The chatbot button did nothing because the chatbot &lt;script&gt; block had a</li><li>JS syntax error: single-quoted knowledge-base strings contained raw</li><li>apostrophes (We&#x27;re, Malaysia&#x27;s, it&#x27;s, minutes&#x27; walk, We&#x27;ve, We&#x27;d). The</li><li>first stray quote terminated the string, so the whole IIFE failed to</li><li>parse -- chatToggle/chatSend were never defined and the onclick threw a</li><li>silent ReferenceError. Earlier scripts (openDish, filters) were in</li><li>separate blocks so they kept working, which masked the cause.</li><li>Escaped all 8 affected strings (verified each page&#x27;s chatbot block now</li><li>passes &#x27;node --check&#x27;). Verified live: button opens/closes the panel,</li><li>greeting + suggestions render, and questions return KB answers with</li><li>contextual action buttons.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="redesign menu cards: remove leftover image-overlay artifact, uniform text cards the cards still carried a leftover &lt;div class=menu-card-img-overlay&gt; (a
+gradient with inset:0) from when they had images -- it darkened the
+bottom of each card and was present on only 32 of 40 cards, so the grid
+looked dirty and inconsistent. removed all 32 overlay divs + its css.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">10</span>
-        <span class="entry-title">Publication Links — "As Featured In"</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Michelin Guide → restaurant page on guide.michelin.com</li>
-          <li>DanielFoodDiary → 2025 review article</li>
-          <li>The Star → Dec 2024 feature article</li>
-          <li>TripAdvisor → Auntie Gaik Lean's review page</li>
-          <li>Asian News Network → Dec 2024 Michelin article</li>
-          <li>Gold hover colour on all links</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">press.html</span></div>
-      </div>
+also fixed: .menu-card-body had no base desktop padding (only on hover),
+so text sat against the edges and shifted on hover. added consistent
+padding (1.4rem) plus an elegant gold left-accent bar that grows on
+hover and a subtle background lift. cards are now uniform, equal-height
+per row, with aligned &#x27;full details&#x27; links.">
+    <div class="entry-head">
+      <span class="entry-time">23:49</span>
+      <span class="entry-title">Redesign menu cards: remove leftover image-overlay artifact, uniform text cards</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>The cards still carried a leftover &lt;div class=menu-card-img-overlay&gt; (a</li><li>gradient with inset:0) from when they had images -- it darkened the</li><li>bottom of each card and was present on only 32 of 40 cards, so the grid</li><li>looked dirty and inconsistent. Removed all 32 overlay divs + its CSS.</li><li>Also fixed: .menu-card-body had NO base desktop padding (only on hover),</li><li>so text sat against the edges and shifted on hover. Added consistent</li><li>padding (1.4rem) plus an elegant gold left-accent bar that grows on</li><li>hover and a subtle background lift. Cards are now uniform, equal-height</li><li>per row, with aligned &#x27;Full Details&#x27; links.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="remove &#x27;photo coming soon&#x27; placeholder from dish modal when a dish has no photo, the detail modal showed a large &#x27;photo coming
+soon&#x27; placeholder panel. now dishes without a photo open as a clean
+single-column text modal (max-width 560px) with a small gold category
+label; the empty image panel is hidden entirely. dishes that do have a
+photo keep the two-column image layout. also removed the now-dead
+placeholder css (modal-placeholder, menu-card-img-placeholder, img-el).">
+    <div class="entry-head">
+      <span class="entry-time">23:30</span>
+      <span class="entry-title">Remove &#x27;Photo Coming Soon&#x27; placeholder from dish modal</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>When a dish has no photo, the detail modal showed a large &#x27;Photo Coming</li><li>Soon&#x27; placeholder panel. Now dishes without a photo open as a clean</li><li>single-column text modal (max-width 560px) with a small gold category</li><li>label; the empty image panel is hidden entirely. Dishes that do have a</li><li>photo keep the two-column image layout. Also removed the now-dead</li><li>placeholder CSS (modal-placeholder, menu-card-img-placeholder, img-el).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix menu.html footer (unclosed section) + header logo swap on all pages - menu.html: the menu &lt;section&gt; (background:#050c28;padding:5rem 0 6rem)
+  was never closed, trapping the footer inside it. the section&#x27;s 6rem
+  navy+damask padding-bottom rendered as a large empty dark band below
+  the footer -- this was the persistent &#x27;footer not fixed&#x27; issue, unique
+  to menu.html (all other pages were balanced). added the missing
+  &lt;/div&gt;&lt;/section&gt; so the footer is now a body-level sibling.
+
+- all 7 pages: the nav toggled .nav-light on scroll (cream bar + dark
+  links) but never swapped the logo &lt;img&gt; from white to dark, so the
+  white logo vanished into the cream scrolled bar. standardised every
+  page on one canonical scroll handler that toggles nav-hidden/nav-light
+  and swaps logo-white.png &lt;-&gt; logo-dark.png in sync.">
+    <div class="entry-head">
+      <span class="entry-time">23:24</span>
+      <span class="entry-title">Fix menu.html footer (unclosed section) + header logo swap on all pages</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>menu.html: the menu &lt;section&gt; (background:#050C28;padding:5rem 0 6rem)</li><li>was never closed, trapping the footer inside it. The section&#x27;s 6rem</li><li>navy+damask padding-bottom rendered as a large empty dark band below</li><li>the footer -- this was the persistent &#x27;footer not fixed&#x27; issue, unique</li><li>to menu.html (all other pages were balanced). Added the missing</li><li>&lt;/div&gt;&lt;/section&gt; so the footer is now a body-level sibling.</li><li>All 7 pages: the nav toggled .nav-light on scroll (cream bar + dark</li><li>links) but never swapped the logo &lt;img&gt; from white to dark, so the</li><li>white logo vanished into the cream scrolled bar. Standardised every</li><li>page on one canonical scroll handler that toggles nav-hidden/nav-light</li><li>AND swaps logo-white.png &lt;-&gt; logo-dark.png in sync.</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-06-03" data-search="force github pages rebuild — footer identical on all 7 pages (verified) ">
+    <div class="entry-head">
+      <span class="entry-time">22:49</span>
+      <span class="entry-title">Force GitHub Pages rebuild — footer identical on all 7 pages (verified)</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
   </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="make nav identical on all 7 pages — remove active-link highlighting removed per-page active link styling (gold color, shorter class) from
+all nav links. every page now has all 5 links in exactly the same style:
+  class=&#x27;text-white/85 hover:text-yellow-400 text-sm tracking-wide
+         transition-colors nav-link&#x27;
 
-  <!-- PERFORMANCE -->
-  <div class="section">
-    <div class="section-title">Phase 3 — Performance & Accessibility</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">11</span>
-        <span class="entry-title">Performance Optimisation</span>
-        <span class="entry-tag tag-perf">Perf</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>will-change: opacity, transform on animated elements</li>
-          <li>IntersectionObserver for scroll-reveal (replaces scroll listener)</li>
-          <li>DocumentFragment batch insert for star field (no layout thrash)</li>
-          <li>requestAnimationFrame throttle on magnetic buttons and dish card tilt</li>
-          <li>animationend cleanup on ripple effects (no setTimeout GC churn)</li>
-          <li>prefers-reduced-motion media query sitewide</li>
-          <li>Google Fonts preconnect for faster font loading</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+all 7 page navs verified byte-for-byte identical.
+footer was already matching (confirmed).">
+    <div class="entry-head">
+      <span class="entry-time">22:37</span>
+      <span class="entry-title">Make nav identical on all 7 pages — remove active-link highlighting</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>Removed per-page active link styling (gold color, shorter class) from</li><li>all nav links. Every page now has all 5 links in exactly the same style:</li><li>class=&#x27;text-white/85 hover:text-yellow-400 text-sm tracking-wide</li><li>transition-colors nav-link&#x27;</li><li>All 7 page navs verified byte-for-byte identical.</li><li>Footer was already matching (confirmed).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix footer layout + restore chatbot js (all 7 pages) footer (all 7 pages):
+  removed page nav links (our story/menu/press/news/etc.)
+  fixed broken &lt;/div&gt; that was closing outer flex prematurely
+  new clean layout: logo (left) | social icons + copyright (right)
+  instagram + facebook icons (5px, larger than before)
+  copyright © 2026 · technext pte ltd credit link
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">12</span>
-        <span class="entry-title">Adaptive Navigation — Dark/Light Mode</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Nav text turns dark navy when scrolled onto cream/light sections</li>
-          <li>Frosted cream background (backdrop blur) on nav-light state</li>
-          <li>Smooth 0.3s transition between dark and light nav states</li>
-          <li>Hide/show nav on scroll (hides on scroll-down, shows on scroll-up)</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+chatbot (all 7 pages):
+  restored missing chatbot iife (var kb, chattoggle, chatsend etc.)
+  was missing from some pages after the nav/footer sync operation
+  all pages verified: kb=true, window.chattoggle=true, panel=true">
+    <div class="entry-head">
+      <span class="entry-time">22:26</span>
+      <span class="entry-title">Fix footer layout + restore chatbot JS (all 7 pages)</span>
+      <span class="entry-tag tag-fix">Fix</span>
     </div>
+    <div class="entry-body"><ul><li>FOOTER (all 7 pages):</li><li>Removed page nav links (Our Story/Menu/Press/News/etc.)</li><li>Fixed broken &lt;/div&gt; that was closing outer flex prematurely</li><li>New clean layout: Logo (left) | Social icons + Copyright (right)</li><li>Instagram + Facebook icons (5px, larger than before)</li><li>Copyright © 2026 · Technext Pte Ltd credit link</li><li>CHATBOT (all 7 pages):</li><li>Restored missing chatbot IIFE (var KB, chatToggle, chatSend etc.)</li><li>Was missing from some pages after the nav/footer sync operation</li><li>All pages verified: KB=True, window.chatToggle=True, panel=True</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="sync index.html header/footer to match all other pages exactly - nav html replaced with our-story.html template (no active link
+  since index is the home page — all links standard white style)
+- footer html replaced with our-story.html template (byte-for-byte)
+- both now use identical structure: grid-cols-3 nav, 3-col footer">
+    <div class="entry-head">
+      <span class="entry-time">22:10</span>
+      <span class="entry-title">Sync index.html header/footer to match all other pages exactly</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Nav HTML replaced with our-story.html template (no active link</li><li>since index is the home page — all links standard white style)</li><li>Footer HTML replaced with our-story.html template (byte-for-byte)</li><li>Both now use identical structure: grid-cols-3 nav, 3-col footer</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix mobile chatbot, hamburger, logo lightbox, hero image centering chatbot mobile:
+  panel: max-height 55vh, 38vh messages, font .82rem
+  opens upward without covering bottom ctas
+  applied at max-width:767px (was 500px)
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">13</span>
-        <span class="entry-title">Emoji Replaced with SVG Icons</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>⭐ emoji replaced with proper Michelin-style star SVG throughout</li>
-          <li>🏛️ 🏺 🏮 (visit-us heritage cards) → custom architectural SVG icons</li>
-          <li>🐷 🍷 🌿 📋 (menu badges) → shield, goblet, mortar, leaf SVG icons</li>
-          <li>🚫 🌅 📖 (our-story kitchen cards) → mortar, sunrise, open-book SVGs</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+hamburger:
+  wrapper gap: gap-3 → gap-2 md:gap-3 for tighter mobile layout
+  button: 36px→38px, border 1px→1.5px for better tap visibility
+
+logo lightbox fix:
+  nav-logo img excluded from lightbox: clicking logo navigates
+  to index.html instead of opening fullscreen preview
+  footer images also excluded from lightbox
+
+hero image mobile — center people:
+  added @media(max-width:767px) per-page object-position:
+    news.html         → 30% center (center person on left)
+    press.html        → 40% center (show people + table)
+    our-story.html    → 50% center (group photo centered)
+    menu/visit-us/
+    reservations/
+    index             → 50% center (balanced)">
+    <div class="entry-head">
+      <span class="entry-time">21:54</span>
+      <span class="entry-title">Fix mobile chatbot, hamburger, logo lightbox, hero image centering</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>CHATBOT MOBILE:</li><li>Panel: max-height 55vh, 38vh messages, font .82rem</li><li>Opens upward without covering bottom CTAs</li><li>Applied at max-width:767px (was 500px)</li><li>HAMBURGER:</li><li>Wrapper gap: gap-3 → gap-2 md:gap-3 for tighter mobile layout</li><li>Button: 36px→38px, border 1px→1.5px for better tap visibility</li><li>LOGO LIGHTBOX FIX:</li><li>nav-logo img excluded from lightbox: clicking logo navigates</li><li>to index.html instead of opening fullscreen preview</li><li>Footer images also excluded from lightbox</li><li>HERO IMAGE MOBILE — center people:</li><li>Added @media(max-width:767px) per-page object-position:</li><li>news.html         → 30% center (center person on left)</li><li>press.html        → 40% center (show people + table)</li><li>our-story.html    → 50% center (group photo centered)</li><li>menu/visit-us/</li><li>reservations/</li><li>index             → 50% center (balanced)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="3 fixes: remove menu images, footer layout, dynamic chatbot 1. menu cards — images removed:
+   removed .menu-card-img-wrap entirely from all 40 dish cards.
+   cards are now text-only: name + teaser + &#x27;full details →&#x27;
+   cleaned orphaned cat-badge/tap-hint spans, dead css blocks,
+   and leftover mobile image-height overrides.
+   placeholders (photo coming soon) also removed.
+
+2. footer — all 7 pages verified:
+   3-column flex layout: logo left | nav links center | socials right
+   all footers have: logo image, nav links, instagram/facebook,
+   copyright © 2026 auntie gaik lean&#x27;s · technext pte ltd
+
+3. chatbot — dynamic multi-variant responses:
+   every topic now has 3 different answers. getanswer(kb) picks
+   one randomly each time the question is asked, so:
+   - same question → different phrasing/approach each visit
+   - feels more natural, less bot-like
+   - covers: hours (3), reservations (3), location (3), parking (3),
+     menu (3), michelin (3), chef story (3), deposit (3),
+     groups (3), walk-in (3), contact (3), dress code (3)">
+    <div class="entry-head">
+      <span class="entry-time">21:44</span>
+      <span class="entry-title">3 fixes: remove menu images, footer layout, dynamic chatbot</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>1. MENU CARDS — Images removed:</li><li>Removed .menu-card-img-wrap entirely from all 40 dish cards.</li><li>Cards are now text-only: name + teaser + &#x27;Full details →&#x27;</li><li>Cleaned orphaned cat-badge/tap-hint spans, dead CSS blocks,</li><li>and leftover mobile image-height overrides.</li><li>Placeholders (Photo Coming Soon) also removed.</li><li>2. FOOTER — All 7 pages verified:</li><li>3-column flex layout: logo left | nav links center | socials right</li><li>All footers have: logo image, nav links, Instagram/Facebook,</li><li>copyright © 2026 Auntie Gaik Lean&#x27;s · Technext Pte Ltd</li><li>3. CHATBOT — Dynamic multi-variant responses:</li><li>Every topic now has 3 different answers. getAnswer(kb) picks</li><li>one randomly each time the question is asked, so:</li><li>Same question → different phrasing/approach each visit</li><li>Feels more natural, less bot-like</li><li>Covers: hours (3), reservations (3), location (3), parking (3),</li><li>menu (3), Michelin (3), chef story (3), deposit (3),</li><li>groups (3), walk-in (3), contact (3), dress code (3)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="center nav links to align with hero section title (all 7 pages) changed nav inner wrapper from flex justify-between to css grid (3 cols):
+  col 1 (left):   logo — naturally left-aligned
+  col 2 (center): nav links — justify-center so they align with hero text
+  col 3 (right):  reserve btn + hamburger — justify-end
+
+previously: flex justify-between pushed logo far left and reserve far
+right, with nav links floating in the remaining space (not truly centered).
+now: nav links are geometrically centered matching hero title alignment.
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">21:16</span>
+      <span class="entry-title">Center nav links to align with hero section title (all 7 pages)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Changed nav inner wrapper from flex justify-between to CSS Grid (3 cols):</li><li>Col 1 (left):   Logo — naturally left-aligned</li><li>Col 2 (center): Nav links — justify-center so they align with hero text</li><li>Col 3 (right):  Reserve btn + hamburger — justify-end</li><li>Previously: flex justify-between pushed logo far left and reserve far</li><li>right, with nav links floating in the remaining space (not truly centered).</li><li>Now: nav links are geometrically centered matching hero title alignment.</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix press.html hero framing + all hero image positions press.html:    center 35% -&gt; center 55% (show people, not just mural)
+menu.html:     center center -&gt; center 42%
+visit-us.html: center -&gt; center 38%
+index.html:    center -&gt; center 42%
+
+image quality: xl versions from smugmug are max available via public
+gallery. no css filters/blur applied to hero images. images served
+at native resolution via object-fit:cover.">
+    <div class="entry-head">
+      <span class="entry-time">20:59</span>
+      <span class="entry-title">Fix press.html hero framing + all hero image positions</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>press.html:    center 35% -&gt; center 55% (show people, not just mural)</li><li>menu.html:     center center -&gt; center 42%</li><li>visit-us.html: center -&gt; center 38%</li><li>index.html:    center -&gt; center 42%</li><li>Image quality: XL versions from SmugMug are max available via public</li><li>gallery. No CSS filters/blur applied to hero images. Images served</li><li>at native resolution via object-fit:cover.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix logo: swap files so white logo shows on dark hero backgrounds 1.png = dark colored logo  → logo-dark.png  (for light/cream nav)
+2.png = white/light logo   → logo-white.png (for dark hero/nav)
+
+previous assignment was reversed causing dark script logo to appear
+on dark hero backgrounds. now:
+  dark hero (no nav-light) → logo-white.png shows white logo
+  light section (nav-light) → swaplogo() switches to logo-dark.png">
+    <div class="entry-head">
+      <span class="entry-time">20:44</span>
+      <span class="entry-title">Fix logo: swap files so white logo shows on dark hero backgrounds</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>1.png = DARK colored logo  → logo-dark.png  (for light/cream nav)</li><li>2.png = WHITE/light logo   → logo-white.png (for dark hero/nav)</li><li>Previous assignment was reversed causing dark script logo to appear</li><li>on dark hero backgrounds. Now:</li><li>Dark hero (no nav-light) → logo-white.png shows WHITE logo</li><li>Light section (nav-light) → swapLogo() switches to logo-dark.png</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix chatbot position: move after footer in visit-us, reservations, news the chatbot widget was embedded before the footer in 3 pages, causing
+potential z-index/stacking issues and preventing the widget from
+appearing correctly above page content.
+
+correct position: after &lt;/footer&gt;, before &lt;/body&gt;
+
+fixed: visit-us.html, reservations.html, news.html
+already correct: index, our-story, menu, press">
+    <div class="entry-head">
+      <span class="entry-time">20:30</span>
+      <span class="entry-title">Fix chatbot position: move after footer in visit-us, reservations, news</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The chatbot widget was embedded BEFORE the footer in 3 pages, causing</li><li>potential z-index/stacking issues and preventing the widget from</li><li>appearing correctly above page content.</li><li>Correct position: after &lt;/footer&gt;, before &lt;/body&gt;</li><li>Fixed: visit-us.html, reservations.html, news.html</li><li>Already correct: index, our-story, menu, press</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix header/footer logo size and footer layout structure (all 7 pages) header logo:
+  height: 44px -&gt; 56px with min-width:120px for better visibility
+
+footer logo:
+  height: 40px -&gt; 50px, opacity 0.9 -&gt; 1 (full opacity)
+
+footer layout:
+  the outer flex row closing &lt;/div&gt; was placed after the logo column,
+  leaving the nav links and social columns outside the justify-between
+  flex container. removed the extra premature &lt;/div&gt; so all three
+  columns (logo | nav links | socials+copyright) sit correctly
+  within the same flex row.
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">20:20</span>
+      <span class="entry-title">Fix header/footer logo size and footer layout structure (all 7 pages)</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>HEADER LOGO:</li><li>height: 44px -&gt; 56px with min-width:120px for better visibility</li><li>FOOTER LOGO:</li><li>height: 40px -&gt; 50px, opacity 0.9 -&gt; 1 (full opacity)</li><li>FOOTER LAYOUT:</li><li>The outer flex row closing &lt;/div&gt; was placed after the logo column,</li><li>leaving the Nav links and Social columns outside the justify-between</li><li>flex container. Removed the extra premature &lt;/div&gt; so all three</li><li>columns (logo | nav links | socials+copyright) sit correctly</li><li>within the same flex row.</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="adjust hero image positions + lighten visit-us masking press.html:    object-position center top -&gt; center 35% (show people + table)
+news.html:     object-position center -&gt; center 60% (lower to show half body)
+reservations.html: object-position center -&gt; center 55% (lower view)
+
+visit-us.html: reduce masking opacity (was too dark vs other pages)
+  flat overlay:  .50 -&gt; .38
+  gradient top:  .72 -&gt; .55  |  mid: .30 -&gt; .18  |  bottom: .80 -&gt; .62">
+    <div class="entry-head">
+      <span class="entry-time">20:13</span>
+      <span class="entry-title">Adjust hero image positions + lighten visit-us masking</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>press.html:    object-position center top -&gt; center 35% (show people + table)</li><li>news.html:     object-position center -&gt; center 60% (lower to show half body)</li><li>reservations.html: object-position center -&gt; center 55% (lower view)</li><li>visit-us.html: Reduce masking opacity (was too dark vs other pages)</li><li>Flat overlay:  .50 -&gt; .38</li><li>Gradient top:  .72 -&gt; .55  |  mid: .30 -&gt; .18  |  bottom: .80 -&gt; .62</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="add hero background photos to news, menu, press, reservations downloaded from smugmug gallery (alex tan photography):
+  img/news-hero.jpg         — i-tx5s7x7  (151kb)
+  img/menu-hero.jpg         — i-rzmrd4k  (322kb)
+  img/press-hero.jpg        — i-cgqgwsg  (210kb)
+  img/reservations-hero.jpg — i-h53mrpj  (285kb)
+
+each page uses the same masking pattern as index.html / our-story.html:
+  &lt;img&gt; at z-index:0  (photo layer)
+  rgba(4,8,26,.48) flat overlay at z-index:1
+  gradient overlay 70%→28%→75% at z-index:1">
+    <div class="entry-head">
+      <span class="entry-time">20:03</span>
+      <span class="entry-title">Add hero background photos to news, menu, press, reservations</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Downloaded from SmugMug gallery (Alex Tan Photography):</li><li>img/news-hero.jpg         — i-tx5s7X7  (151KB)</li><li>img/menu-hero.jpg         — i-rzMrd4K  (322KB)</li><li>img/press-hero.jpg        — i-CgQGwsG  (210KB)</li><li>img/reservations-hero.jpg — i-H53MRpj  (285KB)</li><li>Each page uses the same masking pattern as index.html / our-story.html:</li><li>&lt;img&gt; at z-index:0  (photo layer)</li><li>rgba(4,8,26,.48) flat overlay at z-index:1</li><li>gradient overlay 70%→28%→75% at z-index:1</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix logo color swap: dark logo on light bg across all 7 pages swapped file assignments (1.png=white, 2.png=dark was wrong):
+  logo-white.png &lt;- 1.png (use on dark nav/hero backgrounds)
+  logo-dark.png  &lt;- 2.png (use on light/cream nav backgrounds)
+
+added robust swaplogo() js to all pages:
+  - fires on load, scroll, mutationobserver (nav-light class)
+  - two settimeout fallbacks (50ms + 300ms) for timing edge cases
+  - checks src before setting to avoid flicker">
+    <div class="entry-head">
+      <span class="entry-time">19:52</span>
+      <span class="entry-title">Fix logo color swap: dark logo on light bg across all 7 pages</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Swapped file assignments (1.png=white, 2.png=dark was wrong):</li><li>logo-white.png &lt;- 1.png (use on dark nav/hero backgrounds)</li><li>logo-dark.png  &lt;- 2.png (use on light/cream nav backgrounds)</li><li>Added robust swapLogo() JS to all pages:</li><li>Fires on load, scroll, MutationObserver (nav-light class)</li><li>Two setTimeout fallbacks (50ms + 300ms) for timing edge cases</li><li>Checks src before setting to avoid flicker</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="update logo files with new versions from client (1.png=dark, 2.png=white) new file sizes:
+  logo-dark.png:  132kb (was 186kb)
+  logo-white.png:  96kb (was 194kb)
+
+same filenames — all 7 pages automatically use updated logos.">
+    <div class="entry-head">
+      <span class="entry-time">19:38</span>
+      <span class="entry-title">Update logo files with new versions from client (1.png=dark, 2.png=white)</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>New file sizes:</li><li>logo-dark.png:  132KB (was 186KB)</li><li>logo-white.png:  96KB (was 194KB)</li><li>Same filenames — all 7 pages automatically use updated logos.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="fix logo implementation: js swap + footer image logo (all 7 pages) nav logo:
+  removed broken css content:url() approach (doesn&#x27;t work for &lt;img&gt;).
+  added mutationobserver js that watches for nav-light class change:
+    nav-light active → logo.src = &#x27;img/logo-dark.png&#x27;  (dark logo on cream)
+    nav-light absent → logo.src = &#x27;img/logo-white.png&#x27; (white logo on dark)
+  runs on page load + updates live as user scrolls through sections.
+
+footer logo:
+  replaced text-based footer logo (playfair display text) with image:
+    &lt;img src=&quot;img/logo-white.png&quot;&gt; at height:40px, opacity:.9
+  footer always dark background → always white logo version.
+  applied to all 7 pages (menu.html had missing footer — re-injected).
+
+files:
+  img/logo-white.png — logo-04 from client folder (white/light version)
+  img/logo-dark.png  — logo-03 from client folder (dark version)">
+    <div class="entry-head">
+      <span class="entry-time">19:30</span>
+      <span class="entry-title">Fix logo implementation: JS swap + footer image logo (all 7 pages)</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>NAV LOGO:</li><li>Removed broken CSS content:url() approach (doesn&#x27;t work for &lt;img&gt;).</li><li>Added MutationObserver JS that watches for nav-light class change:</li><li>nav-light active → logo.src = &#x27;img/logo-dark.png&#x27;  (dark logo on cream)</li><li>nav-light absent → logo.src = &#x27;img/logo-white.png&#x27; (white logo on dark)</li><li>Runs on page load + updates live as user scrolls through sections.</li><li>FOOTER LOGO:</li><li>Replaced text-based footer logo (Playfair Display text) with image:</li><li>&lt;img src=&quot;img/logo-white.png&quot;&gt; at height:40px, opacity:.9</li><li>Footer always dark background → always white logo version.</li><li>Applied to all 7 pages (menu.html had missing footer — re-injected).</li><li>FILES:</li><li>img/logo-white.png — LOGO-04 from client folder (white/light version)</li><li>img/logo-dark.png  — LOGO-03 from client folder (dark version)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="replace whatsapp button with chatbot + contextual cta buttons in responses whatsapp removed: floating wa-pulse button removed from all 7 pages.
+the chatbot now serves as the primary contact widget.
+
+chatbot repositioned: bottom:7rem → bottom:1.5rem (where wa was).
+panel opens upward: bottom:5rem, max-height:calc(100vh-6rem).
+mobile: full-width, 48vh messages, bottom:4.5rem.
+
+contextual action buttons: after each answer, a relevant button appears
+inside the chat bubble matching the site&#x27;s button design style:
+  hours       → reserve a table (gold)
+  reservation → book via tableapp (gold, external)
+  location    → get directions (outline, external)
+  parking     → view location (outline)
+  menu        → view full menu (gold)
+  michelin    → our press coverage (outline)
+  chef/story  → read our story (outline)
+  deposit     → make a reservation (gold)
+  group       → whatsapp us (gold, external)
+  walk-in     → book in advance (gold)
+  contact     → send whatsapp (gold, external)
+  dress code  → reserve a table (gold)
+  fallback    → whatsapp us (gold, external)">
+    <div class="entry-head">
+      <span class="entry-time">19:18</span>
+      <span class="entry-title">Replace WhatsApp button with chatbot + contextual CTA buttons in responses</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>WHATSAPP REMOVED: Floating wa-pulse button removed from all 7 pages.</li><li>The chatbot now serves as the primary contact widget.</li><li>CHATBOT REPOSITIONED: bottom:7rem → bottom:1.5rem (where WA was).</li><li>Panel opens upward: bottom:5rem, max-height:calc(100vh-6rem).</li><li>Mobile: full-width, 48vh messages, bottom:4.5rem.</li><li>CONTEXTUAL ACTION BUTTONS: After each answer, a relevant button appears</li><li>inside the chat bubble matching the site&#x27;s button design style:</li><li>Hours       → Reserve a Table (gold)</li><li>Reservation → Book via TableApp (gold, external)</li><li>Location    → Get Directions (outline, external)</li><li>Parking     → View Location (outline)</li><li>Menu        → View Full Menu (gold)</li><li>Michelin    → Our Press Coverage (outline)</li><li>Chef/Story  → Read Our Story (outline)</li><li>Deposit     → Make a Reservation (gold)</li><li>Group       → WhatsApp Us (gold, external)</li><li>Walk-in     → Book in Advance (gold)</li><li>Contact     → Send WhatsApp (gold, external)</li><li>Dress code  → Reserve a Table (gold)</li><li>Fallback    → WhatsApp Us (gold, external)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="update menu with real dishes + image logo with dark/light switching menu (40 dishes, 11 categories):
+  categories: appetiser | chicken &amp; beef | vegetables | rice &amp; noodles
+              seafood | fish | omelette | soup | specials | dessert
+  all dishes from physical menu photos (both pages):
+    appetiser (6): pie tee, lor bak, cucur udang, acar awak, otak-otak, baba delight
+    chicken &amp; beef (6): kari kapitan, nyonya curry, hong kae, inche kabin, tau yew, beef rendang
+    vegetables (6): jiu hu char, sambal petai, terung sambal, kangkung, pucuk paku, bendi
+    rice &amp; noodles (4): nasi ulam, kerabu bee hoon, nyonya fried rice, petai fried rice
+    seafood (5): sambal sotong, kerabu sotong, asam hae, curry hae, sambal udang
+    fish (4): gulai tumis, ikan goreng kunyit, ikan goreng cili api, ikan masak lemak
+    omelette (2): chye por omelette, egg belanda
+    soup (2): kiam chye ark, hu peow chap chye
+    specials (2): perut ikan, kiam hu kut gulai
+    dessert (3): bee koe moy, sago gula melaka, pengat
+
+logo (all 7 pages):
+  replaced text logo with image logos (logo-03 = dark, logo-04 = white)
+  white logo (logo-white.png) default on dark hero/nav
+  css content: switch to dark logo (logo-dark.png) when nav-light active
+  mobile: logo height 48px → 38px
+  files: img/logo-white.png + img/logo-dark.png">
+    <div class="entry-head">
+      <span class="entry-time">18:53</span>
+      <span class="entry-title">Update menu with real dishes + image logo with dark/light switching</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>MENU (40 dishes, 11 categories):</li><li>Categories: Appetiser | Chicken &amp; Beef | Vegetables | Rice &amp; Noodles</li><li>Seafood | Fish | Omelette | Soup | Specials | Dessert</li><li>All dishes from physical menu photos (both pages):</li><li>Appetiser (6): Pie Tee, Lor Bak, Cucur Udang, Acar Awak, Otak-otak, Baba Delight</li><li>Chicken &amp; Beef (6): Kari Kapitan, Nyonya Curry, Hong Kae, Inche Kabin, Tau Yew, Beef Rendang</li><li>Vegetables (6): Jiu Hu Char, Sambal Petai, Terung Sambal, Kangkung, Pucuk Paku, Bendi</li><li>Rice &amp; Noodles (4): Nasi Ulam, Kerabu Bee Hoon, Nyonya Fried Rice, Petai Fried Rice</li><li>Seafood (5): Sambal Sotong, Kerabu Sotong, Asam Hae, Curry Hae, Sambal Udang</li><li>Fish (4): Gulai Tumis, Ikan Goreng Kunyit, Ikan Goreng Cili Api, Ikan Masak Lemak</li><li>Omelette (2): Chye Por Omelette, Egg Belanda</li><li>Soup (2): Kiam Chye Ark, Hu Peow Chap Chye</li><li>Specials (2): Perut Ikan, Kiam Hu Kut Gulai</li><li>Dessert (3): Bee Koe Moy, Sago Gula Melaka, Pengat</li><li>LOGO (all 7 pages):</li><li>Replaced text logo with image logos (LOGO-03 = dark, LOGO-04 = white)</li><li>White logo (logo-white.png) default on dark hero/nav</li><li>CSS content: switch to dark logo (logo-dark.png) when nav-light active</li><li>Mobile: logo height 48px → 38px</li><li>Files: img/logo-white.png + img/logo-dark.png</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="chatbot: bigger panel + mobile expansion (all 7 pages) panel: 320px → 360px wide, position:fixed (not absolute)
+messages area: 280px → 340px tall
+font: .82rem → .875rem, line-height 1.55 → 1.65
+padding: .6rem .85rem → .7rem 1rem
+
+mobile (&lt;500px):
+  panel: calc(100vw - 2rem) full width
+  messages: 55vh height
+  repositioned to left:1rem bottom:4.5rem
+
+also injected chatbot into all 6 inner pages (was only on index.html).">
+    <div class="entry-head">
+      <span class="entry-time">18:41</span>
+      <span class="entry-title">Chatbot: bigger panel + mobile expansion (all 7 pages)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Panel: 320px → 360px wide, position:fixed (not absolute)</li><li>Messages area: 280px → 340px tall</li><li>Font: .82rem → .875rem, line-height 1.55 → 1.65</li><li>Padding: .6rem .85rem → .7rem 1rem</li><li>Mobile (&lt;500px):</li><li>Panel: calc(100vw - 2rem) full width</li><li>Messages: 55vh height</li><li>Repositioned to left:1rem bottom:4.5rem</li><li>Also injected chatbot into all 6 inner pages (was only on index.html).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="add smart chatbot widget above whatsapp button (all 7 pages) design:
+  - floating button (bottom:7rem) with gold chat icon + pulse dot
+  - opens compact 320px panel with dark navy header
+  - message bubbles: bot (white left) / user (navy right)
+  - suggestion chips below every bot response
+  - text input with send button
+
+knowledge base (12 topics):
+  1. opening hours (wed-sun, lunch/dinner times)
+  2. how to make a reservation (tableapp + whatsapp)
+  3. location (1 bishop street, george town)
+  4. parking (nearby car parks, grab drop-off)
+  5. menu &amp; cuisine (nyonya, pork-free, alcohol-free)
+  6. michelin star (4 consecutive years, 2022-2025)
+  7. about auntie gaik lean (her story)
+  8. deposit &amp; cancellation policy (rm200, 48hr)
+  9. group bookings (12+ whatsapp, 3- walk-in)
+  10. walk-ins (3 or fewer, subject to availability)
+  11. contact details (phone + whatsapp link)
+  12. dress code (smart casual)
+
+smart features:
+  - 3 rotating suggestion chips after every response
+  - never repeats the same suggestion twice (tracks used ids)
+  - resets pool when all topics exhausted
+  - fuzzy keyword matching: tokenises input, scores against
+    keyword arrays with partial/substring matching + bonus
+    for exact phrase matches — threshold score ≥ 2
+  - typing indicator (animated dots, 800-1300ms delay)
+  - fallback response + new suggestions for unrecognised input">
+    <div class="entry-head">
+      <span class="entry-time">18:30</span>
+      <span class="entry-title">Add smart chatbot widget above WhatsApp button (all 7 pages)</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>DESIGN:</li><li>Floating button (bottom:7rem) with gold chat icon + pulse dot</li><li>Opens compact 320px panel with dark navy header</li><li>Message bubbles: bot (white left) / user (navy right)</li><li>Suggestion chips below every bot response</li><li>Text input with send button</li><li>KNOWLEDGE BASE (12 topics):</li><li>1. Opening hours (Wed-Sun, lunch/dinner times)</li><li>2. How to make a reservation (TableApp + WhatsApp)</li><li>3. Location (1 Bishop Street, George Town)</li><li>4. Parking (nearby car parks, Grab drop-off)</li><li>5. Menu &amp; cuisine (Nyonya, pork-free, alcohol-free)</li><li>6. Michelin Star (4 consecutive years, 2022-2025)</li><li>7. About Auntie Gaik Lean (her story)</li><li>8. Deposit &amp; cancellation policy (RM200, 48hr)</li><li>9. Group bookings (12+ WhatsApp, 3- walk-in)</li><li>10. Walk-ins (3 or fewer, subject to availability)</li><li>11. Contact details (phone + WhatsApp link)</li><li>12. Dress code (smart casual)</li><li>SMART FEATURES:</li><li>3 rotating suggestion chips after every response</li><li>Never repeats the same suggestion twice (tracks used IDs)</li><li>Resets pool when all topics exhausted</li><li>Fuzzy keyword matching: tokenises input, scores against</li><li>keyword arrays with partial/substring matching + bonus</li><li>for exact phrase matches — threshold score ≥ 2</li><li>Typing indicator (animated dots, 800-1300ms delay)</li><li>Fallback response + new suggestions for unrecognised input</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-03" data-search="update changelog to v2.1 — add phase 6 entries (21-28) new entries covering post-launch updates:
+  21. hero background photos (index + our-story)
+  22. hero background photo (visit-us)
+  23. real google reviews
+  24. heritage section food dish images (460px)
+  25. publication links made clickable
+  26. star field intensity reduced sitewide
+  27. youtube button link fixed
+  28. technext pte ltd footer credit added
+
+version badge: v2.0 → v2.1
+commit stat: 60+ → 75+">
+    <div class="entry-head">
+      <span class="entry-time">02:54</span>
+      <span class="entry-title">Update changelog to v2.1 — add Phase 6 entries (21-28)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>New entries covering post-launch updates:</li><li>21. Hero background photos (index + our-story)</li><li>22. Hero background photo (visit-us)</li><li>23. Real Google reviews</li><li>24. Heritage section food dish images (460px)</li><li>25. Publication links made clickable</li><li>26. Star field intensity reduced sitewide</li><li>27. YouTube button link fixed</li><li>28. Technext Pte Ltd footer credit added</li><li>Version badge: v2.0 → v2.1</li><li>Commit stat: 60+ → 75+</li></ul></div>
+  </div>
+</div>
+
+<div class="day-block" data-date="2026-06-02">
+  <div class="day-head"><span class="day-title">Tue, 2 Jun 2026</span><span class="day-count">5 updates</span></div>
+  <div class="entry has-body" data-date="2026-06-02" data-search="add technext pte ltd footer credit linked to technextasia.com (all 7 pages) added after copyright on all pages:
+  · technext pte ltd  →  https://technextasia.com
+  subtle white text (.3 opacity), gold on hover, opens in new tab">
+    <div class="entry-head">
+      <span class="entry-time">13:22</span>
+      <span class="entry-title">Add Technext Pte Ltd footer credit linked to technextasia.com (all 7 pages)</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Added after copyright on all pages:</li><li>· Technext Pte Ltd  →  https://technextasia.com</li><li>Subtle white text (.3 opacity), gold on hover, opens in new tab</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-02" data-search="fix our-story hero: show full group photo — position, height, masking object-position: center top → center 30% (shows group not just ceiling)
+min-height: 80vh → 90vh (more image area visible)
+dark mask: .52/.75/.80 → .40/.65/.55 (lighter so people are clearer)">
+    <div class="entry-head">
+      <span class="entry-time">12:48</span>
+      <span class="entry-title">Fix our-story hero: show full group photo — position, height, masking</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>object-position: center top → center 30% (shows group not just ceiling)</li><li>min-height: 80vh → 90vh (more image area visible)</li><li>Dark mask: .52/.75/.80 → .40/.65/.55 (lighter so people are clearer)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-02" data-search="visit-us.html: hero photo + update private dining image hero (i-qnzwxxf-xl.jpg → img/visit-us-hero.jpg, 314kb):
+  absolute &lt;img&gt; at z-index:0, same masking pattern as index.html
+  layers: rgba flat overlay + top-to-bottom gradient
+
+private dining card (i-whhvttt-xl.jpg → img/private-dining.jpg, 275kb):
+  replaces food-5496.jpg in the eatery gallery 4-image grid
+  caption: &#x27;private dining — seats up to 12&#x27;">
+    <div class="entry-head">
+      <span class="entry-time">12:38</span>
+      <span class="entry-title">visit-us.html: hero photo + update private dining image</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>HERO (i-qnZwxxf-XL.jpg → img/visit-us-hero.jpg, 314KB):</li><li>Absolute &lt;img&gt; at z-index:0, same masking pattern as index.html</li><li>Layers: rgba flat overlay + top-to-bottom gradient</li><li>PRIVATE DINING CARD (i-whhVtTT-XL.jpg → img/private-dining.jpg, 275KB):</li><li>Replaces food-5496.jpg in the Eatery gallery 4-image grid</li><li>Caption: &#x27;Private Dining — Seats up to 12&#x27;</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-02" data-search="add hero background photo to our-story.html downloaded: i-tmgfpj5-xl.jpg from smugmug (250kb) → img/our-story-hero.jpg
+implemented as absolute &lt;img&gt; at z-index:0 (same pattern as index.html).
+
+masking layers (identical to index.html):
+  rgba(4,8,26,.52) flat overlay
+  gradient top-to-bottom: .75 → .32 → .80 opacity
+
+object-position:center top to show subject at top of frame.">
+    <div class="entry-head">
+      <span class="entry-time">12:19</span>
+      <span class="entry-title">Add hero background photo to our-story.html</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Downloaded: i-tmgFpJ5-XL.jpg from SmugMug (250KB) → img/our-story-hero.jpg</li><li>Implemented as absolute &lt;img&gt; at z-index:0 (same pattern as index.html).</li><li>Masking layers (identical to index.html):</li><li>rgba(4,8,26,.52) flat overlay</li><li>gradient top-to-bottom: .75 → .32 → .80 opacity</li><li>object-position:center top to show subject at top of frame.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-02" data-search="add changelog.html and client-checklist.html changelog.html:
+  - 20 numbered entries across 5 phases
+  - stats panel (7 pages, 86 images, 60+ commits, 24 menu items)
+  - tagged entries: new / fix / update / perf / design
+  - page scope badges per entry
+  - clean dark-nav header with gold accent
+
+client-checklist.html:
+  - interactive checklist: click item to cycle pending → approved → needs change
+  - progress bar + live counter (pending / approved / needs change)
+  - 8 sections covering all 7 pages + global checks
+  - 3 pre-flagged pending items (dish images, hero photo, carousel)
+  - notes text boxes on every item
+  - print / save pdf button
+  - direct links to each page for easy review">
+    <div class="entry-head">
+      <span class="entry-time">01:27</span>
+      <span class="entry-title">Add changelog.html and client-checklist.html</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>changelog.html:</li><li>20 numbered entries across 5 phases</li><li>Stats panel (7 pages, 86 images, 60+ commits, 24 menu items)</li><li>Tagged entries: New / Fix / Update / Perf / Design</li><li>Page scope badges per entry</li><li>Clean dark-nav header with gold accent</li><li>client-checklist.html:</li><li>Interactive checklist: click item to cycle Pending → Approved → Needs Change</li><li>Progress bar + live counter (pending / approved / needs change)</li><li>8 sections covering all 7 pages + global checks</li><li>3 pre-flagged pending items (dish images, hero photo, carousel)</li><li>Notes text boxes on every item</li><li>Print / Save PDF button</li><li>Direct links to each page for easy review</li></ul></div>
+  </div>
+</div>
+
+<div class="day-block" data-date="2026-06-01">
+  <div class="day-head"><span class="day-title">Mon, 1 Jun 2026</span><span class="day-count">22 updates</span></div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="reduce star field intensity across all 7 pages count:    110 desktop → 45  |  50 mobile → 20
+twinkle:  peak .95 → .45, .7 → .35
+twinkle2: peak 1.0 → .45
+twinkle3: peak .9  → .40
+sparkcross: .7/.1.0 → .3/.5
+cross probability: 12% → 4%
+
+stars are now subtle accent lights rather than dominant feature.">
+    <div class="entry-head">
+      <span class="entry-time">16:24</span>
+      <span class="entry-title">Reduce star field intensity across all 7 pages</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>Count:    110 desktop → 45  |  50 mobile → 20</li><li>twinkle:  peak .95 → .45, .7 → .35</li><li>twinkle2: peak 1.0 → .45</li><li>twinkle3: peak .9  → .40</li><li>sparkCross: .7/.1.0 → .3/.5</li><li>Cross probability: 12% → 4%</li><li>Stars are now subtle accent lights rather than dominant feature.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix hero background photo: use &lt;img&gt; tag instead of css background root cause: the damask pattern js does:
+  el.style.backgroundimage = enc (reads empty string from class css)
+  -&gt; replaces the css background-image with only the damask svg
+  -&gt; hero-bg.jpg was never visible
+
+fix: remove background-image from .hero-bg css class.
+add an absolutely-positioned &lt;img&gt; tag as the first child of the
+hero section at z-index:0 — below all overlays, damask, and content.
+
+layer order:
+  z:0  &lt;img&gt; hero-bg.jpg (photo)
+  z:1  dark rgba overlay + gradient (masking)
+  z:1+ damask pattern overlay
+  z:2  star field
+  z:10 hero content (text, cta)">
+    <div class="entry-head">
+      <span class="entry-time">16:20</span>
+      <span class="entry-title">Fix hero background photo: use &lt;img&gt; tag instead of CSS background</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>ROOT CAUSE: The damask pattern JS does:</li><li>el.style.backgroundImage = enc (reads empty string from class CSS)</li><li>&gt; replaces the CSS background-image with only the damask SVG</li><li>&gt; hero-bg.jpg was never visible</li><li>FIX: Remove background-image from .hero-bg CSS class.</li><li>Add an absolutely-positioned &lt;img&gt; tag as the first child of the</li><li>hero section at z-index:0 — below all overlays, damask, and content.</li><li>Layer order:</li><li>z:0  &lt;img&gt; hero-bg.jpg (photo)</li><li>z:1  dark rgba overlay + gradient (masking)</li><li>z:1+ damask pattern overlay</li><li>z:2  star field</li><li>z:10 hero content (text, CTA)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="set smugmug food photo as hero background with dark masking downloaded image i-vpzzjn3-xl.jpg from alextanartworks.smugmug.com
+saved as img/hero-bg.jpg (301kb).
+
+hero section:
+  background-image: url(img/hero-bg.jpg)
+  background-size: cover, background-position: center
+
+dark masking layers:
+  1. solid overlay: rgba(4,8,26,.55) — base darkening
+  2. gradient: .72 top → .35 mid → .78 bottom — vignette
+
+content (stars, title, cta) remains fully visible above the mask.">
+    <div class="entry-head">
+      <span class="entry-time">16:07</span>
+      <span class="entry-title">Set SmugMug food photo as hero background with dark masking</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Downloaded image i-VPzZJN3-XL.jpg from alextanartworks.smugmug.com</li><li>saved as img/hero-bg.jpg (301KB).</li><li>Hero section:</li><li>background-image: url(img/hero-bg.jpg)</li><li>background-size: cover, background-position: center</li><li>Dark masking layers:</li><li>1. Solid overlay: rgba(4,8,26,.55) — base darkening</li><li>2. Gradient: .72 top → .35 mid → .78 bottom — vignette</li><li>Content (stars, title, CTA) remains fully visible above the mask.</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-06-01" data-search="increase heritage images further: 320px → 460px ">
+    <div class="entry-head">
+      <span class="entry-time">14:21</span>
+      <span class="entry-title">Increase heritage images further: 320px → 460px</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
   </div>
-
-  <!-- MOBILE -->
-  <div class="section">
-    <div class="section-title">Phase 4 — Mobile Optimisation</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">14</span>
-        <span class="entry-title">Mobile Navigation — Floating Card Dropdown</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Hamburger → ✕ icon animation on open</li>
-          <li>Floating card panel (cream background, sharp 4px corners, shadow)</li>
-          <li>Positioned dynamically below nav via getBoundingClientRect()</li>
-          <li>Closes: tap link · tap outside · Escape key · tap hamburger again</li>
-          <li>Active page highlighted in gold</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="increase heritage image height 220px → 320px on desktop makes the 2x2 food photo grid taller/more vertical in desktop view.">
+    <div class="entry-head">
+      <span class="entry-time">14:18</span>
+      <span class="entry-title">Increase heritage image height 220px → 320px on desktop</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>Makes the 2x2 food photo grid taller/more vertical in desktop view.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="replace spice/ingredient images with food dish photos in our-story.html heritage section 2x2 image grid updated:
+  dining-6533 (herbs)    → food-0054  (kari kapitan curry)
+  studio-009  (pepper)   → dining-9248 (nasi ulam herb rice)
+  food-0942   (spices)   → food-1767  (kerabu bihun vermicelli)
+  studio-019  (nyonya)   → dining-8911 (pie tee starters)
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">15</span>
-        <span class="entry-title">Mobile — Hero & Section Fixes</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Hero padding-top:90px on all inner pages — content always clears the fixed nav</li>
-          <li>Section padding 6rem → 3.5rem on mobile (less whitespace)</li>
-          <li>Star field disabled on mobile (performance + visual clarity)</li>
-          <li>Hero ray effects hidden on mobile</li>
-          <li>All transition/animation durations reduced to 0.01ms on mobile</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+all four images now show actual peranakan signature dishes.">
+    <div class="entry-head">
+      <span class="entry-time">13:58</span>
+      <span class="entry-title">Replace spice/ingredient images with food dish photos in our-story.html</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>Heritage section 2x2 image grid updated:</li><li>dining-6533 (herbs)    → food-0054  (Kari Kapitan curry)</li><li>studio-009  (pepper)   → dining-9248 (Nasi Ulam herb rice)</li><li>food-0942   (spices)   → food-1767  (Kerabu Bihun vermicelli)</li><li>studio-019  (nyonya)   → dining-8911 (Pie Tee starters)</li><li>All four images now show actual Peranakan signature dishes.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix youtube button link: search results for auntie gaik lean was: https://www.youtube.com/@michelinguide (michelin guide channel)
+now: https://www.youtube.com/results?search_query=auntie+gaik+lean+old+school+eatery
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">16</span>
-        <span class="entry-title">Mobile — Cards & Buttons</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Menu cards: 260px image → 150px on mobile, single-column grid</li>
-          <li>News cards: 192px → 140px on mobile</li>
-          <li>Filter tabs kept horizontal-wrap (not stacked) on mobile</li>
-          <li>Year badges remain in 2-column grid on mobile</li>
-          <li>CTA buttons: inline-flex, auto-width, centred pill — not full-width banner</li>
-          <li>All btn-gold/btn-og/btn-ow/btn-wa get display:flex align-items:center on mobile</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
+shows all relevant videos about the restaurant.">
+    <div class="entry-head">
+      <span class="entry-time">13:50</span>
+      <span class="entry-title">Fix YouTube button link: search results for Auntie Gaik Lean</span>
+      <span class="entry-tag tag-fix">Fix</span>
     </div>
+    <div class="entry-body"><ul><li>Was: https://www.youtube.com/@michelinguide (Michelin Guide channel)</li><li>Now: https://www.youtube.com/results?search_query=Auntie+Gaik+Lean+Old+School+Eatery</li><li>Shows all relevant videos about the restaurant.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="update heritage images + make publication names clickable heritage section images (2x2 grid):
+  dining-6533 (herbs)   → food-0054  (kari kapitan curry)
+  studio-009  (pepper)  → dining-9248 (nasi ulam herb rice)
+  food-0940   (spices)  → food-0022  (gulai tumis fish curry)
+  studio-019  (nyonya)  → dining-8911 (pie tee starter)
+  all show actual signature peranakan dishes not raw ingredients.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">17</span>
-        <span class="entry-title">FAQ Accordion — Reservations Page</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>toggleFaq() JS function added (was called but never defined)</li>
-          <li>Click question → answer slides open, + becomes −</li>
-          <li>Auto-closes other open items</li>
-          <li>Max-height bumped 200px → 600px so long answers don't truncate</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">reservations.html</span></div>
-      </div>
+as featured in — all publication names now clickable links:
+  michelin guide  → guide.michelin.com restaurant page
+  danielfooddiary → danielfooddiary.com 2025 review
+  the star        → thestar.com.my dec 2024 article
+  tripadvisor     → restaurant review page
+  asian news network → dec 2024 michelin star article
+  gold hover on all links.">
+    <div class="entry-head">
+      <span class="entry-time">13:46</span>
+      <span class="entry-title">Update heritage images + make publication names clickable</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>HERITAGE SECTION IMAGES (2x2 grid):</li><li>dining-6533 (herbs)   → food-0054  (Kari Kapitan curry)</li><li>studio-009  (pepper)  → dining-9248 (Nasi Ulam herb rice)</li><li>food-0940   (spices)  → food-0022  (Gulai Tumis fish curry)</li><li>studio-019  (nyonya)  → dining-8911 (Pie Tee starter)</li><li>All show actual signature Peranakan dishes not raw ingredients.</li><li>AS FEATURED IN — all publication names now clickable links:</li><li>Michelin Guide  → guide.michelin.com restaurant page</li><li>DanielFoodDiary → danielfooddiary.com 2025 review</li><li>The Star        → thestar.com.my Dec 2024 article</li><li>TripAdvisor     → restaurant review page</li><li>Asian News Network → Dec 2024 Michelin star article</li><li>Gold hover on all links.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="replace testimonials with real google reviews (2025-2026) replaced the 3 placeholder review cards with verified google reviews:
+  - emily c. (★★★★★, dec 2025) — michelin food hits all the right spots
+  - franca b. (★★★★★, feb 2026) — impeccably executed classics
+  - alan l.  (★★★★★, jan 2026) — absolutely authentic nyonya food
+
+each card now shows:
+  - google logo + &#x27;google review&#x27; label
+  - real reviewer initial avatar
+  - star rating + review date
+  - authentic review text
+
+sources: google maps via wanderlog aggregator">
+    <div class="entry-head">
+      <span class="entry-time">13:38</span>
+      <span class="entry-title">Replace testimonials with real Google reviews (2025-2026)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Replaced the 3 placeholder review cards with verified Google reviews:</li><li>Emily C. (★★★★★, Dec 2025) — Michelin food hits all the right spots</li><li>Franca B. (★★★★★, Feb 2026) — Impeccably executed classics</li><li>Alan L.  (★★★★★, Jan 2026) — Absolutely authentic Nyonya food</li><li>Each card now shows:</li><li>Google logo + &#x27;Google Review&#x27; label</li><li>Real reviewer initial avatar</li><li>Star rating + review date</li><li>Authentic review text</li><li>Sources: Google Maps via Wanderlog aggregator</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile cta buttons: auto-width centered pill, not full-width banner changed from width:100% (wall-to-wall gold bar) to:
+  display:inline-flex
+  width:auto, max-width:300px, min-width:180px
+  margin:auto (centred)
+  padding:.8rem 1.75rem
+
+buttons now render as compact centred pills, not page-wide banners.">
+    <div class="entry-head">
+      <span class="entry-time">13:27</span>
+      <span class="entry-title">Fix mobile CTA buttons: auto-width centered pill, not full-width banner</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Changed from width:100% (wall-to-wall gold bar) to:</li><li>display:inline-flex</li><li>width:auto, max-width:300px, min-width:180px</li><li>margin:auto (centred)</li><li>padding:.8rem 1.75rem</li><li>Buttons now render as compact centred pills, not page-wide banners.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile button padding: strip px-8/px-10 tailwind overrides on cta buttons added box-sizing:border-box and capped padding to 1.25rem on all cta
+buttons (.btn-gold, .btn-og, .btn-ow, .btn-wa) on mobile.
+prevents tailwind px-8 (32px) and px-10 (40px) classes from adding
+excessive horizontal padding on small screens.">
+    <div class="entry-head">
+      <span class="entry-time">13:21</span>
+      <span class="entry-title">Fix mobile button padding: strip px-8/px-10 Tailwind overrides on CTA buttons</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Added box-sizing:border-box and capped padding to 1.25rem on all CTA</li><li>buttons (.btn-gold, .btn-og, .btn-ow, .btn-wa) on mobile.</li><li>Prevents Tailwind px-8 (32px) and px-10 (40px) classes from adding</li><li>excessive horizontal padding on small screens.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile layout: filter tabs, year badges, publications, buttons filter tabs (menu.html):
+  were stacking vertically due to overly broad .flex.flex-wrap rule.
+  now explicitly kept as horizontal-wrap with smaller pill padding.
+
+year badges (press.html circles):
+  reduced to 65px and kept in horizontal wrap (2x2 grid layout).
+
+year rect badges (index.html ⭐2022-2025):
+  kept as horizontal-wrap, not stacked vertically.
+
+publications list (press.html):
+  .flex.flex-wrap.items-center kept as row-wrap.
+
+button groups:
+  replaced the overly broad .flex.flex-wrap rules that were catching
+  filter tabs, year badges, publication lists etc.
+  now targets only: .btn-gold/.btn-og/.btn-ow/.btn-wa direct children
+  of flex wrappers — giving them flex:1 1 100% max-width:340px.
+
+button display fix:
+  explicit display:flex + align-items:center on .btn-gold, .btn-og,
+  .btn-ow, .btn-wa — prevents icon/text wrapping on light backgrounds.">
+    <div class="entry-head">
+      <span class="entry-time">13:18</span>
+      <span class="entry-title">Fix mobile layout: filter tabs, year badges, publications, buttons</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>FILTER TABS (menu.html):</li><li>Were stacking vertically due to overly broad .flex.flex-wrap rule.</li><li>Now explicitly kept as horizontal-wrap with smaller pill padding.</li><li>YEAR BADGES (press.html circles):</li><li>Reduced to 65px and kept in horizontal wrap (2x2 grid layout).</li><li>YEAR RECT BADGES (index.html ⭐2022-2025):</li><li>Kept as horizontal-wrap, not stacked vertically.</li><li>PUBLICATIONS LIST (press.html):</li><li>.flex.flex-wrap.items-center kept as row-wrap.</li><li>BUTTON GROUPS:</li><li>Replaced the overly broad .flex.flex-wrap rules that were catching</li><li>filter tabs, year badges, publication lists etc.</li><li>Now targets only: .btn-gold/.btn-og/.btn-ow/.btn-wa direct children</li><li>of flex wrappers — giving them flex:1 1 100% max-width:340px.</li><li>BUTTON DISPLAY FIX:</li><li>Explicit display:flex + align-items:center on .btn-gold, .btn-og,</li><li>.btn-ow, .btn-wa — prevents icon/text wrapping on light backgrounds.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="scope mobile button fix to cta classes only (.btn-gold, .btn-og, .btn-ow, .btn-wa) previous change incorrectly targeted all .btn elements, affecting
+nav buttons, dropdown links and other ui elements.
+
+now only applies to explicit cta button variants:
+  .btn-gold — filled gold buttons
+  .btn-og   — gold outline buttons
+  .btn-ow   — white outline buttons
+  .btn-wa   — whatsapp green buttons
+
+.btn-reserve-nav and other ui elements are unaffected.">
+    <div class="entry-head">
+      <span class="entry-time">13:10</span>
+      <span class="entry-title">Scope mobile button fix to CTA classes only (.btn-gold, .btn-og, .btn-ow, .btn-wa)</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Previous change incorrectly targeted all .btn elements, affecting</li><li>nav buttons, dropdown links and other UI elements.</li><li>Now only applies to explicit CTA button variants:</li><li>.btn-gold — filled gold buttons</li><li>.btn-og   — gold outline buttons</li><li>.btn-ow   — white outline buttons</li><li>.btn-wa   — WhatsApp green buttons</li><li>.btn-reserve-nav and other UI elements are unaffected.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile button: icon+text wrapping — add display:flex align-items:center the icon was rendering on its own line above the button text because
+width:100% on inline-flex changes box behaviour. added explicit:
+  display:flex!important — keeps flex layout regardless of width
+  align-items:center!important — vertically centres icon + text
+  gap:6px!important — consistent icon-text spacing
+  svg: display:inline-block, vertical-align:middle, flex-shrink:0
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">13:06</span>
+      <span class="entry-title">Fix mobile button: icon+text wrapping — add display:flex align-items:center</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The icon was rendering on its own line above the button text because</li><li>width:100% on inline-flex changes box behaviour. Added explicit:</li><li>display:flex!important — keeps flex layout regardless of width</li><li>align-items:center!important — vertically centres icon + text</li><li>gap:6px!important — consistent icon-text spacing</li><li>SVG: display:inline-block, vertical-align:middle, flex-shrink:0</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix all mobile buttons: text, stacking, width consistency button text:
+  &#x27;reserve now via tableapp&#x27; → &#x27;book via tableapp&#x27; (fits on one line)
+  &#x27;reserve &amp; experience the full menu&#x27; → &#x27;reserve a table&#x27;
+  &#x27;secure your michelin experience&#x27; → &#x27;reserve a table&#x27;
+
+mobile layout (≤767px):
+  all .btn: width:100%, justify-content:center, font-size:11px,
+  padding:.85rem — consistent sizing across all pages
+  button groups (flex-wrap, flex-row, sm:flex-row):
+    → flex-direction:column, gap:.65rem, full-width on mobile
+  centred button groups: max-width:340px centred, vertical stack
+  hero cta groups: column stack, centred
+
+exceptions (preserved):
+  .btn-reserve-nav — stays compact (nav bar button)
+  .wa-pulse — floating whatsapp button keeps its size
+
+all 7 pages verified: css in style block, not script block.">
+    <div class="entry-head">
+      <span class="entry-time">12:56</span>
+      <span class="entry-title">Fix all mobile buttons: text, stacking, width consistency</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>BUTTON TEXT:</li><li>&#x27;Reserve Now via TableApp&#x27; → &#x27;Book via TableApp&#x27; (fits on one line)</li><li>&#x27;Reserve &amp; Experience the Full Menu&#x27; → &#x27;Reserve a Table&#x27;</li><li>&#x27;Secure Your Michelin Experience&#x27; → &#x27;Reserve a Table&#x27;</li><li>MOBILE LAYOUT (≤767px):</li><li>All .btn: width:100%, justify-content:center, font-size:11px,</li><li>padding:.85rem — consistent sizing across all pages</li><li>Button groups (flex-wrap, flex-row, sm:flex-row):</li><li>→ flex-direction:column, gap:.65rem, full-width on mobile</li><li>Centred button groups: max-width:340px centred, vertical stack</li><li>Hero CTA groups: column stack, centred</li><li>EXCEPTIONS (preserved):</li><li>.btn-reserve-nav — stays compact (nav bar button)</li><li>.wa-pulse — floating WhatsApp button keeps its size</li><li>All 7 pages verified: CSS in style block, not script block.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="compact all cards on mobile across all 7 pages menu cards (menu.html):
+  image: 260px → 150px | body padding: 1.4rem → 0.85rem
+  grid: sm:grid-cols-2 → 1 col on mobile | gap: 5 → 0.75rem
+  name font 1.15rem → 1rem | teaser 2-line clamp
+
+news cards (news.html):
+  image height: 192px → 140px | card padding: p-7 → 1rem
+  grid: forced 1-col on mobile
+
+dish cards (index.html):
+  image height: h-52 → 140px | grid: 1-col on mobile
+
+grids (all pages):
+  md:grid-cols-2 / lg:grid-cols-3 → 1-col on ≤767px
+  md:grid-cols-3 (heritage) → 1-col on mobile
+  grid-cols-4 (year badges) → 2-col on mobile
+
+featured card (news.html tatler):
+  lg:grid-cols-2 hero card → stacked on mobile
+
+general:
+  p-7 → 1rem, p-6 → 0.85rem on mobile
+  collab cards: image 130px, padding 1rem
+  dish modal: image max-height 200px on mobile
+
+all css injected into &lt;style&gt; block (verified, not in js).
+all 7 pages pass check.">
+    <div class="entry-head">
+      <span class="entry-time">12:23</span>
+      <span class="entry-title">Compact all cards on mobile across all 7 pages</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>MENU CARDS (menu.html):</li><li>Image: 260px → 150px | Body padding: 1.4rem → 0.85rem</li><li>Grid: sm:grid-cols-2 → 1 col on mobile | gap: 5 → 0.75rem</li><li>Name font 1.15rem → 1rem | Teaser 2-line clamp</li><li>NEWS CARDS (news.html):</li><li>Image height: 192px → 140px | Card padding: p-7 → 1rem</li><li>Grid: forced 1-col on mobile</li><li>DISH CARDS (index.html):</li><li>Image height: h-52 → 140px | Grid: 1-col on mobile</li><li>GRIDS (all pages):</li><li>md:grid-cols-2 / lg:grid-cols-3 → 1-col on ≤767px</li><li>md:grid-cols-3 (heritage) → 1-col on mobile</li><li>grid-cols-4 (year badges) → 2-col on mobile</li><li>FEATURED CARD (news.html Tatler):</li><li>lg:grid-cols-2 hero card → stacked on mobile</li><li>GENERAL:</li><li>p-7 → 1rem, p-6 → 0.85rem on mobile</li><li>Collab cards: image 130px, padding 1rem</li><li>Dish modal: image max-height 200px on mobile</li><li>All CSS injected into &lt;style&gt; block (verified, not in JS).</li><li>All 7 pages pass check.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile header visibility + remove stars and animations on mobile hamburger button:
+  was invisible — svg used currentcolor but no explicit color set.
+  fixed: explicit white background (rgba 255,255,255,.12) + white border
+  + svg stroke:white on dark nav, and dark equivalent when nav-light active.
+  size increased to 40×40px with 6px border-radius for easier tapping.
+
+star field (mobile):
+  star field js now returns early on window.innerwidth&lt;=767 — stars
+  are never created on mobile, saving cpu/battery.
+  .star-field css hidden via display:none on mobile as additional guard.
+
+hero rays (mobile):
+  .hero-rays{display:none} — removes the ray-of-light glow overlay
+  on mobile (not visible at small sizes, wastes rendering budget).
+
+all animations (mobile):
+  animation-duration:0.01ms and transition-duration:0.01ms on all
+  elements — disables: button hover lifts, shimmer sweeps, hero glow
+  pulses, dish card tilts, news card lifts, menu card hovers.
+  hero text still glows but static (no pulse cycle).
+  scroll reveal (opacity/translate) made instant on mobile.
+
+applied to all 7 pages. verified all checks pass.">
+    <div class="entry-head">
+      <span class="entry-time">12:16</span>
+      <span class="entry-title">Fix mobile header visibility + remove stars and animations on mobile</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>HAMBURGER BUTTON:</li><li>Was invisible — SVG used currentColor but no explicit color set.</li><li>Fixed: explicit white background (rgba 255,255,255,.12) + white border</li><li>+ svg stroke:white on dark nav, and dark equivalent when nav-light active.</li><li>Size increased to 40×40px with 6px border-radius for easier tapping.</li><li>STAR FIELD (mobile):</li><li>Star field JS now returns early on window.innerWidth&lt;=767 — stars</li><li>are never created on mobile, saving CPU/battery.</li><li>.star-field CSS hidden via display:none on mobile as additional guard.</li><li>HERO RAYS (mobile):</li><li>.hero-rays{display:none} — removes the ray-of-light glow overlay</li><li>on mobile (not visible at small sizes, wastes rendering budget).</li><li>ALL ANIMATIONS (mobile):</li><li>animation-duration:0.01ms and transition-duration:0.01ms on all</li><li>elements — disables: button hover lifts, shimmer sweeps, hero glow</li><li>pulses, dish card tilts, news card lifts, menu card hovers.</li><li>Hero text still glows but static (no pulse cycle).</li><li>Scroll reveal (opacity/translate) made instant on mobile.</li><li>Applied to all 7 pages. Verified all checks pass.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="verified fix: rename open/close to mobopen/mobclose in iife renamed bare &#x27;open&#x27; and &#x27;close&#x27; function names inside the mobile nav
+iife to mobopen/mobclose. the name &#x27;open&#x27; shadows window.open which
+can cause unexpected behaviour in some browsers.
+
+all 7 pages verified passing 8 checks:
+  - button calls mobcardtoggle()
+  - mobopen/mobclose defined in script block (not css)
+  - no js accidentally in css block
+  - mob-card div positioned outside &lt;nav&gt;
+  - no old #mob div inside nav
+  - mob-card css present
+  - outside-click close handler active">
+    <div class="entry-head">
+      <span class="entry-time">11:56</span>
+      <span class="entry-title">Verified fix: rename open/close to mobOpen/mobClose in IIFE</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Renamed bare &#x27;open&#x27; and &#x27;close&#x27; function names inside the mobile nav</li><li>IIFE to mobOpen/mobClose. The name &#x27;open&#x27; shadows window.open which</li><li>can cause unexpected behaviour in some browsers.</li><li>All 7 pages verified passing 8 checks:</li><li>Button calls mobCardToggle()</li><li>mobOpen/mobClose defined in script block (not CSS)</li><li>No JS accidentally in CSS block</li><li>mob-card div positioned outside &lt;nav&gt;</li><li>No old #mob div inside nav</li><li>mob-card CSS present</li><li>Outside-click close handler active</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix hamburger: js was in css block, old #mob still in nav two bugs:
+1. mobcardtoggle iife was injected into the &lt;style&gt; css block
+   (not the &lt;script&gt; js block) so the function never existed at runtime.
+2. old &lt;div id=&#x27;mob&#x27;&gt; was still present inside &lt;nav&gt; alongside the
+   new toggle button, causing conflicting behaviour.
+
+fix: strip js from css, remove old mob div from nav, inject
+mobcardtoggle iife cleanly into the script block on all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">11:52</span>
+      <span class="entry-title">Fix hamburger: JS was in CSS block, old #mob still in nav</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Two bugs:</li><li>1. mobCardToggle IIFE was injected into the &lt;style&gt; CSS block</li><li>(not the &lt;script&gt; JS block) so the function never existed at runtime.</li><li>2. Old &lt;div id=&#x27;mob&#x27;&gt; was still present inside &lt;nav&gt; alongside the</li><li>new toggle button, causing conflicting behaviour.</li><li>Fix: strip JS from CSS, remove old mob div from nav, inject</li><li>mobCardToggle IIFE cleanly into the script block on all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="mobile nav: floating card dropdown (sharp corners, light bg) redesigned to match reference — floating card style:
+  - white/cream card (background:#faf6ef) matching site cream palette
+  - sharp corners (border-radius:4px) as requested
+  - floats in viewport left:1rem right:1rem below nav bar
+  - deep shadow for card elevation feel
+  - centred clean inter links, navy text, gold on active/hover
+  - gold &#x27;reserve a table&#x27; button at card bottom
+  - slide+scale-in animation (.22s)
+  - hamburger → x icon swap on open
+  - closes: link tap, outside click, escape key
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">11:47</span>
+      <span class="entry-title">Mobile nav: floating card dropdown (sharp corners, light bg)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Redesigned to match reference — floating card style:</li><li>White/cream card (background:#FAF6EF) matching site cream palette</li><li>Sharp corners (border-radius:4px) as requested</li><li>Floats in viewport left:1rem right:1rem below nav bar</li><li>Deep shadow for card elevation feel</li><li>Centred clean Inter links, navy text, gold on active/hover</li><li>Gold &#x27;Reserve a Table&#x27; button at card bottom</li><li>Slide+scale-in animation (.22s)</li><li>Hamburger → X icon swap on open</li><li>Closes: link tap, outside click, Escape key</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="fix mobile nav transparency: solid dark background + correct positioning the old #mob div inside &lt;nav&gt; inherited the nav&#x27;s transparent background,
+causing page content to show through when the dropdown opened.
+
+fix:
+  - position:fixed with top dynamically set to nav bar height
+  - background:#040d24 solid with !important to override nav-light
+  - z-index:9999 so it always appears above hero content
+  - white link text, gold hover, proper padding and borders
+  - toggle js updated to set top offset via getboundingclientrect
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">11:39</span>
+      <span class="entry-title">Fix mobile nav transparency: solid dark background + correct positioning</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The old #mob div inside &lt;nav&gt; inherited the nav&#x27;s transparent background,</li><li>causing page content to show through when the dropdown opened.</li><li>Fix:</li><li>position:fixed with top dynamically set to nav bar height</li><li>background:#040D24 solid with !important to override nav-light</li><li>z-index:9999 so it always appears above hero content</li><li>White link text, gold hover, proper padding and borders</li><li>Toggle JS updated to set top offset via getBoundingClientRect</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-01" data-search="remove all product pricing (rm) from all pages removed 61 price instances across index.html, menu.html, news.html,
+and reservations.html. dish prices stripped from:
+- menu cards (card face + detail modal dish_data)
+- index.html dish section
+- news.html article descriptions
+
+kept: rm 200 deposit policy on reservations.html (booking info,
+not product pricing).">
+    <div class="entry-head">
+      <span class="entry-time">11:33</span>
+      <span class="entry-title">Remove all product pricing (RM) from all pages</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Removed 61 price instances across index.html, menu.html, news.html,</li><li>and reservations.html. Dish prices stripped from:</li><li>Menu cards (card face + detail modal DISH_DATA)</li><li>Index.html dish section</li><li>News.html article descriptions</li><li>Kept: RM 200 deposit policy on reservations.html (booking info,</li><li>not product pricing).</li></ul></div>
+  </div>
+</div>
+
+<div class="day-block" data-date="2026-05-29">
+  <div class="day-head"><span class="day-title">Fri, 29 May 2026</span><span class="day-count">39 updates</span></div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix our story section buttons: remove 3rd button that was wrapping the our story section had 3 buttons (reserve your table, our heritage,
+full story) in one flex-wrap row. the third button was wrapping to a
+second line, creating an awkward partial-row below the first two.
+removed the redundant &#x27;full story&#x27; button — the page is accessible
+via the our story nav link. now clean 2-button row as intended.">
+    <div class="entry-head">
+      <span class="entry-time">19:46</span>
+      <span class="entry-title">Fix Our Story section buttons: remove 3rd button that was wrapping</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The Our Story section had 3 buttons (Reserve Your Table, Our Heritage,</li><li>Full Story) in one flex-wrap row. The third button was wrapping to a</li><li>second line, creating an awkward partial-row below the first two.</li><li>Removed the redundant &#x27;Full Story&#x27; button — the page is accessible</li><li>via the Our Story nav link. Now clean 2-button row as intended.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="make menu cards more vertical: taller image + body, 3-line teaser image height: 200px → 260px (portrait proportion)
+card body: min-height 160px, flex column for consistent height
+teaser: 2-line clamp → 3-line, flex-grow fills space evenly
+gap: gap-4 → gap-5 for better breathing room">
+    <div class="entry-head">
+      <span class="entry-time">19:31</span>
+      <span class="entry-title">Make menu cards more vertical: taller image + body, 3-line teaser</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Image height: 200px → 260px (portrait proportion)</li><li>Card body: min-height 160px, flex column for consistent height</li><li>Teaser: 2-line clamp → 3-line, flex-grow fills space evenly</li><li>Gap: gap-4 → gap-5 for better breathing room</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="adaptive nav: dark text on light sections, white on dark hero (all pages) behaviour:
+  - scrolled inside dark hero → white text, transparent nav (unchanged)
+  - scrolled past hero into light cream sections → nav-light class:
+      · frosted cream background rgba(250,246,239,.92) + backdrop blur
+      · logo text → #060d2e (navy), subtitle stays gold
+      · nav links → rgba(6,13,46,.75), hover → #060d2e
+      · active link stays #d4af37 (gold)
+      · reserve button border/text toned to darker gold
+      · subtle box-shadow for separation from content
+
+implementation:
+  - getheroh() measures actual hero section height at runtime
+  - updatenav() runs on scroll via requestanimationframe
+  - css classes: nav-logo-main, nav-logo-sub, nav-link, nav-active
+  - smooth 0.3s transition on background and box-shadow
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">19:27</span>
+      <span class="entry-title">Adaptive nav: dark text on light sections, white on dark hero (all pages)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Behaviour:</li><li>Scrolled inside dark hero → white text, transparent nav (unchanged)</li><li>Scrolled past hero into light cream sections → nav-light class:</li><li>· Frosted cream background rgba(250,246,239,.92) + backdrop blur</li><li>· Logo text → #060D2E (navy), subtitle stays gold</li><li>· Nav links → rgba(6,13,46,.75), hover → #060D2E</li><li>· Active link stays #D4AF37 (gold)</li><li>· Reserve button border/text toned to darker gold</li><li>· Subtle box-shadow for separation from content</li><li>Implementation:</li><li>getHeroH() measures actual hero section height at runtime</li><li>updateNav() runs on scroll via requestAnimationFrame</li><li>CSS classes: nav-logo-main, nav-logo-sub, nav-link, nav-active</li><li>Smooth 0.3s transition on background and box-shadow</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="revert &quot;replace geometric damask with peranakan batik floral pattern (all 7 pages)&quot; this reverts commit fa3ceb730eac947158313a5a69d7f7028a157602.">
+    <div class="entry-head">
+      <span class="entry-time">19:10</span>
+      <span class="entry-title">Revert &quot;Replace geometric damask with Peranakan Batik floral pattern (all 7 pages)&quot;</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>This reverts commit fa3ceb730eac947158313a5a69d7f7028a157602.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="replace geometric damask with peranakan batik floral pattern (all 7 pages) new svg background pattern (200x200px tile):
+  central bloom: multi-layered peony/lotus with 8 outer petals (4 cardinal
+  + 4 diagonal), 4 inner petals, center circles, and 4 stamens with dots
+
+  vine stems: 6 flowing s-curve tendrils connecting to bloom from all edges
+
+  leaves: 10 pointed leaf shapes in batik style along the vine stems,
+  with hairline veins. leaves at corners, sides and mid-sections.
+
+  corner elements: quarter-circles at tile corners that form full blooms
+  when tiled, with connecting arc motifs
+
+  paisley/scrolls: 4 comma-shaped scroll accents (blue tint) in diagonal
+  corner areas — characteristic of peranakan and batik textile work
+
+  dot accents: 20+ scattered small dots typical of batik hand-stamping
+
+  palette: gold strokes rgba(212,175,55,.14-.19), blue accents rgba(91,
+  155,213,.12), very low opacity to stay subtle against dark backgrounds
+
+background tile size updated: 180px → 200px">
+    <div class="entry-head">
+      <span class="entry-time">19:06</span>
+      <span class="entry-title">Replace geometric damask with Peranakan Batik floral pattern (all 7 pages)</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>New SVG background pattern (200x200px tile):</li><li>CENTRAL BLOOM: Multi-layered peony/lotus with 8 outer petals (4 cardinal</li><li>+ 4 diagonal), 4 inner petals, center circles, and 4 stamens with dots</li><li>VINE STEMS: 6 flowing S-curve tendrils connecting to bloom from all edges</li><li>LEAVES: 10 pointed leaf shapes in Batik style along the vine stems,</li><li>with hairline veins. Leaves at corners, sides and mid-sections.</li><li>CORNER ELEMENTS: Quarter-circles at tile corners that form full blooms</li><li>when tiled, with connecting arc motifs</li><li>PAISLEY/SCROLLS: 4 comma-shaped scroll accents (blue tint) in diagonal</li><li>corner areas — characteristic of Peranakan and Batik textile work</li><li>DOT ACCENTS: 20+ scattered small dots typical of Batik hand-stamping</li><li>PALETTE: Gold strokes rgba(212,175,55,.14-.19), blue accents rgba(91,</li><li>155,213,.12), very low opacity to stay subtle against dark backgrounds</li><li>Background tile size updated: 180px → 200px</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix blank hero on menu.html — replace reveal with in-view the hero content (h1, eyebrow, subtitle, ctas) was invisible because
+all elements had class=&#x27;reveal&#x27; which sets opacity:0. the
+intersectionobserver was not triggering for above-fold hero elements
+on initial page load, leaving everything invisible.
+
+fix: replace all &#x27;reveal&#x27; classes in the hero section with &#x27;in-view&#x27;
+so hero content is always immediately visible (no opacity:0 trap).
+the stagger delays (d1-d4) are also removed from hero elements.
+body section cards below the fold still use reveal correctly.">
+    <div class="entry-head">
+      <span class="entry-time">18:50</span>
+      <span class="entry-title">Fix blank hero on menu.html — replace reveal with in-view</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The hero content (h1, eyebrow, subtitle, CTAs) was invisible because</li><li>all elements had class=&#x27;reveal&#x27; which sets opacity:0. The</li><li>IntersectionObserver was not triggering for above-fold hero elements</li><li>on initial page load, leaving everything invisible.</li><li>Fix: replace all &#x27;reveal&#x27; classes in the hero section with &#x27;in-view&#x27;</li><li>so hero content is always immediately visible (no opacity:0 trap).</li><li>The stagger delays (d1-d4) are also removed from hero elements.</li><li>Body section cards below the fold still use reveal correctly.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="complete menu.html script rebuild — fix filter and modal root issues found:
+  1. duplicate filter js (injected twice by two separate scripts)
+  2. dish_data used mixed quote styles — potential parse issues
+  3. general ordering/mutation noise from 6 successive patches
+
+fix: replace entire main &lt;script&gt; block with a single clean build:
+  - boilerplate from press.html (scroll-reveal, damask, stars, ripple,
+    magnetic, lightbox, nav-scroll) — known-good, no duplicates
+  - dish_data (24 dishes) using only double-quoted strings throughout
+  - filter-tab click handler: 2 queryselectorall calls (not 4)
+  - opendish() + closedish() with console.warn guards for missing elements
+  - escape key closes modal
+
+verified: filter-tab count=2, opendish present, dish-modal html present,
+no single-quoted desc strings, correct section order.">
+    <div class="entry-head">
+      <span class="entry-time">18:40</span>
+      <span class="entry-title">Complete menu.html script rebuild — fix filter and modal</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Root issues found:</li><li>1. Duplicate filter JS (injected twice by two separate scripts)</li><li>2. DISH_DATA used mixed quote styles — potential parse issues</li><li>3. General ordering/mutation noise from 6 successive patches</li><li>Fix: replace entire main &lt;script&gt; block with a single clean build:</li><li>Boilerplate from press.html (scroll-reveal, damask, stars, ripple,</li><li>magnetic, lightbox, nav-scroll) — known-good, no duplicates</li><li>DISH_DATA (24 dishes) using only double-quoted strings throughout</li><li>filter-tab click handler: 2 querySelectorAll calls (not 4)</li><li>openDish() + closeDish() with console.warn guards for missing elements</li><li>Escape key closes modal</li><li>Verified: filter-tab count=2, openDish present, dish-modal HTML present,</li><li>no single-quoted desc strings, correct section order.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix critical menu bug: inject missing dish-modal html element root cause: all previous scripts checked &#x27;dish-modal-overlay&#x27; as the
+condition guard before injecting, but the css already contained the
+class name .dish-modal-overlay — so the check always returned false
+and the actual &lt;div id=&#x27;dish-modal&#x27;&gt; was never added to the page.
+
+when opendish() called getelementbyid(&#x27;dish-modal&#x27;), it got null,
+hit the guard clause if(!mo){return;} and exited immediately — making
+every card click appear to do nothing.
+
+fix: inject the full two-column modal div before the lightbox div.
+all 5 inner element ids verified present: modal-name, modal-price,
+modal-cat-badge, modal-img-content, modal-highlights, modal-notes.">
+    <div class="entry-head">
+      <span class="entry-time">18:30</span>
+      <span class="entry-title">Fix critical menu bug: inject missing dish-modal HTML element</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Root cause: all previous scripts checked &#x27;dish-modal-overlay&#x27; as the</li><li>condition guard before injecting, but the CSS already contained the</li><li>class name .dish-modal-overlay — so the check always returned false</li><li>and the actual &lt;div id=&#x27;dish-modal&#x27;&gt; was NEVER added to the page.</li><li>When openDish() called getElementById(&#x27;dish-modal&#x27;), it got null,</li><li>hit the guard clause if(!mo){return;} and exited immediately — making</li><li>every card click appear to do nothing.</li><li>Fix: inject the full two-column modal div before the lightbox div.</li><li>All 5 inner element IDs verified present: modal-name, modal-price,</li><li>modal-cat-badge, modal-img-content, modal-highlights, modal-notes.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix menu filter, floating modal, and 3-column grid filter tabs (was completely missing js):
+  added click handler for all .filter-tab buttons:
+  - sets clicked tab as active (gold pill)
+  - filters #menu-grid cards by data-cat attribute
+  - &#x27;all&#x27; shows every card; category tabs show only matching cards
+
+floating detail card (was missing opendish/closedish functions):
+  - full dish_data object with all 24 dishes (name, price, category,
+    image, full description, highlights array, allergen notes)
+  - opendish(id): populates and shows modal with display:flex
+    + requestanimationframe for smooth css transition
+  - closedish(): removes .open class, hides after animation (400ms)
+  - escape key closes modal
+
+grid: md:grid-cols-2 lg:grid-cols-3 (3-column on desktop)">
+    <div class="entry-head">
+      <span class="entry-time">18:07</span>
+      <span class="entry-title">Fix menu filter, floating modal, and 3-column grid</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>FILTER TABS (was completely missing JS):</li><li>Added click handler for all .filter-tab buttons:</li><li>Sets clicked tab as active (gold pill)</li><li>Filters #menu-grid cards by data-cat attribute</li><li>&#x27;All&#x27; shows every card; category tabs show only matching cards</li><li>FLOATING DETAIL CARD (was missing openDish/closeDish functions):</li><li>Full DISH_DATA object with all 24 dishes (name, price, category,</li><li>image, full description, highlights array, allergen notes)</li><li>openDish(id): populates and shows modal with display:flex</li><li>+ requestAnimationFrame for smooth CSS transition</li><li>closeDish(): removes .open class, hides after animation (400ms)</li><li>Escape key closes modal</li><li>GRID: md:grid-cols-2 lg:grid-cols-3 (3-column on desktop)</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix menu filter tabs + upgrade floating detail card to two-column layout filter tabs:
+  old: underline-only style, dark text barely visible on dark background
+  new: pill/badge style buttons — gold gradient when active, subtle border
+  when inactive, gold border + tint on hover. gap between tabs (gap-3).
+
+floating detail card (click any dish):
+  old: single-column 580px card
+  new: two-column 820px floating card (grid 1fr/1fr):
+    left — full-height image with scale-in animation on open, cat badge
+    right — dish name + price, gold divider bar, full description in
+            cormorant garamond italic, key highlights as dot-prefixed
+            chips, notes/allergens, reserve + whatsapp ctas
+  mobile: collapses to single column, scrollable
+  animation: smooth scale + translate from below (.4s spring)
+  background: deep navy gradient, gold border, multi-layer box shadow">
+    <div class="entry-head">
+      <span class="entry-time">17:48</span>
+      <span class="entry-title">Fix menu filter tabs + upgrade floating detail card to two-column layout</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>FILTER TABS:</li><li>Old: underline-only style, dark text barely visible on dark background</li><li>New: pill/badge style buttons — gold gradient when active, subtle border</li><li>when inactive, gold border + tint on hover. Gap between tabs (gap-3).</li><li>FLOATING DETAIL CARD (click any dish):</li><li>Old: single-column 580px card</li><li>New: two-column 820px floating card (grid 1fr/1fr):</li><li>LEFT — full-height image with scale-in animation on open, cat badge</li><li>RIGHT — dish name + price, gold divider bar, full description in</li><li>Cormorant Garamond italic, key highlights as dot-prefixed</li><li>chips, notes/allergens, Reserve + WhatsApp CTAs</li><li>Mobile: collapses to single column, scrollable</li><li>Animation: smooth scale + translate from below (.4s spring)</li><li>Background: deep navy gradient, gold border, multi-layer box shadow</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="rebuild menu.html cards with image slots + click-to-expand detail modals new card design (24 dishes):
+  - image area (200px): shows photo if available, placeholder if not
+  - food images pre-assigned where matching photos exist:
+    pie tee, kari kapitan, gulai tumis, nasi ulam, kerabu bihun, pulut hitam
+  - remaining 18 dishes: elegant placeholder ready for photos
+  - category badge (top-right), &quot;view details →&quot; hint on hover
+  - short teaser (1–2 lines) on card face
+  - footer link &quot;full details →&quot;
+
+detail modal (click any card):
+  - full-screen overlay with backdrop blur
+  - large image (260px) or placeholder
+  - dish name + price + category badge
+  - full description in cormorant garamond italic
+  - key highlights as gold badge chips
+  - allergen/serving notes
+  - reserve cta + whatsapp cta
+  - close: ✕ button, escape key, backdrop click">
+    <div class="entry-head">
+      <span class="entry-time">17:09</span>
+      <span class="entry-title">Rebuild menu.html cards with image slots + click-to-expand detail modals</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>NEW CARD DESIGN (24 dishes):</li><li>Image area (200px): shows photo if available, placeholder if not</li><li>Food images pre-assigned where matching photos exist:</li><li>Pie Tee, Kari Kapitan, Gulai Tumis, Nasi Ulam, Kerabu Bihun, Pulut Hitam</li><li>Remaining 18 dishes: elegant placeholder ready for photos</li><li>Category badge (top-right), &quot;View Details →&quot; hint on hover</li><li>Short teaser (1–2 lines) on card face</li><li>Footer link &quot;Full details →&quot;</li><li>DETAIL MODAL (click any card):</li><li>Full-screen overlay with backdrop blur</li><li>Large image (260px) or placeholder</li><li>Dish name + price + category badge</li><li>Full description in Cormorant Garamond italic</li><li>Key highlights as gold badge chips</li><li>Allergen/serving notes</li><li>Reserve CTA + WhatsApp CTA</li><li>Close: ✕ button, Escape key, backdrop click</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="reduce masking opacity so damask texture shows through sitewide damask-layer: 0.15 → 0.22 (more visible)
+section-shadow edge: .35 → .20, .22 → .12 (much lighter)
+glow vignette: .32 → .18 (barely dark, texture shows)
+gold glow: .20 → .15 (balanced, not overpowering texture)
+
+applied to all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">16:53</span>
+      <span class="entry-title">Reduce masking opacity so damask texture shows through sitewide</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>damask-layer: 0.15 → 0.22 (more visible)</li><li>section-shadow edge: .35 → .20, .22 → .12 (much lighter)</li><li>glow vignette: .32 → .18 (barely dark, texture shows)</li><li>gold glow: .20 → .15 (balanced, not overpowering texture)</li><li>Applied to all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix masking, quote card, z-index, and visit-us info section press.html quote card:
+  removed frosted glass box (background + border) from inspector quote.
+  quote now sits clean against the section background, no box masking.
+
+masking z-index (all 7 pages):
+  refined layer stack: glow(z:auto) → damask(z:1) → shadow(z:2) → content(z:10+)
+  shadow opacity lightened again: .42→.35, .28→.22 so content breathes more.
+  masking is always above background texture, always behind text and ctas.
+
+visit-us.html contact info section:
+  added svg icons for address/phone/hours/parking labels
+  label text bumped 10px → 11px with gold colour and better spacing
+  address name in playfair 1.6rem, phone 1.5rem for clear hierarchy
+  opening hours times in playfair display with gold, row borders for clarity
+  closed notice styled as a clear red badge
+  dividers increased opacity for visibility">
+    <div class="entry-head">
+      <span class="entry-time">16:48</span>
+      <span class="entry-title">Fix masking, quote card, z-index, and visit-us info section</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>PRESS.HTML quote card:</li><li>Removed frosted glass box (background + border) from inspector quote.</li><li>Quote now sits clean against the section background, no box masking.</li><li>MASKING Z-INDEX (all 7 pages):</li><li>Refined layer stack: glow(z:auto) → damask(z:1) → shadow(z:2) → content(z:10+)</li><li>Shadow opacity lightened again: .42→.35, .28→.22 so content breathes more.</li><li>Masking is always above background texture, always behind text and CTAs.</li><li>VISIT-US.HTML contact info section:</li><li>Added SVG icons for Address/Phone/Hours/Parking labels</li><li>Label text bumped 10px → 11px with gold colour and better spacing</li><li>Address name in Playfair 1.6rem, phone 1.5rem for clear hierarchy</li><li>Opening hours times in Playfair Display with gold, row borders for clarity</li><li>Closed notice styled as a clear red badge</li><li>Dividers increased opacity for visibility</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="remove masking from photo quote section + reduce shadow sitewide menu.html quote/photo section:
+  - removed all stacked overlays (atmospheric glow, damask, section-shadow)
+    from the food photo section — those are for flat-color dark sections only
+  - removed the dark linear-gradient overlay from image container
+  - removed opacity:.85 from img (now full opacity)
+  - kept only a minimal bottom-fade gradient for text legibility
+  - image now shows clearly with no masking obscuring it
+
+all pages — reduced masking on dark sections:
+  section-shadow: edge opacity .75 → .42, .50 → .28 (lighter vignette)
+  atmospheric glow vignette: .52 → .32 (less dark edge crush)
+  result: texture, glow and content are all more visible">
+    <div class="entry-head">
+      <span class="entry-time">16:40</span>
+      <span class="entry-title">Remove masking from photo quote section + reduce shadow sitewide</span>
+      <span class="entry-tag tag-perf">Perf</span>
+    </div>
+    <div class="entry-body"><ul><li>MENU.HTML quote/photo section:</li><li>Removed all stacked overlays (atmospheric glow, damask, section-shadow)</li><li>from the food photo section — those are for flat-color dark sections only</li><li>Removed the dark linear-gradient overlay from image container</li><li>Removed opacity:.85 from img (now full opacity)</li><li>Kept only a minimal bottom-fade gradient for text legibility</li><li>Image now shows clearly with no masking obscuring it</li><li>ALL PAGES — reduced masking on dark sections:</li><li>section-shadow: edge opacity .75 → .42, .50 → .28 (lighter vignette)</li><li>atmospheric glow vignette: .52 → .32 (less dark edge crush)</li><li>Result: texture, glow and content are all more visible</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add dark vignette shadow to all dark sections sitewide (19 sections) .section-shadow injects a 3-layer dark gradient overlay:
+  1. radial vignette: transparent center → dark edges (z-index:3)
+  2. linear top/bottom shadow: dark at top &amp; bottom, fades inward
+  3. linear side shadow: dark left/right edges for cinematic framing
+
+shadow sits above damask texture (z:3) but below all content (z:10),
+creating depth without hiding text or interactive elements.
+applied to all 19 dark sections across all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">16:26</span>
+      <span class="entry-title">Add dark vignette shadow to all dark sections sitewide (19 sections)</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>.section-shadow injects a 3-layer dark gradient overlay:</li><li>1. Radial vignette: transparent center → dark edges (z-index:3)</li><li>2. Linear top/bottom shadow: dark at top &amp; bottom, fades inward</li><li>3. Linear side shadow: dark left/right edges for cinematic framing</li><li>Shadow sits above damask texture (z:3) but below all content (z:10),</li><li>creating depth without hiding text or interactive elements.</li><li>Applied to all 19 dark sections across all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix texture/damask not showing in dark body sections root cause: the damask svg was applied by js to the section&#x27;s background,
+but the absolute-positioned glow div (inset:0) sat directly on top of the
+section background, covering the texture completely.
+
+fix: inject a dedicated .damask-layer div into every dark section,
+positioned above the glow divs (z-index:2) but below the content (z-10).
+js now also targets .damask-layer divs to apply the svg backgroundimage.
+
+.damask-layer { position:absolute;inset:0;background-size:180px 180px;
+  background-repeat:repeat;opacity:0.18;pointer-events:none;z-index:2 }
+
+19 damask-layer divs added across 7 pages (3 per page on average).">
+    <div class="entry-head">
+      <span class="entry-time">15:37</span>
+      <span class="entry-title">Fix texture/damask not showing in dark body sections</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>ROOT CAUSE: The damask SVG was applied by JS to the section&#x27;s background,</li><li>but the absolute-positioned glow div (inset:0) sat directly on top of the</li><li>section background, covering the texture completely.</li><li>FIX: Inject a dedicated .damask-layer div into every dark section,</li><li>positioned ABOVE the glow divs (z-index:2) but BELOW the content (z-10).</li><li>JS now also targets .damask-layer divs to apply the SVG backgroundImage.</li><li>.damask-layer { position:absolute;inset:0;background-size:180px 180px;</li><li>background-repeat:repeat;opacity:0.18;pointer-events:none;z-index:2 }</li><li>19 damask-layer divs added across 7 pages (3 per page on average).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="boost atmospheric glow opacity sitewide + fix 2 missing news.html sections opacity boost (14 sections across 7 pages):
+  gold center glow:    .11 → .20  (+82%)
+  gold bottom uplighting: .10 → .18  (+80%)
+  blue corner accents: .07 → .13  (+86%)
+  dark vignette edge: opacity softened slightly for balance
+
+new glows (2 sections in news.html):
+  - video coverage section (background:#050c28)
+  - quote cta section (background:#060d2e)
+  both now get full atmospheric treatment + gold hairline borders">
+    <div class="entry-head">
+      <span class="entry-time">15:30</span>
+      <span class="entry-title">Boost atmospheric glow opacity sitewide + fix 2 missing news.html sections</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>OPACITY BOOST (14 sections across 7 pages):</li><li>Gold center glow:    .11 → .20  (+82%)</li><li>Gold bottom uplighting: .10 → .18  (+80%)</li><li>Blue corner accents: .07 → .13  (+86%)</li><li>Dark vignette edge: opacity softened slightly for balance</li><li>NEW GLOWS (2 sections in news.html):</li><li>Video Coverage section (background:#050C28)</li><li>Quote CTA section (background:#060D2E)</li><li>Both now get full atmospheric treatment + gold hairline borders</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add ray-of-light glow to all 7 hero sections each hero now has a .hero-rays div with two css layers:
+
+::before — conic gradient ray burst
+  14 alternating transparent/gold beams fanning out from top-center
+  (from 258deg at 50% 16%), 3px blur, 7s pulse animation with slight
+  scale breathe effect (scalex 1→1.03)
+
+::after — central spotlight glow
+  warm radial gradient (ellipse 85% 60%) pooling down from above the
+  viewport edge, plus a tight bright core highlight (35% 45%)
+  4.5s independent pulse with 1s delay offset from rays
+
+both layers breathe at different speeds so they never fully sync —
+giving a natural, living quality to the light.">
+    <div class="entry-head">
+      <span class="entry-time">15:19</span>
+      <span class="entry-title">Add ray-of-light glow to all 7 hero sections</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Each hero now has a .hero-rays div with two CSS layers:</li><li>::before — Conic gradient ray burst</li><li>14 alternating transparent/gold beams fanning out from top-center</li><li>(from 258deg at 50% 16%), 3px blur, 7s pulse animation with slight</li><li>scale breathe effect (scaleX 1→1.03)</li><li>::after — Central spotlight glow</li><li>Warm radial gradient (ellipse 85% 60%) pooling down from above the</li><li>viewport edge, plus a tight bright core highlight (35% 45%)</li><li>4.5s independent pulse with 1s delay offset from rays</li><li>Both layers breathe at different speeds so they never fully sync —</li><li>giving a natural, living quality to the light.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add cta buttons to all 6 inner page hero sections each page gets a contextually relevant primary (gold) + secondary (outline) button:
+  news.html         → view all coverage + reserve a table
+  our-story.html    → reserve your table + explore our heritage
+  menu.html         → reserve your table + see full menu
+  press.html        → latest news coverage + reserve a table
+  visit-us.html     → get directions (map icon) + reserve a table
+  reservations.html → book via tableapp + whatsapp us
+
+all buttons: btn-gold btn-mag for primary, btn-ow outline for secondary,
+with reveal d4 animation delay so they appear after the title animates in.">
+    <div class="entry-head">
+      <span class="entry-time">15:13</span>
+      <span class="entry-title">Add CTA buttons to all 6 inner page hero sections</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Each page gets a contextually relevant primary (gold) + secondary (outline) button:</li><li>news.html         → View All Coverage + Reserve a Table</li><li>our-story.html    → Reserve Your Table + Explore Our Heritage</li><li>menu.html         → Reserve Your Table + See Full Menu</li><li>press.html        → Latest News Coverage + Reserve a Table</li><li>visit-us.html     → Get Directions (map icon) + Reserve a Table</li><li>reservations.html → Book via TableApp + WhatsApp Us</li><li>All buttons: btn-gold btn-mag for primary, btn-ow outline for secondary,</li><li>with reveal d4 animation delay so they appear after the title animates in.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix news.html hero centering — explicit text-align:center on all elements added text-align:center directly to eyebrow, h1, and subtitle so they
+don&#x27;t depend on parent inheritance (which some browsers resolve differently).
+wrapped in max-w-4xl mx-auto text-center div matching menu.html exactly.">
+    <div class="entry-head">
+      <span class="entry-time">15:05</span>
+      <span class="entry-title">Fix news.html hero centering — explicit text-align:center on all elements</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Added text-align:center directly to eyebrow, h1, and subtitle so they</li><li>don&#x27;t depend on parent inheritance (which some browsers resolve differently).</li><li>Wrapped in max-w-4xl mx-auto text-center div matching menu.html exactly.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix news.html hero: match menu.html format, remove cta buttons - changed from min-h-screen left-aligned with cta buttons
+- now matches menu.html exactly: flex items-start justify-center,
+  min-height:80vh, padding-top:90px on section (nav clearance)
+- center-aligned content: eyebrow → h1/hero-em → subtitle → gold bar
+- removed view all coverage + reserve a table buttons from hero">
+    <div class="entry-head">
+      <span class="entry-time">15:01</span>
+      <span class="entry-title">Fix news.html hero: match menu.html format, remove CTA buttons</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Changed from min-h-screen left-aligned with CTA buttons</li><li>Now matches menu.html exactly: flex items-start justify-center,</li><li>min-height:80vh, padding-top:90px on section (nav clearance)</li><li>Center-aligned content: eyebrow → h1/hero-em → subtitle → gold bar</li><li>Removed View All Coverage + Reserve a Table buttons from hero</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix hero/nav overlap final + remove press.html star + uniform hero height approach change: previous fix added padding-top on the inner content div,
+but flex centering made positioning unpredictable. new approach:
+  - padding-top:90px on the section itself (section starts 90px from top)
+  - inner content div uses only padding-top:2rem (visual breathing room)
+  - this guarantees nav clearance regardless of viewport or flex behaviour
+
+all 5 pages: min-height:80vh (standardised) + padding-top:90px on section
+
+press.html: fully deleted the floating gold star div from hero (previously
+  hidden with class but still rendering due to css specificity conflict).">
+    <div class="entry-head">
+      <span class="entry-time">14:58</span>
+      <span class="entry-title">Fix hero/nav overlap final + remove press.html star + uniform hero height</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>APPROACH CHANGE: Previous fix added padding-top on the inner content div,</li><li>but flex centering made positioning unpredictable. New approach:</li><li>padding-top:90px on the SECTION itself (section starts 90px from top)</li><li>Inner content div uses only padding-top:2rem (visual breathing room)</li><li>This guarantees nav clearance regardless of viewport or flex behaviour</li><li>ALL 5 PAGES: min-height:80vh (standardised) + padding-top:90px on section</li><li>PRESS.HTML: Fully deleted the floating gold star div from hero (previously</li><li>hidden with class but still rendering due to CSS specificity conflict).</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix hero/nav overlap definitively — use flex-start + guaranteed padding-top previous fix used flex items-center which still placed content too close
+to nav depending on viewport height. changed to flex items-start so content
+always flows from the top of the section, with padding-top:clamp(7rem,12vw,9rem)
+on the content div guaranteeing &gt;112px clearance below the fixed nav on all
+screen sizes. applied to all 5 inner pages.">
+    <div class="entry-head">
+      <span class="entry-time">14:53</span>
+      <span class="entry-title">Fix hero/nav overlap definitively — use flex-start + guaranteed padding-top</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Previous fix used flex items-center which still placed content too close</li><li>to nav depending on viewport height. Changed to flex items-start so content</li><li>always flows from the top of the section, with padding-top:clamp(7rem,12vw,9rem)</li><li>on the content div guaranteeing &gt;112px clearance below the fixed nav on all</li><li>screen sizes. Applied to all 5 inner pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix hero/nav overlap on all 5 inner pages + remove floating star root cause: hero sections used flex items-center justify-center with
+min-height:40-50vh but no padding-top on the section itself to clear
+the fixed nav bar (~80px). content was centering within the full section
+height, placing eyebrow text directly behind the nav.
+
+fix (all 5 pages):
+  - added padding-top:5rem to section to push all content below nav
+  - increased min-height: 40-50vh → 65-75vh for proper visual weight
+  - reduced inner content div padding-top (section now handles clearance)
+
+press.html: also hid the floating gold star div that was overlapping
+  with the nav &#x27;menu&#x27; link in the hero section.">
+    <div class="entry-head">
+      <span class="entry-time">14:46</span>
+      <span class="entry-title">Fix hero/nav overlap on all 5 inner pages + remove floating star</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>ROOT CAUSE: Hero sections used flex items-center justify-center with</li><li>min-height:40-50vh but NO padding-top on the section itself to clear</li><li>the fixed nav bar (~80px). Content was centering within the full section</li><li>height, placing eyebrow text directly behind the nav.</li><li>FIX (all 5 pages):</li><li>Added padding-top:5rem to section to push ALL content below nav</li><li>Increased min-height: 40-50vh → 65-75vh for proper visual weight</li><li>Reduced inner content div padding-top (section now handles clearance)</li><li>PRESS.HTML: Also hid the floating gold star div that was overlapping</li><li>with the nav &#x27;Menu&#x27; link in the hero section.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="replace all emoji icons with proper svg icons (our-story + menu) our-story.html (gold stroke svgs on dark background):
+  🚫 nothing from a packet  → mortar &amp; pestle svg
+  🌅 made fresh every morning → sunrise with rays svg
+  📖 family recipes only     → open book with text lines svg
+
+menu.html (navy stroke svgs on cream background):
+  🐷 pork-free        → shield with checkmark svg
+  🍷 alcohol-free     → goblet with x svg
+  🌿 made from scratch → mortar &amp; pestle svg (navy)
+  📋 seasonal menu     → botanical leaf with veins svg
+
+all icons are consistent hand-drawn line-art style at 48-52px / 40px.">
+    <div class="entry-head">
+      <span class="entry-time">14:43</span>
+      <span class="entry-title">Replace all emoji icons with proper SVG icons (our-story + menu)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>our-story.html (gold stroke SVGs on dark background):</li><li>🚫 Nothing from a Packet  → Mortar &amp; pestle SVG</li><li>🌅 Made Fresh Every Morning → Sunrise with rays SVG</li><li>📖 Family Recipes Only     → Open book with text lines SVG</li><li>menu.html (navy stroke SVGs on cream background):</li><li>🐷 Pork-Free        → Shield with checkmark SVG</li><li>🍷 Alcohol-Free     → Goblet with X SVG</li><li>🌿 Made from Scratch → Mortar &amp; pestle SVG (navy)</li><li>📋 Seasonal Menu     → Botanical leaf with veins SVG</li><li>All icons are consistent hand-drawn line-art style at 48-52px / 40px.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix michelin heading, news hero layout, and button icon press.html: rework michelin heading — remove the &lt;br/&gt; that caused
+&#x27;four consecutive years&#x27; to orphan-wrap on small screens. now uses
+separate italic subtitle in cormorant garamond beneath the main h2.
+
+news.html (hero): change from min-h-[55vh] items-end to min-h-screen
+items-center to match the hero layout of all other inner pages.
+
+news.html (button): remove document/newspaper svg icon from
+&#x27;view all coverage&#x27; hero button — icon was rendering outside button
+bounds (same overflow issue as tableapp button previously fixed).">
+    <div class="entry-head">
+      <span class="entry-time">14:36</span>
+      <span class="entry-title">Fix Michelin heading, news hero layout, and button icon</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>PRESS.HTML: Rework Michelin heading — remove the &lt;br/&gt; that caused</li><li>&#x27;Four Consecutive Years&#x27; to orphan-wrap on small screens. Now uses</li><li>separate italic subtitle in Cormorant Garamond beneath the main h2.</li><li>NEWS.HTML (hero): Change from min-h-[55vh] items-end to min-h-screen</li><li>items-center to match the hero layout of all other inner pages.</li><li>NEWS.HTML (button): Remove document/newspaper SVG icon from</li><li>&#x27;View All Coverage&#x27; hero button — icon was rendering outside button</li><li>bounds (same overflow issue as TableApp button previously fixed).</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-05-29" data-search="remove star icon above &#x27;recognised excellence&#x27; in michelin section ">
+    <div class="entry-head">
+      <span class="entry-time">14:32</span>
+      <span class="entry-title">Remove star icon above &#x27;Recognised Excellence&#x27; in Michelin section</span>
+      <span class="entry-tag tag-design">Design</span>
     </div>
   </div>
-
-  <!-- CONTENT -->
-  <div class="section">
-    <div class="section-title">Phase 5 — Content & Data Updates</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">18</span>
-        <span class="entry-title">Menu — Pricing Removed</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>61 RM price references removed across index.html, menu.html, news.html</li>
-          <li>RM 200 deposit policy kept on reservations.html (booking info, not product price)</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">menu.html</span><span class="page-tag">index.html</span><span class="page-tag">news.html</span></div>
-      </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="replace emoji icons with proper svg icons in visit-us.html heritage cards - unesco zone card: greek-temple / column svg icon
+- penang state museum card: museum building with columns svg
+- khoo kongsi clan house: chinese pavilion / clan house svg
+- text bumped from 15.5px → 16.5px, opacity raised .6 → .75
+- walk labels styled larger (11px → 12px) with better tracking">
+    <div class="entry-head">
+      <span class="entry-time">13:52</span>
+      <span class="entry-title">Replace emoji icons with proper SVG icons in visit-us.html heritage cards</span>
+      <span class="entry-tag tag-update">Update</span>
     </div>
+    <div class="entry-body"><ul><li>UNESCO zone card: Greek-temple / column SVG icon</li><li>Penang State Museum card: museum building with columns SVG</li><li>Khoo Kongsi Clan House: Chinese pavilion / clan house SVG</li><li>Text bumped from 15.5px → 16.5px, opacity raised .6 → .75</li><li>Walk labels styled larger (11px → 12px) with better tracking</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix button, faq accordion, and text readability sitewide button: remove broken external-link svg from tableapp buttons — the svg
+was rendering outside the button boundary due to overflow:hidden clip.
+button now shows clean text-only label across all pages.
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">19</span>
-        <span class="entry-title">Heritage Section Images Updated</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Replaced raw spice/ingredient photos with actual Peranakan dish photography</li>
-          <li>index.html & our-story.html heritage grids: Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee</li>
-          <li>Image height increased from 220px → 460px for portrait feel</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">our-story.html</span></div>
-      </div>
+faq: add missing togglefaq() function (was called in onclick but never
+defined). accordion now opens/closes on click with +/− toggle and
+auto-closes other open items. max-height bumped 200→600px for long answers.
+
+readability: bump all body copy font sizes across 6 pages:
+  13px → 15.5px, 14px → 16.5px, 15px → 17px
+increased line-height to 1.9 for paragraph, list, and table text.
+faq question text increased and bolded. applies to all inner pages.">
+    <div class="entry-head">
+      <span class="entry-time">13:50</span>
+      <span class="entry-title">Fix button, FAQ accordion, and text readability sitewide</span>
+      <span class="entry-tag tag-fix">Fix</span>
     </div>
+    <div class="entry-body"><ul><li>BUTTON: Remove broken external-link SVG from TableApp buttons — the SVG</li><li>was rendering outside the button boundary due to overflow:hidden clip.</li><li>Button now shows clean text-only label across all pages.</li><li>FAQ: Add missing toggleFaq() function (was called in onclick but never</li><li>defined). Accordion now opens/closes on click with +/− toggle and</li><li>auto-closes other open items. Max-height bumped 200→600px for long answers.</li><li>READABILITY: Bump all body copy font sizes across 6 pages:</li><li>13px → 15.5px, 14px → 16.5px, 15px → 17px</li><li>Increased line-height to 1.9 for paragraph, list, and table text.</li><li>FAQ question text increased and bolded. Applies to all inner pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix misplaced reserve cta button floating in our-story.html hero section cta script matched &#x27;from memory, not recipe&#x27; in the hero subtitle and
+injected a button as a flex sibling, causing it to appear floating to the
+right of the hero content. removed from hero — ctas remain in body sections.">
+    <div class="entry-head">
+      <span class="entry-time">13:38</span>
+      <span class="entry-title">Fix misplaced Reserve CTA button floating in our-story.html hero section</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>CTA script matched &#x27;From Memory, Not Recipe&#x27; in the hero subtitle and</li><li>injected a button as a flex sibling, causing it to appear floating to the</li><li>right of the hero content. Removed from hero — CTAs remain in body sections.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="major update: real press coverage, ctas, news page rebuild news.html — complete rebuild with real verified content:
+- tatler asia most influential 2024 (hero feature)
+- 12 article cards: the star, danielfooddiary, hungrygowhere, cna luxury,
+  asian news network, zoy to the world, 3x michelin guide features,
+  savour black book asia, tripadvisor
+- 2 embedded youtube videos (michelin guide official + review)
+- collaborations section: parkroyal singapore (2023 &amp; 2024) + bangkok
+- real quotes, dates, authors, and direct source links throughout
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">20</span>
-        <span class="entry-title">YouTube Button Link Fixed</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Was: youtube.com/@michelinguide (wrong channel)</li>
-          <li>Now: youtube.com/results?search_query=Auntie+Gaik+Lean+Old+School+Eatery</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">news.html</span></div>
-      </div>
+cta buttons — 13 new ctas added to sections missing them:
+- our-story.html: 4 sections (reserve/menu/visit/story links)
+- visit-us.html: 3 sections (directions + reserve)
+- press.html: 3 sections (news coverage + reserve)
+- reservations.html: 2 sections (tableapp + whatsapp booking)">
+    <div class="entry-head">
+      <span class="entry-time">13:29</span>
+      <span class="entry-title">Major update: real press coverage, CTAs, news page rebuild</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>NEWS.HTML — complete rebuild with real verified content:</li><li>Tatler Asia Most Influential 2024 (hero feature)</li><li>12 article cards: The Star, DanielFoodDiary, HungryGoWhere, CNA Luxury,</li><li>Asian News Network, Zoy To The World, 3x Michelin Guide features,</li><li>Savour Black Book Asia, TripAdvisor</li><li>2 embedded YouTube videos (Michelin Guide official + review)</li><li>Collaborations section: PARKROYAL Singapore (2023 &amp; 2024) + Bangkok</li><li>Real quotes, dates, authors, and direct source links throughout</li><li>CTA BUTTONS — 13 new CTAs added to sections missing them:</li><li>our-story.html: 4 sections (Reserve/Menu/Visit/Story links)</li><li>visit-us.html: 3 sections (Directions + Reserve)</li><li>press.html: 3 sections (News Coverage + Reserve)</li><li>reservations.html: 2 sections (TableApp + WhatsApp booking)</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-05-29" data-search="fix 2 broken image refs in news.html (chef-1362/1384 -&gt; chef-4314/0134) ">
+    <div class="entry-head">
+      <span class="entry-time">13:03</span>
+      <span class="entry-title">Fix 2 broken image refs in news.html (chef-1362/1384 -&gt; chef-4314/0134)</span>
+      <span class="entry-tag tag-fix">Fix</span>
     </div>
   </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="apply atmospheric glow/shadow to all dark sections sitewide (16 sections) gold center glow, bottom uplighting, blue corner accents, dark vignette,
+and gold hairline borders on every dark section across all 7 pages.">
+    <div class="entry-head">
+      <span class="entry-time">13:01</span>
+      <span class="entry-title">Apply atmospheric glow/shadow to all dark sections sitewide (16 sections)</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>Gold center glow, bottom uplighting, blue corner accents, dark vignette,</li><li>and gold hairline borders on every dark section across all 7 pages.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add atmospheric glow/shadow to signature dishes, michelin, reserve sections multi-layer radial gradients: gold center glow, blue corner accent lights,
+dark vignette edges, and gold hairline borders top/bottom each section.">
+    <div class="entry-head">
+      <span class="entry-time">12:54</span>
+      <span class="entry-title">Add atmospheric glow/shadow to Signature Dishes, Michelin, Reserve sections</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Multi-layer radial gradients: gold center glow, blue corner accent lights,</li><li>dark vignette edges, and gold hairline borders top/bottom each section.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="fix lightbox: rename open/close to avoid window.open/close conflicts the lightbox js used function names &#x27;open&#x27; and &#x27;close&#x27; which conflict
+with browser built-ins window.open() and window.close(), causing
+silent failures when clicking images. renamed to lbopen/lbclose and
+switched to var + classic function syntax for maximum compatibility.">
+    <div class="entry-head">
+      <span class="entry-time">12:49</span>
+      <span class="entry-title">Fix lightbox: rename open/close to avoid window.open/close conflicts</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>The lightbox JS used function names &#x27;open&#x27; and &#x27;close&#x27; which conflict</li><li>with browser built-ins window.open() and window.close(), causing</li><li>silent failures when clicking images. Renamed to lbOpen/lbClose and</li><li>switched to var + classic function syntax for maximum compatibility.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add news page, image lightbox, svg stars, clickable sections, remove cursor - add news.html with full design system, 6 news articles, photo gallery
+- add news link to nav and footer across all 7 pages
+- replace all emoji stars with proper michelin-style svg icons sitewide
+- add image lightbox/preview (css + html + js) with prev/next navigation
+- remove gold cursor design from all pages
+- add dish-card → menu.html click navigation on index
+- add full story, view full menu, and press coverage section ctas on index">
+    <div class="entry-head">
+      <span class="entry-time">11:50</span>
+      <span class="entry-title">Add News page, image lightbox, SVG stars, clickable sections, remove cursor</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Add news.html with full design system, 6 news articles, photo gallery</li><li>Add News link to nav and footer across all 7 pages</li><li>Replace all emoji stars with proper Michelin-style SVG icons sitewide</li><li>Add image lightbox/preview (CSS + HTML + JS) with prev/next navigation</li><li>Remove gold cursor design from all pages</li><li>Add dish-card → menu.html click navigation on index</li><li>Add Full Story, View Full Menu, and Press Coverage section CTAs on index</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="performance &amp; smoothness: fix 8 issues across all 6 pages css:
+- will-change: opacity,transform on .reveal
+- will-change: transform on .ticker-track, .star-field span, #nav
+- will-change: text-shadow/filter on .hero-h1, .hero-em, .hero-sub
+- @media(prefers-reduced-motion) collapses all animations to instant
+
+js:
+- gold cursor: only created on (hover:hover) and (pointer:fine) —
+  hidden on touch/mobile devices entirely
+- gold cursor ring: raf-driven lerp loop (rx += (mx-rx)*0.15) replaces
+  janky settimeout(45) for buttery-smooth trailing
+- star field: documentfragment batch insert (single reflow instead of
+  110 individual dom mutations); count drops to 50 on mobile
+- ripple: animationend event cleanup replaces settimeout(750)
+- magnetic buttons: cancelanimationframe + raf throttle on mousemove
+- 3-d card tilt: cancelanimationframe + raf throttle on mousemove
+- all new mousemove listeners marked { passive: true }
+
+html:
+- loading=&quot;lazy&quot; decoding=&quot;async&quot; added to all non-critical &lt;img&gt; tags">
+    <div class="entry-head">
+      <span class="entry-time">11:25</span>
+      <span class="entry-title">Performance &amp; smoothness: fix 8 issues across all 6 pages</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>CSS:</li><li>will-change: opacity,transform on .reveal</li><li>will-change: transform on .ticker-track, .star-field span, #nav</li><li>will-change: text-shadow/filter on .hero-h1, .hero-em, .hero-sub</li><li>@media(prefers-reduced-motion) collapses all animations to instant</li><li>JS:</li><li>Gold cursor: only created on (hover:hover) and (pointer:fine) —</li><li>hidden on touch/mobile devices entirely</li><li>Gold cursor ring: RAF-driven lerp loop (rx += (mx-rx)*0.15) replaces</li><li>janky setTimeout(45) for buttery-smooth trailing</li><li>Star field: DocumentFragment batch insert (single reflow instead of</li><li>110 individual DOM mutations); count drops to 50 on mobile</li><li>Ripple: animationend event cleanup replaces setTimeout(750)</li><li>Magnetic buttons: cancelAnimationFrame + RAF throttle on mousemove</li><li>3-D card tilt: cancelAnimationFrame + RAF throttle on mousemove</li><li>All new mousemove listeners marked { passive: true }</li><li>HTML:</li><li>loading=&quot;lazy&quot; decoding=&quot;async&quot; added to all non-critical &lt;img&gt; tags</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="tighten hero padding-top: clamp(5.5rem→4rem, 11vw→7vw, 8rem→5rem) reduces gap between nav and hero title from ~88-128px down to ~64-80px
+— just enough to clear the fixed transparent nav without excessive whitespace.">
+    <div class="entry-head">
+      <span class="entry-time">11:14</span>
+      <span class="entry-title">Tighten hero padding-top: clamp(5.5rem→4rem, 11vw→7vw, 8rem→5rem)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Reduces gap between nav and hero title from ~88-128px down to ~64-80px</li><li>— just enough to clear the fixed transparent nav without excessive whitespace.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-29" data-search="add hero title glow animations and fix nav overlap on all pages animations:
+- heroglowpulse: h1 white text breathes with a pulsing gold text-shadow (4s cycle)
+- goldemglow: italic gold &lt;em&gt; words glow brighter with brightness filter (3.5s cycle)
+- herosubfloat: subtitle gently floats up-down 6px (5s cycle)
+- eyebrowpulse: small caps eyebrow label subtly expands letter-spacing (4s cycle)
+
+overlap fix:
+- all 5 inner page hero content divs now have padding-top:clamp(5.5rem,11vw,8rem)
+  so content clears the fixed transparent nav at all viewport widths
+
+classes added: .hero-h1, .hero-em, .hero-sub, .hero-eyebrow">
+    <div class="entry-head">
+      <span class="entry-time">11:09</span>
+      <span class="entry-title">Add hero title glow animations and fix nav overlap on all pages</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Animations:</li><li>heroGlowPulse: h1 white text breathes with a pulsing gold text-shadow (4s cycle)</li><li>goldEmGlow: italic gold &lt;em&gt; words glow brighter with brightness filter (3.5s cycle)</li><li>heroSubFloat: subtitle gently floats up-down 6px (5s cycle)</li><li>eyebrowPulse: small caps eyebrow label subtly expands letter-spacing (4s cycle)</li><li>Overlap fix:</li><li>All 5 inner page hero content divs now have padding-top:clamp(5.5rem,11vw,8rem)</li><li>so content clears the fixed transparent nav at all viewport widths</li><li>Classes added: .hero-h1, .hero-em, .hero-sub, .hero-eyebrow</li></ul></div>
+  </div>
+</div>
+
+<div class="day-block" data-date="2026-05-28">
+  <div class="day-head"><span class="day-title">Thu, 28 May 2026</span><span class="day-count">15 updates</span></div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="standardise nav header across all 6 pages to exactly match index.html - logo: unified class-based styling (font-display text-xl font-semibold tracking-wide) on all pages
+- logo subtitle: text-[10px] tracking-[.3em] font-light class approach everywhere
+- structure: reserve button moved outside the hidden md:flex div (standalone 3rd flex item) on all inner pages — matches index.html layout exactly
+- mobile menu: added onclick=&quot;...classlist.add(&#x27;hidden&#x27;)&quot; on all nav links so menu auto-closes on tap
+- hamburger: added aria-label=&quot;menu&quot; to all pages
+- reservations.html: removed rogue active/inline-style override from reserve button; mobile reserve uses consistent btn-og class
+- index.html: logo href changed from &quot;#&quot; to &quot;index.html&quot; for consistency
+- each page still highlights its own nav link in gold (#d4af37) as active indicator">
+    <div class="entry-head">
+      <span class="entry-time">19:07</span>
+      <span class="entry-title">Standardise nav header across all 6 pages to exactly match index.html</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>Logo: unified class-based styling (font-display text-xl font-semibold tracking-wide) on all pages</li><li>Logo subtitle: text-[10px] tracking-[.3em] font-light class approach everywhere</li><li>Structure: Reserve button moved outside the hidden md:flex div (standalone 3rd flex item) on all inner pages — matches index.html layout exactly</li><li>Mobile menu: added onclick=&quot;...classList.add(&#x27;hidden&#x27;)&quot; on all nav links so menu auto-closes on tap</li><li>Hamburger: added aria-label=&quot;Menu&quot; to all pages</li><li>reservations.html: removed rogue active/inline-style override from Reserve button; mobile Reserve uses consistent btn-og class</li><li>index.html: logo href changed from &quot;#&quot; to &quot;index.html&quot; for consistency</li><li>Each page still highlights its own nav link in gold (#D4AF37) as active indicator</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="add 85 real photos + apply pdf content to all 6 pages images:
+- downloaded all 85 photos from official smugmug gallery (alextanartworks)
+- compressed to web-optimised jpeg (max 1920px, ~82% quality, 177–600kb each)
+- categories: chef portraits, food dishes, restaurant interior/exterior, dining atmosphere, studio ingredient shots
+
+content applied from brand pdf:
+- replaced all unsplash placeholders with real photos across all pages
+- index: real dish/food photos for menu cards + heritage grid, restaurant interior
+- our-story: chef-0023 portrait, family michelin photo, real spice/herb images
+- menu: dramatic dining-6898 feature shot, real dish photography
+- visit-us: 4-photo gallery (exterior, interior, private dining, ambiance)
+- press: chef holding michelin plaque + corrected bio (first malaysian woman, age 69, 2022)
+- reservations: private dining room photo (food-5496), corrected ticker (2022-2025)
+- updated hours (12pm-2:30pm / 6pm-9:30pm), address (1 bishop street), closed mon &amp; tue
+- private dining room: seats up to 12 around traditional tong tok table
+- international collabs: peppermint parkroyal singapore, guest chef hong kong michelin event">
+    <div class="entry-head">
+      <span class="entry-time">19:00</span>
+      <span class="entry-title">Add 85 real photos + apply PDF content to all 6 pages</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Images:</li><li>Downloaded all 85 photos from official SmugMug gallery (alextanartworks)</li><li>Compressed to web-optimised JPEG (max 1920px, ~82% quality, 177–600KB each)</li><li>Categories: chef portraits, food dishes, restaurant interior/exterior, dining atmosphere, studio ingredient shots</li><li>Content applied from brand PDF:</li><li>Replaced all Unsplash placeholders with real photos across all pages</li><li>index: real dish/food photos for menu cards + heritage grid, restaurant interior</li><li>our-story: chef-0023 portrait, family Michelin photo, real spice/herb images</li><li>menu: dramatic dining-6898 feature shot, real dish photography</li><li>visit-us: 4-photo gallery (exterior, interior, private dining, ambiance)</li><li>press: chef holding Michelin plaque + corrected bio (First Malaysian woman, age 69, 2022)</li><li>reservations: private dining room photo (food-5496), corrected ticker (2022-2025)</li><li>Updated hours (12pm-2:30pm / 6pm-9:30pm), address (1 Bishop Street), closed Mon &amp; Tue</li><li>Private dining room: seats up to 12 around traditional tong tok table</li><li>International collabs: Peppermint Parkroyal Singapore, guest chef Hong Kong Michelin event</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="fix all inner pages: match index.html exactly for full site consistency - added complete css block (ticker, sparkcross, twinkle3, hero-bg, dot-bg, map-frame, label-ornament, dish-img, etc.)
+- added ticker bar html after each page hero section
+- replaced js block with exact bundle from index.html (110 stars with 3 variants + cross sparkles, damask pattern, 3d card tilt, cursor, magnetic, ripple, hide-nav)
+- preserved page-specific extras: menu filter tabs, reservation faq accordion, press timeline">
+    <div class="entry-head">
+      <span class="entry-time">18:27</span>
+      <span class="entry-title">Fix all inner pages: match index.html exactly for full site consistency</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>Added complete CSS block (ticker, sparkCross, twinkle3, hero-bg, dot-bg, map-frame, label-ornament, dish-img, etc.)</li><li>Added ticker bar HTML after each page hero section</li><li>Replaced JS block with exact bundle from index.html (110 stars with 3 variants + cross sparkles, damask pattern, 3D card tilt, cursor, magnetic, ripple, hide-nav)</li><li>Preserved page-specific extras: menu filter tabs, reservation FAQ accordion, press timeline</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="add 5 new pages + update home nav to multi-page structure pages added:
+- menu.html: full menu with js category filter tabs (15 dishes, 7 categories)
+- our-story.html: 4-section story, heritage, shophouse, philosophy
+- reservations.html: tableapp + whatsapp booking, policies, faq accordion
+- visit-us.html: map, getting-here guide, nearby landmarks
+- press.html: 4x michelin star timeline, press quotes, awards
+
+home page (index.html): updated nav + footer links to real pages.
+reserve button → reservations.html. all pages share: hide-on-scroll nav,
+damask pattern, scroll-reveal, magnetic/ripple buttons, gold cursor.">
+    <div class="entry-head">
+      <span class="entry-time">17:57</span>
+      <span class="entry-title">Add 5 new pages + update home nav to multi-page structure</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><ul><li>Pages added:</li><li>menu.html: full menu with JS category filter tabs (15 dishes, 7 categories)</li><li>our-story.html: 4-section story, heritage, shophouse, philosophy</li><li>reservations.html: TableApp + WhatsApp booking, policies, FAQ accordion</li><li>visit-us.html: map, getting-here guide, nearby landmarks</li><li>press.html: 4x Michelin star timeline, press quotes, awards</li><li>Home page (index.html): updated nav + footer links to real pages.</li><li>Reserve button → reservations.html. All pages share: hide-on-scroll nav,</li><li>damask pattern, scroll-reveal, magnetic/ripple buttons, gold cursor.</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="hide nav on scroll down, reveal on scroll up css transition translatey(-100%) on #nav.nav-hidden; js uses
+requestanimationframe + passive scroll listener to toggle class
+based on direction, with 80px threshold before hiding kicks in.">
+    <div class="entry-head">
+      <span class="entry-time">17:28</span>
+      <span class="entry-title">Hide nav on scroll down, reveal on scroll up</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><ul><li>CSS transition translateY(-100%) on #nav.nav-hidden; JS uses</li><li>requestAnimationFrame + passive scroll listener to toggle class</li><li>based on direction, with 80px threshold before hiding kicks in.</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="hero ctas always on one row (flex-row, no stacking) ">
+    <div class="entry-head">
+      <span class="entry-time">17:26</span>
+      <span class="entry-title">Hero CTAs always on one row (flex-row, no stacking)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="revert background pattern to original 180px baroque damask ">
+    <div class="entry-head">
+      <span class="entry-time">17:25</span>
+      <span class="entry-title">Revert background pattern to original 180px baroque damask</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="finer damask pattern + full text readability pass - svg tile: 180px → 72px (2.5× denser tiling); redesigned with 4
+  concentric diamonds, innermost lattice grid, cross ticks at diamond
+  vertices, fine diagonal connectors, corner scrolls — stroke 0.45px
+  for textile-quality fine detail
+- hero: subtitle /65→/80, location /40→/60, scroll hint /25→/50
+- michelin: &quot;as featured in&quot; /22→/45, press names /30→/55
+- reserve: groups note /22→/48
+- nav links: /70→/85
+- footer: copyright /18→/45, nav links /48→/65, social icons /40→/60">
+    <div class="entry-head">
+      <span class="entry-time">17:09</span>
+      <span class="entry-title">Finer damask pattern + full text readability pass</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><ul><li>SVG tile: 180px → 72px (2.5× denser tiling); redesigned with 4</li><li>concentric diamonds, innermost lattice grid, cross ticks at diamond</li><li>vertices, fine diagonal connectors, corner scrolls — stroke 0.45px</li><li>for textile-quality fine detail</li><li>Hero: subtitle /65→/80, location /40→/60, scroll hint /25→/50</li><li>Michelin: &quot;As Featured In&quot; /22→/45, press names /30→/55</li><li>Reserve: groups note /22→/48</li><li>Nav links: /70→/85</li><li>Footer: copyright /18→/45, nav links /48→/65, social icons /40→/60</li></ul></div>
+  </div>
+  <div class="entry has-body" data-date="2026-05-28" data-search="fix buttons &amp; complete sales funnel ctas across all sections - btn base: add font-family inter; btn-gold: polished multi-stop gradient
+  with resting glow shadow (no background-size trick); btn-ow: border
+  opacity .65 + subtle bg tint for visibility on dark
+- dish card descriptions: opacity .4 → .72 (readable contrast)
+- michelin &amp; menu body text opacity bumped to .65–.68
+- added reserve cta to: our story, heritage, michelin, testimonials, visit us
+  — every section now drives to tableapp booking or whatsapp">
+    <div class="entry-head">
+      <span class="entry-time">17:05</span>
+      <span class="entry-title">Fix buttons &amp; complete sales funnel CTAs across all sections</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><ul><li>btn base: add font-family Inter; btn-gold: polished multi-stop gradient</li><li>with resting glow shadow (no background-size trick); btn-ow: border</li><li>opacity .65 + subtle bg tint for visibility on dark</li><li>Dish card descriptions: opacity .4 → .72 (readable contrast)</li><li>Michelin &amp; menu body text opacity bumped to .65–.68</li><li>Added Reserve CTA to: Our Story, Heritage, Michelin, Testimonials, Visit Us</li><li>— every section now drives to TableApp booking or WhatsApp</li></ul></div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="hero: remove photo bg, add baroque damask texture + enhanced star twinkling ">
+    <div class="entry-head">
+      <span class="entry-time">16:56</span>
+      <span class="entry-title">Hero: remove photo bg, add baroque damask texture + enhanced star twinkling</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="add highly interactive button animations: ripple, magnetic, 3d tilt, gold cursor ">
+    <div class="entry-head">
+      <span class="entry-time">16:45</span>
+      <span class="entry-title">Add highly interactive button animations: ripple, magnetic, 3D tilt, gold cursor</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="darker royal blue: #060d2e backgrounds ">
+    <div class="entry-head">
+      <span class="entry-time">16:31</span>
+      <span class="entry-title">Darker royal blue: #060D2E backgrounds</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="restyle: deep indigo-blue + metallic gold + star field + spotlight glow ">
+    <div class="entry-head">
+      <span class="entry-time">16:29</span>
+      <span class="entry-title">Restyle: deep indigo-blue + metallic gold + star field + spotlight glow</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="redesign: royal blue + vibrant gold color scheme ">
+    <div class="entry-head">
+      <span class="entry-time">16:13</span>
+      <span class="entry-title">Redesign: royal blue + vibrant gold color scheme</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+  </div>
+  <div class="entry" data-date="2026-05-28" data-search="initial publish: auntie gaik lean homepage ">
+    <div class="entry-head">
+      <span class="entry-time">15:42</span>
+      <span class="entry-title">Initial publish: Auntie Gaik Lean homepage</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="empty-note" id="empty-note">No updates match your filter.</div>
 
 </div>
 
-
-  <!-- PHASE 6 -->
-  <div class="section">
-    <div class="section-title">Phase 6 — Post-Launch Updates</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">21</span>
-        <span class="entry-title">Hero Background Photos — index.html &amp; our-story.html</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>index.html hero: SmugMug photo i-VPzZJN3 (food/plated) downloaded as img/hero-bg.jpg</li>
-          <li>our-story.html hero: SmugMug photo i-tmgFpJ5 (team group photo) downloaded as img/our-story-hero.jpg</li>
-          <li>Both implemented as absolute &lt;img&gt; tags at z-index:0 to prevent damask JS override</li>
-          <li>Dark masking layers (flat overlay + top-to-bottom gradient) identical to reference design</li>
-          <li>our-story: object-position:center 30%, min-height:90vh to show full staff group</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">our-story.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">22</span>
-        <span class="entry-title">Hero Background Photo — visit-us.html</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>SmugMug photo i-qnZwxxf (restaurant exterior) downloaded as img/visit-us-hero.jpg</li>
-          <li>Same absolute img + masking pattern as other hero pages</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">visit-us.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">23</span>
-        <span class="entry-title">Real Google Reviews Added</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>3 verified Google reviews replaced placeholder testimonials (Emily C., Franca B., Alan L.)</li>
-          <li>Each card shows Google logo badge, reviewer initial, star rating, date (2025–2026)</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">24</span>
-        <span class="entry-title">Heritage Section — Food Dish Images</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Replaced raw spice/ingredient studio photos with appetizing dish photography</li>
-          <li>Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee now featured in heritage grid</li>
-          <li>Image height increased: 220px → 460px for better portrait proportions</li>
-          <li>Applied to index.html and our-story.html heritage sections</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span><span class="page-tag">our-story.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">25</span>
-        <span class="entry-title">Publication Links — "As Featured In" Now Clickable</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Michelin Guide, DanielFoodDiary, The Star, TripAdvisor, Asian News Network all linked to actual articles</li>
-          <li>Gold colour on hover. Opens in new tab.</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">index.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">26</span>
-        <span class="entry-title">Star Field Intensity Reduced</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Desktop count: 110 → 45 &nbsp;|&nbsp; Mobile count: 50 → 20</li>
-          <li>Peak twinkle opacity: 0.95–1.0 → 0.45</li>
-          <li>Cross-sparkle probability: 12% → 4%</li>
-          <li>Stars are now subtle accents, not dominant effect</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">27</span>
-        <span class="entry-title">YouTube Button Link Fixed</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Was: youtube.com/@michelinguide (wrong channel)</li>
-          <li>Now: youtube.com/results?search_query=Auntie+Gaik+Lean+Old+School+Eatery</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">news.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">28</span>
-        <span class="entry-title">Footer Credit — Technext Pte Ltd</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Added "Technext Pte Ltd" after copyright on all pages</li>
-          <li>Links to technextasia.com in new tab</li>
-          <li>Subtle white text (30% opacity), gold on hover</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PHASE 7 -->
-  <div class="section">
-    <div class="section-title">Phase 7 — Chatbot, Mobile & UX Refinements</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">29</span>
-        <span class="entry-title">AI Chat Assistant — Replaces WhatsApp Button</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Floating chat widget with a knowledge base: location, hours, menu, awards, reservations, dress code, deposit policy &amp; more</li>
-          <li>Multiple answer variants per question for a more natural, less repetitive feel</li>
-          <li>Contextual action buttons after each answer (Reserve a Table, Get Directions, etc.) matching the site button design</li>
-          <li>Replaces the old floating WhatsApp button on every page</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">30</span>
-        <span class="entry-title">Chatbot Button Fixed — Now Opens Reliably</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>The chat button did nothing — a JS syntax error (unescaped apostrophes in knowledge-base text) stopped the whole script from running</li>
-          <li>Escaped all affected strings (We're, Malaysia's, it's, minutes' walk, We've, We'd)</li>
-          <li>Verified every page's chatbot script passes syntax validation; button opens/closes and answers questions correctly</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">31</span>
-        <span class="entry-title">Header Logo — Adaptive Light/Dark on Scroll</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>White logo over the dark hero; swaps to the dark logo when the nav becomes a light bar on scroll</li>
-          <li>Previously the white logo disappeared against the cream scrolled bar</li>
-          <li>One standardized scroll handler across all 7 pages (toggles nav state + swaps logo in sync)</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">32</span>
-        <span class="entry-title">Header &amp; Footer Standardized Across All Pages</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Identical navigation on every page; nav links centered to match the hero title alignment</li>
-          <li>Updated header &amp; footer logos (dark logo on light backgrounds, white logo on dark)</li>
-          <li>Footer rebuilt to a single clean format (logo + social icons + Technext credit), page-nav links removed</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">33</span>
-        <span class="entry-title">Menu Cards Redesigned — Clean Text-Only Cards</span>
-        <span class="entry-tag tag-design">Design</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Removed photos and placeholder images from the menu cards</li>
-          <li>Removed a leftover image-overlay gradient that left dark strips on some cards</li>
-          <li>Consistent padding, equal-height cards per row, aligned "Full Details" links</li>
-          <li>Elegant gold accent bar grows down the left edge on hover</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">menu.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">34</span>
-        <span class="entry-title">Dish Modal — "Photo Coming Soon" Placeholder Removed</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Dishes without a photo now open as a clean single-column text card with a small category label</li>
-          <li>Dishes with a photo keep the two-column image layout</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">menu.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">35</span>
-        <span class="entry-title">menu.html Footer — Structural Fix</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>An unclosed &lt;section&gt; trapped the footer inside the menu section</li>
-          <li>The section's padding rendered as a large empty dark band below the footer</li>
-          <li>Closed the section correctly — footer now ends the page cleanly</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">menu.html</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">36</span>
-        <span class="entry-title">Mobile — Hamburger Pinned to the Corner</span>
-        <span class="entry-tag tag-fix">Fix</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Hamburger now sits flush in the top-right corner (was floating mid-right because the hidden links column left an empty grid track)</li>
-          <li>Hero background images re-centered on mobile so people stay in frame</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">37</span>
-        <span class="entry-title">Mobile — Chat Panel Maximized</span>
-        <span class="entry-tag tag-update">Update</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Chat panel now fills ~80% of the screen height (was ~55%) with small corner gaps</li>
-          <li>Message area grows to fill the panel; never covers the close button</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-num">38</span>
-        <span class="entry-title">Exit-Intent Popup — 10 Rotating Messages</span>
-        <span class="entry-tag tag-new">New</span>
-      </div>
-      <div class="entry-body">
-        <ul>
-          <li>Branded popup appears when a visitor is about to leave, with a "Reserve a Table" call-to-action</li>
-          <li>10 on-brand messages, one shown at random each time</li>
-          <li>Desktop: triggers on mouse leaving via the top edge; mobile: catches the back-button</li>
-          <li>Shows at most once per session; closes via X, backdrop, Esc or "Maybe later"</li>
-        </ul>
-        <div class="page-scope"><span class="page-tag">All Pages</span></div>
-      </div>
-    </div>
-
-  </div>
-
 <footer>
-  Generated by TechNext SG &nbsp;·&nbsp; Auntie Gaik Lean's Old School Eatery &nbsp;·&nbsp; June 2026
+  Generated by TechNext SG &nbsp;·&nbsp; Auntie Gaik Lean's Old School Eatery &nbsp;·&nbsp; Build range: 28 May – 4 Jun
 </footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.date-chip');
+  var search=document.getElementById('cl-search');
+  var entries=Array.prototype.slice.call(document.querySelectorAll('.entry'));
+  var blocks=Array.prototype.slice.call(document.querySelectorAll('.day-block'));
+  var note=document.getElementById('results-note');
+  var empty=document.getElementById('empty-note');
+  var activeDate='all';
+
+  function apply(){
+    var q=search.value.trim().toLowerCase();
+    var shown=0;
+    entries.forEach(function(e){
+      var okDate=(activeDate==='all')||(e.getAttribute('data-date')===activeDate);
+      var okText=(!q)||(e.getAttribute('data-search').indexOf(q)>=0);
+      var vis=okDate&&okText;
+      e.style.display=vis?'':'none';
+      if(vis)shown++;
+    });
+    blocks.forEach(function(b){
+      var any=Array.prototype.slice.call(b.querySelectorAll('.entry')).some(function(e){return e.style.display!=='none';});
+      b.style.display=any?'':'none';
+    });
+    empty.style.display=shown?'none':'block';
+    var scope=(activeDate==='all')?'all dates':document.querySelector('.date-chip.active').textContent;
+    note.innerHTML='Showing <b>'+shown+'</b> update'+(shown===1?'':'s')+(q?(' matching "'+q.replace(/</g,'&lt;')+'"'):'')+' · '+scope;
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active');});
+      c.classList.add('active');
+      activeDate=c.getAttribute('data-date');
+      apply();
+    });
+  });
+  search.addEventListener('input',apply);
+
+  // expand/collapse entries that have detail
+  entries.forEach(function(e){
+    if(!e.classList.contains('has-body'))return;
+    e.querySelector('.entry-head').addEventListener('click',function(){e.classList.toggle('open');});
+  });
+
+  apply();
+})();
+</script>
 </body>
 </html>
