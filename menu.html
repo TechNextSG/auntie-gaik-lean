@@ -988,6 +988,16 @@ p, li, td, blockquote { line-height: 1.9 }
     gap:6px!important;
   }
 }
+
+/* ── Nav logo switching ── */
+#nav-logo{height:48px;width:auto}
+#nav.nav-light #nav-logo{content:url("img/logo-dark.png")}
+@media(max-width:767px){#nav-logo{height:38px}}
+
+/* -- Nav logo switching -- */
+#nav-logo{height:48px;width:auto}
+#nav.nav-light #nav-logo{content:url("img/logo-dark.png")}
+@media(max-width:767px){#nav-logo{height:38px}}
 </style>
 </head>
 <body>
@@ -995,9 +1005,9 @@ p, li, td, blockquote { line-height: 1.9 }
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5" id="nav">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <a href="index.html" class="flex flex-col leading-none gap-0.5">
-      <span class="font-display text-white text-xl font-semibold tracking-wide nav-logo-main" style="font-family:'Playfair Display',serif">Auntie Gaik Lean's</span>
-      <span class="text-[10px] tracking-[.3em] uppercase font-light nav-logo-sub" style="color:#D4AF37;font-family:'Inter',sans-serif">Old School Eatery</span>
+    <a href="index.html" class="flex items-center logo-link" style="text-decoration:none">
+      <img id="nav-logo" src="img/logo-white.png" alt="Auntie Gaik Lean's Old School Eatery"
+        style="height:48px;width:auto;object-fit:contain;transition:opacity .3s"/>
     </a>
     <div class="hidden md:flex items-center gap-8">
       <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Our Story</a>
@@ -1109,299 +1119,320 @@ p, li, td, blockquote { line-height: 1.9 }
     <!-- Filter Tabs -->
     <div class="reveal flex flex-wrap justify-center gap-3 mb-12">
       <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="starter">Starters</button>
-      <button class="filter-tab" data-filter="soup">Soups</button>
-      <button class="filter-tab" data-filter="main">Mains</button>
+      <button class="filter-tab" data-filter="appetiser">Appetiser</button>
+      <button class="filter-tab" data-filter="bak">Chicken & Beef</button>
+      <button class="filter-tab" data-filter="chye">Vegetables</button>
+      <button class="filter-tab" data-filter="rice">Rice & Noodles</button>
       <button class="filter-tab" data-filter="seafood">Seafood</button>
-      <button class="filter-tab" data-filter="rice">Rice &amp; Noodles</button>
-      <button class="filter-tab" data-filter="dessert">Desserts</button>
+      <button class="filter-tab" data-filter="fish">Fish</button>
+      <button class="filter-tab" data-filter="nui">Omelette</button>
+      <button class="filter-tab" data-filter="soup">Soup</button>
+      <button class="filter-tab" data-filter="specials">Specials</button>
+      <button class="filter-tab" data-filter="dessert">Dessert</button>
     </div>
-
     <!-- Menu Grid -->
     <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="starter" onclick="openDish('pie-tee')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('pie-tee')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <img loading="lazy" decoding="async" src="img/dining-8911.jpg" alt="Pie Tee" class="menu-card-img-el"/>
+          <img loading="lazy" decoding="async" src="img/dining-8911.jpg" alt="Pie Tee (Top Hats)" class="menu-card-img-el"/>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Starter</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Pie Tee</h3>
-            
+            <h3 class="menu-card-name">Pie Tee (Top Hats)</h3>
           </div>
-          <p class="menu-card-teaser">Crispy "top hat" shells — turnip, prawn & egg.</p>
+          <p class="menu-card-teaser">Crispy tart shells with sweet vegetable & chicken filling.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="starter" onclick="openDish('popiah')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('lor-bak')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Popiah</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Lor Bak</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Starter</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Popiah</h3>
-            
+            <h3 class="menu-card-name">Lor Bak</h3>
           </div>
-          <p class="menu-card-teaser">Fresh spring roll in crêpe skin, dressed with Auntie's chilli sauce.</p>
+          <p class="menu-card-teaser">Deep-fried 5-spice braised chicken meat roll.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="starter" onclick="openDish('otah-otah')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('cucur-udang')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Otah-Otah</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Cucur Udang</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Starter</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Otah-Otah</h3>
-            
+            <h3 class="menu-card-name">Cucur Udang</h3>
           </div>
-          <p class="menu-card-teaser">Spiced fish custard steamed in banana leaf — silky & aromatic.</p>
+          <p class="menu-card-teaser">Deep-fried prawn & vegetable fritters.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="starter" onclick="openDish('achar-prawns')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('acar-awak')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Achar Prawns</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Acar Awak</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Starter</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Achar Prawns</h3>
-            
+            <h3 class="menu-card-name">Acar Awak</h3>
           </div>
-          <p class="menu-card-teaser">Tiger prawns in Nyonya pickle spice blend, caramelised & bold.</p>
+          <p class="menu-card-teaser">Pickled vegetables — tangy and refreshing.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="soup" onclick="openDish('itek-tim')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('otak-otak')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Itek Tim</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Otak-Otak</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Soup</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Itek Tim</h3>
-            
+            <h3 class="menu-card-name">Otak-Otak</h3>
           </div>
-          <p class="menu-card-teaser">Braised duck in sour plum broth — a Nyonya heirloom soup.</p>
+          <p class="menu-card-teaser">Steamed fish paste with a mixture of spices.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="soup" onclick="openDish('soto-ayam')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('baba-delight')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Soto Ayam</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Baba Delight</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Soup</span>
+          <span class="menu-card-cat-badge">Appetiser</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Soto Ayam</h3>
-            
+            <h3 class="menu-card-name">Baba Delight</h3>
           </div>
-          <p class="menu-card-teaser">Turmeric broth, hand-shredded kampung chicken, glass noodles.</p>
+          <p class="menu-card-teaser">A platter of Pie Tee, Lor Bak, Cucur Udang & Acar Awak.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="main" onclick="openDish('kari-kapitan')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('curry-kapitan')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
           <img loading="lazy" decoding="async" src="img/food-0054.jpg" alt="Kari Kapitan" class="menu-card-img-el"/>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Main</span>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
             <h3 class="menu-card-name">Kari Kapitan</h3>
-            
           </div>
-          <p class="menu-card-teaser">Heritage Nyonya chicken curry — the dish that defined Auntie's legend.</p>
+          <p class="menu-card-teaser">The signature Nyonya chicken curry — rich, creamy, legendary.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="main" onclick="openDish('lamb-pongteh')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('nyonya-curry-chicken')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Lamb Pongteh</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Nyonya Curry Chicken</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Main</span>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Lamb Pongteh</h3>
-            
+            <h3 class="menu-card-name">Nyonya Curry Chicken</h3>
           </div>
-          <p class="menu-card-teaser">Slow-braised lamb in fermented soybean paste & palm sugar.</p>
+          <p class="menu-card-teaser">Traditional spiced curry chicken with potatoes.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="main" onclick="openDish('ayam-buah-keluak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('hong-kae')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Ayam Buah Keluak</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Hong Kae</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Main</span>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Ayam Buah Keluak</h3>
-            
+            <h3 class="menu-card-name">Hong Kae</h3>
           </div>
-          <p class="menu-card-teaser">Chicken with the rare Indonesian black nut — a Peranakan jewel.</p>
+          <p class="menu-card-teaser">Fragrant braised chicken with sand ginger and coriander.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="main" onclick="openDish('beef-rendang')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('inche-kabin')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Nyonya Beef Rendang</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <img loading="lazy" decoding="async" src="img/food-0036.jpg" alt="Inche Kabin" class="menu-card-img-el"/>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Main</span>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Inche Kabin</h3>
+          </div>
+          <p class="menu-card-teaser">Authentic Nyonya fried chicken marinated in spices & coconut milk.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('tau-yew-chicken')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Tau Yew Chicken</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Tau Yew Chicken</h3>
+          </div>
+          <p class="menu-card-teaser">Dark soy braised chicken with hard-boiled eggs.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('beef-rendang')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <img loading="lazy" decoding="async" src="img/food-1734.jpg" alt="Nyonya Beef Rendang" class="menu-card-img-el"/>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Chicken & Beef</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
             <h3 class="menu-card-name">Nyonya Beef Rendang</h3>
-            
           </div>
-          <p class="menu-card-teaser">Beef in coconut milk reduction, deeply caramelised & fragrant.</p>
+          <p class="menu-card-teaser">Australian Black Angus beef in Peranakan-style stew curry.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="main" onclick="openDish('sambal-terung')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('jiu-hu-char')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Terung</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Jiu Hu Char</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Vegetable</span>
+          <span class="menu-card-cat-badge">Vegetables</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Terung</h3>
-            
+            <h3 class="menu-card-name">Jiu Hu Char</h3>
           </div>
-          <p class="menu-card-teaser">Whole brinjal wok-fired in hand-ground belachan sambal.</p>
+          <p class="menu-card-teaser">Stir-fried yam bean with shredded dried cuttlefish.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="main" onclick="openDish('kerabu-pucuk-paku')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-petai')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Petai</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Vegetables</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Sambal Petai</h3>
+          </div>
+          <p class="menu-card-teaser">Stir-fried bitter beans with sambal belacan.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('terung-sambal')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Terung Sambal</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Vegetables</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Terung Sambal</h3>
+          </div>
+          <p class="menu-card-teaser">Aubergine with sweet chilli tangy sauce.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-kangkung')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Kangkung</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Vegetables</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Sambal Kangkung</h3>
+          </div>
+          <p class="menu-card-teaser">Water spinach with sambal belacan.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('kerabu-pucuk-paku')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
           <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Kerabu Pucuk Paku</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Salad</span>
+          <span class="menu-card-cat-badge">Vegetables</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
             <h3 class="menu-card-name">Kerabu Pucuk Paku</h3>
-            
           </div>
-          <p class="menu-card-teaser">Wild fern salad — coconut, shallots & Nyonya dressing.</p>
+          <p class="menu-card-teaser">Hand-tossed fiddlehead fern with aromatic herbs.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('assam-hae')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-bendi')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Assam Hae</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Bendi</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-cat-badge">Vegetables</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Assam Hae</h3>
-            
+            <h3 class="menu-card-name">Sambal Bendi</h3>
           </div>
-          <p class="menu-card-teaser">Tiger prawns in Penang tamarind-chilli paste, shell-on & wok-fired.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('sambal-udang')" role="button" tabindex="0">
-        <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Udang</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
-          <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Seafood</span>
-          <span class="menu-card-tap-hint">View Details &rarr;</span>
-        </div>
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Udang</h3>
-            
-          </div>
-          <p class="menu-card-teaser">Fresh prawns stir-fried in Nyonya hand-ground sambal.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('gulai-tumis')" role="button" tabindex="0">
-        <div class="menu-card-img-wrap">
-          <img loading="lazy" decoding="async" src="img/food-0022.jpg" alt="Gulai Tumis" class="menu-card-img-el"/>
-          <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Seafood</span>
-          <span class="menu-card-tap-hint">View Details &rarr;</span>
-        </div>
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Gulai Tumis</h3>
-            
-          </div>
-          <p class="menu-card-teaser">Sour Nyonya fish curry — 8-spice paste, fresh saffron & torch ginger.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('chilli-crab')" role="button" tabindex="0">
-        <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Chilli Crab-Style</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
-          <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Seafood</span>
-          <span class="menu-card-tap-hint">View Details &rarr;</span>
-        </div>
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Chilli Crab-Style</h3>
-            <span class="menu-card-price">Market Price</span>
-          </div>
-          <p class="menu-card-teaser">Whole mud crab in Nyonya chilli-tomato gravy — eat with your hands.</p>
+          <p class="menu-card-teaser">Okra with sambal belacan.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
@@ -1417,63 +1448,331 @@ p, li, td, blockquote { line-height: 1.9 }
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
             <h3 class="menu-card-name">Nasi Ulam</h3>
-            
           </div>
-          <p class="menu-card-teaser">Heritage herb rice — 10+ herbs hand-tossed every morning.</p>
+          <p class="menu-card-teaser">Authentic hand-tossed rice with 10+ fresh herbs & salted fish.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('kerabu-bihun')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('kerabu-bee-hoon')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <img loading="lazy" decoding="async" src="img/food-1767.jpg" alt="Kerabu Bihun" class="menu-card-img-el"/>
+          <img loading="lazy" decoding="async" src="img/food-1767.jpg" alt="Kerabu Bee Hoon" class="menu-card-img-el"/>
           <div class="menu-card-img-overlay"></div>
           <span class="menu-card-cat-badge">Rice & Noodles</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kerabu Bihun</h3>
-            
+            <h3 class="menu-card-name">Kerabu Bee Hoon</h3>
           </div>
-          <p class="menu-card-teaser">Rice vermicelli, fiery sambal belacan, prawns & calamansi.</p>
+          <p class="menu-card-teaser">Spicy hand-tossed rice vermicelli with herbs salad.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="rice" onclick="openDish('nyonya-laksa')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="rice" onclick="openDish('nyonya-fried-rice')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Nyonya Laksa</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Nyonya Fried Rice</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
           <span class="menu-card-cat-badge">Rice & Noodles</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nyonya Laksa</h3>
-            
+            <h3 class="menu-card-name">Nyonya Fried Rice</h3>
           </div>
-          <p class="menu-card-teaser">Creamy coconut broth, thick rice noodles, prawns & fish cake.</p>
+          <p class="menu-card-teaser">Spicy sambal fried rice.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('nasi-lemak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('petai-fried-rice')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Nasi Lemak Nyonya</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Petai Fried Rice</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
           <span class="menu-card-cat-badge">Rice & Noodles</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nasi Lemak Nyonya</h3>
-            
+            <h3 class="menu-card-name">Petai Fried Rice</h3>
           </div>
-          <p class="menu-card-teaser">Pandan coconut rice, Nyonya sides, house sambal.</p>
+          <p class="menu-card-teaser">Spicy bitter bean fried rice.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('sambal-sotong')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Octopus / Sotong</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Sambal Octopus / Sotong</h3>
+          </div>
+          <p class="menu-card-teaser">Squid or octopus with shrimp paste curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('kerabu-sotong')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Kerabu Octopus / Sotong</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Kerabu Octopus / Sotong</h3>
+          </div>
+          <p class="menu-card-teaser">Hand-tossed squid with aromatic herbs salad.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('asam-hae')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Asam Hae</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Asam Hae</h3>
+          </div>
+          <p class="menu-card-teaser">Pan-fried tamarind prawn.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('curry-hae')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Curry Hae</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Curry Hae</h3>
+          </div>
+          <p class="menu-card-teaser">Hot and sour prawn curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('sambal-udang')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Sambal Udang</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Seafood</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Sambal Udang</h3>
+          </div>
+          <p class="menu-card-teaser">Aromatic chilli prawn with cucumber.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="fish" onclick="openDish('gulai-tumis')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <img loading="lazy" decoding="async" src="img/food-0022.jpg" alt="Gulai Tumis" class="menu-card-img-el"/>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Fish</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Gulai Tumis</h3>
+          </div>
+          <p class="menu-card-teaser">Traditional tamarind hot & sour fish curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-kunyit')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Ikan Goreng Kunyit</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Fish</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Ikan Goreng Kunyit</h3>
+          </div>
+          <p class="menu-card-teaser">Turmeric fried fish with Nanchut sauce.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-cili-api')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Ikan Goreng Cili Api</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Fish</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Ikan Goreng Cili Api</h3>
+          </div>
+          <p class="menu-card-teaser">Deep-fried fish with chilli black sauce.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="fish" onclick="openDish('ikan-masak-lemak')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Ikan Masak Lemak</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Fish</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Ikan Masak Lemak</h3>
+          </div>
+          <p class="menu-card-teaser">Fried fish in creamy & spicy coconut curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="nui" onclick="openDish('chye-por-omelette')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Chye Por / Onion Omelette</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Omelette</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Chye Por / Onion Omelette</h3>
+          </div>
+          <p class="menu-card-teaser">Dried radish omelette.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="nui" onclick="openDish('egg-belanda')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Egg Belanda</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Omelette</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Egg Belanda</h3>
+          </div>
+          <p class="menu-card-teaser">Sunny side up egg with tamarind sauce.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="soup" onclick="openDish('kiam-chye-ark')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Kiam Chye Ark</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Soup</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Kiam Chye Ark</h3>
+          </div>
+          <p class="menu-card-teaser">Salted vegetable duck soup.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="soup" onclick="openDish('hu-peow-chap-chye')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Hu Peow Chap Chye Th'ng</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Soup</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Hu Peow Chap Chye Th'ng</h3>
+          </div>
+          <p class="menu-card-teaser">Rich nourishing fish maw and vegetable soup.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="specials" onclick="openDish('perut-ikan')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Perut Ikan</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Specials</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Perut Ikan</h3>
+          </div>
+          <p class="menu-card-teaser">Nyonya pickled fish stomach curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="specials" onclick="openDish('kiam-hu-kut-gulai')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Kiam Hu Kut Gulai</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Specials</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Kiam Hu Kut Gulai</h3>
+          </div>
+          <p class="menu-card-teaser">Salted fish bone in rich rempah-flavour curry.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-more-link">Full details &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('bee-koe-moy')" role="button" tabindex="0">
+        <div class="menu-card-img-wrap">
+          <img loading="lazy" decoding="async" src="img/food-1441.jpg" alt="Bee Koe Moy" class="menu-card-img-el"/>
+          <div class="menu-card-img-overlay"></div>
+          <span class="menu-card-cat-badge">Dessert</span>
+          <span class="menu-card-tap-hint">View Details &rarr;</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2">
+            <h3 class="menu-card-name">Bee Koe Moy</h3>
+          </div>
+          <p class="menu-card-teaser">Black glutinous rice with dried longan & coconut milk.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
@@ -1489,149 +1788,28 @@ p, li, td, blockquote { line-height: 1.9 }
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
             <h3 class="menu-card-name">Sago Gula Melaka</h3>
-            
           </div>
-          <p class="menu-card-teaser">Pearl sago with dark palm sugar syrup & fresh coconut cream.</p>
+          <p class="menu-card-teaser">Sago pearls with brown sugar & coconut milk.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('pulut-hitam')" role="button" tabindex="0">
+      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('pengat')" role="button" tabindex="0">
         <div class="menu-card-img-wrap">
-          <img loading="lazy" decoding="async" src="img/food-1441.jpg" alt="Pulut Hitam" class="menu-card-img-el"/>
+          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Pengat</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
           <div class="menu-card-img-overlay"></div>
           <span class="menu-card-cat-badge">Dessert</span>
           <span class="menu-card-tap-hint">View Details &rarr;</span>
         </div>
         <div class="menu-card-body">
           <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Pulut Hitam</h3>
-            
+            <h3 class="menu-card-name">Pengat</h3>
           </div>
-          <p class="menu-card-teaser">Black glutinous rice slow-cooked with pandan & palm sugar.</p>
+          <p class="menu-card-teaser">Authentic coconut milk dessert with sweet potato, yam & banana.</p>
           <div class="menu-card-footer">
             <span class="menu-card-more-link">Full details &rarr;</span>
           </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="dessert" onclick="openDish('kuih-dadar')" role="button" tabindex="0">
-        <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Kuih Dadar</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
-          <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Dessert</span>
-          <span class="menu-card-tap-hint">View Details &rarr;</span>
-        </div>
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kuih Dadar</h3>
-            
-          </div>
-          <p class="menu-card-teaser">Pandan crêpe rolls, grated coconut & gula melaka filling.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('cendol')" role="button" tabindex="0">
-        <div class="menu-card-img-wrap">
-          <div class="menu-card-img-placeholder"><span style="font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(212,175,55,.3)">Cendol</span><p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.15em;text-transform:uppercase;margin-top:.35rem">Photo Coming Soon</p></div>
-          <div class="menu-card-img-overlay"></div>
-          <span class="menu-card-cat-badge">Dessert</span>
-          <span class="menu-card-tap-hint">View Details &rarr;</span>
-        </div>
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Cendol</h3>
-            
-          </div>
-          <p class="menu-card-teaser">Shaved ice, pandan jelly, gula melaka & coconut milk.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer style="background:#040A22;border-top:1px solid rgba(212,175,55,.15)">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div><div style="font-family:'Playfair Display',serif;color:white;font-size:1rem;font-weight:600">Auntie Gaik Lean's</div><div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star</div></div>
-      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
-        <a href="our-story.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Our Story</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="menu.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Menu</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="press.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Press</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="news.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">News</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="reservations.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Reservations</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="visit-us.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Visit Us</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
-        <a href="https://guide.michelin.com/en/pulau-pinang/my-george-town/restaurant/auntie-gaik-lean-s-old-school-eatery" target="_blank" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Michelin ↗</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="https://www.instagram.com/auntiegaiklean" target="_blank" style="color:rgba(255,255,255,.6)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.6)'"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="https://www.facebook.com/p/Auntie-Gaik-Leans-Old-School-Eatery-100063562363254/" target="_blank" style="color:rgba(255,255,255,.6)" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.6)'"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <span style="color:rgba(255,255,255,.45);font-size:11px;font-family:'Inter',sans-serif">© 2026 Auntie Gaik Lean's &nbsp;·&nbsp; <a href='https://technextasia.com' target='_blank' rel='noopener' style='color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s' onmouseover="this.style.color='rgba(212,175,55,.55)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Technext Pte Ltd</a></span>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- CHATBOT WIDGET -->
-<div id="chat-widget" style="position:fixed;bottom:7rem;right:1.5rem;z-index:9990;font-family:'Inter',system-ui,sans-serif">
-  <style>
-  @media(max-width:500px){
-    #chat-panel{width:calc(100vw - 2rem)!important;right:0!important;left:1rem!important;bottom:4.5rem!important}
-    #chat-messages{height:55vh!important}
-  }
-  </style>
-
-  <!-- Toggle button -->
-  <button id="chat-toggle" onclick="chatToggle()" aria-label="Chat with us"
-    style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#0A1645,#060D2E);
-    border:2px solid rgba(212,175,55,.5);box-shadow:0 4px 20px rgba(0,0,0,.35);
-    cursor:pointer;display:flex;align-items:center;justify-content:center;
-    transition:transform .2s,box-shadow .2s;position:relative">
-    <!-- Chat icon (shown when closed) -->
-    <svg id="chat-icon-open" width="22" height="22" fill="none" stroke="#D4AF37" stroke-width="1.8" viewBox="0 0 24 24">
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-    </svg>
-    <!-- X icon (shown when open) -->
-    <svg id="chat-icon-close" width="20" height="20" fill="none" stroke="#D4AF37" stroke-width="2" viewBox="0 0 24 24" style="display:none">
-      <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-    <!-- Notification dot -->
-    <span id="chat-dot" style="position:absolute;top:2px;right:2px;width:10px;height:10px;
-      background:#D4AF37;border-radius:50%;border:2px solid white;animation:chatPulse 2s infinite"></span>
-  </button>
-
-  <!-- Chat panel -->
-  <div id="chat-panel" style="display:none;position:fixed;bottom:7.5rem;right:1.25rem;width:360px;
-    background:white;border-radius:14px;overflow:hidden;
-    box-shadow:0 8px 48px rgba(0,0,0,.25),0 0 0 1px rgba(212,175,55,.18)">
-
-    <!-- Header -->
-    <div style="background:linear-gradient(135deg,#060D2E,#0A1645);padding:1rem 1.1rem;
-      display:flex;align-items:center;gap:.75rem">
-      <div style="width:36px;height:36px;border-radius:50%;background:rgba(212,175,55,.15);
-        border:1.5px solid rgba(212,175,55,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="18" height="18" fill="none" stroke="#D4AF37" stroke-width="1.8" viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-      </div>
-      <div>
-        <div style="color:white;font-weight:600;font-size:.88rem">Auntie Gaik Lean's</div>
-        <div style="color:rgba(212,175,55,.8);font-size:.72rem;display:flex;align-items:center;gap:.3rem">
-          <span style="width:6px;height:6px;background:#22c55e;border-radius:50%;display:inline-block"></span>
-          Typically replies in minutes
         </div>
       </div>
     </div>
@@ -2088,30 +2266,46 @@ document.querySelectorAll('.dish-card').forEach(card=>{
 })();
 
 var DISH_DATA={
-  "pie-tee":{name:"Pie Tee",price:"",cat:"Starter",img:"img/dining-8911.jpg",desc:"Hand-made pastry shells fried to order, filled with a warm stir-fry of turnip, prawn and egg — finished with Auntie house-made sweet-tangy dipping sauce. A Nyonya classic: fragile, addictive and completely irreplaceable.",highlights:["Hand-fried pastry shells","Fresh prawns","House sweet-tangy dip","Prepared to order"],notes:"Consume immediately. Contains shellfish and egg."},
-  "popiah":{name:"Popiah",price:"",cat:"Starter",img:"",desc:"A delicate thin crepe skin wrapping a slow-braised filling of turnip, shrimp, tofu and crisp fresh lettuce — dressed tableside with Auntie house-made chilli sauce and sweet sauce.",highlights:["Thin hand-made crepe skin","Braised turnip and shrimp","House chilli and sweet sauce","Fresh lettuce and herbs"],notes:"A lighter starter, ideal for sharing. Contains shellfish."},
-  "otah-otah":{name:"Otah-Otah",price:"",cat:"Starter",img:"",desc:"Freshly made fish mousse blended with lemongrass, galangal, kaffir lime and fresh chilli — wrapped in banana leaf and steamed until silky. The leaf perfumes the custard as it cooks.",highlights:["Fresh fish mousse","Hand-ground spice paste","Kaffir lime and galangal","Steamed in banana leaf"],notes:"Lightly spiced. Contains fish."},
-  "achar-prawns":{name:"Achar Prawns",price:"",cat:"Starter",img:"",desc:"Plump tiger prawns marinated in a hand-ground Nyonya achar spice blend — turmeric, shallots, dried chilli and belachan — then lightly fried until caramelised at the edges.",highlights:["Tiger prawns","Hand-ground achar paste","Turmeric and belachan","Lightly wok-fried"],notes:"Contains shellfish."},
-  "itek-tim":{name:"Itek Tim",price:"",cat:"Soup",img:"",desc:"A deeply soothing soup of whole duck pieces slow-braised in a clear broth of sour plum, salted vegetables and tomatoes — finished with fresh coriander. Heirloom Nyonya cooking at its most restorative.",highlights:["Whole free-range duck","Sour plum broth","Salted vegetables","Slow-braised 3+ hours"],notes:"Best enjoyed with steamed rice."},
-  "soto-ayam":{name:"Soto Ayam",price:"",cat:"Soup",img:"",desc:"Free-range kampung chicken simmered in golden turmeric-forward broth with lemongrass and galangal. Served with hand-shredded chicken, glass noodles, boiled egg and fresh herbs.",highlights:["Free-range kampung chicken","Turmeric lemongrass broth","Hand-shredded chicken","Glass noodles and egg"],notes:"Naturally gluten-free."},
-  "kari-kapitan":{name:"Kari Kapitan",price:"",cat:"Main",img:"img/food-0054.jpg",desc:"The dish that built Auntie Gaik reputation. Free-range chicken slow-cooked in a hand-ground rempah of candlenut, lemongrass, galangal and tamarind. Rich, layered and completely irreplaceable. Michelin inspectors praised it by name.",highlights:["Free-range kampung chicken","Hand-ground rempah — 9 spices","Tamarind and candlenut base","Cooked daily in single batches"],notes:"Signature dish. Must order. Medium spice."},
-  "lamb-pongteh":{name:"Lamb Pongteh",price:"",cat:"Main",img:"",desc:"Tender lamb shoulder braised low and slow in a deep paste of fermented soybean, shallots and palm sugar. Rich, umami-forward with subtle sweetness. The meat falls apart at the touch of a spoon.",highlights:["Slow-braised lamb shoulder","Fermented soybean paste","Palm sugar balance","6-hour braise"],notes:"Spice: mild. Contains soy."},
-  "ayam-buah-keluak":{name:"Ayam Buah Keluak",price:"",cat:"Main",img:"",desc:"One of the rarest dishes in the Peranakan canon. Chicken braised with the wild Indonesian black nut — earthy and truffle-like — in a tangy tamarind and spice paste. The nut is hand-scooped and restuffed before cooking.",highlights:["Wild Indonesian buah keluak","Hand-stuffed nut filling","Tamarind spice paste","Limited daily quantity"],notes:"Subject to daily buah keluak supply."},
-  "beef-rendang":{name:"Nyonya Beef Rendang",price:"",cat:"Main",img:"",desc:"Tender beef slow-cooked in a Peranakan spiced coconut milk reduction — lemongrass, galangal, kaffir lime and toasted kerisik — until the beef is coated in a deeply caramelised, fragrant crust.",highlights:["Grass-fed beef","Coconut milk reduction","Toasted kerisik","4-hour cook"],notes:"Dry rendang — not saucy. Contains coconut."},
-  "sambal-terung":{name:"Sambal Terung",price:"",cat:"Vegetable",img:"",desc:"Whole aubergine wok-fired in a hand-ground sambal paste of shallots, dried chilli and toasted belachan. The eggplant absorbs the heat and smokiness as it chars.",highlights:["Whole fresh brinjal","Hand-ground sambal paste","Toasted belachan","Wok-fired to order"],notes:"Vegetarian. Contains belachan shrimp paste."},
-  "kerabu-pucuk-paku":{name:"Kerabu Pucuk Paku",price:"",cat:"Salad",img:"",desc:"Fresh paku ferns blanched and tossed with grated toasted coconut, shallots, dried prawns and a bright Nyonya kerabu dressing. Refreshing and fibre-rich.",highlights:["Wild paku fern tips","Toasted grated coconut","Nyonya kerabu dressing","Served at room temp"],notes:"Contains dried prawns."},
-  "assam-hae":{name:"Assam Hae",price:"",cat:"Seafood",img:"",desc:"Whole tiger prawns shell-on, wok-fired at high heat in Auntie signature tamarind and chilli paste. The shells caramelise, locking in the natural sweetness. Sticky, spicy and unforgettable.",highlights:["Whole tiger prawns","Hand-ground tamarind paste","High-heat wok fire","Shell-on for full flavour"],notes:"Contains shellfish. Price varies by market rate."},
-  "sambal-udang":{name:"Sambal Udang",price:"",cat:"Seafood",img:"",desc:"Plump fresh prawns stir-fried in Auntie hand-ground Nyonya sambal — shallots, lemongrass, dried chilli — in a screaming-hot wok. The sambal clings and caramelises at the edges.",highlights:["Fresh tiger prawns","Hand-ground Nyonya sambal","Lemongrass and shallot base","Wok-seared to order"],notes:"Contains shellfish. Spice: medium-high."},
-  "gulai-tumis":{name:"Gulai Tumis",price:"",cat:"Seafood",img:"img/food-0022.jpg",desc:"The dish Michelin inspectors singled out by name. Whole fresh fish in a tangy Nyonya paste of 8+ fresh ingredients including fresh saffron, pineapple and torch ginger flower. Hand-ground each morning.",highlights:["Whole fresh fish daily","8+ ingredient hand-ground paste","Fresh saffron","Torch ginger and pineapple"],notes:"Michelin Guide specifically praised this dish. Spice: medium."},
-  "chilli-crab":{name:"Chilli Crab-Style",price:"Market Price",cat:"Seafood",img:"",desc:"Whole mud crab wok-tossed in Auntie Nyonya chilli-tomato gravy — richer and more complex than the Singapore classic. Best mopped up with white bread. Ask your server for today price.",highlights:["Whole fresh mud crab","Nyonya chilli-tomato gravy","Market-fresh daily","Best with white bread"],notes:"Subject to daily availability. Price on request."},
-  "nasi-ulam":{name:"Nasi Ulam",price:"",cat:"Rice & Noodles",img:"img/dining-9248.jpg",desc:"Auntie most personal dish. Fragrant steamed rice hand-tossed with 10+ finely cut herbs — torch ginger, turmeric leaf, lemongrass — plus toasted coconut, dried shrimp and salted fish. 20 minutes by hand. Never written down.",highlights:["10+ fresh herbs hand-cut daily","Toasted coconut and dried shrimp","Recipe passed down orally","Limited daily quantity"],notes:"Limited quantity. Order early. Iconic dish."},
-  "kerabu-bihun":{name:"Kerabu Bihun",price:"",cat:"Rice & Noodles",img:"img/food-1767.jpg",desc:"Fine rice vermicelli tossed cold with fiery sambal belacan, fresh prawns, julienned cucumber, shallots, toasted coconut and a generous squeeze of calamansi lime.",highlights:["Fine rice vermicelli","Fresh tiger prawns","House sambal belacan","Fresh calamansi lime"],notes:"Spice: medium-high. Contains shellfish."},
-  "nyonya-laksa":{name:"Nyonya Laksa",price:"",cat:"Rice & Noodles",img:"",desc:"Thick rice noodles in a full-bodied coconut milk broth with hand-ground rempah of lemongrass, galangal and candlenut — topped with fresh prawns, fish cake, tau pok and sambal.",highlights:["Hand-ground laksa rempah","Coconut milk broth","Thick rice noodles","Fresh prawns and fish cake"],notes:"Contains shellfish and coconut."},
-  "nasi-lemak":{name:"Nasi Lemak Nyonya",price:"",cat:"Rice & Noodles",img:"",desc:"Fragrant pandan-infused coconut rice with Auntie house-made sambal, crispy ikan bilis, fresh cucumber, a soft-boiled egg and your choice of Nyonya lauk.",highlights:["Pandan and coconut rice","House-made sambal","Choice of Nyonya lauk","Crispy ikan bilis"],notes:"Contains coconut. Halal-friendly."},
-  "sago-gula-melaka":{name:"Sago Gula Melaka",price:"",cat:"Dessert",img:"",desc:"Pearl sago cooked until translucent, served warm with dark gula melaka syrup and thick fresh coconut cream. Elegant in simplicity.",highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:"Gluten-free. Vegan."},
-  "pulut-hitam":{name:"Pulut Hitam",price:"",cat:"Dessert",img:"img/food-1441.jpg",desc:"Black glutinous rice slow-cooked with pandan leaves and palm sugar until the grains bloom. Served with a crown of thick coconut cream.",highlights:["Black glutinous rice","Slow-cooked with pandan","Palm sugar sweetened","Fresh coconut cream"],notes:"Gluten-free. Vegan."},
-  "kuih-dadar":{name:"Kuih Dadar",price:"",cat:"Dessert",img:"",desc:"Thin pandan-scented crepe rolls filled with freshly grated coconut slow-cooked with dark gula melaka. A vivid green from fresh pandan juice, the filling rich and caramelised.",highlights:["Fresh pandan juice crepe","Grated coconut filling","Dark gula melaka","Made to order"],notes:"Gluten-free. Vegan."},
-  "cendol":{name:"Cendol",price:"",cat:"Dessert",img:"",desc:"Finely shaved ice over pandan-green rice flour jelly and red kidney beans, drenched in dark gula melaka syrup and poured with rich fresh coconut milk. The Penang version.",highlights:["House pandan jelly","Dark Penang gula melaka","Fresh coconut milk","Shaved ice to order"],notes:"Gluten-free. Vegan."},
+  "pie-tee":{name:"Pie Tee (Top Hats)",price:"",cat:"Appetiser",img:"img/dining-8911.jpg",desc:"Crispy tart shells filled with a sweet mixture of thinly sliced vegetables and chicken meat. Served with a sweet-tangy dipping sauce. Available in 5pcs or 10pcs.",highlights:["Crispy tart shells","Julienned vegetables","Chicken meat","House dipping sauce"],notes:"Contains gluten."},
+  "lor-bak":{name:"Lor Bak",price:"",cat:"Appetiser",img:"",desc:"Five-spice braised chicken meat wrapped and deep fried to a crispy golden finish. A classic Nyonya appetiser bursting with aromatic spice.",highlights:["5-spice seasoning","Chicken meat roll","Deep fried","Crispy exterior"],notes:"Contains gluten."},
+  "cucur-udang":{name:"Cucur Udang",price:"",cat:"Appetiser",img:"",desc:"Light and crispy fritters made with fresh prawns and vegetables. Best eaten hot with chilli sauce.",highlights:["Fresh prawns","Mixed vegetables","Crispy batter","House chilli sauce"],notes:"Contains shellfish."},
+  "acar-awak":{name:"Acar Awak",price:"",cat:"Appetiser",img:"",desc:"Traditional Nyonya pickled vegetables seasoned with spices, vinegar and sesame. A refreshing palate cleanser.",highlights:["Mixed vegetables","Sesame seeds","Nyonya spice blend","Naturally preserved"],notes:"Vegetarian."},
+  "otak-otak":{name:"Otak-Otak",price:"",cat:"Appetiser",img:"",desc:"Freshly made fish mousse blended with lemongrass, galangal and chilli — steamed in banana leaf. Silky and aromatic.",highlights:["Fresh fish paste","Lemongrass & galangal","Kaffir lime","Steamed in banana leaf"],notes:"Contains fish."},
+  "baba-delight":{name:"Baba Delight",price:"",cat:"Appetiser",img:"",desc:"The ultimate Nyonya appetiser sharing platter — four signatures in one. Perfect for the table to share before the mains.",highlights:["Pie Tee top hats","Lor Bak meat roll","Cucur Udang fritters","Acar Awak pickled vegetables"],notes:"Contains gluten, shellfish."},
+  "curry-kapitan":{name:"Kari Kapitan",price:"",cat:"Chicken & Beef",img:"img/food-0054.jpg",desc:"Rich and creamy curry chicken made with a hand-ground rempah of galangal, lemongrass, candlenuts and kaffir lime leaves. The dish that defined Auntie Gaik Lean\'s reputation. Michelin inspectors praised it by name.",highlights:["Free-range kampung chicken","Hand-ground rempah","Candlenut & lemongrass","Kaffir lime leaves"],notes:"Michelin-praised signature. Medium spice."},
+  "nyonya-curry-chicken":{name:"Nyonya Curry Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"A gentler Nyonya-style curry chicken, richly spiced and simmered with potatoes until tender. Deeply aromatic and satisfying.",highlights:["Chicken pieces","Nyonya spice blend","Potatoes","Coconut milk"],notes:"Mild-medium spice."},
+  "hong-kae":{name:"Hong Kae",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised in a fragrant creamy gravy with sand ginger (ubi cekur), coriander seed and aromatic herbs. Unique to Nyonya cooking.",highlights:["Braised chicken","Sand ginger (ubi cekur)","Coriander seed","Creamy gravy"],notes:"Medium spice."},
+  "inche-kabin":{name:"Inche Kabin",price:"",cat:"Chicken & Beef",img:"img/food-0036.jpg",desc:"Chicken marinated overnight in a rich blend of Nyonya spices and coconut milk, then fried to a crispy golden finish. A true Nyonya classic.",highlights:["Marinated kampung chicken","Coconut milk","Nyonya spice blend","Crispy fried"],notes:"Medium spice."},
+  "tau-yew-chicken":{name:"Tau Yew Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised low and slow in dark soy sauce with five-spice and hard-boiled eggs. Sweet, savoury and deeply comforting.",highlights:["Whole chicken pieces","Dark soy sauce","Hard-boiled eggs","Five-spice"],notes:"Mild."},
+  "beef-rendang":{name:"Nyonya Beef Rendang",price:"",cat:"Chicken & Beef",img:"img/food-1734.jpg",desc:"Tender Australian Black Angus beef slow-cooked in a Peranakan spiced coconut milk reduction until caramelised and intensely fragrant. Extraordinary on steamed rice.",highlights:["Australian Black Angus beef","Coconut milk reduction","Toasted kerisik","Peranakan spice blend"],notes:"Contains coconut. Mild-medium."},
+  "jiu-hu-char":{name:"Jiu Hu Char",price:"",cat:"Vegetables",img:"",desc:"A classic Nyonya side dish — yam bean (jicama) stir-fried with shredded dried cuttlefish, creating a savoury and textured dish.",highlights:["Yam bean (jicama)","Dried cuttlefish","Aromatics","Served with lettuce & sambal belacan"],notes:"Contains seafood."},
+  "sambal-petai":{name:"Sambal Petai",price:"",cat:"Vegetables",img:"",desc:"Stink beans (petai) stir-fried in a bold sambal belacan sauce. Bold, pungent and deeply flavoured — a true Nyonya staple.",highlights:["Petai (stink beans)","Hand-ground sambal belacan","Aromatics","Wok-fried"],notes:"Vegetarian option. Spicy."},
+  "terung-sambal":{name:"Terung Sambal",price:"",cat:"Vegetables",img:"",desc:"Whole brinjal cooked in a sweet, tangy sambal sauce. Tender inside, flavoured throughout with Nyonya spices.",highlights:["Fresh aubergine","Sweet chilli sambal","Tangy tamarind","Wok-cooked"],notes:"Vegetarian. Medium spice."},
+  "sambal-kangkung":{name:"Sambal Kangkung",price:"",cat:"Vegetables",img:"",desc:"Water spinach (kangkung) flash-fried at high heat with sambal belacan. Classic Malaysian-Nyonya greens dish.",highlights:["Water spinach (kangkung)","Sambal belacan","Garlic","Wok-fried to order"],notes:"Vegetarian. Spicy."},
+  "kerabu-pucuk-paku":{name:"Kerabu Pucuk Paku",price:"",cat:"Vegetables",img:"",desc:"Wild fern tips blanched and tossed with grated coconut, shallots and a bright Nyonya kerabu dressing. Refreshing and fibre-rich.",highlights:["Wild fern tips (paku)","Toasted coconut","Kerabu dressing","Shallots & dried prawns"],notes:"Contains dried prawns."},
+  "sambal-bendi":{name:"Sambal Bendi",price:"",cat:"Vegetables",img:"",desc:"Fresh okra stir-fried in a bold sambal belacan sauce. Tender, flavourful and a perfect Nyonya side dish.",highlights:["Fresh okra","Hand-ground sambal belacan","Aromatics","Wok-fired"],notes:"Vegetarian. Spicy."},
+  "nasi-ulam":{name:"Nasi Ulam",price:"",cat:"Rice & Noodles",img:"img/dining-9248.jpg",desc:"Auntie\'s most personal dish. Fragrant rice hand-tossed every morning with over ten freshly cut herbs — torch ginger, turmeric leaf, lemongrass, daun kaduk — plus toasted coconut, dried shrimp and salted kurau fish. The recipe has never been written down.",highlights:["10+ fresh herbs hand-cut daily","Salted kurau fish","Toasted coconut","Dried shrimp"],notes:"Limited daily quantity. Iconic."},
+  "kerabu-bee-hoon":{name:"Kerabu Bee Hoon",price:"",cat:"Rice & Noodles",img:"img/food-1767.jpg",desc:"Fine rice vermicelli tossed cold with vibrant sambal belacan, fresh herbs, toasted coconut and a generous squeeze of calamansi lime.",highlights:["Rice vermicelli","Sambal belacan","Fresh herbs","Calamansi lime"],notes:"Medium-high spice."},
+  "nyonya-fried-rice":{name:"Nyonya Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Wok-fried rice tossed in a rich Nyonya sambal paste with egg and aromatics. Bold, smoky and satisfying.",highlights:["Jasmine rice","Nyonya sambal","Egg","Aromatics"],notes:"Medium spice."},
+  "petai-fried-rice":{name:"Petai Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Fried rice elevated with the bold, distinctive flavour of petai (stink beans) and Nyonya sambal. A unique and satisfying plate.",highlights:["Jasmine rice","Petai (stink beans)","Nyonya sambal","Egg"],notes:"Medium-high spice."},
+  "sambal-sotong":{name:"Sambal Octopus / Sotong",price:"",cat:"Seafood",img:"",desc:"Fresh squid or octopus cooked in a bold shrimp paste (belacan) curry sauce. Rich, aromatic and flavourful.",highlights:["Fresh squid or octopus","Shrimp paste curry","Aromatics","Wok-cooked"],notes:"Contains shellfish. Medium spice."},
+  "kerabu-sotong":{name:"Kerabu Octopus / Sotong",price:"",cat:"Seafood",img:"",desc:"Tender squid or octopus tossed with a bright Nyonya kerabu dressing and fresh aromatic herbs. Light, refreshing and full of flavour.",highlights:["Fresh squid or octopus","Kerabu dressing","Aromatic herbs","Toasted coconut"],notes:"Contains shellfish."},
+  "asam-hae":{name:"Asam Hae",price:"",cat:"Seafood",img:"",desc:"Whole prawns pan-fried in a tangy tamarind paste. The shells caramelise, locking in natural sweetness. Sticky, spicy and unforgettable.",highlights:["Whole tiger prawns","Tamarind (asam) paste","Pan-fried","Caramelised shells"],notes:"Contains shellfish. Medium-high spice."},
+  "curry-hae":{name:"Curry Hae",price:"",cat:"Seafood",img:"",desc:"Plump prawns in a hot and sour Nyonya curry gravy. Bold, tangy and deeply satisfying.",highlights:["Tiger prawns","Hot & sour curry gravy","Nyonya spice paste","Aromatics"],notes:"Contains shellfish. Spicy."},
+  "sambal-udang":{name:"Sambal Udang",price:"",cat:"Seafood",img:"",desc:"Fresh prawns stir-fried in Auntie\'s hand-ground Nyonya sambal with cucumber. Rich, aromatic and intensely flavoured.",highlights:["Tiger prawns","Hand-ground sambal","Cucumber","Wok-seared to order"],notes:"Contains shellfish. Medium-high."},
+  "gulai-tumis":{name:"Gulai Tumis",price:"",cat:"Fish",img:"img/food-0022.jpg",desc:"The dish Michelin inspectors singled out by name. Whole fish in a tangy paste of 8+ fresh ingredients — fresh saffron, pineapple and torch ginger flower. Hand-ground each morning.",highlights:["Whole fresh fish","8+ ingredient paste","Fresh saffron","Torch ginger & pineapple"],notes:"Michelin-praised. Market price."},
+  "ikan-goreng-kunyit":{name:"Ikan Goreng Kunyit",price:"",cat:"Fish",img:"",desc:"Whole fish marinated in fresh turmeric, fried to a golden crisp and served with Nyonya nanchut sauce.",highlights:["Whole fresh fish","Fresh turmeric marinade","Crispy fried","Nanchut dipping sauce"],notes:"Market price."},
+  "ikan-goreng-cili-api":{name:"Ikan Goreng Cili Api",price:"",cat:"Fish",img:"",desc:"Whole fish deep fried until crispy, served with a bold and fiery chilli black sauce.",highlights:["Whole fresh fish","Chilli black sauce","Deep fried","Aromatics"],notes:"Market price. Spicy."},
+  "ikan-masak-lemak":{name:"Ikan Masak Lemak",price:"",cat:"Fish",img:"",desc:"Fried fish simmered in a rich, creamy coconut milk curry with Nyonya spices. Comfort food at its finest.",highlights:["Fried fish","Coconut milk gravy","Nyonya spice paste","Creamy & spicy"],notes:"Market price. Contains coconut."},
+  "chye-por-omelette":{name:"Chye Por / Onion Omelette",price:"",cat:"Omelette",img:"",desc:"A classic Nyonya-style omelette made with dried radish (chye por) or onions. Crispy on the outside, tender within.",highlights:["Eggs","Dried radish (chye por)","Onions","Wok-fried"],notes:"Vegetarian."},
+  "egg-belanda":{name:"Egg Belanda",price:"",cat:"Omelette",img:"",desc:"Sunny side up egg served with Auntie\'s tangy tamarind sauce. A simple but deeply satisfying Nyonya classic.",highlights:["Eggs","Tamarind sauce","Aromatics","Sunny side up"],notes:"Vegetarian."},
+  "kiam-chye-ark":{name:"Kiam Chye Ark",price:"",cat:"Soup",img:"",desc:"Whole duck slow-braised in a clear broth with preserved salted vegetables (kiam chye) and tomatoes. A deeply soothing Nyonya heirloom soup.",highlights:["Whole duck","Salted preserved vegetables","Tomatoes","Slow-braised hours"],notes:"Rich, mild-flavoured."},
+  "hu-peow-chap-chye":{name:"Hu Peow Chap Chye Th\'ng",price:"",cat:"Soup",img:"",desc:"A nourishing, collagen-rich soup made with fish maw (hu peow) and mixed vegetables. Deeply restorative and uniquely Nyonya.",highlights:["Fish maw (hu peow)","Mixed vegetables","Rich clear broth","Nutritious & collagen-rich"],notes:"Contains fish."},
+  "perut-ikan":{name:"Perut Ikan",price:"",cat:"Specials",img:"",desc:"A rare and prized Nyonya delicacy — pickled fish stomach (perut ikan) in a tangy, spiced gravy. Complex and utterly unique.",highlights:["Pickled fish stomach","Spiced gravy","Nyonya herbs","Rare Nyonya specialty"],notes:"Acquired taste. For adventurous diners."},
+  "kiam-hu-kut-gulai":{name:"Kiam Hu Kut Gulai",price:"",cat:"Specials",img:"",desc:"Salted fish bones slow-cooked in a deeply flavoured rempah curry. Intensely savoury and umami-rich — a true old-school Nyonya dish.",highlights:["Salted fish bones","Hand-ground rempah","Rich curry gravy","Deeply umami"],notes:"Contains fish. For adventurous diners."},
+  "bee-koe-moy":{name:"Bee Koe Moy",price:"",cat:"Dessert",img:"img/food-1441.jpg",desc:"Black glutinous rice slow-cooked with pandan leaves, dried longan and palm sugar. Served with thick fresh coconut milk. Warming and deeply comforting.",highlights:["Black glutinous rice","Dried longan","Palm sugar","Fresh coconut milk"],notes:"Gluten-free."},
+  "sago-gula-melaka":{name:"Sago Gula Melaka",price:"",cat:"Dessert",img:"",desc:"Tiny pearl sago cooked until translucent, served with dark gula melaka syrup and rich fresh coconut cream.",highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:"Gluten-free. Vegan."},
+  "pengat":{name:"Pengat",price:"",cat:"Dessert",img:"",desc:"A traditional Nyonya sweet — sweet potato, yam and banana slow-cooked in rich coconut milk with palm sugar and pandan. Hearty and comforting.",highlights:["Sweet potato","Yam","Banana","Coconut milk & pandan"],notes:"Gluten-free. Vegan."},
 };
 
 // Category filter
