@@ -772,20 +772,22 @@ p, li, td, blockquote { line-height: 1.9 }
 
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5" id="nav">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <div class="max-w-7xl mx-auto grid grid-cols-3 items-center">
     <a href="index.html" class="flex items-center logo-link" style="text-decoration:none">
       <img id="nav-logo" src="img/logo-white.png" alt="Auntie Gaik Lean's Old School Eatery"
         style="height:56px;width:auto;object-fit:contain;display:block;min-width:120px"/>
     </a>
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center justify-center gap-8">
       <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Our Story</a>
       <a href="menu.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Menu</a>
       <a href="press.html" class="text-sm tracking-wide transition-colors nav-link nav-active" style="font-family:'Inter',sans-serif;color:#D4AF37">Press</a>
       <a href="news.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">News</a>
       <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
-    <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
-    <button id="mob-toggle-btn" onclick="mobCardToggle()" aria-label="Menu"><svg id="mob-bars" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 7h18M3 12h18M3 17h18"/></svg><svg id="mob-x-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <div class="flex items-center justify-end gap-3">
+      <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
+      <button id="mob-toggle-btn" onclick="mobCardToggle()" aria-label="Menu"><svg id="mob-bars" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 7h18M3 12h18M3 17h18"/></svg><svg id="mob-x-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
   </div></nav>
 <!-- MOBILE CARD DROPDOWN -->
 <div id="mob-card">
