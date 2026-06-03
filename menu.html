@@ -2495,6 +2495,23 @@ function chatToggle(){
 window.chatToggle=chatToggle;
 window.chatSend=chatSend;
 })();
+
+// Logo swap: dark logo on light bg, white logo on dark bg
+(function(){
+  function swapLogo(){
+    var logo=document.getElementById('nav-logo');
+    var nav=document.getElementById('nav');
+    if(!logo||!nav)return;
+    var want=nav.classList.contains('nav-light')?'img/logo-dark.png':'img/logo-white.png';
+    if(logo.getAttribute('src')!==want)logo.src=want;
+  }
+  window.addEventListener('load',swapLogo);
+  window.addEventListener('scroll',swapLogo,{passive:true});
+  var n=document.getElementById('nav');
+  if(n)new MutationObserver(swapLogo).observe(n,{attributes:true,attributeFilter:['class']});
+  setTimeout(swapLogo,50);
+  setTimeout(swapLogo,300);
+})();
 </script>
 
 </body>
