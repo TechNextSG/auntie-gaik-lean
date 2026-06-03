@@ -1410,15 +1410,17 @@ function toggleFaq(el){
 <!-- CHATBOT WIDGET -->
 <div id="chat-widget" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9990;font-family:'Inter',system-ui,sans-serif">
   <style>
+  #chat-panel{flex-direction:column}
   @media(max-width:767px){
     #chat-widget{bottom:1rem!important;right:1rem!important}
     #chat-panel{
-      width:calc(100vw - 1.5rem)!important;
-      right:0!important;left:.75rem!important;
-      bottom:4.2rem!important;
-      max-height:55vh!important;
+      top:5.5rem!important;
+      left:.6rem!important;right:.6rem!important;
+      bottom:5rem!important;
+      width:auto!important;
+      max-height:none!important;
     }
-    #chat-messages{height:38vh!important;font-size:.82rem!important}
+    #chat-messages{flex:1 1 auto!important;height:auto!important;min-height:0!important;font-size:.9rem!important}
     #chat-panel .dish-modal-cta,.mob-card-cta{padding:.6rem .9rem!important}
   }
   </style>
@@ -1759,7 +1761,7 @@ function chatToggle(){
   var btnOpen=document.getElementById('chat-icon-open');
   var btnClose=document.getElementById('chat-icon-close');
   var dot=document.getElementById('chat-dot');
-  panel.style.display=isOpen?'block':'none';
+  panel.style.display=isOpen?'flex':'none';
   btnOpen.style.display=isOpen?'none':'block';
   btnClose.style.display=isOpen?'block':'none';
   if(dot)dot.style.display='none';
