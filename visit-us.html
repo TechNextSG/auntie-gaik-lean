@@ -755,12 +755,12 @@ p, li, td, blockquote { line-height: 1.9 }
 
 /* ── Nav logo switching ── */
 #nav-logo{height:48px;width:auto}
-#nav.nav-light #nav-logo{content:url("img/logo-dark.png")}
+/* logo swap handled by JS */
 @media(max-width:767px){#nav-logo{height:38px}}
 
 /* -- Nav logo switching -- */
 #nav-logo{height:48px;width:auto}
-#nav.nav-light #nav-logo{content:url("img/logo-dark.png")}
+/* logo swap handled by JS */
 @media(max-width:767px){#nav-logo{height:38px}}
 </style>
 </head>
@@ -771,7 +771,7 @@ p, li, td, blockquote { line-height: 1.9 }
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="index.html" class="flex items-center logo-link" style="text-decoration:none">
       <img id="nav-logo" src="img/logo-white.png" alt="Auntie Gaik Lean's Old School Eatery"
-        style="height:48px;width:auto;object-fit:contain;transition:opacity .3s"/>
+        style="height:44px;width:auto;object-fit:contain;display:block"/>
     </a>
     <div class="hidden md:flex items-center gap-8">
       <a href="our-story.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Our Story</a>
@@ -1477,7 +1477,12 @@ window.chatSend=chatSend;
 <footer style="background:#040A22;border-top:1px solid rgba(212,175,55,.15)">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div><div style="font-family:'Playfair Display',serif;color:white;font-size:1rem;font-weight:600">Auntie Gaik Lean's</div><div style="font-family:'Inter',sans-serif;color:#D4AF37;font-size:9px;letter-spacing:.28em;text-transform:uppercase">Old School Eatery &nbsp;·&nbsp; <svg viewBox="0 0 24 24" fill="#D4AF37" style="display:inline-block;vertical-align:middle;width:11px;height:11px;flex-shrink:0;"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Michelin Star</div></div>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="index.html">
+          <img src="img/logo-white.png" alt="Auntie Gaik Lean's Old School Eatery"
+            style="height:40px;width:auto;object-fit:contain;display:block;opacity:.9"/>
+        </a>
+      </div></div>
       <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
         <a href="our-story.html" class="text-xs" style="color:rgba(255,255,255,.65);font-family:'Inter',sans-serif" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Our Story</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
