@@ -1632,6 +1632,12 @@ p, li, td, blockquote { line-height: 1.9 }
 
 <!-- CHATBOT WIDGET -->
 <div id="chat-widget" style="position:fixed;bottom:7rem;right:1.5rem;z-index:9990;font-family:'Inter',system-ui,sans-serif">
+  <style>
+  @media(max-width:500px){
+    #chat-panel{width:calc(100vw - 2rem)!important;right:0!important;left:1rem!important;bottom:4.5rem!important}
+    #chat-messages{height:55vh!important}
+  }
+  </style>
 
   <!-- Toggle button -->
   <button id="chat-toggle" onclick="chatToggle()" aria-label="Chat with us"
@@ -1653,9 +1659,9 @@ p, li, td, blockquote { line-height: 1.9 }
   </button>
 
   <!-- Chat panel -->
-  <div id="chat-panel" style="display:none;position:absolute;bottom:64px;right:0;width:320px;
+  <div id="chat-panel" style="display:none;position:fixed;bottom:7.5rem;right:1.25rem;width:360px;
     background:white;border-radius:14px;overflow:hidden;
-    box-shadow:0 8px 48px rgba(0,0,0,.22),0 0 0 1px rgba(212,175,55,.15)">
+    box-shadow:0 8px 48px rgba(0,0,0,.25),0 0 0 1px rgba(212,175,55,.18)">
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#060D2E,#0A1645);padding:1rem 1.1rem;
@@ -1677,7 +1683,7 @@ p, li, td, blockquote { line-height: 1.9 }
     </div>
 
     <!-- Messages area -->
-    <div id="chat-messages" style="height:280px;overflow-y:auto;padding:.85rem;
+    <div id="chat-messages" style="height:340px;overflow-y:auto;padding:.9rem;
       background:#f9fafb;display:flex;flex-direction:column;gap:.6rem;scroll-behavior:smooth">
     </div>
 
@@ -1709,11 +1715,11 @@ p, li, td, blockquote { line-height: 1.9 }
 #chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(0,0,0,.4)}
 #chat-messages::-webkit-scrollbar{width:3px}
 #chat-messages::-webkit-scrollbar-thumb{background:#D4AF37;border-radius:2px}
-.chat-bot-msg{align-self:flex-start;max-width:88%;background:white;border:1px solid #e5e7eb;
-  border-radius:12px 12px 12px 2px;padding:.6rem .85rem;font-size:.82rem;color:#1a1a2e;
-  line-height:1.55;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.chat-user-msg{align-self:flex-end;max-width:80%;background:linear-gradient(135deg,#060D2E,#0A1645);
-  color:white;border-radius:12px 12px 2px 12px;padding:.6rem .85rem;font-size:.82rem;line-height:1.55}
+.chat-bot-msg{align-self:flex-start;max-width:90%;background:white;border:1px solid #e5e7eb;
+  border-radius:12px 12px 12px 2px;padding:.7rem 1rem;font-size:.875rem;color:#1a1a2e;
+  line-height:1.65;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.chat-user-msg{align-self:flex-end;max-width:82%;background:linear-gradient(135deg,#060D2E,#0A1645);
+  color:white;border-radius:12px 12px 2px 12px;padding:.7rem 1rem;font-size:.875rem;line-height:1.65}
 .chat-suggestions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.4rem;align-self:flex-start;max-width:100%}
 .chat-sug{background:white;border:1px solid rgba(212,175,55,.4);color:#060D2E;
   font-size:.75rem;padding:.3rem .7rem;border-radius:20px;cursor:pointer;

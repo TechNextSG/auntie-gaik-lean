@@ -964,7 +964,336 @@ p, li, td, blockquote { line-height: 1.9 }
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="reservations.html" class="btn btn-gold btn-mag px-8 py-3.5 rounded text-xs tracking-[.16em] uppercase">Reserve</a>
-        <a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20visiting%20Auntie%20Gaik%20Lean's." target="_blank" rel="noopener noreferrer" class="btn btn-wa px-8 py-3.5 rounded text-xs tracking-[.16em] uppercase">
+        <!-- CHATBOT WIDGET -->
+<div id="chat-widget" style="position:fixed;bottom:7rem;right:1.5rem;z-index:9990;font-family:'Inter',system-ui,sans-serif">
+  <style>
+  @media(max-width:500px){
+    #chat-panel{width:calc(100vw - 2rem)!important;right:0!important;left:1rem!important;bottom:4.5rem!important}
+    #chat-messages{height:55vh!important}
+  }
+  </style>
+
+  <!-- Toggle button -->
+  <button id="chat-toggle" onclick="chatToggle()" aria-label="Chat with us"
+    style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#0A1645,#060D2E);
+    border:2px solid rgba(212,175,55,.5);box-shadow:0 4px 20px rgba(0,0,0,.35);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .2s,box-shadow .2s;position:relative">
+    <!-- Chat icon (shown when closed) -->
+    <svg id="chat-icon-open" width="22" height="22" fill="none" stroke="#D4AF37" stroke-width="1.8" viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    <!-- X icon (shown when open) -->
+    <svg id="chat-icon-close" width="20" height="20" fill="none" stroke="#D4AF37" stroke-width="2" viewBox="0 0 24 24" style="display:none">
+      <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+    <!-- Notification dot -->
+    <span id="chat-dot" style="position:absolute;top:2px;right:2px;width:10px;height:10px;
+      background:#D4AF37;border-radius:50%;border:2px solid white;animation:chatPulse 2s infinite"></span>
+  </button>
+
+  <!-- Chat panel -->
+  <div id="chat-panel" style="display:none;position:fixed;bottom:7.5rem;right:1.25rem;width:360px;
+    background:white;border-radius:14px;overflow:hidden;
+    box-shadow:0 8px 48px rgba(0,0,0,.25),0 0 0 1px rgba(212,175,55,.18)">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#060D2E,#0A1645);padding:1rem 1.1rem;
+      display:flex;align-items:center;gap:.75rem">
+      <div style="width:36px;height:36px;border-radius:50%;background:rgba(212,175,55,.15);
+        border:1.5px solid rgba(212,175,55,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="18" height="18" fill="none" stroke="#D4AF37" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <div>
+        <div style="color:white;font-weight:600;font-size:.88rem">Auntie Gaik Lean's</div>
+        <div style="color:rgba(212,175,55,.8);font-size:.72rem;display:flex;align-items:center;gap:.3rem">
+          <span style="width:6px;height:6px;background:#22c55e;border-radius:50%;display:inline-block"></span>
+          Typically replies in minutes
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages area -->
+    <div id="chat-messages" style="height:340px;overflow-y:auto;padding:.9rem;
+      background:#f9fafb;display:flex;flex-direction:column;gap:.6rem;scroll-behavior:smooth">
+    </div>
+
+    <!-- Input area -->
+    <div style="padding:.65rem .75rem;background:white;border-top:1px solid #f1f5f9;
+      display:flex;gap:.5rem;align-items:center">
+      <input id="chat-input" type="text" placeholder="Type a question..."
+        style="flex:1;border:1px solid #e5e7eb;border-radius:20px;padding:.5rem .9rem;
+        font-size:.82rem;outline:none;font-family:inherit;color:#1a1a2e;
+        transition:border .2s"
+        onkeydown="if(event.key==='Enter')chatSend()"
+        onfocus="this.style.borderColor='#D4AF37'"
+        onblur="this.style.borderColor='#e5e7eb'"/>
+      <button onclick="chatSend()"
+        style="width:34px;height:34px;border-radius:50%;background:#D4AF37;border:none;
+        cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+        transition:opacity .2s"
+        onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+        <svg width="14" height="14" fill="none" stroke="#060D2E" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes chatPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+#chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+#chat-messages::-webkit-scrollbar{width:3px}
+#chat-messages::-webkit-scrollbar-thumb{background:#D4AF37;border-radius:2px}
+.chat-bot-msg{align-self:flex-start;max-width:90%;background:white;border:1px solid #e5e7eb;
+  border-radius:12px 12px 12px 2px;padding:.7rem 1rem;font-size:.875rem;color:#1a1a2e;
+  line-height:1.65;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.chat-user-msg{align-self:flex-end;max-width:82%;background:linear-gradient(135deg,#060D2E,#0A1645);
+  color:white;border-radius:12px 12px 2px 12px;padding:.7rem 1rem;font-size:.875rem;line-height:1.65}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.4rem;align-self:flex-start;max-width:100%}
+.chat-sug{background:white;border:1px solid rgba(212,175,55,.4);color:#060D2E;
+  font-size:.75rem;padding:.3rem .7rem;border-radius:20px;cursor:pointer;
+  transition:all .18s;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.chat-sug:hover{background:#D4AF37;color:#060D2E;border-color:#D4AF37}
+.chat-typing{align-self:flex-start;background:white;border:1px solid #e5e7eb;
+  border-radius:12px;padding:.6rem .85rem;display:flex;gap:4px;align-items:center}
+.chat-typing span{width:6px;height:6px;background:#D4AF37;border-radius:50%;
+  animation:typingDot 1.2s infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+</style>
+
+<script>
+(function(){
+// ── Knowledge base ───────────────────────────────────────────────────────
+var KB = [
+  {
+    id:'hours',
+    keys:['open','hour','time','lunch','dinner','when','close','closing','schedule','day','week','wednesday','sunday','monday'],
+    q:'What are your opening hours?',
+    a:'We are open <strong>Wednesday to Sunday</strong>.<br>🕛 Lunch: 12:00pm – 2:30pm<br>🕕 Dinner: 6:00pm – 9:30pm<br><br>Closed Monday & Tuesday. Last seating is 30 minutes before closing.'
+  },
+  {
+    id:'reserve',
+    keys:['reserv','book','table','deposit','seat','booking','how to book','tableapp','advance'],
+    q:'How do I make a reservation?',
+    a:'Book online via <strong>TableApp</strong> or WhatsApp us at <strong>+60 17-434 4398</strong>.<br><br>We recommend booking <strong>3–7 days in advance</strong>. A deposit of RM 200 nett confirms your booking — applied to your final bill.'
+  },
+  {
+    id:'location',
+    keys:['where','address','location','find','bishop','george town','penang','direction','map','gps','how to get','parking nearby'],
+    q:'Where are you located?',
+    a:'We are at <strong>1 Bishop Street (Lebuh Bishop), George Town, 10200 Penang</strong> — in the heart of the UNESCO World Heritage Zone.<br><br><a href="https://maps.google.com/?q=Auntie+Gaik+Lean+1+Bishop+Street+Penang" target="_blank" style="color:#D4AF37">Get Directions ↗</a>'
+  },
+  {
+    id:'parking',
+    keys:['park','parking','car','drive','grab','taxi','transport','uber'],
+    q:'Is there parking nearby?',
+    a:'Limited street parking is available on <strong>Bishop Street</strong>. Nearest paid car parks are on <strong>Penang Street</strong> and <strong>Carnarvon Street</strong> — both within a 5-minute walk.<br><br>Grab and taxis drop off directly in front.'
+  },
+  {
+    id:'menu',
+    keys:['menu','food','dish','eat','cuisine','nyonya','peranakan','serve','halal','pork','alcohol','vegetarian','dietary','ingredient'],
+    q:'What type of food do you serve?',
+    a:'We serve authentic <strong>Nyonya (Peranakan) cuisine</strong> — completely <strong>pork-free and alcohol-free</strong>.<br><br>Signature dishes: Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee, Kerabu Bihun, Assam Hae. Everything is made entirely from scratch, daily.'
+  },
+  {
+    id:'michelin',
+    keys:['michelin','star','award','recogni','famous','best','rated','guide','inspector','2022','2023','2024','2025'],
+    q:'Tell me about your Michelin Star',
+    a:'We have held <strong>One Michelin Star for four consecutive years</strong> (2022–2025) 🌟<br><br>We are Malaysia\'s first Michelin-starred homestyle Peranakan restaurant — and the first awarded to a Malaysian woman, <strong>Beh Gaik Lean</strong>, at age 69.'
+  },
+  {
+    id:'chef',
+    keys:['chef','auntie','gaik','lean','beh','cook','founder','owner','who','story'],
+    q:'Who is Auntie Gaik Lean?',
+    a:'<strong>Beh Gaik Lean</strong> is a fourth-generation Nyonya who began cooking at age 12 under her mother\'s guidance.<br><br>She made history in December 2022 as the <strong>first Malaysian woman to receive a Michelin star</strong> — at age 69. Her recipes have never been written down; they live in her hands.'
+  },
+  {
+    id:'deposit',
+    keys:['deposit','cancel','refund','policy','200','rm','fee','forfeit'],
+    q:'What is the deposit policy?',
+    a:'A deposit of <strong>RM 200 nett</strong> is required to confirm your reservation.<br><br>✅ Fully refundable with <strong>48+ hours notice</strong><br>❌ Forfeit with less than 48 hours notice<br><br>The deposit is applied to your final bill.'
+  },
+  {
+    id:'group',
+    keys:['group','large','party','private','corporate','function','event','wedding','celebration','12','people','pax','person'],
+    q:'Can I book for a large group?',
+    a:'For groups of <strong>12 or more</strong>, please contact us via <strong>WhatsApp at +60 17-434 4398</strong> for private dining arrangements.<br><br>Walk-ins are welcome for groups of <strong>3 or fewer</strong>, subject to availability.'
+  },
+  {
+    id:'walkin',
+    keys:['walk','walk-in','walkin','without reservation','no booking','drop','just come','visit'],
+    q:'Can I walk in without a reservation?',
+    a:'Walk-ins are welcome for <strong>groups of 3 or fewer</strong>, subject to availability.<br><br>For groups of 4 or more, we <strong>strongly recommend booking</strong> in advance — especially on weekends and public holidays, as tables fill quickly.'
+  },
+  {
+    id:'contact',
+    keys:['contact','phone','call','whatsapp','number','email','reach','talk','speak'],
+    q:'How can I contact you?',
+    a:'📞 <strong>Phone:</strong> <a href="tel:+60174344398" style="color:#D4AF37">+60 17-434 4398</a><br>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/60174344398" target="_blank" style="color:#D4AF37">+60 17-434 4398</a><br><br>We reply fastest via WhatsApp during operating hours (Wed–Sun).'
+  },
+  {
+    id:'dress',
+    keys:['dress','wear','code','attire','smart','casual','formal','cloth','outfit'],
+    q:'Is there a dress code?',
+    a:'There is no strict dress code — <strong>smart casual</strong> is perfect. Come comfortable and enjoy the experience! 😊'
+  }
+];
+
+// ── State ─────────────────────────────────────────────────────────────────
+var usedQIds = [];
+var allQIds  = KB.map(function(k){return k.id;});
+var isOpen   = false;
+var greeted  = false;
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function scrollChat(){
+  var m=document.getElementById('chat-messages');
+  m.scrollTop=m.scrollHeight;
+}
+function addMsg(html,cls){
+  var m=document.getElementById('chat-messages');
+  var d=document.createElement('div');
+  d.className=cls;
+  d.innerHTML=html;
+  m.appendChild(d);
+  scrollChat();
+  return d;
+}
+function removeTyping(){
+  var t=document.getElementById('chat-typing');
+  if(t)t.remove();
+}
+
+function pickSuggestions(exclude){
+  var pool=allQIds.filter(function(id){return usedQIds.indexOf(id)===-1&&id!==exclude;});
+  if(pool.length<3){usedQIds=exclude?[exclude]:[];pool=allQIds.filter(function(id){return id!==exclude;});}
+  var chosen=[];
+  while(chosen.length<3&&pool.length>0){
+    var i=Math.floor(Math.random()*pool.length);
+    chosen.push(pool.splice(i,1)[0]);
+  }
+  return chosen.map(function(id){return KB.find(function(k){return k.id===id;});}).filter(Boolean);
+}
+
+function showSuggestions(excludeId){
+  var sugs=pickSuggestions(excludeId);
+  if(!sugs.length)return;
+  var m=document.getElementById('chat-messages');
+  var wrap=document.createElement('div');
+  wrap.className='chat-suggestions';
+  sugs.forEach(function(kb){
+    var btn=document.createElement('button');
+    btn.className='chat-sug';
+    btn.textContent=kb.q;
+    btn.onclick=function(){answerKb(kb);};
+    wrap.appendChild(btn);
+  });
+  m.appendChild(wrap);
+  scrollChat();
+}
+
+function answerKb(kb){
+  usedQIds.push(kb.id);
+  // Remove existing suggestions
+  var m=document.getElementById('chat-messages');
+  var sugs=m.querySelectorAll('.chat-suggestions');
+  sugs.forEach(function(s){s.remove();});
+  // Show user bubble
+  addMsg(kb.q,'chat-user-msg');
+  // Show typing
+  var t=document.createElement('div');
+  t.id='chat-typing';t.className='chat-typing';
+  t.innerHTML='<span></span><span></span><span></span>';
+  m.appendChild(t);scrollChat();
+  // Show answer after delay
+  setTimeout(function(){
+    removeTyping();
+    addMsg(kb.a,'chat-bot-msg');
+    showSuggestions(kb.id);
+  },900+Math.random()*400);
+}
+
+function matchInput(text){
+  var lower=text.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
+  var words=lower.split(/\s+/).filter(function(w){return w.length>2;});
+  var best=null,bestScore=0;
+  KB.forEach(function(kb){
+    var score=0;
+    words.forEach(function(w){
+      kb.keys.forEach(function(k){
+        if(k.indexOf(w)!==-1||w.indexOf(k)!==-1)score+=k.length>3?2:1;
+      });
+    });
+    // Bonus: exact keyword match
+    kb.keys.forEach(function(k){if(lower.indexOf(k)!==-1)score+=3;});
+    if(score>bestScore){bestScore=score;best=kb;}
+  });
+  return bestScore>=2?best:null;
+}
+
+function chatSend(){
+  var inp=document.getElementById('chat-input');
+  var text=inp.value.trim();
+  if(!text)return;
+  inp.value='';
+  var m=document.getElementById('chat-messages');
+  var sugs=m.querySelectorAll('.chat-suggestions');
+  sugs.forEach(function(s){s.remove();});
+  addMsg(text,'chat-user-msg');
+  var match=matchInput(text);
+  var t=document.createElement('div');
+  t.id='chat-typing';t.className='chat-typing';
+  t.innerHTML='<span></span><span></span><span></span>';
+  m.appendChild(t);scrollChat();
+  setTimeout(function(){
+    removeTyping();
+    if(match){
+      usedQIds.push(match.id);
+      addMsg(match.a,'chat-bot-msg');
+      showSuggestions(match.id);
+    } else {
+      addMsg('I\'m not sure about that — but I\'d be happy to help with our hours, reservations, menu, location, and more. Or <a href="https://wa.me/60174344398" target="_blank" style="color:#D4AF37">WhatsApp us directly</a> for anything specific! 😊','chat-bot-msg');
+      showSuggestions(null);
+    }
+  },800+Math.random()*500);
+}
+
+function chatToggle(){
+  isOpen=!isOpen;
+  var panel=document.getElementById('chat-panel');
+  var btnOpen=document.getElementById('chat-icon-open');
+  var btnClose=document.getElementById('chat-icon-close');
+  var dot=document.getElementById('chat-dot');
+  panel.style.display=isOpen?'block':'none';
+  btnOpen.style.display=isOpen?'none':'block';
+  btnClose.style.display=isOpen?'block':'none';
+  if(dot)dot.style.display='none';
+  if(isOpen&&!greeted){
+    greeted=true;
+    var m=document.getElementById('chat-messages');
+    var d=document.createElement('div');
+    d.className='chat-bot-msg';
+    d.innerHTML='👋 Hello! I\'m here to help with any questions about <strong>Auntie Gaik Lean\'s Old School Eatery</strong>.<br><br>What would you like to know?';
+    m.appendChild(d);
+    showSuggestions(null);
+  }
+  if(isOpen){setTimeout(function(){document.getElementById('chat-input').focus();},100);}
+}
+
+window.chatToggle=chatToggle;
+window.chatSend=chatSend;
+})();
+</script>
+
+
+<a href="https://wa.me/60174344398?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20visiting%20Auntie%20Gaik%20Lean's." target="_blank" rel="noopener noreferrer" class="btn btn-wa px-8 py-3.5 rounded text-xs tracking-[.16em] uppercase">
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp Us
         </a>
