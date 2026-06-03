@@ -1206,7 +1206,36 @@ document.querySelectorAll('section').forEach(function(el){var bg=el.getAttribute
 document.addEventListener('click',function(e){var btn=e.target.closest('.btn,.btn-gold,.btn-og,.btn-ow,.btn-wa,.btn-reserve-nav');if(!btn)return;var r=document.createElement('span');r.className='ripple';var rect=btn.getBoundingClientRect();var sz=Math.max(rect.width,rect.height)*1.6;r.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(e.clientX-rect.left-sz/2)+'px;top:'+(e.clientY-rect.top-sz/2)+'px;background:'+(btn.classList.contains('btn-gold')?'rgba(255,255,255,.35)':'rgba(212,175,55,.45)')+';';btn.appendChild(r);r.addEventListener('animationend',function(){r.remove();},{once:true});});
 document.querySelectorAll('.btn-mag').forEach(function(btn){var raf;btn.addEventListener('mousemove',function(e){var el=this,rect=el.getBoundingClientRect();var dx=(e.clientX-rect.left-rect.width/2)*0.28;var dy=(e.clientY-rect.top-rect.height/2)*0.28;cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){el.style.transform='translate('+dx+'px,'+dy+'px) translateY(-3px) scale(1.02)';el.style.transition='transform 0.12s ease';});},{passive:true});btn.addEventListener('mouseleave',function(){cancelAnimationFrame(raf);this.style.transform='';this.style.transition='transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';});});
 (function(){var ov=document.getElementById('lb-overlay');var im=document.getElementById('lb-img');var cp=document.getElementById('lb-caption');if(!ov||!im)return;var imgs=[],cur=0;document.querySelectorAll('img').forEach(function(el){if(el.closest('#lb-overlay'))return;imgs.push(el);el.classList.add('lb-trigger');el.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();lbOpen(imgs.indexOf(el));});});function lbOpen(i){cur=i;im.src=imgs[i].src;im.alt=imgs[i].alt;cp.textContent=imgs[i].alt||'';ov.classList.add('open');document.body.style.overflow='hidden';}function lbClose(){ov.classList.remove('open');document.body.style.overflow='';setTimeout(function(){im.src='';},360);}document.getElementById('lb-close').addEventListener('click',lbClose);document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();lbOpen((cur-1+imgs.length)%imgs.length);});document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();lbOpen((cur+1)%imgs.length);});ov.addEventListener('click',function(e){if(e.target===ov)lbClose();});document.addEventListener('keydown',function(e){if(!ov.classList.contains('open'))return;if(e.key==='Escape')lbClose();else if(e.key==='ArrowLeft')lbOpen((cur-1+imgs.length)%imgs.length);else if(e.key==='ArrowRight')lbOpen((cur+1)%imgs.length);});})();
-(function(){var nav=document.getElementById('nav');var lastY=0,ticking=false;window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var y=window.scrollY;if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}lastY=y;ticking=false;});ticking=true;}},{passive:true});})();
+// Hide/show nav + adaptive color + logo swap on scroll
+(function(){
+  var nav=document.getElementById('nav');
+  var lastY=0,ticking=false;
+  function getHeroH(){
+    var hero=document.querySelector('.hero-bg,.page-hero');
+    return hero?hero.offsetHeight-60:400;
+  }
+  function swapLogo(light){
+    var logo=document.getElementById('nav-logo');
+    if(!logo)return;
+    var want=light?'img/logo-dark.png':'img/logo-white.png';
+    if(logo.getAttribute('src')!==want)logo.src=want;
+  }
+  function updateNav(){
+    var y=window.scrollY;
+    if(y>lastY&&y>80){nav.classList.add('nav-hidden');}
+    else{nav.classList.remove('nav-hidden');}
+    var light=y>getHeroH();
+    if(light){nav.classList.add('nav-light');}
+    else{nav.classList.remove('nav-light');}
+    swapLogo(light);
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(updateNav);ticking=true;}
+  },{passive:true});
+  window.addEventListener('load',updateNav);
+  setTimeout(updateNav,100);
+})();
 
 // Mobile card dropdown
 (function(){

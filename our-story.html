@@ -1720,28 +1720,35 @@ document.querySelectorAll('.dish-card').forEach(card=>{
   });
 })();
 
-// Hide/show nav + adaptive color on scroll
+// Hide/show nav + adaptive color + logo swap on scroll
 (function(){
   var nav=document.getElementById('nav');
   var lastY=0,ticking=false;
-  // Threshold: height of the dark hero section
   function getHeroH(){
     var hero=document.querySelector('.hero-bg,.page-hero');
     return hero?hero.offsetHeight-60:400;
   }
+  function swapLogo(light){
+    var logo=document.getElementById('nav-logo');
+    if(!logo)return;
+    var want=light?'img/logo-dark.png':'img/logo-white.png';
+    if(logo.getAttribute('src')!==want)logo.src=want;
+  }
   function updateNav(){
     var y=window.scrollY;
-    // Hide/show
     if(y>lastY&&y>80){nav.classList.add('nav-hidden');}
     else{nav.classList.remove('nav-hidden');}
-    // Light/dark mode
-    if(y>getHeroH()){nav.classList.add('nav-light');}
+    var light=y>getHeroH();
+    if(light){nav.classList.add('nav-light');}
     else{nav.classList.remove('nav-light');}
+    swapLogo(light);
     lastY=y;ticking=false;
   }
   window.addEventListener('scroll',function(){
     if(!ticking){requestAnimationFrame(updateNav);ticking=true;}
   },{passive:true});
+  window.addEventListener('load',updateNav);
+  setTimeout(updateNav,100);
 })();
 
 // Mobile card dropdown
