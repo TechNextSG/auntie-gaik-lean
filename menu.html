@@ -288,18 +288,6 @@ p, li, td, blockquote { line-height: 1.9 }
   box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 0 1px rgba(212,175,55,.3);
   border-color:rgba(212,175,55,.35);
 }
-.menu-card-img-el{
-  width:100%;height:100%;
-  object-fit:cover;
-  transition:transform .6s ease;
-  display:block;
-}
-.menu-card-new:hover .menu-card-img-el{transform:scale(1.07)}
-.menu-card-img-placeholder{
-  width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,rgba(91,155,213,.08) 0%,rgba(6,13,46,.9) 100%);
-}
 .menu-card-img-overlay{
   position:absolute;inset:0;
   background:linear-gradient(to bottom,transparent 40%,rgba(4,8,28,.65) 100%);
@@ -359,6 +347,16 @@ p, li, td, blockquote { line-height: 1.9 }
 @media(max-width:640px){
   .dish-modal-card{grid-template-columns:1fr;max-height:96vh;overflow-y:auto}
 }
+/* No-photo dishes: clean single-column text modal (no placeholder) */
+.dish-modal-card.no-img{grid-template-columns:1fr;max-width:560px}
+.dish-modal-card.no-img .dish-modal-img-wrap{display:none}
+.dish-modal-cat-inline{display:none}
+.dish-modal-card.no-img .dish-modal-cat-inline{
+  display:inline-block;
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#D4AF37;margin-bottom:.85rem;
+}
 /* Close btn */
 .dish-modal-close{
   position:absolute;top:16px;right:16px;z-index:10;
@@ -390,19 +388,6 @@ p, li, td, blockquote { line-height: 1.9 }
   transition:transform .6s ease;
 }
 .dish-modal-overlay.open #modal-img-content img{transform:scale(1.04)}
-#modal-img-content .modal-placeholder{
-  width:100%;height:100%;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:.75rem;
-  background:linear-gradient(135deg,rgba(91,155,213,.08) 0%,rgba(4,11,38,.98) 100%);
-}
-#modal-img-content .modal-placeholder span{
-  font-family:'Playfair Display',serif;font-size:1.4rem;
-  color:rgba(212,175,55,.28);text-align:center;padding:0 1.5rem;
-}
-#modal-img-content .modal-placeholder small{
-  font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:rgba(255,255,255,.18);
-}
 .dish-modal-cat-badge{
   position:absolute;bottom:18px;left:18px;z-index:2;
   font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
@@ -1852,9 +1837,15 @@ function openDish(id) {
   
   document.getElementById('modal-cat-badge').textContent = d.cat;
   var ic = document.getElementById('modal-img-content');
-  ic.innerHTML = d.img
-    ? '<img src="' + d.img + '" alt="' + d.name + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>'
-    : '<div class="modal-placeholder"><span>' + d.name + '</span><small>Photo Coming Soon</small></div>';
+  var card = mo.querySelector('.dish-modal-card');
+  if (d.img) {
+    card.classList.remove('no-img');
+    ic.innerHTML = '<img src="' + d.img + '" alt="' + d.name + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>';
+  } else {
+    card.classList.add('no-img');
+    ic.innerHTML = '';
+  }
+  document.getElementById('modal-cat-inline').textContent = d.cat;
   document.getElementById('modal-desc').textContent = d.desc;
   var hl = document.getElementById('modal-highlights');
   hl.innerHTML = d.highlights.map(function(h) { return '<span>' + h + '</span>'; }).join('');
@@ -1919,9 +1910,9 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     </div>
     <!-- RIGHT: info -->
     <div class="dish-modal-body">
+      <span id="modal-cat-inline" class="dish-modal-cat-inline"></span>
       <div class="flex justify-between items-start gap-3 mb-0">
         <h2 id="modal-name" class="dish-modal-name"></h2>
-        
       </div>
       <div class="dish-modal-divider"></div>
       <p id="modal-desc" class="dish-modal-desc"></p>
