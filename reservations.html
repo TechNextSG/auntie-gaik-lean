@@ -1501,55 +1501,120 @@ function toggleFaq(el){
 (function(){
 // ── Knowledge base ──────────────────────────────────────────────────────
 var KB = [
-  {id:'hours',keys:['open','hour','time','lunch','dinner','when','close','closing','schedule','day','week','wednesday','sunday','monday'],
+  {id:'hours',keys:['open','hour','time','lunch','dinner','when','close','closing','schedule','day','week','wednesday','sunday','monday','operating'],
    q:'What are your opening hours?',
-   a:'We are open <strong>Wednesday to Sunday</strong>.<br>🕛 Lunch: 12:00pm – 2:30pm<br>🕕 Dinner: 6:00pm – 9:30pm<br><br>Closed Monday & Tuesday. Last seating 30 mins before closing.',
+   answers:[
+    'We are open <strong>Wednesday to Sunday</strong>.<br>🕛 Lunch: 12:00pm – 2:30pm<br>🕕 Dinner: 6:00pm – 9:30pm<br><br>Closed Monday & Tuesday. Last seating 30 mins before closing.',
+    '<strong>Wed – Sun only</strong>. Lunch from 12noon to 2:30pm, Dinner 6pm to 9:30pm.<br><br>We are closed on Mondays and Tuesdays. Do book ahead — tables fill quickly!',
+    'Opening hours: <strong>Lunch 12:00–2:30pm | Dinner 6:00–9:30pm</strong><br>Wednesday to Sunday only.<br><br>⚠️ Last seating is 30 minutes before closing.'
+   ],
    btn:{label:'Reserve a Table',href:'reservations.html',style:'gold'}},
+
   {id:'reserve',keys:['reserv','book','table','deposit','seat','booking','how to book','tableapp','advance'],
    q:'How do I make a reservation?',
-   a:'Book online via <strong>TableApp</strong> or WhatsApp us at <strong>+60 17-434 4398</strong>.<br><br>We recommend booking <strong>3–7 days in advance</strong>. A deposit of RM 200 nett confirms your booking.',
+   answers:[
+    'Book online via <strong>TableApp</strong> or WhatsApp us at <strong>+60 17-434 4398</strong>.<br><br>We recommend booking <strong>3–7 days ahead</strong>. A deposit of RM 200 nett confirms your booking.',
+    'You can reserve through <strong>TableApp</strong> (online booking) or reach us via <strong>WhatsApp: +60 17-434 4398</strong>.<br><br>Weekend tables fill up fast — book early! RM 200 deposit required.',
+    'Two easy ways to book:<br>📱 <strong>TableApp</strong> — instant online reservation<br>💬 <strong>WhatsApp</strong> us at +60 17-434 4398<br><br>Recommended: book 3–7 days in advance, especially for weekends.'
+   ],
    btn:{label:'Book via TableApp',href:'https://www.tableapp.com/partner/auntie-gaik-leans-old-school-eatery-penang',style:'gold',external:true}},
+
   {id:'location',keys:['where','address','location','find','bishop','george town','penang','direction','map','gps','how to get'],
    q:'Where are you located?',
-   a:'We are at <strong>1 Bishop Street, George Town, 10200 Penang</strong> — UNESCO World Heritage Zone.',
+   answers:[
+    'We are at <strong>1 Bishop Street, George Town, 10200 Penang</strong> — right in the UNESCO World Heritage Zone.',
+    'Find us at <strong>1 Bishop Street (Lebuh Bishop), George Town, Penang</strong> — a beautifully restored heritage shophouse in the heart of the old city.',
+    '📍 <strong>1 Bishop Street, George Town, Penang 10200</strong><br>We're in the UNESCO World Heritage Zone, about 5 minutes' walk from most hotels in the area.'
+   ],
    btn:{label:'Get Directions',href:'https://maps.google.com/?q=Auntie+Gaik+Lean+1+Bishop+Street+Penang',style:'outline',external:true}},
+
   {id:'parking',keys:['park','parking','car','drive','grab','taxi','transport','uber'],
    q:'Is there parking nearby?',
-   a:'Limited street parking on <strong>Bishop Street</strong>. Nearest paid car parks on Penang Street and Carnarvon Street — within 5 minutes walk.<br><br>Grab and taxis drop off directly in front.',
+   answers:[
+    'Limited street parking on <strong>Bishop Street</strong>. Nearest paid car parks on Penang Street and Carnarvon Street — within 5 minutes walk. Grab and taxis drop off directly in front.',
+    'Street parking is available on Bishop Street (limited). <strong>Penang Street</strong> and <strong>Carnarvon Street</strong> have paid car parks, both under 5 min walk. Grab drops off right at the entrance.',
+    '🚗 Street parking: Bishop Street (limited)<br>🏢 Paid car parks: Penang St & Carnarvon St (~5 min walk)<br>🚕 Grab/taxi: drop-off directly in front of the restaurant.'
+   ],
    btn:{label:'View Location',href:'visit-us.html',style:'outline'}},
+
   {id:'menu',keys:['menu','food','dish','eat','cuisine','nyonya','peranakan','serve','halal','pork','alcohol','vegetarian','dietary','ingredient'],
    q:'What type of food do you serve?',
-   a:'Authentic <strong>Nyonya (Peranakan) cuisine</strong> — completely <strong>pork-free and alcohol-free</strong>.<br><br>Signature dishes: Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee, and more. Everything made from scratch.',
+   answers:[
+    'Authentic <strong>Nyonya (Peranakan) cuisine</strong> — completely <strong>pork-free and alcohol-free</strong>.<br><br>Signatures: Kari Kapitan, Nasi Ulam, Gulai Tumis, Pie Tee. Everything made entirely from scratch.',
+    'We specialise in <strong>homestyle Nyonya (Peranakan)</strong> cooking — the living legacy of Chinese-Malay culinary heritage. Our menu is <strong>100% pork-free and alcohol-free</strong>.',
+    'Peranakan cuisine at its most authentic — <strong>no packets, no shortcuts</strong>. Our rempah is hand-ground daily. Featured dishes: Kari Kapitan, Gulai Tumis, Nasi Ulam, Inche Kabin and more.'
+   ],
    btn:{label:'View Full Menu',href:'menu.html',style:'gold'}},
+
   {id:'michelin',keys:['michelin','star','award','recogni','famous','best','rated','guide','inspector','2022','2023','2024','2025'],
    q:'Tell me about your Michelin Star',
-   a:'We have held <strong>One Michelin Star for four consecutive years</strong> (2022–2025) 🌟<br><br>Malaysia\'s first Michelin-starred homestyle Peranakan restaurant, awarded to <strong>Beh Gaik Lean</strong> at age 69.',
+   answers:[
+    'We have held <strong>One Michelin Star for four consecutive years</strong> (2022–2025) 🌟<br><br>Malaysia's first Michelin-starred homestyle Peranakan restaurant — awarded to <strong>Beh Gaik Lean</strong> at age 69.',
+    '🌟 <strong>One Michelin Star, 4 years running</strong> (2022, 2023, 2024, 2025).<br><br>We are proud to be <strong>Malaysia's first Michelin-starred Nyonya restaurant</strong>. The star was awarded to Auntie Gaik Lean personally.',
+    'Auntie Gaik Lean made history in 2022 as the <strong>first Malaysian woman</strong> to receive a Michelin star — at 69 years old. We've retained it every year since, through 2025. 🌟'
+   ],
    btn:{label:'Our Press Coverage',href:'press.html',style:'outline'}},
+
   {id:'chef',keys:['chef','auntie','gaik','lean','beh','cook','founder','owner','who','story'],
    q:'Who is Auntie Gaik Lean?',
-   a:'<strong>Beh Gaik Lean</strong> is a fourth-generation Nyonya who began cooking at age 12.<br><br>She made history in December 2022 as the <strong>first Malaysian woman to receive a Michelin star</strong> — at age 69.',
+   answers:[
+    '<strong>Beh Gaik Lean</strong> is a fourth-generation Nyonya who began cooking at age 12.<br><br>She made history in December 2022 as the <strong>first Malaysian woman to receive a Michelin star</strong> — at 69.',
+    'Auntie Gaik Lean (<strong>Beh Gaik Lean</strong>) learned Nyonya cooking from her mother at age 12. Her recipes have never been written down — they live in her hands and her memory.',
+    'The heart and soul of the restaurant. <strong>Beh Gaik Lean</strong> has been cooking Nyonya food for over 50 years. In 2022, the world took notice — she became Malaysia's first female Michelin-starred chef. 👩‍🍳'
+   ],
    btn:{label:'Read Our Story',href:'our-story.html',style:'outline'}},
+
   {id:'deposit',keys:['deposit','cancel','refund','policy','200','rm','fee','forfeit'],
    q:'What is the deposit policy?',
-   a:'A deposit of <strong>RM 200 nett</strong> confirms your reservation.<br><br>✅ Fully refundable with <strong>48+ hours notice</strong><br>❌ Forfeit with less than 48 hours notice',
+   answers:[
+    'A deposit of <strong>RM 200 nett</strong> confirms your reservation.<br><br>✅ Fully refundable with <strong>48+ hours notice</strong><br>❌ Forfeit with less than 48 hours notice',
+    '<strong>RM 200 nett</strong> deposit required to confirm your booking — applied to your final bill.<br><br>Cancellations with 48+ hours notice: full refund. Less than 48 hours: deposit is forfeited.',
+    'To secure your table: <strong>RM 200 deposit</strong> (deducted from your bill).<br>Cancel 48+ hours before: full refund ✅<br>Cancel under 48 hours: no refund ❌<br><br>Plans change? Contact us ASAP via WhatsApp.'
+   ],
    btn:{label:'Make a Reservation',href:'reservations.html',style:'gold'}},
+
   {id:'group',keys:['group','large','party','private','corporate','function','event','12','people','pax'],
    q:'Can I book for a large group?',
-   a:'For groups of <strong>12 or more</strong>, contact us via WhatsApp at +60 17-434 4398 for private dining.<br><br>Walk-ins welcome for <strong>3 or fewer</strong>, subject to availability.',
+   answers:[
+    'For groups of <strong>12 or more</strong>, contact us via WhatsApp at +60 17-434 4398 for private dining.<br><br>Walk-ins welcome for <strong>3 or fewer</strong>, subject to availability.',
+    'Private dining available for <strong>12+ guests</strong> — just WhatsApp us at +60 17-434 4398 to arrange.<br><br>For smaller groups (4–11), please book via TableApp in advance.',
+    '👥 <strong>12 or more?</strong> WhatsApp us for private dining arrangements.<br>👥 <strong>4–11 guests?</strong> Book via TableApp — book early!<br>👥 <strong>1–3 guests?</strong> Walk-ins welcome, subject to availability.'
+   ],
    btn:{label:'WhatsApp Us',href:'https://wa.me/60174344398',style:'gold',external:true}},
+
   {id:'walkin',keys:['walk','walk-in','walkin','without reservation','no booking','drop','just come','visit'],
    q:'Can I walk in without a reservation?',
-   a:'Walk-ins welcome for <strong>groups of 3 or fewer</strong>, subject to availability.<br><br>For 4 or more, we <strong>strongly recommend booking</strong> in advance — especially on weekends.',
+   answers:[
+    'Walk-ins welcome for <strong>groups of 3 or fewer</strong>, subject to availability.<br><br>For 4+, we <strong>strongly recommend booking</strong> — especially on weekends.',
+    'You can walk in for <strong>up to 3 people</strong>, but it's not guaranteed. Weekends and public holidays fill up very fast. To be safe, book ahead!',
+    'Walk-ins: <strong>1–3 pax accepted</strong> (subject to seats available).<br><br>For 4 or more guests, please reserve in advance. We'd hate for you to make the journey and miss out. 😊'
+   ],
    btn:{label:'Book in Advance',href:'reservations.html',style:'gold'}},
+
   {id:'contact',keys:['contact','phone','call','whatsapp','number','email','reach','talk','speak'],
    q:'How can I contact you?',
-   a:'📞 <a href="tel:+60174344398" style="color:#D4AF37">+60 17-434 4398</a><br>💬 <a href="https://wa.me/60174344398" target="_blank" style="color:#D4AF37">WhatsApp: +60 17-434 4398</a><br><br>We reply fastest via WhatsApp (Wed–Sun).',
+   answers:[
+    '📞 <a href="tel:+60174344398" style="color:#D4AF37">+60 17-434 4398</a><br>💬 <a href="https://wa.me/60174344398" target="_blank" style="color:#D4AF37">WhatsApp: +60 17-434 4398</a><br><br>We reply fastest via WhatsApp during operating hours (Wed–Sun).',
+    'Best way to reach us: <strong>WhatsApp at +60 17-434 4398</strong>. We're available Wednesday to Sunday during service hours.',
+    'You can call or WhatsApp us at <a href="tel:+60174344398" style="color:#D4AF37"><strong>+60 17-434 4398</strong></a>.<br><br>📱 WhatsApp is the fastest — we typically reply within minutes during opening hours.'
+   ],
    btn:{label:'Send WhatsApp',href:'https://wa.me/60174344398?text=Hello',style:'gold',external:true}},
+
   {id:'dress',keys:['dress','wear','code','attire','smart','casual','formal','cloth','outfit'],
    q:'Is there a dress code?',
-   a:'No strict dress code — <strong>smart casual</strong> is perfect. Come comfortable and enjoy the experience! 😊',
+   answers:[
+    'No strict dress code — <strong>smart casual</strong> is perfect. Come comfortable and enjoy the experience! 😊',
+    'We keep it relaxed — <strong>smart casual</strong> is ideal. No need to dress up formally, just come as you are and enjoy the food!',
+    'No dress code! Just come comfortable. <strong>Smart casual</strong> fits in perfectly here. We want you to relax and focus on the food. 😊'
+   ],
    btn:{label:'Reserve a Table',href:'reservations.html',style:'gold'}}
 ];
+
+// Pick a random answer
+function getAnswer(kb){
+  var arr=kb.answers||[kb.a||''];
+  return arr[Math.floor(Math.random()*arr.length)];
+}
 
 // ── State ─────────────────────────────────────────────────────────────────
 var usedQIds=[],allQIds=KB.map(function(k){return k.id;}),isOpen=false,greeted=false;
@@ -1615,7 +1680,7 @@ function answerKb(kb){
   setTimeout(function(){
     removeTyping();
     // Answer bubble
-    var bubble=addMsg(kb.a,'chat-bot-msg');
+    var bubble=addMsg(getAnswer(kb),'chat-bot-msg');
     // Action button inside bubble
     if(kb.btn){
       bubble.appendChild(document.createElement('br'));
@@ -1653,7 +1718,7 @@ function chatSend(){
     removeTyping();
     if(match){
       usedQIds.push(match.id);
-      var bubble=addMsg(match.a,'chat-bot-msg');
+      var bubble=addMsg(getAnswer(match),'chat-bot-msg');
       if(match.btn){bubble.appendChild(document.createElement('br'));bubble.appendChild(makeCTABtn(match.btn));}
       scrollChat();
       showSuggestions(match.id);
