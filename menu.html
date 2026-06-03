@@ -1036,9 +1036,14 @@ p, li, td, blockquote { line-height: 1.9 }
 
 <!-- HERO -->
 <section class="page-hero flex items-start justify-center" style="min-height:80vh;padding-top:90px">
+  <!-- Hero background photo -->
+  <img src="img/menu-hero.jpg" alt="Auntie Gaik Lean's signature Nyonya dishes" class="absolute inset-0 w-full h-full" style="object-fit:cover;object-position:center center;z-index:0;pointer-events:none"/>
+  <!-- Dark masking (same as index.html) -->
+  <div class="absolute inset-0 pointer-events-none" style="background:rgba(4,8,26,.48);z-index:1"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,26,.70) 0%,rgba(4,8,26,.28) 45%,rgba(4,8,26,.75) 100%);z-index:1"></div>
   <div class="hero-rays"></div>
   <div class="star-field" id="stars"></div>
-  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom,rgba(4,8,28,.88) 0%,rgba(4,8,28,.55) 50%,rgba(4,8,28,.92) 100%)"></div>
+
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" style="padding-top:2rem;padding-bottom:3rem">
     <div class="in-view" style="margin-bottom:1.5rem">
       <span class="hero-eyebrow" style="font-family:\'Inter\',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#D4AF37">Taste the Heritage</span>
