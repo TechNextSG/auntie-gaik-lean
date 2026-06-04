@@ -1444,6 +1444,7 @@ var usedQIds=[],allQIds=KB.map(function(k){return k.id;}),isOpen=false,greeted=f
 
 // ── Helpers ───────────────────────────────────────────────────────────────
 function scrollChat(){var m=document.getElementById('chat-messages');m.scrollTop=m.scrollHeight;}
+function tr(s){try{if(localStorage.getItem('aglLang')==='zh'&&window.AGL_CHAT_ZH&&Object.prototype.hasOwnProperty.call(window.AGL_CHAT_ZH,s))return window.AGL_CHAT_ZH[s];}catch(e){}return s;}
 function addMsg(html,cls){
   var m=document.getElementById('chat-messages');
   var d=document.createElement('div');d.className=cls;d.innerHTML=html;
@@ -1464,7 +1465,7 @@ function makeCTABtn(btn){
     +'transition:opacity .2s;cursor:pointer;';
   a.onmouseover=function(){this.style.opacity='.8';};
   a.onmouseout=function(){this.style.opacity='1';};
-  a.textContent=btn.label;
+  a.textContent=tr(btn.label);
   if(btn.external){
     var svg=document.createElement('span');svg.textContent=' ↗';svg.style.fontSize='10px';
     a.appendChild(svg);
@@ -1486,7 +1487,7 @@ function showSuggestions(excludeId){
   var m=document.getElementById('chat-messages');
   var wrap=document.createElement('div');wrap.className='chat-suggestions';
   sugs.forEach(function(kb){
-    var btn=document.createElement('button');btn.className='chat-sug';btn.textContent=kb.q;
+    var btn=document.createElement('button');btn.className='chat-sug';btn.textContent=tr(kb.q);
     btn.onclick=function(){answerKb(kb);};wrap.appendChild(btn);
   });
   m.appendChild(wrap);scrollChat();
@@ -1496,14 +1497,14 @@ function answerKb(kb){
   usedQIds.push(kb.id);
   var m=document.getElementById('chat-messages');
   m.querySelectorAll('.chat-suggestions').forEach(function(s){s.remove();});
-  addMsg(kb.q,'chat-user-msg');
+  addMsg(tr(kb.q),'chat-user-msg');
   var t=document.createElement('div');t.id='chat-typing';t.className='chat-typing';
   t.innerHTML='<span></span><span></span><span></span>';
   m.appendChild(t);scrollChat();
   setTimeout(function(){
     removeTyping();
     // Answer bubble
-    var bubble=addMsg(getAnswer(kb),'chat-bot-msg');
+    var bubble=addMsg(tr(getAnswer(kb)),'chat-bot-msg');
     // Action button inside bubble
     if(kb.btn){
       bubble.appendChild(document.createElement('br'));
@@ -1541,12 +1542,12 @@ function chatSend(){
     removeTyping();
     if(match){
       usedQIds.push(match.id);
-      var bubble=addMsg(getAnswer(match),'chat-bot-msg');
+      var bubble=addMsg(tr(getAnswer(match)),'chat-bot-msg');
       if(match.btn){bubble.appendChild(document.createElement('br'));bubble.appendChild(makeCTABtn(match.btn));}
       scrollChat();
       showSuggestions(match.id);
     } else {
-      var bubble=addMsg('I\'m not sure about that — but I can help with our hours, reservations, menu, location and more. Or contact us directly! 😊','chat-bot-msg');
+      var bubble=addMsg(tr('I\'m not sure about that — but I can help with our hours, reservations, menu, location and more. Or contact us directly! 😊'),'chat-bot-msg');
       bubble.appendChild(document.createElement('br'));
       bubble.appendChild(makeCTABtn({label:'WhatsApp Us',href:'https://wa.me/60174344398',style:'gold',external:true}));
       scrollChat();
@@ -1569,7 +1570,7 @@ function chatToggle(){
     greeted=true;
     var m=document.getElementById('chat-messages');
     var d=document.createElement('div');d.className='chat-bot-msg';
-    d.innerHTML='👋 Hello! I\'m here to help with questions about <strong>Auntie Gaik Lean\'s Old School Eatery</strong>.<br><br>What would you like to know?';
+    d.innerHTML=tr('👋 Hello! I\'m here to help with questions about <strong>Auntie Gaik Lean\'s Old School Eatery</strong>.<br><br>What would you like to know?');
     m.appendChild(d);
     showSuggestions(null);
   }
