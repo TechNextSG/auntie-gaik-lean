@@ -977,6 +977,23 @@ p, li, td, blockquote { line-height: 1.9 }
   /* Pages with specific people positioning */
 }
 </style>
+<style id="lang-css">
+.lang-btn{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.03em;
+  color:rgba(255,255,255,.85);background:rgba(255,255,255,.08);
+  border:1px solid rgba(212,175,55,.45);border-radius:6px;
+  padding:.42rem .58rem;cursor:pointer;transition:all .2s;line-height:1;white-space:nowrap;flex-shrink:0}
+.lang-btn:hover{background:rgba(212,175,55,.18);border-color:#D4AF37;color:#D4AF37}
+#nav.nav-light .lang-btn{color:#060D2E;border-color:rgba(212,175,55,.6);background:rgba(6,13,46,.05)}
+#nav.nav-light .lang-btn:hover{background:#D4AF37;color:#060D2E}
+@media(max-width:767px){.lang-btn{font-size:11px;padding:.4rem .5rem}}
+/* Suppress Google Translate banner + prevent body shift */
+.goog-te-banner-frame.skiptranslate{display:none!important}
+.skiptranslate>iframe{display:none!important;visibility:hidden!important}
+body{top:0!important}
+#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+#google_translate_element{display:none!important}
+</style>
 </head>
 <body>
 
@@ -995,6 +1012,7 @@ p, li, td, blockquote { line-height: 1.9 }
       <a href="visit-us.html" class="text-white/85 hover:text-yellow-400 text-sm tracking-wide transition-colors nav-link" style="font-family:'Inter',sans-serif">Visit Us</a>
     </div>
     <div class="flex items-center justify-end gap-2 md:gap-3 col-start-3">
+      <button id="lang-toggle" type="button" onclick="aglToggleLang()" class="lang-btn notranslate" translate="no" aria-label="Switch language to Chinese" title="中文 / English">中文</button>
       <a href="reservations.html" class="btn-reserve-nav hidden md:inline-block">Reserve</a>
       <button id="mob-toggle-btn" onclick="mobCardToggle()" aria-label="Menu"><svg id="mob-bars" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 7h18M3 12h18M3 17h18"/></svg><svg id="mob-x-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
@@ -2319,5 +2337,36 @@ window.chatSend=chatSend;
 })();
 </script>
 
+<!-- GOOGLE TRANSLATE ENGINE -->
+<div id="google_translate_element"></div>
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,zh-CN',autoDisplay:false},'google_translate_element');
+}
+function aglGetTrans(){
+  var m=document.cookie.match(/googtrans=([^;]+)/);
+  return m?decodeURIComponent(m[1]):'';
+}
+function aglSetTrans(v){
+  document.cookie='googtrans='+v+';path=/';
+  try{document.cookie='googtrans='+v+';path=/;domain='+location.hostname;}catch(e){}
+}
+function aglToggleLang(){
+  var cur=aglGetTrans();
+  if(cur.indexOf('zh-CN')>=0){aglSetTrans('/en/en');}
+  else{aglSetTrans('/en/zh-CN');}
+  location.reload();
+}
+(function(){
+  function sync(){
+    var b=document.getElementById('lang-toggle');
+    if(b)b.textContent=(aglGetTrans().indexOf('zh-CN')>=0)?'EN':'中文';
+  }
+  if(document.readyState!=='loading')sync();
+  else document.addEventListener('DOMContentLoaded',sync);
+})();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- /GOOGLE TRANSLATE ENGINE -->
 </body>
 </html>
