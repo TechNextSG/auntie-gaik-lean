@@ -48,9 +48,9 @@ nav{background:transparent!important}
 .label-ornament::before,.label-ornament::after{content:'';display:inline-block;width:32px;height:1px;background:rgba(212,175,55,.35);vertical-align:middle;margin:0 10px}
 .quote-mark{font-family:'Playfair Display',serif;font-size:4.5rem;line-height:.5;color:rgba(212,175,55,.28);display:block;margin-bottom:6px}
 
-@keyframes twinkle{0%,100%{opacity:.08;transform:scale(1)}20%{opacity:.95;transform:scale(1.5)}50%{opacity:.12}80%{opacity:.7;transform:scale(1.2)}}
-@keyframes twinkle2{0%,100%{opacity:.04}30%{opacity:1;transform:scale(1.8)}65%{opacity:.08}}
-@keyframes twinkle3{0%,100%{opacity:.15;transform:scale(1) rotate(0deg)}40%{opacity:.9;transform:scale(1.4) rotate(45deg)}70%{opacity:.2}}
+@keyframes twinkle{0%,100%{opacity:.08;transform:scale(1)}20%{opacity:.26;transform:scale(1.06)}50%{opacity:.12}80%{opacity:.17;transform:scale(1.03)}}
+@keyframes twinkle2{0%,100%{opacity:.04}30%{opacity:.24;transform:scale(1.08)}65%{opacity:.08}}
+@keyframes twinkle3{0%,100%{opacity:.15;transform:scale(1) rotate(0deg)}40%{opacity:.22;transform:scale(1.06)}70%{opacity:.2}}
 @keyframes sparkCross{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}30%,70%{opacity:.3;transform:scale(1) rotate(45deg)}50%{opacity:1;transform:scale(1.2) rotate(45deg)}}
 .star-field{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
 .star-field span{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite;animation-delay:var(--delay,0s)}
@@ -1618,15 +1618,15 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
   if(window.innerWidth<=767)return;
   const c=document.getElementById('stars');if(!c)return;
   const mobile=window.innerWidth<768;
-  const count=mobile?20:45;
+  const count=mobile?10:22;
   const vars=['','t2','t3'];
   const frag=document.createDocumentFragment();
   for(let i=0;i<count;i++){
     const s=document.createElement('span');
-    const isCross=!mobile&&Math.random()<0.04;
+    const isCross=false;
     const sz=isCross?(4+Math.random()*4).toFixed(0):(Math.random()<.15?3:Math.random()<.4?2:1);
     s.className=isCross?'cross':vars[Math.floor(Math.random()*3)];
-    s.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;--d:'+(1.8+Math.random()*5).toFixed(1)+'s;--delay:-'+(Math.random()*6).toFixed(1)+'s;width:'+sz+'px;height:'+sz+'px;';
+    s.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;--d:'+(4.5+Math.random()*5).toFixed(1)+'s;--delay:-'+(Math.random()*6).toFixed(1)+'s;width:'+sz+'px;height:'+sz+'px;';
     frag.appendChild(s);
   }
   c.appendChild(frag);
