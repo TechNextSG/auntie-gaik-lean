@@ -2285,7 +2285,89 @@ document.querySelectorAll('.dish-card').forEach(c=>{
   <div id="lb-caption"></div>
 </div>
 
-<script src="i18n.js?v=4"></script>
+<script src="i18n.js?v=5"></script>
+<!-- FLOATING RESERVE BUTTON + BOOKING FORM (home page only) -->
+<div id="reserve-fab-wrap">
+  <button id="reserve-fab" type="button" onclick="openReserveModal()" aria-label="Reserve a Table">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+    <span>Reserve</span>
+  </button>
+</div>
+
+<div id="reserve-overlay" role="dialog" aria-modal="true" aria-label="Reserve a Table">
+  <div id="reserve-modal">
+    <div id="reserve-modal-head">
+      <span class="reserve-head-title">Reserve a Table</span>
+      <button id="reserve-close" type="button" onclick="closeReserveModal()" aria-label="Close">&#10005;</button>
+    </div>
+    <div id="reserve-modal-body">
+      <div id="reserve-loading">Loading booking form&hellip;</div>
+      <iframe id="reserve-iframe" title="Reserve a Table" loading="lazy" allow="payment"
+        data-src="https://inline.app/booking/-OnKy8jPaRn_LUmJ5tDV:inline-live-4/-OnKy8r2gI9_CX8R2D7X"></iframe>
+    </div>
+    <div id="reserve-modal-foot">
+      <a href="https://inline.app/booking/-OnKy8jPaRn_LUmJ5tDV:inline-live-4/-OnKy8r2gI9_CX8R2D7X" target="_blank" rel="noopener">Trouble loading? Open the booking page &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<style>
+#reserve-fab-wrap{position:fixed;bottom:1.65rem;right:5.6rem;z-index:9989;font-family:'Inter',sans-serif}
+#reserve-fab{display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  background:linear-gradient(135deg,#E8C84A,#D4AF37);color:#060D2E;border:none;border-radius:30px;
+  padding:.72rem 1.15rem;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1;
+  box-shadow:0 4px 20px rgba(212,175,55,.45);transition:transform .2s,box-shadow .2s;white-space:nowrap}
+#reserve-fab:hover{transform:translateY(-2px);box-shadow:0 9px 30px rgba(212,175,55,.6)}
+#reserve-fab svg{flex-shrink:0}
+
+#reserve-overlay{position:fixed;inset:0;z-index:10080;display:none;align-items:center;justify-content:center;padding:1.5rem;
+  background:rgba(2,5,20,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#reserve-overlay.open{display:flex;animation:resvFade .3s ease}
+@keyframes resvFade{from{opacity:0}to{opacity:1}}
+#reserve-modal{position:relative;width:100%;max-width:460px;height:min(680px,90vh);display:flex;flex-direction:column;
+  background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,.4);
+  box-shadow:0 40px 120px rgba(0,0,0,.7);animation:resvPop .4s cubic-bezier(.34,1.2,.64,1)}
+@keyframes resvPop{from{transform:translateY(20px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+#reserve-modal-head{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+  background:linear-gradient(135deg,#060D2E,#0A1645);padding:1rem 1.2rem}
+.reserve-head-title{color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600}
+#reserve-close{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.7);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1}
+#reserve-close:hover{background:rgba(212,175,55,.2);border-color:#D4AF37;color:#D4AF37;transform:rotate(90deg)}
+#reserve-modal-body{position:relative;flex:1;min-height:0;background:#f7f8fa}
+#reserve-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#8a93a0;font-family:'Inter',sans-serif;font-size:.85rem}
+#reserve-iframe{position:relative;width:100%;height:100%;border:0;display:block;background:transparent}
+#reserve-modal-foot{flex-shrink:0;text-align:center;padding:.6rem;background:#fff;border-top:1px solid #eef0f3}
+#reserve-modal-foot a{font-family:'Inter',sans-serif;font-size:11px;color:#8a7320;text-decoration:none;letter-spacing:.02em}
+#reserve-modal-foot a:hover{color:#D4AF37;text-decoration:underline}
+@media(max-width:767px){
+  #reserve-fab-wrap{bottom:1.15rem;right:4.6rem}
+  #reserve-fab{padding:.6rem .9rem;font-size:11px}
+  #reserve-overlay{padding:.5rem}
+  #reserve-modal{max-width:none;height:92vh}
+}
+</style>
+
+<script>
+function openReserveModal(){
+  var o=document.getElementById('reserve-overlay');
+  var f=document.getElementById('reserve-iframe');
+  if(!f.getAttribute('src')){ f.setAttribute('src', f.getAttribute('data-src')); }
+  o.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeReserveModal(){
+  document.getElementById('reserve-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+(function(){
+  var o=document.getElementById('reserve-overlay');
+  if(o){ o.addEventListener('click',function(e){ if(e.target===o) closeReserveModal(); }); }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && o && o.classList.contains('open')) closeReserveModal(); });
+})();
+</script>
+<!-- /FLOATING RESERVE BUTTON + BOOKING FORM -->
 </body>
 </html>
 
