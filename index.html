@@ -702,11 +702,13 @@ p, li, td, blockquote { line-height: 1.9 }
   .news-card .p-7{padding:1rem!important}
   .news-card .p-6{padding:.85rem!important}
 
-  /* ── Dish cards (index.html) ── */
-  .dish-card .overflow-hidden.h-52{height:140px!important}
+  /* ── Dish cards (index.html): maximise to frame on mobile ── */
+  .dish-card .overflow-hidden.h-52{height:auto!important;aspect-ratio:4/5}
   #dish-grid{
     grid-template-columns:1fr!important;
-    gap:.75rem!important;
+    gap:1rem!important;
+    margin-left:-12px!important;
+    margin-right:-12px!important;
   }
 
   /* ── Press/news article grids → single col ── */
