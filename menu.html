@@ -1145,744 +1145,457 @@ p, li, td, blockquote { line-height: 1.9 }
     <div class="reveal flex flex-wrap justify-center gap-3 mb-12">
       <button class="filter-tab active" data-filter="all">All</button>
       <button class="filter-tab" data-filter="appetiser">Appetiser</button>
-      <button class="filter-tab" data-filter="bak">Chicken & Beef</button>
-      <button class="filter-tab" data-filter="chye">Vegetables</button>
-      <button class="filter-tab" data-filter="rice">Rice & Noodles</button>
-      <button class="filter-tab" data-filter="seafood">Seafood</button>
-      <button class="filter-tab" data-filter="fish">Fish</button>
-      <button class="filter-tab" data-filter="nui">Omelette</button>
       <button class="filter-tab" data-filter="soup">Soup</button>
-      <button class="filter-tab" data-filter="specials">Specials</button>
+      <button class="filter-tab" data-filter="chye">Vegetables</button>
+      <button class="filter-tab" data-filter="bak">Chicken & Beef</button>
+      <button class="filter-tab" data-filter="fish">Fish</button>
+      <button class="filter-tab" data-filter="seafood">Seafood</button>
+      <button class="filter-tab" data-filter="nui">Egg</button>
+      <button class="filter-tab" data-filter="rice">Rice & Noodles</button>
       <button class="filter-tab" data-filter="dessert">Dessert</button>
       <button class="filter-tab" data-filter="drinks">Drinks</button>
-      <button class="filter-tab" data-filter="alcohol">Alcohol</button>
     </div>
     <!-- Menu Grid -->
     <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('pie-tee')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('kuih-pie-tee')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Pie Tee (Top Hats)</h3>
-          </div>
-          <p class="menu-card-teaser">Crispy tart shells with sweet vegetable & chicken filling.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kuih Pie Tee (Top Hats)</h3></div>
+          <p class="menu-card-teaser">Crispy thin pastry cups with sautéed julienned vegetables, prawn, chicken and crabmeat.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('lor-bak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('lor-bak')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Lor Bak</h3>
-          </div>
-          <p class="menu-card-teaser">Deep-fried 5-spice braised chicken meat roll.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Lor Bak</h3></div>
+          <p class="menu-card-teaser">Five-spice marinated chicken rolled in beancurd skin and crispy-fried.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('cucur-udang')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('cucur-udang')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Cucur Udang</h3>
-          </div>
-          <p class="menu-card-teaser">Deep-fried prawn & vegetable fritters.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Cucur Udang</h3></div>
+          <p class="menu-card-teaser">Crispy golden prawn fritters with julienned vegetables.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('acar-awak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('otak-otak')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Acar Awak</h3>
-          </div>
-          <p class="menu-card-teaser">Pickled vegetables — tangy and refreshing.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Otak-Otak</h3></div>
+          <p class="menu-card-teaser">Steamed fish custard with wild betel leaf, local herbs and spices.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="appetiser" onclick="openDish('otak-otak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('acar-awak')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Otak-Otak</h3>
-          </div>
-          <p class="menu-card-teaser">Steamed fish paste with a mixture of spices.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Acar Awak</h3></div>
+          <p class="menu-card-teaser">Spicy pickled mixed vegetables topped with crushed peanuts and sesame seeds.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="appetiser" onclick="openDish('baba-delight')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="appetiser" onclick="openDish('baba-delight')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Baba Delight</h3>
-          </div>
-          <p class="menu-card-teaser">A platter of Pie Tee, Lor Bak, Cucur Udang & Acar Awak.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Baba Delight</h3></div>
+          <p class="menu-card-teaser">A sharing selection of local favourites: Kuih Pie Tee, Lor Bak, Cucur Udang, Otak-Otak and Acar Awak.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('curry-kapitan')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="soup" onclick="openDish('kiam-chye-ark')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kari Kapitan</h3>
-          </div>
-          <p class="menu-card-teaser">The signature Nyonya chicken curry — rich, creamy, legendary.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kiam Chye Ark</h3></div>
+          <p class="menu-card-teaser">Slow-simmered duck soup with salted mustard greens and shiitake mushrooms.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('nyonya-curry-chicken')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="soup" onclick="openDish('hu-peow-chap-chye')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nyonya Curry Chicken</h3>
-          </div>
-          <p class="menu-card-teaser">Traditional spiced curry chicken with potatoes.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Hu Peow Chap Chye Soup</h3></div>
+          <p class="menu-card-teaser">Fish maw and mixed vegetables in a light broth.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('hong-kae')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('jiu-hu-char')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Hong Kae</h3>
-          </div>
-          <p class="menu-card-teaser">Fragrant braised chicken with sand ginger and coriander.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Jiu Hu Char</h3></div>
+          <p class="menu-card-teaser">A classic Nyonya stir-fry of julienned jicama, mixed vegetables, dried cuttlefish and mushrooms, served with sambal belacan and lettuce.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('inche-kabin')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('sambal-petai')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Inche Kabin</h3>
-          </div>
-          <p class="menu-card-teaser">Authentic Nyonya fried chicken marinated in spices & coconut milk.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="bak" onclick="openDish('tau-yew-chicken')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Tau Yew Chicken</h3>
-          </div>
-          <p class="menu-card-teaser">Dark soy braised chicken with hard-boiled eggs.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="bak" onclick="openDish('beef-rendang')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nyonya Beef Rendang</h3>
-          </div>
-          <p class="menu-card-teaser">Australian Black Angus beef in Peranakan-style stew curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('chicken-rendang')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Chicken Rendang</h3>
-          </div>
-          <p class="menu-card-teaser">Caramelised boneless chicken meat curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('jiu-hu-char')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Jiu Hu Char</h3>
-          </div>
-          <p class="menu-card-teaser">Stir-fried yam bean with shredded dried cuttlefish.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-petai')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Petai</h3>
-          </div>
-          <p class="menu-card-teaser">Stir-fried bitter beans with sambal belacan.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('terung-sambal')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Terung Sambal</h3>
-          </div>
-          <p class="menu-card-teaser">Aubergine with sweet chilli tangy sauce.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-kangkung')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Kangkung</h3>
-          </div>
-          <p class="menu-card-teaser">Water spinach with sambal belacan.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="chye" onclick="openDish('kerabu-pucuk-paku')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kerabu Pucuk Paku</h3>
-          </div>
-          <p class="menu-card-teaser">Hand-tossed fiddlehead fern with aromatic herbs.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="chye" onclick="openDish('sambal-bendi')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Bendi</h3>
-          </div>
-          <p class="menu-card-teaser">Okra with sambal belacan.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Sambal Petai</h3></div>
+          <p class="menu-card-teaser">Bitter beans stir-fried with prawns in house-made shrimp chilli paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('scallop-chap-chye')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Scallop Chap Chye Char</h3>
-          </div>
-          <p class="menu-card-teaser">Stir-fried mixed vegetables with scallops.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Scallop Chap Chye Char</h3></div>
+          <p class="menu-card-teaser">Stir-fried mixed vegetables with scallops and fermented soybean paste (tau cheow).</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('koh-kua-tau-cheow')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('terung-sambal')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Koh Kua Tau Cheow</h3>
-          </div>
-          <p class="menu-card-teaser">Stir-fried bitter gourd with fermented bean paste.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Terung Sambal</h3></div>
+          <p class="menu-card-teaser">Grilled aubergine coated in house-made sweet chilli paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('sambal-kacang-botol')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('sambal-greens')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Kacang Botol</h3>
-          </div>
-          <p class="menu-card-teaser">Winged bean with sambal belacan.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Sambal Kangkung / Bendi / Kacang Botol</h3></div>
+          <p class="menu-card-teaser">Choice of greens (water spinach, okra or winged beans) stir-fried with prawns in house-made shrimp chilli paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('kerabu-pucuk-paku')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kerabu Pucuk Paku</h3></div>
+          <p class="menu-card-teaser">Fiddlehead fern tossed with toasted coconut, aromatic herbs and a tangy, spicy sambal.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('kerabu-kacang-botol')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kerabu Kacang Botol</h3>
-          </div>
-          <p class="menu-card-teaser">Hand-tossed winged bean with aromatic herbs salad.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kerabu Kacang Botol</h3></div>
+          <p class="menu-card-teaser">Winged beans tossed with aromatic herbs in a tangy, spicy chilli dressing.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="rice" onclick="openDish('nasi-ulam')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('masak-titik')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nasi Ulam</h3>
-          </div>
-          <p class="menu-card-teaser">Authentic hand-tossed rice with 10+ fresh herbs & salted fish.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Masak Titik</h3></div>
+          <p class="menu-card-teaser">Sweet potato leaves and sweet potatoes in a spiced coconut broth.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('kerabu-bee-hoon')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('koh-kua-tau-cheow')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kerabu Bee Hoon</h3>
-          </div>
-          <p class="menu-card-teaser">Spicy hand-tossed rice vermicelli with herbs salad.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Koh Kua Tau Cheow</h3></div>
+          <p class="menu-card-teaser">Bitter gourd stir-fried with chicken in fermented soybean paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="rice" onclick="openDish('nyonya-fried-rice')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('kiam-hu-kut-gulai')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nyonya Fried Rice</h3>
-          </div>
-          <p class="menu-card-teaser">Spicy sambal fried rice.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kiam Hu Kut Gulai</h3></div>
+          <p class="menu-card-teaser">Coconut-based spiced curry with vegetables and salted fish bone.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="rice" onclick="openDish('petai-fried-rice')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="chye" onclick="openDish('perut-ikan')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Petai Fried Rice</h3>
-          </div>
-          <p class="menu-card-teaser">Spicy bitter bean fried rice.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Perut Ikan</h3></div>
+          <p class="menu-card-teaser">Pickled fish stomach with local herbs and vegetables in a spicy tamarind broth.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('fragrant-rice')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('curry-kapitan')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Fragrant Rice</h3>
-          </div>
-          <p class="menu-card-teaser">Steamed fragrant rice — per bowl.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Curry Kapitan</h3></div>
+          <p class="menu-card-teaser">Chicken in a rich curry with aromatic galangal, candlenuts, spices and fresh herbs.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('sambal-sotong')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('curry-chicken')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Octopus / Sotong</h3>
-          </div>
-          <p class="menu-card-teaser">Squid or octopus with shrimp paste curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Curry Chicken</h3></div>
+          <p class="menu-card-teaser">Chicken and potato curry with a balanced blend of warm spices and fresh herbs.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('kerabu-sotong')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('hong-kae')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kerabu Octopus / Sotong</h3>
-          </div>
-          <p class="menu-card-teaser">Hand-tossed squid with aromatic herbs salad.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Hong Kae</h3></div>
+          <p class="menu-card-teaser">Chicken braised with aromatic cekur (sand ginger), coriander seed and fresh herbs.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('asam-hae')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('inche-kabin')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Asam Hae</h3>
-          </div>
-          <p class="menu-card-teaser">Pan-fried tamarind prawn.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Inche Kabin</h3></div>
+          <p class="menu-card-teaser">Crispy-fried chicken marinated in aromatic spices, served with prawn crackers and Worcestershire dipping sauce.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="seafood" onclick="openDish('curry-hae')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('chicken-rendang')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Curry Hae</h3>
-          </div>
-          <p class="menu-card-teaser">Hot and sour prawn curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Chicken Rendang</h3></div>
+          <p class="menu-card-teaser">Chicken slow-cooked in a rich dry coconut curry with aromatic spices.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="seafood" onclick="openDish('sambal-udang')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('tau-yew-chicken')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sambal Udang</h3>
-          </div>
-          <p class="menu-card-teaser">Aromatic chilli prawn with cucumber.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Tau Yew Chicken</h3></div>
+          <p class="menu-card-teaser">Chicken braised in soy sauce with hard-boiled eggs.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="fish" onclick="openDish('gulai-tumis')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="bak" onclick="openDish('beef-rendang')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Gulai Tumis</h3>
-          </div>
-          <p class="menu-card-teaser">Traditional tamarind hot & sour fish curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Beef Rendang</h3></div>
+          <p class="menu-card-teaser">Black Angus beef slow-cooked in a rich and fragrant dry curry of aromatic spices.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-kunyit')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="fish" onclick="openDish('gulai-tumis')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Ikan Goreng Kunyit</h3>
-          </div>
-          <p class="menu-card-teaser">Turmeric fried fish with Nanchut sauce.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Gulai Tumis</h3></div>
+          <p class="menu-card-teaser">Fish with okra in a tangy and spicy tamarind-based curry.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-cili-api')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-kunyit')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Ikan Goreng Cili Api</h3>
-          </div>
-          <p class="menu-card-teaser">Deep-fried fish with chilli black sauce.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Ikan Goreng Kunyit with Nanchut Sauce</h3></div>
+          <p class="menu-card-teaser">Turmeric fried fish, served with nanchut sauce.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="fish" onclick="openDish('ikan-masak-lemak')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="fish" onclick="openDish('ikan-goreng-cili-api')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Ikan Masak Lemak</h3>
-          </div>
-          <p class="menu-card-teaser">Fried fish in creamy & spicy coconut curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Ikan Goreng Cili Api</h3></div>
+          <p class="menu-card-teaser">Crispy-fried fish coated in caramelised dark soy sauce with chillies.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="nui" onclick="openDish('chye-por-omelette')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="fish" onclick="openDish('kari-ikan')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Chye Por / Onion Omelette</h3>
-          </div>
-          <p class="menu-card-teaser">Dried radish omelette.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kari Ikan</h3></div>
+          <p class="menu-card-teaser">Deep-fried fish in an aromatic coconut curry with herbs and spices.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="nui" onclick="openDish('egg-belanda')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="seafood" onclick="openDish('assam-hae')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Egg Belanda</h3>
-          </div>
-          <p class="menu-card-teaser">Sunny side up egg with tamarind sauce.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Assam Hae</h3></div>
+          <p class="menu-card-teaser">Prawns pan-seared and coated in a tangy-sweet tamarind glaze.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="soup" onclick="openDish('kiam-chye-ark')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="seafood" onclick="openDish('curry-hae')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kiam Chye Ark</h3>
-          </div>
-          <p class="menu-card-teaser">Salted vegetable duck soup.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Curry Hae</h3></div>
+          <p class="menu-card-teaser">Prawns simmered in a spicy tamarind-based curry.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="soup" onclick="openDish('hu-peow-chap-chye')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="seafood" onclick="openDish('sambal-udang')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Hu Peow Chap Chye Th'ng</h3>
-          </div>
-          <p class="menu-card-teaser">Rich nourishing fish maw and vegetable soup.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Sambal Udang</h3></div>
+          <p class="menu-card-teaser">Prawns wok-fried in aromatic house-made chilli paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="specials" onclick="openDish('perut-ikan')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="seafood" onclick="openDish('sambal-sotong')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Perut Ikan</h3>
-          </div>
-          <p class="menu-card-teaser">Nyonya pickled fish stomach curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Sambal Sotong / Octopus</h3></div>
+          <p class="menu-card-teaser">Squid or octopus stir-fried in an aromatic house-made chilli paste.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="specials" onclick="openDish('kiam-hu-kut-gulai')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="seafood" onclick="openDish('kerabu-sotong')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kiam Hu Kut Gulai</h3>
-          </div>
-          <p class="menu-card-teaser">Salted fish bone in rich rempah-flavour curry.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kerabu Sotong</h3></div>
+          <p class="menu-card-teaser">Squid or octopus tossed with aromatic herbs and a tangy chilli dressing.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('bee-koe-moy')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="nui" onclick="openDish('onion-omelette')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Bee Koe Moy</h3>
-          </div>
-          <p class="menu-card-teaser">Black glutinous rice with dried longan & coconut milk.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Onion Omelette</h3></div>
+          <p class="menu-card-teaser">Fluffy omelette with sautéed onions.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d1 cursor-pointer" data-cat="dessert" onclick="openDish('sago-gula-melaka')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="nui" onclick="openDish('chye-por-omelette')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Sago Gula Melaka</h3>
-          </div>
-          <p class="menu-card-teaser">Sago pearls with brown sugar & coconut milk.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Chye Por Omelette</h3></div>
+          <p class="menu-card-teaser">Fluffy omelette with minced preserved radish.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
-      <div class="menu-card-new reveal d2 cursor-pointer" data-cat="dessert" onclick="openDish('pengat')" role="button" tabindex="0">
+      <div class="menu-card-new reveal cursor-pointer" data-cat="nui" onclick="openDish('egg-belanda')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Pengat</h3>
-          </div>
-          <p class="menu-card-teaser">Authentic coconut milk dessert with sweet potato, yam & banana.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Egg Belanda</h3></div>
+          <p class="menu-card-teaser">Sunny-side-up eggs in a tangy tamarind sauce.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('nasi-ulam')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Nasi Ulam</h3></div>
+          <p class="menu-card-teaser">Traditional herb rice tossed with aromatic fresh herbs, toasted coconut and pounded salted kurau fish.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('kerabu-bee-hoon')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kerabu Bee Hoon</h3></div>
+          <p class="menu-card-teaser">Rice vermicelli salad with prawns, chicken and aromatic herbs, toasted coconut and a tangy chilli dressing.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('nyonya-sambal-fried-rice')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Nyonya Sambal Fried Rice</h3></div>
+          <p class="menu-card-teaser">Wok-fried rice with prawns, chicken, egg and house-made Nyonya sambal.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('crab-meat-fried-rice')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Crab Meat Fried Rice</h3></div>
+          <p class="menu-card-teaser">Wok-fried fragrant rice with crab meat and egg. Available spicy or non-spicy.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('petai-fried-rice')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Petai Fried Rice</h3></div>
+          <p class="menu-card-teaser">Wok-fried rice with bitter bean, prawns, chicken and house-made Nyonya sambal.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="rice" onclick="openDish('steamed-fragrant-rice')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Steamed Fragrant Rice</h3></div>
+          <p class="menu-card-teaser">Steamed fragrant jasmine rice.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="dessert" onclick="openDish('bee-koe-moy')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Bee Koe Moy</h3></div>
+          <p class="menu-card-teaser">Black glutinous rice porridge served with longan and fresh coconut milk.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="dessert" onclick="openDish('sago-gula-melaka')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Sago Gula Melaka</h3></div>
+          <p class="menu-card-teaser">Sago pearl pudding with palm sugar and fresh coconut milk.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
+        </div>
+      </div>
+      <div class="menu-card-new reveal cursor-pointer" data-cat="dessert" onclick="openDish('pengat')" role="button" tabindex="0">
+        <div class="menu-card-body">
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Pengat</h3></div>
+          <p class="menu-card-teaser">A colourful dessert with banana, sweet potatoes and yam in coconut milk.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('nutmeg-punch')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nutmeg Punch</h3>
-          </div>
-          <p class="menu-card-teaser">Refreshing iced nutmeg soda.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Nutmeg Punch</h3></div>
+          <p class="menu-card-teaser">Iced nutmeg soda.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('nutmeg-juice')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nutmeg Juice</h3>
-          </div>
-          <p class="menu-card-teaser">Chilled fresh nutmeg juice.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Nutmeg Juice</h3></div>
+          <p class="menu-card-teaser">Chilled nutmeg juice.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('kek-hwa')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kek Hwa</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kek Hwa</h3></div>
           <p class="menu-card-teaser">Chrysanthemum tea.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('barley')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Barley</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Barley</h3></div>
           <p class="menu-card-teaser">Homemade barley drink.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('rose-selasih')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Rose Selasih</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Rose Selasih</h3></div>
           <p class="menu-card-teaser">Rose syrup with basil seed.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('bandung')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Bandung</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Bandung</h3></div>
           <p class="menu-card-teaser">Rose syrup with milk.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('kopi')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Kopi</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Kopi</h3></div>
           <p class="menu-card-teaser">Local coffee.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('teh')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Teh</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Teh</h3></div>
           <p class="menu-card-teaser">Black tea.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('heng-jin')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Heng Jin</h3>
-          </div>
-          <p class="menu-card-teaser">Almond tea.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Heng Jin</h3></div>
+          <p class="menu-card-teaser">Chinese almond drink.</p>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('milo')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Milo</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Milo</h3></div>
           <p class="menu-card-teaser">Hot or iced Milo.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('nescafe')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Nescafe</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Nescafe</h3></div>
           <p class="menu-card-teaser">Instant coffee.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('honey-lemon')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Honey Lemon</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Honey Lemon</h3></div>
           <p class="menu-card-teaser">Honey with lemon.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('lemonade')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Lemonade</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Lemonade</h3></div>
           <p class="menu-card-teaser">Lemon soda.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('lime-juice')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Lime Juice</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Lime Juice</h3></div>
           <p class="menu-card-teaser">Fresh lime juice.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('fresh-fruit-juice')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Fresh Fruit Juice</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Fresh Fruit Juice</h3></div>
           <p class="menu-card-teaser">Freshly pressed fruit juice.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
       <div class="menu-card-new reveal cursor-pointer" data-cat="drinks" onclick="openDish('soft-drink')" role="button" tabindex="0">
         <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Soft Drink (can)</h3>
-          </div>
+          <div class="flex justify-between items-start gap-3 mb-2"><h3 class="menu-card-name">Soft Drink (can)</h3></div>
           <p class="menu-card-teaser">Canned soft drink.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="alcohol" onclick="openDish('tiger')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Tiger</h3>
-          </div>
-          <p class="menu-card-teaser">Tiger beer.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="alcohol" onclick="openDish('carlsberg')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Carlsberg</h3>
-          </div>
-          <p class="menu-card-teaser">Carlsberg beer.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="alcohol" onclick="openDish('heineken')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Heineken</h3>
-          </div>
-          <p class="menu-card-teaser">Heineken beer.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card-new reveal cursor-pointer" data-cat="alcohol" onclick="openDish('guinness')" role="button" tabindex="0">
-        <div class="menu-card-body">
-          <div class="flex justify-between items-start gap-3 mb-2">
-            <h3 class="menu-card-name">Guinness</h3>
-          </div>
-          <p class="menu-card-teaser">Guinness stout.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-more-link">Full details &rarr;</span>
-          </div>
+          <div class="menu-card-footer"><span class="menu-card-more-link">Full details &rarr;</span></div>
         </div>
       </div>
     </div>
@@ -2074,73 +1787,69 @@ document.querySelectorAll('.dish-card').forEach(card=>{
 })();
 
 var DISH_DATA={
-  "chicken-rendang":{name:"Chicken Rendang",price:"",cat:"Chicken & Beef",img:"",desc:"Boneless chicken slow-cooked in a rich Peranakan rendang of toasted coconut and spices until caramelised and intensely fragrant.",highlights:["Boneless chicken","Toasted kerisik","Peranakan spice blend","Slow-cooked"],notes:"Medium spice."},
-  "scallop-chap-chye":{name:"Scallop Chap Chye Char",price:"",cat:"Vegetables",img:"",desc:"A medley of mixed vegetables wok-fried with fresh scallops — light, savoury and full of texture.",highlights:["Fresh scallops","Mixed vegetables","Wok-fried","Light & savoury"],notes:"Contains shellfish."},
-  "koh-kua-tau-cheow":{name:"Koh Kua Tau Cheow",price:"",cat:"Vegetables",img:"",desc:"Bitter gourd stir-fried with savoury fermented soybean paste (tau cheow) — a classic, appetisingly bitter Nyonya side.",highlights:["Bitter gourd","Fermented bean paste","Wok-fried","Aromatics"],notes:"Vegetarian option."},
-  "sambal-kacang-botol":{name:"Sambal Kacang Botol",price:"",cat:"Vegetables",img:"",desc:"Crunchy winged beans stir-fried in a bold, hand-ground sambal belacan.",highlights:["Winged bean","Sambal belacan","Wok-fried","Aromatics"],notes:"Spicy."},
-  "kerabu-kacang-botol":{name:"Kerabu Kacang Botol",price:"",cat:"Vegetables",img:"",desc:"Winged beans hand-tossed with toasted coconut, shallots and a bright Nyonya kerabu dressing.",highlights:["Winged bean","Toasted coconut","Kerabu dressing","Fresh herbs"],notes:""},
-  "fragrant-rice":{name:"Fragrant Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Steamed fragrant jasmine rice, served per bowl — the perfect base for our curries and sambals.",highlights:["Jasmine rice","Steamed fresh","Per bowl"],notes:""},
-  "nutmeg-punch":{name:"Nutmeg Punch",price:"",cat:"Drinks",img:"",desc:"A refreshing iced nutmeg soda — a Penang classic cooler.",highlights:[],notes:""},
-  "nutmeg-juice":{name:"Nutmeg Juice",price:"",cat:"Drinks",img:"",desc:"Chilled fresh nutmeg juice — lightly sweet and cooling.",highlights:[],notes:""},
-  "kek-hwa":{name:"Kek Hwa",price:"",cat:"Drinks",img:"",desc:"Soothing chrysanthemum tea, served warm or iced.",highlights:[],notes:""},
-  "barley":{name:"Barley",price:"",cat:"Drinks",img:"",desc:"Homemade barley drink — cooling and lightly sweet.",highlights:[],notes:""},
-  "rose-selasih":{name:"Rose Selasih",price:"",cat:"Drinks",img:"",desc:"Rose syrup with basil seeds (selasih) over ice.",highlights:[],notes:""},
-  "bandung":{name:"Bandung",price:"",cat:"Drinks",img:"",desc:"Bandung — rose syrup with milk, sweet and fragrant.",highlights:[],notes:""},
-  "kopi":{name:"Kopi",price:"",cat:"Drinks",img:"",desc:"Traditional local kopi.",highlights:[],notes:""},
-  "teh":{name:"Teh",price:"",cat:"Drinks",img:"",desc:"Local black tea.",highlights:[],notes:""},
-  "heng-jin":{name:"Heng Jin",price:"",cat:"Drinks",img:"",desc:"Heng Jin — warming almond tea.",highlights:[],notes:""},
-  "milo":{name:"Milo",price:"",cat:"Drinks",img:"",desc:"Classic Milo, served hot or iced.",highlights:[],notes:""},
-  "nescafe":{name:"Nescafe",price:"",cat:"Drinks",img:"",desc:"Nescafe instant coffee.",highlights:[],notes:""},
-  "honey-lemon":{name:"Honey Lemon",price:"",cat:"Drinks",img:"",desc:"Honey lemon — soothing and citrusy.",highlights:[],notes:""},
-  "lemonade":{name:"Lemonade",price:"",cat:"Drinks",img:"",desc:"House lemonade.",highlights:[],notes:""},
-  "lime-juice":{name:"Lime Juice",price:"",cat:"Drinks",img:"",desc:"Fresh calamansi lime juice.",highlights:[],notes:""},
-  "fresh-fruit-juice":{name:"Fresh Fruit Juice",price:"",cat:"Drinks",img:"",desc:"Freshly pressed seasonal fruit juice.",highlights:[],notes:""},
-  "soft-drink":{name:"Soft Drink (can)",price:"",cat:"Drinks",img:"",desc:"Assorted canned soft drinks.",highlights:[],notes:""},
-  "tiger":{name:"Tiger",price:"",cat:"Alcoholic Beverage",img:"",desc:"Tiger beer — available in 325ml or 660ml.",highlights:[],notes:""},
-  "carlsberg":{name:"Carlsberg",price:"",cat:"Alcoholic Beverage",img:"",desc:"Carlsberg beer — available in 325ml or 660ml.",highlights:[],notes:""},
-  "heineken":{name:"Heineken",price:"",cat:"Alcoholic Beverage",img:"",desc:"Heineken beer — available in 325ml or 660ml.",highlights:[],notes:""},
-  "guinness":{name:"Guinness",price:"",cat:"Alcoholic Beverage",img:"",desc:"Guinness stout — available in 325ml.",highlights:[],notes:""},
-  
-  "pie-tee":{name:"Pie Tee (Top Hats)",price:"",cat:"Appetiser",img:"img/dining-8911.jpg",desc:"Crispy tart shells filled with a sweet mixture of thinly sliced vegetables and chicken meat. Served with a sweet-tangy dipping sauce. Available in 5pcs or 10pcs.",highlights:["Crispy tart shells","Julienned vegetables","Chicken meat","House dipping sauce"],notes:"Contains gluten."},
-  "lor-bak":{name:"Lor Bak",price:"",cat:"Appetiser",img:"",desc:"Five-spice braised chicken meat wrapped and deep fried to a crispy golden finish. A classic Nyonya appetiser bursting with aromatic spice.",highlights:["5-spice seasoning","Chicken meat roll","Deep fried","Crispy exterior"],notes:"Contains gluten."},
-  "cucur-udang":{name:"Cucur Udang",price:"",cat:"Appetiser",img:"",desc:"Light and crispy fritters made with fresh prawns and vegetables. Best eaten hot with chilli sauce.",highlights:["Fresh prawns","Mixed vegetables","Crispy batter","House chilli sauce"],notes:"Contains shellfish."},
-  "acar-awak":{name:"Acar Awak",price:"",cat:"Appetiser",img:"",desc:"Traditional Nyonya pickled vegetables seasoned with spices, vinegar and sesame. A refreshing palate cleanser.",highlights:["Mixed vegetables","Sesame seeds","Nyonya spice blend","Naturally preserved"],notes:"Vegetarian."},
-  "otak-otak":{name:"Otak-Otak",price:"",cat:"Appetiser",img:"",desc:"Freshly made fish mousse blended with lemongrass, galangal and chilli — steamed in banana leaf. Silky and aromatic.",highlights:["Fresh fish paste","Lemongrass & galangal","Kaffir lime","Steamed in banana leaf"],notes:"Contains fish."},
-  "baba-delight":{name:"Baba Delight",price:"",cat:"Appetiser",img:"",desc:"The ultimate Nyonya appetiser sharing platter — four signatures in one. Perfect for the table to share before the mains.",highlights:["Pie Tee top hats","Lor Bak meat roll","Cucur Udang fritters","Acar Awak pickled vegetables"],notes:"Contains gluten, shellfish."},
-  "curry-kapitan":{name:"Kari Kapitan",price:"",cat:"Chicken & Beef",img:"img/food-0054.jpg",desc:"Rich and creamy curry chicken made with a hand-ground rempah of galangal, lemongrass, candlenuts and kaffir lime leaves. The dish that defined Auntie Gaik Lean\'s reputation. Michelin inspectors praised it by name.",highlights:["Free-range kampung chicken","Hand-ground rempah","Candlenut & lemongrass","Kaffir lime leaves"],notes:"Michelin-praised signature. Medium spice."},
-  "nyonya-curry-chicken":{name:"Nyonya Curry Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"A gentler Nyonya-style curry chicken, richly spiced and simmered with potatoes until tender. Deeply aromatic and satisfying.",highlights:["Chicken pieces","Nyonya spice blend","Potatoes","Coconut milk"],notes:"Mild-medium spice."},
-  "hong-kae":{name:"Hong Kae",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised in a fragrant creamy gravy with sand ginger (ubi cekur), coriander seed and aromatic herbs. Unique to Nyonya cooking.",highlights:["Braised chicken","Sand ginger (ubi cekur)","Coriander seed","Creamy gravy"],notes:"Medium spice."},
-  "inche-kabin":{name:"Inche Kabin",price:"",cat:"Chicken & Beef",img:"img/food-0036.jpg",desc:"Chicken marinated overnight in a rich blend of Nyonya spices and coconut milk, then fried to a crispy golden finish. A true Nyonya classic.",highlights:["Marinated kampung chicken","Coconut milk","Nyonya spice blend","Crispy fried"],notes:"Medium spice."},
-  "tau-yew-chicken":{name:"Tau Yew Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised low and slow in dark soy sauce with five-spice and hard-boiled eggs. Sweet, savoury and deeply comforting.",highlights:["Whole chicken pieces","Dark soy sauce","Hard-boiled eggs","Five-spice"],notes:"Mild."},
-  "beef-rendang":{name:"Nyonya Beef Rendang",price:"",cat:"Chicken & Beef",img:"img/food-1734.jpg",desc:"Tender Australian Black Angus beef slow-cooked in a Peranakan spiced coconut milk reduction until caramelised and intensely fragrant. Extraordinary on steamed rice.",highlights:["Australian Black Angus beef","Coconut milk reduction","Toasted kerisik","Peranakan spice blend"],notes:"Contains coconut. Mild-medium."},
-  "jiu-hu-char":{name:"Jiu Hu Char",price:"",cat:"Vegetables",img:"",desc:"A classic Nyonya side dish — yam bean (jicama) stir-fried with shredded dried cuttlefish, creating a savoury and textured dish.",highlights:["Yam bean (jicama)","Dried cuttlefish","Aromatics","Served with lettuce & sambal belacan"],notes:"Contains seafood."},
-  "sambal-petai":{name:"Sambal Petai",price:"",cat:"Vegetables",img:"",desc:"Stink beans (petai) stir-fried in a bold sambal belacan sauce. Bold, pungent and deeply flavoured — a true Nyonya staple.",highlights:["Petai (stink beans)","Hand-ground sambal belacan","Aromatics","Wok-fried"],notes:"Vegetarian option. Spicy."},
-  "terung-sambal":{name:"Terung Sambal",price:"",cat:"Vegetables",img:"",desc:"Whole brinjal cooked in a sweet, tangy sambal sauce. Tender inside, flavoured throughout with Nyonya spices.",highlights:["Fresh aubergine","Sweet chilli sambal","Tangy tamarind","Wok-cooked"],notes:"Vegetarian. Medium spice."},
-  "sambal-kangkung":{name:"Sambal Kangkung",price:"",cat:"Vegetables",img:"",desc:"Water spinach (kangkung) flash-fried at high heat with sambal belacan. Classic Malaysian-Nyonya greens dish.",highlights:["Water spinach (kangkung)","Sambal belacan","Garlic","Wok-fried to order"],notes:"Vegetarian. Spicy."},
-  "kerabu-pucuk-paku":{name:"Kerabu Pucuk Paku",price:"",cat:"Vegetables",img:"",desc:"Wild fern tips blanched and tossed with grated coconut, shallots and a bright Nyonya kerabu dressing. Refreshing and fibre-rich.",highlights:["Wild fern tips (paku)","Toasted coconut","Kerabu dressing","Shallots & dried prawns"],notes:"Contains dried prawns."},
-  "sambal-bendi":{name:"Sambal Bendi",price:"",cat:"Vegetables",img:"",desc:"Fresh okra stir-fried in a bold sambal belacan sauce. Tender, flavourful and a perfect Nyonya side dish.",highlights:["Fresh okra","Hand-ground sambal belacan","Aromatics","Wok-fired"],notes:"Vegetarian. Spicy."},
-  "nasi-ulam":{name:"Nasi Ulam",price:"",cat:"Rice & Noodles",img:"img/dining-9248.jpg",desc:"Auntie\'s most personal dish. Fragrant rice hand-tossed every morning with over ten freshly cut herbs — torch ginger, turmeric leaf, lemongrass, daun kaduk — plus toasted coconut, dried shrimp and salted kurau fish. The recipe has never been written down.",highlights:["10+ fresh herbs hand-cut daily","Salted kurau fish","Toasted coconut","Dried shrimp"],notes:"Limited daily quantity. Iconic."},
-  "kerabu-bee-hoon":{name:"Kerabu Bee Hoon",price:"",cat:"Rice & Noodles",img:"img/food-1767.jpg",desc:"Fine rice vermicelli tossed cold with vibrant sambal belacan, fresh herbs, toasted coconut and a generous squeeze of calamansi lime.",highlights:["Rice vermicelli","Sambal belacan","Fresh herbs","Calamansi lime"],notes:"Medium-high spice."},
-  "nyonya-fried-rice":{name:"Nyonya Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Wok-fried rice tossed in a rich Nyonya sambal paste with egg and aromatics. Bold, smoky and satisfying.",highlights:["Jasmine rice","Nyonya sambal","Egg","Aromatics"],notes:"Medium spice."},
-  "petai-fried-rice":{name:"Petai Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Fried rice elevated with the bold, distinctive flavour of petai (stink beans) and Nyonya sambal. A unique and satisfying plate.",highlights:["Jasmine rice","Petai (stink beans)","Nyonya sambal","Egg"],notes:"Medium-high spice."},
-  "sambal-sotong":{name:"Sambal Octopus / Sotong",price:"",cat:"Seafood",img:"",desc:"Fresh squid or octopus cooked in a bold shrimp paste (belacan) curry sauce. Rich, aromatic and flavourful.",highlights:["Fresh squid or octopus","Shrimp paste curry","Aromatics","Wok-cooked"],notes:"Contains shellfish. Medium spice."},
-  "kerabu-sotong":{name:"Kerabu Octopus / Sotong",price:"",cat:"Seafood",img:"",desc:"Tender squid or octopus tossed with a bright Nyonya kerabu dressing and fresh aromatic herbs. Light, refreshing and full of flavour.",highlights:["Fresh squid or octopus","Kerabu dressing","Aromatic herbs","Toasted coconut"],notes:"Contains shellfish."},
-  "asam-hae":{name:"Asam Hae",price:"",cat:"Seafood",img:"",desc:"Whole prawns pan-fried in a tangy tamarind paste. The shells caramelise, locking in natural sweetness. Sticky, spicy and unforgettable.",highlights:["Whole tiger prawns","Tamarind (asam) paste","Pan-fried","Caramelised shells"],notes:"Contains shellfish. Medium-high spice."},
-  "curry-hae":{name:"Curry Hae",price:"",cat:"Seafood",img:"",desc:"Plump prawns in a hot and sour Nyonya curry gravy. Bold, tangy and deeply satisfying.",highlights:["Tiger prawns","Hot & sour curry gravy","Nyonya spice paste","Aromatics"],notes:"Contains shellfish. Spicy."},
-  "sambal-udang":{name:"Sambal Udang",price:"",cat:"Seafood",img:"",desc:"Fresh prawns stir-fried in Auntie\'s hand-ground Nyonya sambal with cucumber. Rich, aromatic and intensely flavoured.",highlights:["Tiger prawns","Hand-ground sambal","Cucumber","Wok-seared to order"],notes:"Contains shellfish. Medium-high."},
-  "gulai-tumis":{name:"Gulai Tumis",price:"",cat:"Fish",img:"img/food-0022.jpg",desc:"The dish Michelin inspectors singled out by name. Whole fish in a tangy paste of 8+ fresh ingredients — fresh saffron, pineapple and torch ginger flower. Hand-ground each morning.",highlights:["Whole fresh fish","8+ ingredient paste","Fresh saffron","Torch ginger & pineapple"],notes:"Michelin-praised. Market price."},
-  "ikan-goreng-kunyit":{name:"Ikan Goreng Kunyit",price:"",cat:"Fish",img:"",desc:"Whole fish marinated in fresh turmeric, fried to a golden crisp and served with Nyonya nanchut sauce.",highlights:["Whole fresh fish","Fresh turmeric marinade","Crispy fried","Nanchut dipping sauce"],notes:"Market price."},
-  "ikan-goreng-cili-api":{name:"Ikan Goreng Cili Api",price:"",cat:"Fish",img:"",desc:"Whole fish deep fried until crispy, served with a bold and fiery chilli black sauce.",highlights:["Whole fresh fish","Chilli black sauce","Deep fried","Aromatics"],notes:"Market price. Spicy."},
-  "ikan-masak-lemak":{name:"Ikan Masak Lemak",price:"",cat:"Fish",img:"",desc:"Fried fish simmered in a rich, creamy coconut milk curry with Nyonya spices. Comfort food at its finest.",highlights:["Fried fish","Coconut milk gravy","Nyonya spice paste","Creamy & spicy"],notes:"Market price. Contains coconut."},
-  "chye-por-omelette":{name:"Chye Por / Onion Omelette",price:"",cat:"Omelette",img:"",desc:"A classic Nyonya-style omelette made with dried radish (chye por) or onions. Crispy on the outside, tender within.",highlights:["Eggs","Dried radish (chye por)","Onions","Wok-fried"],notes:"Vegetarian."},
-  "egg-belanda":{name:"Egg Belanda",price:"",cat:"Omelette",img:"",desc:"Sunny side up egg served with Auntie\'s tangy tamarind sauce. A simple but deeply satisfying Nyonya classic.",highlights:["Eggs","Tamarind sauce","Aromatics","Sunny side up"],notes:"Vegetarian."},
-  "kiam-chye-ark":{name:"Kiam Chye Ark",price:"",cat:"Soup",img:"",desc:"Whole duck slow-braised in a clear broth with preserved salted vegetables (kiam chye) and tomatoes. A deeply soothing Nyonya heirloom soup.",highlights:["Whole duck","Salted preserved vegetables","Tomatoes","Slow-braised hours"],notes:"Rich, mild-flavoured."},
-  "hu-peow-chap-chye":{name:"Hu Peow Chap Chye Th\'ng",price:"",cat:"Soup",img:"",desc:"A nourishing, collagen-rich soup made with fish maw (hu peow) and mixed vegetables. Deeply restorative and uniquely Nyonya.",highlights:["Fish maw (hu peow)","Mixed vegetables","Rich clear broth","Nutritious & collagen-rich"],notes:"Contains fish."},
-  "perut-ikan":{name:"Perut Ikan",price:"",cat:"Specials",img:"",desc:"A rare and prized Nyonya delicacy — pickled fish stomach (perut ikan) in a tangy, spiced gravy. Complex and utterly unique.",highlights:["Pickled fish stomach","Spiced gravy","Nyonya herbs","Rare Nyonya specialty"],notes:"Acquired taste. For adventurous diners."},
-  "kiam-hu-kut-gulai":{name:"Kiam Hu Kut Gulai",price:"",cat:"Specials",img:"",desc:"Salted fish bones slow-cooked in a deeply flavoured rempah curry. Intensely savoury and umami-rich — a true old-school Nyonya dish.",highlights:["Salted fish bones","Hand-ground rempah","Rich curry gravy","Deeply umami"],notes:"Contains fish. For adventurous diners."},
-  "bee-koe-moy":{name:"Bee Koe Moy",price:"",cat:"Dessert",img:"img/food-1441.jpg",desc:"Black glutinous rice slow-cooked with pandan leaves, dried longan and palm sugar. Served with thick fresh coconut milk. Warming and deeply comforting.",highlights:["Black glutinous rice","Dried longan","Palm sugar","Fresh coconut milk"],notes:"Gluten-free."},
-  "sago-gula-melaka":{name:"Sago Gula Melaka",price:"",cat:"Dessert",img:"",desc:"Tiny pearl sago cooked until translucent, served with dark gula melaka syrup and rich fresh coconut cream.",highlights:["Pearl sago","Dark gula melaka syrup","Fresh coconut cream","Served warm"],notes:"Gluten-free. Vegan."},
-  "pengat":{name:"Pengat",price:"",cat:"Dessert",img:"",desc:"A traditional Nyonya sweet — sweet potato, yam and banana slow-cooked in rich coconut milk with palm sugar and pandan. Hearty and comforting.",highlights:["Sweet potato","Yam","Banana","Coconut milk & pandan"],notes:"Gluten-free. Vegan."},
+  "kuih-pie-tee":{name:"Kuih Pie Tee (Top Hats)",price:"",cat:"Appetiser",img:"",desc:"Crispy thin pastry cups with sautéed julienned vegetables, prawn, chicken and crabmeat.",highlights:[],notes:""},
+  "lor-bak":{name:"Lor Bak",price:"",cat:"Appetiser",img:"",desc:"Five-spice marinated chicken rolled in beancurd skin and crispy-fried.",highlights:[],notes:""},
+  "cucur-udang":{name:"Cucur Udang",price:"",cat:"Appetiser",img:"",desc:"Crispy golden prawn fritters with julienned vegetables.",highlights:[],notes:""},
+  "otak-otak":{name:"Otak-Otak",price:"",cat:"Appetiser",img:"",desc:"Steamed fish custard with wild betel leaf, local herbs and spices.",highlights:[],notes:""},
+  "acar-awak":{name:"Acar Awak",price:"",cat:"Appetiser",img:"",desc:"Spicy pickled mixed vegetables topped with crushed peanuts and sesame seeds.",highlights:[],notes:""},
+  "baba-delight":{name:"Baba Delight",price:"",cat:"Appetiser",img:"",desc:"A sharing selection of local favourites: Kuih Pie Tee, Lor Bak, Cucur Udang, Otak-Otak and Acar Awak.",highlights:[],notes:""},
+  "kiam-chye-ark":{name:"Kiam Chye Ark",price:"",cat:"Soup",img:"",desc:"Slow-simmered duck soup with salted mustard greens and shiitake mushrooms.",highlights:[],notes:""},
+  "hu-peow-chap-chye":{name:"Hu Peow Chap Chye Soup",price:"",cat:"Soup",img:"",desc:"Fish maw and mixed vegetables in a light broth.",highlights:[],notes:""},
+  "jiu-hu-char":{name:"Jiu Hu Char",price:"",cat:"Vegetables",img:"",desc:"A classic Nyonya stir-fry of julienned jicama, mixed vegetables, dried cuttlefish and mushrooms, served with sambal belacan and lettuce.",highlights:[],notes:""},
+  "sambal-petai":{name:"Sambal Petai",price:"",cat:"Vegetables",img:"",desc:"Bitter beans stir-fried with prawns in house-made shrimp chilli paste.",highlights:[],notes:""},
+  "scallop-chap-chye":{name:"Scallop Chap Chye Char",price:"",cat:"Vegetables",img:"",desc:"Stir-fried mixed vegetables with scallops and fermented soybean paste (tau cheow).",highlights:[],notes:""},
+  "terung-sambal":{name:"Terung Sambal",price:"",cat:"Vegetables",img:"",desc:"Grilled aubergine coated in house-made sweet chilli paste.",highlights:[],notes:""},
+  "sambal-greens":{name:"Sambal Kangkung / Bendi / Kacang Botol",price:"",cat:"Vegetables",img:"",desc:"Choice of greens (water spinach, okra or winged beans) stir-fried with prawns in house-made shrimp chilli paste.",highlights:[],notes:""},
+  "kerabu-pucuk-paku":{name:"Kerabu Pucuk Paku",price:"",cat:"Vegetables",img:"",desc:"Fiddlehead fern tossed with toasted coconut, aromatic herbs and a tangy, spicy sambal.",highlights:[],notes:""},
+  "kerabu-kacang-botol":{name:"Kerabu Kacang Botol",price:"",cat:"Vegetables",img:"",desc:"Winged beans tossed with aromatic herbs in a tangy, spicy chilli dressing.",highlights:[],notes:""},
+  "masak-titik":{name:"Masak Titik",price:"",cat:"Vegetables",img:"",desc:"Sweet potato leaves and sweet potatoes in a spiced coconut broth.",highlights:[],notes:""},
+  "koh-kua-tau-cheow":{name:"Koh Kua Tau Cheow",price:"",cat:"Vegetables",img:"",desc:"Bitter gourd stir-fried with chicken in fermented soybean paste.",highlights:[],notes:""},
+  "kiam-hu-kut-gulai":{name:"Kiam Hu Kut Gulai",price:"",cat:"Vegetables",img:"",desc:"Coconut-based spiced curry with vegetables and salted fish bone.",highlights:[],notes:""},
+  "perut-ikan":{name:"Perut Ikan",price:"",cat:"Vegetables",img:"",desc:"Pickled fish stomach with local herbs and vegetables in a spicy tamarind broth.",highlights:[],notes:""},
+  "curry-kapitan":{name:"Curry Kapitan",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken in a rich curry with aromatic galangal, candlenuts, spices and fresh herbs.",highlights:[],notes:""},
+  "curry-chicken":{name:"Curry Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken and potato curry with a balanced blend of warm spices and fresh herbs.",highlights:[],notes:""},
+  "hong-kae":{name:"Hong Kae",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised with aromatic cekur (sand ginger), coriander seed and fresh herbs.",highlights:[],notes:""},
+  "inche-kabin":{name:"Inche Kabin",price:"",cat:"Chicken & Beef",img:"",desc:"Crispy-fried chicken marinated in aromatic spices, served with prawn crackers and Worcestershire dipping sauce.",highlights:[],notes:""},
+  "chicken-rendang":{name:"Chicken Rendang",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken slow-cooked in a rich dry coconut curry with aromatic spices.",highlights:[],notes:""},
+  "tau-yew-chicken":{name:"Tau Yew Chicken",price:"",cat:"Chicken & Beef",img:"",desc:"Chicken braised in soy sauce with hard-boiled eggs.",highlights:[],notes:""},
+  "beef-rendang":{name:"Beef Rendang",price:"",cat:"Chicken & Beef",img:"",desc:"Black Angus beef slow-cooked in a rich and fragrant dry curry of aromatic spices.",highlights:[],notes:""},
+  "gulai-tumis":{name:"Gulai Tumis",price:"",cat:"Fish",img:"",desc:"Fish with okra in a tangy and spicy tamarind-based curry.",highlights:[],notes:""},
+  "ikan-goreng-kunyit":{name:"Ikan Goreng Kunyit with Nanchut Sauce",price:"",cat:"Fish",img:"",desc:"Turmeric fried fish, served with nanchut sauce.",highlights:[],notes:""},
+  "ikan-goreng-cili-api":{name:"Ikan Goreng Cili Api",price:"",cat:"Fish",img:"",desc:"Crispy-fried fish coated in caramelised dark soy sauce with chillies.",highlights:[],notes:""},
+  "kari-ikan":{name:"Kari Ikan",price:"",cat:"Fish",img:"",desc:"Deep-fried fish in an aromatic coconut curry with herbs and spices.",highlights:[],notes:""},
+  "assam-hae":{name:"Assam Hae",price:"",cat:"Prawn & Squid",img:"",desc:"Prawns pan-seared and coated in a tangy-sweet tamarind glaze.",highlights:[],notes:""},
+  "curry-hae":{name:"Curry Hae",price:"",cat:"Prawn & Squid",img:"",desc:"Prawns simmered in a spicy tamarind-based curry.",highlights:[],notes:""},
+  "sambal-udang":{name:"Sambal Udang",price:"",cat:"Prawn & Squid",img:"",desc:"Prawns wok-fried in aromatic house-made chilli paste.",highlights:[],notes:""},
+  "sambal-sotong":{name:"Sambal Sotong / Octopus",price:"",cat:"Prawn & Squid",img:"",desc:"Squid or octopus stir-fried in an aromatic house-made chilli paste.",highlights:[],notes:""},
+  "kerabu-sotong":{name:"Kerabu Sotong",price:"",cat:"Prawn & Squid",img:"",desc:"Squid or octopus tossed with aromatic herbs and a tangy chilli dressing.",highlights:[],notes:""},
+  "onion-omelette":{name:"Onion Omelette",price:"",cat:"Egg",img:"",desc:"Fluffy omelette with sautéed onions.",highlights:[],notes:""},
+  "chye-por-omelette":{name:"Chye Por Omelette",price:"",cat:"Egg",img:"",desc:"Fluffy omelette with minced preserved radish.",highlights:[],notes:""},
+  "egg-belanda":{name:"Egg Belanda",price:"",cat:"Egg",img:"",desc:"Sunny-side-up eggs in a tangy tamarind sauce.",highlights:[],notes:""},
+  "nasi-ulam":{name:"Nasi Ulam",price:"",cat:"Rice & Noodles",img:"",desc:"Traditional herb rice tossed with aromatic fresh herbs, toasted coconut and pounded salted kurau fish.",highlights:[],notes:""},
+  "kerabu-bee-hoon":{name:"Kerabu Bee Hoon",price:"",cat:"Rice & Noodles",img:"",desc:"Rice vermicelli salad with prawns, chicken and aromatic herbs, toasted coconut and a tangy chilli dressing.",highlights:[],notes:""},
+  "nyonya-sambal-fried-rice":{name:"Nyonya Sambal Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Wok-fried rice with prawns, chicken, egg and house-made Nyonya sambal.",highlights:[],notes:""},
+  "crab-meat-fried-rice":{name:"Crab Meat Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Wok-fried fragrant rice with crab meat and egg. Available spicy or non-spicy.",highlights:[],notes:""},
+  "petai-fried-rice":{name:"Petai Fried Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Wok-fried rice with bitter bean, prawns, chicken and house-made Nyonya sambal.",highlights:[],notes:""},
+  "steamed-fragrant-rice":{name:"Steamed Fragrant Rice",price:"",cat:"Rice & Noodles",img:"",desc:"Steamed fragrant jasmine rice.",highlights:[],notes:""},
+  "bee-koe-moy":{name:"Bee Koe Moy",price:"",cat:"Dessert",img:"",desc:"Black glutinous rice porridge served with longan and fresh coconut milk.",highlights:[],notes:""},
+  "sago-gula-melaka":{name:"Sago Gula Melaka",price:"",cat:"Dessert",img:"",desc:"Sago pearl pudding with palm sugar and fresh coconut milk.",highlights:[],notes:""},
+  "pengat":{name:"Pengat",price:"",cat:"Dessert",img:"",desc:"A colourful dessert with banana, sweet potatoes and yam in coconut milk.",highlights:[],notes:""},
+  "nutmeg-punch":{name:"Nutmeg Punch",price:"",cat:"Drinks",img:"",desc:"Iced nutmeg soda.",highlights:[],notes:""},
+  "nutmeg-juice":{name:"Nutmeg Juice",price:"",cat:"Drinks",img:"",desc:"Chilled nutmeg juice.",highlights:[],notes:""},
+  "kek-hwa":{name:"Kek Hwa",price:"",cat:"Drinks",img:"",desc:"Chrysanthemum tea.",highlights:[],notes:""},
+  "barley":{name:"Barley",price:"",cat:"Drinks",img:"",desc:"Homemade barley drink.",highlights:[],notes:""},
+  "rose-selasih":{name:"Rose Selasih",price:"",cat:"Drinks",img:"",desc:"Rose syrup with basil seed.",highlights:[],notes:""},
+  "bandung":{name:"Bandung",price:"",cat:"Drinks",img:"",desc:"Rose syrup with milk.",highlights:[],notes:""},
+  "kopi":{name:"Kopi",price:"",cat:"Drinks",img:"",desc:"Local coffee.",highlights:[],notes:""},
+  "teh":{name:"Teh",price:"",cat:"Drinks",img:"",desc:"Black tea.",highlights:[],notes:""},
+  "heng-jin":{name:"Heng Jin",price:"",cat:"Drinks",img:"",desc:"Chinese almond drink.",highlights:[],notes:""},
+  "milo":{name:"Milo",price:"",cat:"Drinks",img:"",desc:"Hot or iced Milo.",highlights:[],notes:""},
+  "nescafe":{name:"Nescafe",price:"",cat:"Drinks",img:"",desc:"Instant coffee.",highlights:[],notes:""},
+  "honey-lemon":{name:"Honey Lemon",price:"",cat:"Drinks",img:"",desc:"Honey with lemon.",highlights:[],notes:""},
+  "lemonade":{name:"Lemonade",price:"",cat:"Drinks",img:"",desc:"Lemon soda.",highlights:[],notes:""},
+  "lime-juice":{name:"Lime Juice",price:"",cat:"Drinks",img:"",desc:"Fresh lime juice.",highlights:[],notes:""},
+  "fresh-fruit-juice":{name:"Fresh Fruit Juice",price:"",cat:"Drinks",img:"",desc:"Freshly pressed fruit juice.",highlights:[],notes:""},
+  "soft-drink":{name:"Soft Drink (can)",price:"",cat:"Drinks",img:"",desc:"Canned soft drink.",highlights:[],notes:""}
 };
 
 // Category filter
@@ -2674,6 +2383,6 @@ window.chatSend=chatSend;
 })();
 </script>
 
-<script src="i18n.js?v=5"></script>
+<script src="i18n.js?v=6"></script>
 </body>
 </html>
