@@ -352,8 +352,7 @@ p, li, td, blockquote { line-height: 1.9 }
   position:relative;
 }
 @media(max-width:640px){
-  .dish-modal-overlay{padding:0}
-  .dish-modal-card{grid-template-columns:1fr;width:100%;max-width:100%;max-height:100vh;border-radius:0;border:none;overflow-y:auto}
+  .dish-modal-card{grid-template-columns:1fr;max-height:96vh;overflow-y:auto}
 }
 /* No-photo dishes: clean single-column text modal (no placeholder) */
 .dish-modal-card.no-img{grid-template-columns:1fr;max-width:560px}
@@ -790,9 +789,9 @@ p, li, td, blockquote { line-height: 1.9 }
   [class*="p-7"]{padding:1rem!important}
   [class*="p-6"]{padding:.85rem!important}
 
-  /* ── Modal: full-bleed image on top, info below ── */
+  /* ── Modal: image fills its frame (full card width, no letterbox) ── */
   .dish-modal-img-wrap{min-height:0!important;max-height:none!important}
-  #modal-img-content img{max-height:80vh}
+  #modal-img-content img{max-height:none}
   .modal-ph{min-height:240px}
 }
 
