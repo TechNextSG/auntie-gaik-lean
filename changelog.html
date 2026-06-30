@@ -117,6 +117,8 @@
     </div>
     <div class="chips" id="date-chips">
       <button class="date-chip active" data-date="all">All dates</button>
+      <button class="date-chip" data-date="2026-06-30">30 Jun</button>
+      <button class="date-chip" data-date="2026-06-29">29 Jun</button>
       <button class="date-chip" data-date="2026-06-04">4 Jun</button>
       <button class="date-chip" data-date="2026-06-03">3 Jun</button>
       <button class="date-chip" data-date="2026-06-02">2 Jun</button>
@@ -131,6 +133,84 @@
 
   <!-- Entries (grouped by day) -->
   <div id="entries">
+<div class="day-block" data-date="2026-06-30">
+  <div class="day-head"><span class="day-title">Mon, 30 Jun 2026</span><span class="day-count">1 update</span></div>
+  <div class="entry has-body" data-date="2026-06-30" data-search="footer: update credit to powered by technext all 7 pages changed footer credit text from technext pte ltd to powered by technext linking to technext.asia">
+    <div class="entry-head">
+      <span class="entry-time">—</span>
+      <span class="entry-title">Footer: "Powered by Technext" linking to technext.asia (all 7 pages)</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Update footer credit label across the site.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Changed footer credit text from "Technext Pte Ltd" to "Powered by Technext" on all 7 public pages (index, menu, news, our-story, press, reservations, visit-us), linking to https://technext.asia.</li></ul></div></div>
+  </div>
+</div>
+<div class="day-block" data-date="2026-06-29">
+  <div class="day-head"><span class="day-title">Sun, 29 Jun 2026</span><span class="day-count">8 updates</span></div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="apply revised menu 4 jun 2026 menu and homepage rebuilt from adrians revised docx. updated dish names descriptions chinese names. added masak titik crab meat fried rice. removed alcohol specials sections. 63 dishes across 11 categories.">
+    <div class="entry-head">
+      <span class="entry-time">10:29</span>
+      <span class="entry-title">Apply revised menu (4 Jun 2026) to menu &amp; homepage</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Sync website menu to Adrian Cheah's revised menu (4 Jun 2026).</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Rebuilt all 63 DISH_DATA entries with updated dish names, EN descriptions, and Chinese names (中文 toggle).</li><li>New dishes: Masak Titik, Crab Meat Fried Rice; split Onion/Chye Por omelettes into separate items.</li><li>Removed Alcohol and Specials sections (not in revised menu).</li><li>Fine-print note updated (min spend RM60/pax, SST 6% + service 10%).</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="add dish photos to menu detail modal 26 dishes when a dish is tapped a real food photo now appears in the modal. 26 photos downloaded from client smugmug gallery and hosted locally.">
+    <div class="entry-head">
+      <span class="entry-time">11:03</span>
+      <span class="entry-title">Add dish photos to menu detail modal (26 dishes)</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Show real food photos when a visitor taps a dish on the menu page.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What was added</span><ul><li>26 dish photos downloaded from the client's SmugMug gallery and hosted in img/menu/. Menu grid cards remain uniform text-only; photos appear only in the detail pop-up.</li><li>Dishes without a photo still show the logo placeholder.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="menu modal size to image orientation image above info on mobile portrait photos now display without cropping. on mobile the image stacks above the dish details.">
+    <div class="entry-head">
+      <span class="entry-time">11:15</span>
+      <span class="entry-title">Menu modal: size to image; image-above-info on mobile</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Show portrait dish photos without cropping or letterboxing.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Modal image now uses object-fit:contain so portrait photos display in full without cutting off the dish.</li><li>On mobile, modal switches to a single-column layout: image on top, dish details below.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="home signature dishes feature only photographed dishes add photos homepage dish grid now shows 6 dishes that all have real photos otak-otak inche-kabin nasi-ulam gulai-tumis jiu-hu-char bee-koe-moy">
+    <div class="entry-head">
+      <span class="entry-time">12:00</span>
+      <span class="entry-title">Home Signature Dishes: feature only photographed dishes</span>
+      <span class="entry-tag tag-update">Update</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Replace placeholder-only cards on the homepage with cards that have real photos.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Homepage Signature Dishes now showcases 6 fully photographed dishes: Otak-Otak, Inche Kabin, Nasi Ulam, Gulai Tumis, Jiu Hu Char, Bee Koe Moy.</li><li>Three dishes without a single-dish photo (Kuih Pie Tee, Curry Kapitan, Kerabu Bee Hoon) were swapped out.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="home dish cards shift image crop lower 70% frame the dish object-position center 70% applied so the dish subject is centered in the card rather than the top of the plate">
+    <div class="entry-head">
+      <span class="entry-time">12:12</span>
+      <span class="entry-title">Home dish cards: shift image crop to lower 70% to frame the dish</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Improve the visual framing of dish photos on the homepage cards.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Added object-position:center 70% to homepage dish card images so the dish subject (food) is in frame rather than the top edge of the plate.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="home dish cards mobile maximise card frame aspect ratio 4/5 full width cards on phones for a more impactful visual">
+    <div class="entry-head">
+      <span class="entry-time">16:09</span>
+      <span class="entry-title">Home dish cards (mobile): maximise card to full frame</span>
+      <span class="entry-tag tag-design">Design</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Make dish card photos larger and more impactful on mobile phones.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>On mobile: cards use aspect-ratio 4:5 (replacing the 140px fixed height cap), a single-column grid, and near-full-width layout so photos fill the screen properly.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="fix menu modal mobile image frame fill revert full-screen modal let image fill its natural width no letterboxing no navy side bars">
+    <div class="entry-head">
+      <span class="entry-time">16:37</span>
+      <span class="entry-title">Fix menu modal (mobile): image fills frame without letterboxing</span>
+      <span class="entry-tag tag-fix">Fix</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Remove navy side bars from the dish photo on mobile modal.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What changed</span><ul><li>Removed the max-height cap on mobile that was forcing the image narrower than the card width, causing object-fit:contain to pad with navy bars on the sides.</li><li>Image now fills its full natural width — no letterboxing on any orientation.</li></ul></div></div>
+  </div>
+  <div class="entry has-body" data-date="2026-06-29" data-search="menu add photos for 7 shared-photo dishes client supplied files curry kapitan ikan goreng kunyit kerabu pucuk paku chye por omelette nutmeg juice rose selasih bandung">
+    <div class="entry-head">
+      <span class="entry-time">18:00</span>
+      <span class="entry-title">Menu: add photos for 7 client-supplied dishes</span>
+      <span class="entry-tag tag-new">New</span>
+    </div>
+    <div class="entry-body"><div class="detail-row"><span class="detail-label lbl-goal">Goal</span><p>Add the remaining dish photos using client-supplied image files.</p></div><div class="detail-row"><span class="detail-label lbl-fix">What was added</span><ul><li>7 dishes now have photos from client-supplied files: Curry Kapitan, Ikan Goreng Kunyit, Kerabu Pucuk Paku, Chye Por Omelette, Nutmeg Juice, Rose Selasih, Bandung.</li><li>Images resized to ~1100px web JPEGs and hosted in img/menu/. Total dishes with photos: 33 of 63.</li></ul></div></div>
+  </div>
+</div>
 <div class="day-block" data-date="2026-06-04">
   <div class="day-head"><span class="day-title">Thu, 4 Jun 2026</span><span class="day-count">5 updates</span></div>
   <div class="entry has-body" data-date="2026-06-04" data-search="rebuild changelog: dated/timestamped timeline with date filtering &amp; search (v3.0) regenerated the changelog from real git history (110 updates across 6
